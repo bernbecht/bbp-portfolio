@@ -1,4 +1,3 @@
-
 // export default function Home() {
 //   return (
 //     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -63,11 +62,14 @@
 //   );
 // }
 
+import { Section } from "@/components/Section";
 
 export default function Home() {
   return (
-    <div>
-      Hellow world
-    </div>
-  )
+    <>
+    <Section id="what" label="/what" title="What I do">
+      <p className="text-lg text-gray-700">I design and build interfaces.</p>
+    </Section>
+    </>
+  );
 }
