@@ -5,10 +5,13 @@ export default function Home() {
     <>
       <Section id="what" label="/what">
         <SectionParagraph>
-          Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo
-          é motivis de denguis. Sapien in monti palavris qui num significa nadis
-          i pareci latim. Todo mundo vê os porris que eu tomo, mas ninguém vê os
-          tombis que eu levo! Bota 1 metro de cachacis aí pra viagem!
+          Jornadas de usuários mobile, elevando a usabilidade, promovendo e
+          implementando design systems, melhorando a development experience,
+          <b>aproximando times de design com o de engenharia e facilitando</b>
+          treinamentos de design thinking.
+        </SectionParagraph>
+        <SectionParagraph>
+          Atuei em empresas globais, dentro de times diversos e multiculturais.
         </SectionParagraph>
       </Section>
     </>

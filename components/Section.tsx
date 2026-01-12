@@ -41,6 +41,8 @@ type ParagraphProps = {
 
 export function SectionParagraph({ children }: ParagraphProps) {
   return (
-    <p className={`${literata.className} text-2xl text-gray-700`}>{children}</p>
+    <p className={`${literata.className} text-2xl text-gray-700 mb-6`}>
+      {children}
+    </p>
   );
 }
