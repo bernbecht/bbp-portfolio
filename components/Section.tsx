@@ -1,22 +1,21 @@
 type SectionProps = {
-  id: string
-  label: string
-  title?: string
-  children: React.ReactNode
-}
+  id: string;
+  label: string;
+  title?: string;
+  children: React.ReactNode;
+};
 
-export function Section({id, label, title, children}: SectionProps) {
+export function Section({ id, label, title, children }: SectionProps) {
   return (
     <section
       id={id}
       aria-labelledby={title ? `${id}-title` : undefined} // @TODO: add smart default
       className="scroll-mt-24 py-24 grid grid-cols-[1fr_900px_1fr]"
     >
-        <span className="block text-xs font-mono text-gray-500">
-          {label}
-        </span>
+      <span className="block text-xs font-mono text-gray-500 text-right">
+        {label}
+      </span>
       <div className="w-900px px-4">
-
         {title && (
           <h2
             id={`${id}-title`}
