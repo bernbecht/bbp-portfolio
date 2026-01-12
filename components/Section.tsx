@@ -1,3 +1,9 @@
+import { Literata } from "next/font/google";
+
+const literata = Literata({
+  subsets: ["latin"],
+});
+
 type SectionProps = {
   id: string;
   label: string;
@@ -27,5 +33,14 @@ export function Section({ id, label, title, children }: SectionProps) {
         {children}
       </div>
     </section>
+  );
+}
+type ParagraphProps = {
+  children: React.ReactNode;
+};
+
+export function SectionParagraph({ children }: ParagraphProps) {
+  return (
+    <p className={`${literata.className} text-2xl text-gray-700`}>{children}</p>
   );
 }
