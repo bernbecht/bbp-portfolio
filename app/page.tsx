@@ -1,8 +1,10 @@
+import { Hero } from "@/components/Hero";
 import { Section, SectionParagraph } from "@/components/Section";
 
 export default function Home() {
   return (
     <>
+      <Hero />
       <Section id="what" label="/what">
         <SectionParagraph>
           Jornadas de usuários mobile, elevando a usabilidade, promovendo e
