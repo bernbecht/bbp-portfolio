@@ -1,3 +1,4 @@
+import { CompaniesGrid } from "@/components/CompanyGrid";
 import { Hero } from "@/components/Hero";
 import { Section, SectionParagraph } from "@/components/Section";
 
@@ -15,6 +16,7 @@ export default function Home() {
         <SectionParagraph>
           Atuei em empresas globais, dentro de times diversos e multiculturais.
         </SectionParagraph>
+        <CompaniesGrid />
       </Section>
     </>
   );
