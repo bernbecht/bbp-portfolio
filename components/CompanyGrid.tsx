@@ -18,29 +18,28 @@ export function CompaniesGrid({
   companies = mockCompanies,
 }: CompaniesGridProps) {
   return (
-    <ul
-      className="
-        grid
-        grid-cols-2
-        items-center
-      "
-    >
-      {companies.map((company, index) => (
-        <li
-          key={company.name}
-          className={`flex items-center justify-center border-t border-l border-gray-700 p-4 ${
-            index % 2 === 1 ? 'border-r' : ''
-          } ${
-            index >= companies.length - 2 ? 'border-b' : ''
-          }`}
-        >
-          <img
-            src={company.logo}
-            alt={`${company.name} logo`}
-            className="w-auto"
-          />
-        </li>
-      ))}
+    <ul className="grid grid-cols-2 border border-solid border-gray-950">
+      {companies.map((company, index) => {
+        const isOdd = index % 2 === 1;
+
+        return (
+          <li
+            key={company.name}
+            className={`
+              border-b border-b-gray-300
+              ${!isOdd ? "border-r border-r-gray-300 " : ""}
+            `}
+          >
+            <a href="#" className="flex items-center justify-center">
+              <img
+                src={company.logo}
+                alt={`${company.name} logo`}
+                className="w-auto"
+              />
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 }
