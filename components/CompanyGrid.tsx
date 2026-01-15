@@ -6,13 +6,14 @@ import ShopifyLogo from "./icons/ShopifyLogo";
 type Company = {
   name: string;
   logo: React.ComponentType<{ className?: string }>;
+  link: string;
 };
 
 const companies: Company[] = [
-  { name: "Shopify", logo: ShopifyLogo },
-  { name: "SAP", logo: SapLogo },
-  { name: "CIT", logo: CitLogo },
-  { name: "Axonify", logo: AxonifyLogo },
+  { name: "Shopify", logo: ShopifyLogo, link: "https://www.shopify.com" },
+  { name: "SAP", logo: SapLogo, link: "https://www.sap.com" },
+  { name: "CIT", logo: CitLogo, link: "https://ciandt.com" },
+  { name: "Axonify", logo: AxonifyLogo, link: "https://axonify.com" },
 ];
 
 export function CompaniesGrid() {
@@ -30,7 +31,10 @@ export function CompaniesGrid() {
               ${!isOdd ? "border-r border-r-gray-300 " : ""}
             `}
             >
-              <a href="#" className="flex items-center justify-center">
+              <a
+                href={company.link}
+                className="flex items-center justify-center"
+              >
                 <div className="py-8">
                   <company.logo className="w-32 h-16" />
                 </div>
