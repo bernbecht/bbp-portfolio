@@ -5,9 +5,6 @@ const SVGComponent = (props) => (
     viewBox="0 0 772.67 248.96"
     {...props}
   >
-    <defs>
-      <style>{".cls-1{fill:#fff;stroke-width:0}"}</style>
-    </defs>
     <g id="Layer_1-2">
       <path
         className="cls-1"
