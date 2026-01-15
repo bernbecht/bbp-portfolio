@@ -25,3 +25,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.dither {
+  background-image: url('/dither.svg');
+  background-repeat: repeat;
+  background-position-y: 2px;
+  background-position-x: 2px;
+}
