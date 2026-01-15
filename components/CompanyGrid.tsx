@@ -1,22 +1,21 @@
+import AxonifyLogo from "./icons/AxonifyLogo";
+import CitLogo from "./icons/CitLogo";
+import SapLogo from "./icons/SapLogo";
+import ShopifyLogo from "./icons/ShopifyLogo";
+
 type Company = {
   name: string;
-  logo: string;
+  logo: React.ComponentType<{ className?: string }>;
 };
 
-type CompaniesGridProps = {
-  companies?: Company[];
-};
-
-const mockCompanies: Company[] = [
-  { name: "TechCorp", logo: "https://picsum.photos/seed/tech1/200/200.jpg" },
-  { name: "DataFlow", logo: "https://picsum.photos/seed/data2/200/200.jpg" },
-  { name: "CloudBase", logo: "https://picsum.photos/seed/cloud3/200/200.jpg" },
-  { name: "NetWorks", logo: "https://picsum.photos/seed/net4/200/200.jpg" },
+const companies: Company[] = [
+  { name: "Axonify", logo: AxonifyLogo },
+  { name: "CIT", logo: CitLogo },
+  { name: "SAP", logo: SapLogo },
+  { name: "Shopify", logo: ShopifyLogo },
 ];
 
-export function CompaniesGrid({
-  companies = mockCompanies,
-}: CompaniesGridProps) {
+export function CompaniesGrid() {
   return (
     <ul className="grid grid-cols-2 border border-solid border-gray-950">
       {companies.map((company, index) => {
@@ -31,11 +30,7 @@ export function CompaniesGrid({
             `}
           >
             <a href="#" className="flex items-center justify-center">
-              <img
-                src={company.logo}
-                alt={`${company.name} logo`}
-                className="w-auto"
-              />
+              <company.logo className="w-32 h-16" />
             </a>
           </li>
         );
