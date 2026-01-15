@@ -1,4 +1,4 @@
-import { CompaniesGrid } from "@/components/CompanyGrid";
+import { CompaniesGrid } from "@/components/CompaniesGrid";
 import { Hero } from "@/components/Hero";
 import { Section, SectionParagraph } from "@/components/Section";
 
