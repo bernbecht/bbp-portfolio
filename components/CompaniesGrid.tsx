@@ -36,7 +36,7 @@ export function CompaniesGrid() {
                 className="flex items-center justify-center"
               >
                 <div className="py-8">
-                  <company.logo className="w-32 h-16" />
+                  <company.logo className="w-64 h-32" />
                 </div>
               </a>
             </li>
