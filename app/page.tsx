@@ -1,4 +1,5 @@
 import { CompaniesGrid } from "@/components/CompaniesGrid";
+import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Section, SectionParagraph } from "@/components/Section";
 
@@ -18,6 +19,7 @@ export default function Home() {
         </SectionParagraph>
         <CompaniesGrid />
       </Section>
+      <Footer />
     </>
   );
 }
