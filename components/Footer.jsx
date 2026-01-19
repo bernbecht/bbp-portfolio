@@ -1,3 +1,7 @@
+import { faSquareLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faCopy } from "@fortawesome/free-regular-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Literata } from "next/font/google";
 
 const literata = Literata({
@@ -19,7 +23,10 @@ export function Footer() {
         {/* Contact Info */}
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-4">
-            <span className="font-medium text-3xl">Email</span>
+            <span className="flex gap-2 items-center">
+              <span className="font-medium text-3xl">Email</span>
+              <FontAwesomeIcon icon={faCopy} size="lg" />
+            </span>
             <div className="flex-grow border-t border-black"></div>
             <a
               href="mailto:bernbechtold@gmail.com"
@@ -29,7 +36,12 @@ export function Footer() {
             </a>
           </div>
           <div className="flex items-center gap-4">
-            <span className="font-medium text-3xl">LinkedIn</span>
+            <span className="flex gap-2 items-center">
+              <span className="font-medium text-3xl">LinkedIn</span>
+              <a href="https://br.linkedin.com/in/bbechtold">
+                <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+              </a>
+            </span>
             <div className="flex-grow border-t border-black"></div>
           </div>
         </div>
@@ -43,7 +55,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="flex justify-between mt-8">
+        <div className="flex justify-between items-center mt-8">
           {/* logo */}
           <a href="/" className="font-bold tracking-tight text-3xl">
             BBP
@@ -53,7 +65,10 @@ export function Footer() {
             designed and created by Bernardo Bechtold - All rights reserved
           </span>
           {/* linkedin logo */}
-          <span>Linekding logo</span>
+
+          <a href="https://br.linkedin.com/in/bbechtold">
+            <FontAwesomeIcon icon={faSquareLinkedin} size="2x" />
+          </a>
         </div>
       </div>
     </footer>
