@@ -10,15 +10,11 @@ const literata = Literata({
 
 export function Footer() {
   return (
-    <footer className="relative pt-24 pb-8 px-6 md:px-12 lg:px-20 bg-white">
+    <footer className="relative pt-24 pb-8 px-6 md:px-12 lg:px-20">
       {/* Dotted Background */}
-      <div
-        className="absolute inset-0 z-0 opacity-30"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='1' fill='%23000'/%3E%3C/svg%3E")`,
-        }}
-      ></div>
+      <div className="absolute inset-0 z-0 opacity-30 dither"></div>
 
+      {/* @TODO:make max-w-xl a global value */}
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Contact Info */}
         <div className="flex flex-col gap-4">
