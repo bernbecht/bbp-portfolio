@@ -13,12 +13,12 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
@@ -27,8 +27,41 @@ body {
 }
 
 .dither {
-  background-image: url('/dither.svg');
+  background-image: url("/dither.svg");
   background-repeat: repeat;
   background-position-y: 2px;
   background-position-x: 2px;
+}
+
+@layer components {
+  .statusBar-header {
+    font-weight: bold;
+    @apply text-xl;
+  }
+
+  .statusBar-info {
+    @apply text-gray-500;
+    @apply text-xl;
+  }
+
+  .statusBar-button {
+    @apply text-xl;
+    @apply font-bold;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .statusBar-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/dither.svg");
+    background-repeat: repeat;
+    background-position: 2px 2px;
+    opacity: 0.2; /* adjust as needed */
+    z-index: -1;
+  }
 }
