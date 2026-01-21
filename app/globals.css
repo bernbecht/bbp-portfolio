@@ -4,6 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --layout-nav: 900px;
+  --content-container-max-width: 48rem;
 }
 
 @theme inline {
@@ -34,6 +35,15 @@ body {
 }
 
 @layer components {
+  .content-container {
+    max-width: var(--content-container-max-width);
+    @apply mx-auto;
+    @apply px-4;
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr var(--content-container-max-width) 1fr;
+  }
   .statusBar-header {
     font-weight: bold;
     @apply text-xl;
