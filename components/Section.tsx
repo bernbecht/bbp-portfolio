@@ -16,12 +16,12 @@ export function Section({ id, label, title, children }: SectionProps) {
     <section
       id={id}
       aria-labelledby={title ? `${id}-title` : undefined} // @TODO: add smart default
-      className="scroll-mt-24 py-24 grid grid-cols-[1fr_900px_1fr]"
+      className="scroll-mt-24 py-24 grid section-grid"
     >
       <span className="block font-mono text-gray-500 text-right leading-9">
         {label}
       </span>
-      <div className="w-[var(--layout-nav)] px-4">
+      <div className="content-container">
         {title && (
           <h2
             id={`${id}-title`}

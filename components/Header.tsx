@@ -3,7 +3,7 @@ export default function Header() {
     <header className="bg-white/80 backdrop-blur border-b">
       <nav
         aria-label="Main navigation"
-        className="mx-auto max-w-[var(--layout-nav)] px-4 py-4 flex items-center justify-between"
+        className="content-container py-4 flex items-center justify-between"
       >
         <a href="/" className="font-bold tracking-tight text-3xl">
           BBP

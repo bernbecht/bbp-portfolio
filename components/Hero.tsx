@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <section className="m-auto w-[900px] pt-24 px-4">
+    <section className="pt-24">
       <div className="flex items-center gap-4 mb-12 items-end">
         <img
           src="/profile.jpeg"
