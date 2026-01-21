@@ -2,11 +2,15 @@ import { CompaniesGrid } from "@/components/CompaniesGrid";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Section, SectionParagraph } from "@/components/Section";
+import { StatusBar } from "@/components/StatusBar";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <div className="max-w-4xl mx-auto">
+        <Hero />
+        <StatusBar />
+      </div>
       <Section id="what" label="/what">
         <SectionParagraph>
           Jornadas de usuários mobile, elevando a usabilidade, promovendo e
