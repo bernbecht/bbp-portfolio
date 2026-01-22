@@ -70,8 +70,9 @@ body {
     bottom: 0;
     background-image: url("/dither.svg");
     background-repeat: repeat;
-    background-position: 2px 2px;
+    /* background-position: 2px 2px; */
     opacity: 0.2; /* adjust as needed */
     z-index: -1;
+    border-radius: 5px;
   }
 }
