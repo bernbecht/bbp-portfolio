@@ -1,6 +1,6 @@
 export function StatusBar() {
   return (
-    <div className="statusBar flex mt-16 justify-between">
+    <div className="statusBar flex mt-16 justify-between mb-24">
       <div>
         <div className="statusBar-header">Brazil based</div>
         <div className="statusBar-info">Working globally</div>
