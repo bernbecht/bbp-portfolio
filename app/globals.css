@@ -105,4 +105,11 @@ body {
     display: grid;
     @apply text-2xl;
   }
+
+  .tools-grid li:nth-child(3n + 2) {
+    text-align: center;
+  }
+  .tools-grid li:nth-child(3n + 3) {
+    text-align: right;
+  }
 }
