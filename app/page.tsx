@@ -52,6 +52,23 @@ export default function Home() {
           ... and everything in between to make development and product fun :)
         </div>
       </Section>
+      <Section id="next" label="/what's next">
+        <SectionParagraph>
+          Recently I'm researching the current status of medical professionals
+          and observing them in the wild. It's a area where professionals and
+          resources are stretch thin but I still believe that it's possible to
+          bring some joy to the digital tools they need to interact to get the
+          job done.
+        </SectionParagraph>
+        <SectionParagraph>
+          Still, I'm always up for making the process of creating and using
+          products more fun, regardless the are.
+        </SectionParagraph>
+        <SectionParagraph>
+          If you need a hand, I'm up for chat (specially if you have a medical
+          product).
+        </SectionParagraph>
+      </Section>
       <Footer />
     </>
   );
