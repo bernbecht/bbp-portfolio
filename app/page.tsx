@@ -48,6 +48,9 @@ export default function Home() {
           <li>ExpressJS</li>
           <li>PostgreSQL</li>
         </ul>
+        <div className="text-right text-3xl mt-20 font-bold">
+          ... and everything in between to make development and product fun :)
+        </div>
       </Section>
       <Footer />
     </>
