@@ -29,7 +29,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative pt-24 pb-8 px-6 md:px-12 lg:px-20">
+    <footer id="footer" className="relative pt-24 pb-8 px-6 md:px-12 lg:px-20">
       <div className="absolute inset-0 z-0 opacity-30 dither" />
 
       <div className="relative z-10 content-container">
