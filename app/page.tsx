@@ -4,12 +4,6 @@ import { Hero } from "@/components/Hero";
 import { Section, SectionParagraph } from "@/components/Section";
 import { StatusBar } from "@/components/StatusBar";
 
-import { Literata } from "next/font/google";
-
-const literata = Literata({
-  subsets: ["latin"],
-});
-
 export default function Home() {
   return (
     <>
