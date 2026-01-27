@@ -1,35 +1,33 @@
 "use client";
 
 import { faSquareLinkedin } from "@fortawesome/free-brands-svg-icons/faSquareLinkedin";
+import { faCircleCheck } from "@fortawesome/free-regular-svg-icons/faCircleCheck";
 import { faCopy } from "@fortawesome/free-regular-svg-icons/faCopy";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons/faArrowUpRightFromSquare";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Literata } from "next/font/google";
-import type { MouseEvent } from "react";
+import { useState } from "react";
 
 const literata = Literata({ subsets: ["latin"] });
 
-function copyText(text: string, e: MouseEvent<HTMLButtonElement>) {
-  const button = e.currentTarget;
-
-  if (!navigator.clipboard) {
-    document.execCommand("copy");
-    return;
+export function copyToClipboardSync(text: string) {
+  if (!navigator.clipboard || !window.isSecureContext) {
+    throw new Error("Clipboard unavailable");
   }
 
-  button.classList.add("animate-bounce");
-
-  navigator.clipboard.writeText(text).catch(console.error);
-
-  setTimeout(() => {
-    button.classList.remove("animate-bounce");
-  }, 600);
+  navigator.clipboard.writeText(text);
 }
 
-const handleCopy = (text: string) => (e: MouseEvent<HTMLButtonElement>) =>
-  copyText(text, e);
-
 export function Footer() {
+  const [copiedText, setCopiedText] = useState<boolean>();
+
+  function handleCopy(text: string) {
+    copyToClipboardSync(text);
+
+    setCopiedText(true);
+    setTimeout(() => setCopiedText(false), 1500);
+  }
+
   return (
     <footer className="relative pt-24 pb-8 px-6 md:px-12 lg:px-20">
       <div className="absolute inset-0 z-0 opacity-30 dither" />
@@ -46,11 +44,14 @@ export function Footer() {
                 Email
               </span>
               <button
-                onClick={handleCopy("bernbechtold@gmail.com")}
-                aria-label="Copy email to clipboard"
+                onClick={() => handleCopy("bernbechtold@gmail.com")}
+                aria-label={copiedText ? "Email copied" : "Copy email"}
                 className="focus:outline-none focus-visible:ring-2 rounded cursor-pointer"
               >
-                <FontAwesomeIcon icon={faCopy} size="lg" />
+                <FontAwesomeIcon
+                  icon={copiedText ? faCircleCheck : faCopy}
+                  size="lg"
+                />
               </button>
             </div>
 
