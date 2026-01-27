@@ -1,3 +1,9 @@
+"use client";
+
+function scrollToFooter() {
+  document.getElementById("footer")?.scrollIntoView();
+}
+
 export function StatusBar() {
   return (
     <div className="statusBar flex mt-16 justify-between mb-24">
@@ -9,7 +15,12 @@ export function StatusBar() {
         <div className="statusBar-header">Currently</div>
         <div className="statusBar-info">Available for work</div>
       </div>
-      <button className="statusBar-button px-10">Say Hello</button>
+      <button
+        onClick={scrollToFooter}
+        className="statusBar-button px-10 cursor-pointer"
+      >
+        Say Hello
+      </button>
     </div>
   );
 }
