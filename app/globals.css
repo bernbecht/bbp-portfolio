@@ -48,36 +48,14 @@ body {
   .section-grid {
     grid-template-columns: 1fr var(--content-container-max-width) 1fr;
   }
-  .statusBar-header {
+  .statusBar__header {
     font-weight: bold;
     @apply text-xl;
   }
 
-  .statusBar-info {
+  .statusBar__info {
     @apply text-gray-500;
     @apply text-xl;
-  }
-
-  .statusBar-button {
-    @apply text-xl;
-    @apply font-bold;
-    border-radius: 8px;
-    position: relative;
-  }
-
-  .statusBar-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("/dither.svg");
-    background-repeat: repeat;
-    /* background-position: 2px 2px; */
-    opacity: 0.2; /* adjust as needed */
-    z-index: -1;
-    border-radius: 5px;
   }
 
   .tools-section_title {
@@ -97,7 +75,7 @@ body {
     background-image: url("/dither.svg");
     background-repeat: repeat;
     background-position: 2px 2px;
-    opacity: 0.2; /* adjust as needed */
+    opacity: 0.2;
     z-index: -1;
     top: 20px;
   }
@@ -115,5 +93,26 @@ body {
   }
   .tools-grid li:nth-child(3n + 3) {
     text-align: right;
+  }
+
+  .pressable-button {
+    transition:
+      transform 0.1s ease,
+      height 0.1s ease;
+  }
+
+  .pressable-button:active {
+    transform: translateY(4px);
+  }
+
+  .pressable-button:active .dither {
+    height: 5px !important;
+  }
+
+  .button--secondary {
+    @apply text-xl;
+    @apply font-bold;
+    border: 1px solid black;
+    cursor: pointer;
   }
 }
