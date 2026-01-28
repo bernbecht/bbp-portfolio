@@ -12,6 +12,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-ibm-plex-serif-400);
   --font-literata: var(--font-literata);
 }
 
@@ -62,8 +63,8 @@ address {
     font-family: var(--font-ibm-plex-serif-400);
   }
 
-  .font-literata {
-    font-family: var(--font-literata);
+  .font-serif {
+    font-family: var(--font-serif);
   }
 
   .statusBar__header {
