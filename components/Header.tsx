@@ -5,7 +5,7 @@ export default function Header() {
         aria-label="Main navigation"
         className="content-container py-4 flex items-center justify-between"
       >
-        <a href="/" className="font-bold tracking-tight text-3xl">
+        <a href="/" className="font-bold tracking-tight text-3xl logo">
           BBP
         </a>
         <ul className="flex items-center gap-6">

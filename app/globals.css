@@ -43,6 +43,10 @@ address {
 }
 
 @layer components {
+  .logo {
+    font-family: var(--font-limelight-400);
+  }
+
   .content-container {
     max-width: var(--content-container-max-width);
     @apply mx-auto;
@@ -52,6 +56,11 @@ address {
   .section-grid {
     grid-template-columns: 1fr var(--content-container-max-width) 1fr;
   }
+
+  .section__paragraph {
+    font-family: var(--font-ibm-plex-serif-400);
+  }
+
   .statusBar__header {
     font-weight: bold;
     @apply text-xl;
