@@ -13,7 +13,6 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-ibm-plex-serif-400);
-  --font-literata: var(--font-literata);
 }
 
 /* @media (prefers-color-scheme: dark) {
