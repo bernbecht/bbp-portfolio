@@ -104,7 +104,7 @@ export function Footer() {
         </address>
 
         <div className="flex justify-between items-center mt-8">
-          <a href="/" className="font-bold tracking-tight text-3xl">
+          <a href="/" className="font-bold tracking-tight text-3xl logo">
             BBP
           </a>
 
