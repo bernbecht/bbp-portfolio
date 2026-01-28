@@ -48,10 +48,7 @@ export function Footer() {
                 aria-label="Copy email address"
                 className="flex gap-2 items-baseline hover:text-blue-600 transition-colors cursor-pointer"
               >
-                <span
-                  className="text-3xl font-literata"
-                  aria-hidden="true"
-                >
+                <span className="text-3xl font-serif" aria-hidden="true">
                   bernbechtold@gmail.com
                 </span>
 
@@ -92,9 +89,7 @@ export function Footer() {
           </div>
 
           <div className="text-center mt-24">
-            <p
-              className="text-3xl font-medium border-b border-black pt-4 pb-4 font-literata"
-            >
+            <p className="text-3xl font-medium border-b border-black pt-4 pb-4 font-serif">
               A life without fun is not a good one
             </p>
           </div>

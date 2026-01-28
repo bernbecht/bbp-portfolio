@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, IBM_Plex_Serif, Limelight, Literata } from "next/font/google";
+import { Geist, Geist_Mono, IBM_Plex_Serif, Limelight } from "next/font/google";
 
 export const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,15 +20,9 @@ export const ibmPlexSerif = IBM_Plex_Serif({
   weight: "400",
 });
 
-export const literata = Literata({
-  subsets: ["latin"],
-  variable: "--font-literata",
-});
-
 export const fontClasses = [
   geistSans.variable,
   geistMono.variable,
   limelight.variable,
   ibmPlexSerif.variable,
-  literata.variable,
 ].join(" ");
