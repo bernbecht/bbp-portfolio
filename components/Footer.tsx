@@ -75,20 +75,20 @@ export function Footer() {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
+              <a
+                href="https://br.linkedin.com/in/bbechtold"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn profile, opens in new tab"
+                className="flex items-baseline gap-2  hover:text-blue-600 transition-colors"
+              >
                 <span className="font-medium text-3xl">LinkedIn</span>
-                <a
-                  href="https://br.linkedin.com/in/bbechtold"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn profile, opens in new tab"
-                >
-                  <FontAwesomeIcon
-                    icon={faArrowUpRightFromSquare}
-                    aria-hidden="true"
-                  />
-                </a>
-              </div>
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  aria-hidden="true"
+                  size="lg"
+                />
+              </a>
 
               <div className="flex-grow border-t border-black" />
             </div>
@@ -118,7 +118,11 @@ export function Footer() {
             rel="noopener noreferrer"
             aria-label="LinkedIn profile, opens in new tab"
           >
-            <FontAwesomeIcon icon={faSquareLinkedin} aria-hidden="true" />
+            <FontAwesomeIcon
+              icon={faSquareLinkedin}
+              aria-hidden="true"
+              size="2x"
+            />
           </a>
         </div>
       </div>
