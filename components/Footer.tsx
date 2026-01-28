@@ -5,10 +5,7 @@ import { faCircleCheck } from "@fortawesome/free-regular-svg-icons/faCircleCheck
 import { faCopy } from "@fortawesome/free-regular-svg-icons/faCopy";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons/faArrowUpRightFromSquare";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Literata } from "next/font/google";
 import { useState } from "react";
-
-const literata = Literata({ subsets: ["latin"] });
 
 export function copyToClipboardSync(text: string) {
   if (!navigator.clipboard || !window.isSecureContext) {
@@ -52,7 +49,7 @@ export function Footer() {
                 className="flex gap-2 items-baseline hover:text-blue-600 transition-colors cursor-pointer"
               >
                 <span
-                  className={`text-3xl ${literata.className}`}
+                  className="text-3xl font-literata"
                   aria-hidden="true"
                 >
                   bernbechtold@gmail.com
@@ -96,7 +93,7 @@ export function Footer() {
 
           <div className="text-center mt-24">
             <p
-              className={`text-3xl font-medium border-b border-black pt-4 pb-4 ${literata.className}`}
+              className="text-3xl font-medium border-b border-black pt-4 pb-4 font-literata"
             >
               A life without fun is not a good one
             </p>

@@ -1,8 +1,4 @@
-import { Literata } from "next/font/google";
 
-const literata = Literata({
-  subsets: ["latin"],
-});
 
 type SectionProps = {
   id: string;
