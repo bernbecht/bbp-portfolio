@@ -40,8 +40,8 @@ The website is a portfolio built with Next.js 16, TypeScript, and Tailwind CSS. 
 - [ ] Adjust font sizes for mobile screens
 
 ### 6. **Companies Grid (components/CompaniesGrid.tsx:19-49)**
-- [ ] Convert 2x2 grid to single column on mobile
-- [ ] Reduce logo sizes for mobile
+- [x] Convert 2x2 grid to single column on mobile
+- [ ] ~~Reduce logo sizes for mobile~~
 - [ ] Optimize touch targets and spacing
 
 ### 7. **Footer Component (components/Footer.tsx:18-123)**
