@@ -1,5 +1,3 @@
-
-
 type SectionProps = {
   id: string;
   label: string;
@@ -12,12 +10,31 @@ export function Section({ id, label, title, children }: SectionProps) {
     <section
       id={id}
       aria-labelledby={title ? `${id}-title` : undefined} // @TODO: add smart default
-      className="scroll-mt-24 pb-24 grid section-grid"
+      className="scroll-mt-24 pb-24 section-grid min-[900px]:grid"
     >
-      <span className="block font-mono text-gray-500 text-right leading-9">
+      <span
+        className="
+        hidden 
+        min-[900px]:block
+        font-mono 
+        text-gray-500 
+        leading-9
+        text-right
+        "
+      >
         {label}
       </span>
       <div className="content-container">
+        <span
+          className="
+          block 
+          min-[900px]:hidden
+          font-mono 
+        text-gray-500 
+          leading-9"
+        >
+          {label}
+        </span>
         {title && (
           <h2
             id={`${id}-title`}
