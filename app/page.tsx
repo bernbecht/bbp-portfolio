@@ -9,7 +9,9 @@ export default function Home() {
     <>
       <div className="content-container">
         <Hero />
-        <StatusBar />
+        <div className="hidden sm:block">
+          <StatusBar />
+        </div>
       </div>
       <Section id="what" label="/what">
         <SectionParagraph>
