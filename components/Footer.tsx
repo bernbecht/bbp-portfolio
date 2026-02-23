@@ -33,11 +33,11 @@ export function Footer() {
     >
       <div className="absolute inset-0 z-0 opacity-30 dither" aria-hidden />
 
-      <div className="relative z-10 content-container">
+      <div className="relative z-10 content-container text-sm sm:text-base lg:text-lg">
         <address>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
-              <span className="font-medium text-3xl">Email</span>
+              <span className="font-medium text-[1.8em]">Email</span>
 
               <div className="flex-grow border-t border-black" />
 
@@ -48,7 +48,7 @@ export function Footer() {
                 aria-label="Copy email address"
                 className="flex gap-2 items-baseline hover:text-blue-600 transition-colors cursor-pointer"
               >
-                <span className="text-3xl font-serif" aria-hidden="true">
+                <span className="text-[1.8em] font-serif" aria-hidden="true">
                   bernbechtold@gmail.com
                 </span>
 
@@ -74,9 +74,10 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn profile, opens in new tab"
-                className="flex items-baseline gap-2  hover:text-blue-600 transition-colors"
+                className="flex items-baseline gap-2 hover:text-blue-600 transition-colors"
               >
-                <span className="font-medium text-3xl">LinkedIn</span>
+                <span className="font-medium text-[1.8em]">LinkedIn</span>
+
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   aria-hidden="true"
@@ -89,18 +90,18 @@ export function Footer() {
           </div>
 
           <div className="text-center mt-24">
-            <p className="text-3xl font-medium border-b border-black pt-4 pb-4 font-serif">
+            <p className="text-[1.8em] font-medium border-b border-black pt-4 pb-4 font-serif">
               A life without fun is not a good one
             </p>
           </div>
         </address>
 
         <div className="flex justify-between items-center mt-8">
-          <a href="/" className="font-bold tracking-tight text-3xl logo">
+          <a href="/" className="font-bold tracking-tight text-[1.8em] logo">
             BBP
           </a>
 
-          <span>
+          <span className="text-[0.9em]">
             designed and created by Bernardo Bechtold - All rights reserved
           </span>
 
