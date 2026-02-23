@@ -26,26 +26,27 @@ export default function Home() {
         <CompaniesGrid />
       </Section>
       <Section id="how" label="/how">
-        <SectionParagraph>
-          Pesquisa de usuário, criação e implementação de jornadas de usuário,
-          criação e desenvolvimento de design systems, melhoramento da developer
-          experience, aproximando design e engenharia e facilitando workshops e
-          treinamentos de Design Thinking.
-        </SectionParagraph>
-        <h1 className={`tools-section_title mb-8 mt-16 pr-3`}>My tools</h1>
-        <ul className={`tools-grid`}>
-          <li>ReactJS</li>
-          <li>Typescript</li>
-          <li>NodeJS</li>
-          <li>Storybook</li>
-          <li>Playwright</li>
-          <li>Figma</li>
-          <li>MaterialUI</li>
-          <li>ExpressJS</li>
-          <li>PostgreSQL</li>
-        </ul>
-        <div className="text-right text-3xl mt-20 font-bold">
-          ... and everything in between to make development and product fun :)
+        <div className="flex flex-wrap sm:flex-nowrap gap-10">
+          <SectionParagraph>
+            Pesquisa de usuário, criação e implementação de jornadas de usuário,
+            criação e desenvolvimento de design systems, melhoramento da
+            developer experience, aproximando design e engenharia e facilitando
+            workshops e treinamentos de Design Thinking.
+          </SectionParagraph>
+          <ul className="text-4xl leading-11">
+            <li>ReactJS</li>
+            <li>Typescript</li>
+            <li>NodeJS</li>
+            <li>Storybook</li>
+            <li>Playwright</li>
+            <li>Figma</li>
+            <li>MaterialUI</li>
+            <li>ExpressJS</li>
+            <li>PostgreSQL</li>
+          </ul>
+        </div>
+        <div className="sm:text-right text-3xl mt-10 font-bold">
+          ... and everything in between!
         </div>
       </Section>
       <Section id="next" label="/what's next">

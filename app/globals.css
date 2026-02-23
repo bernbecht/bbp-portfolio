@@ -80,43 +80,6 @@ address {
     @apply text-xl;
   }
 
-  .tools-section_title {
-    @apply text-2xl;
-    position: relative;
-    display: inline-block;
-    font-weight: 700;
-  }
-
-  .tools-section_title::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("/dither.svg");
-    background-repeat: repeat;
-    background-position: 2px 2px;
-    opacity: 0.2;
-    z-index: -1;
-    top: 20px;
-  }
-
-  .tools-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    list-style: none;
-    display: grid;
-    @apply text-2xl;
-  }
-
-  .tools-grid li:nth-child(3n + 2) {
-    text-align: center;
-  }
-  .tools-grid li:nth-child(3n + 3) {
-    text-align: right;
-  }
-
   .pressable-button {
     transition:
       transform 0.1s ease,
