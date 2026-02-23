@@ -15,6 +15,10 @@
   --font-serif: var(--font-ibm-plex-serif-400);
 }
 
+@theme {
+  --breakpoint-xs: 460px; /* 640px */
+}
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
