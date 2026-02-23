@@ -17,7 +17,6 @@ export function Hero() {
       <h2 className="hero-headline text-6xl/18">
         Front-end Engineer & <br />
         UI/UX Designer <br />
-        who imagines experiences
       </h2>
     </section>
   );
