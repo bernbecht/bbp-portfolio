@@ -33,8 +33,6 @@ export function Footer() {
       <div className="absolute inset-0 z-0 opacity-20 dither" aria-hidden />
 
       <div className="relative z-10 content-container text-xs xs:text-sm sm:text-base lg:text-lg">
-        {" "}
-        {/* <div className="relative z-10 content-container text-sm sm:text-base lg:text-lg"> */}
         <address>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2 flex-wrap">
