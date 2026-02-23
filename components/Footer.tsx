@@ -1,6 +1,5 @@
 "use client";
 
-import { faSquareLinkedin } from "@fortawesome/free-brands-svg-icons/faSquareLinkedin";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons/faCircleCheck";
 import { faCopy } from "@fortawesome/free-regular-svg-icons/faCopy";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons/faArrowUpRightFromSquare";
@@ -93,31 +92,15 @@ export function Footer() {
 
           <div className="text-center mt-24">
             <p className="text-[1.8em] font-medium border-b border-black pt-4 pb-4 font-serif">
-              A life without fun is not a good one
+              Thank you and have a nice day!
             </p>
           </div>
         </address>
-        <div className="flex justify-between items-center mt-8">
+        <div className="flex justify-between items-center mt-4 gap-16">
           <a href="/" className="font-bold tracking-tight text-[1.8em] logo">
             BBP
           </a>
-
-          <span className="text-[0.9em]">
-            designed and created by Bernardo Bechtold - All rights reserved
-          </span>
-
-          <a
-            href="https://br.linkedin.com/in/bbechtold"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn profile, opens in new tab"
-          >
-            <FontAwesomeIcon
-              icon={faSquareLinkedin}
-              aria-hidden="true"
-              size="2x"
-            />
-          </a>
+          <span className="text-[0.9em]">© 2026 Bernardo Bechtold</span>
         </div>
       </div>
     </footer>
