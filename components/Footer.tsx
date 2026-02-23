@@ -29,11 +29,13 @@ export function Footer() {
     <footer
       id="footer"
       aria-labelledby="footer-heading"
-      className="relative pt-24 pb-8 px-6 md:px-12 lg:px-20"
+      className="relative pt-24 pb-8"
     >
-      <div className="absolute inset-0 z-0 opacity-30 dither" aria-hidden />
+      <div className="absolute inset-0 z-0 opacity-20 dither" aria-hidden />
 
-      <div className="relative z-10 content-container text-sm sm:text-base lg:text-lg">
+      <div className="relative z-10 content-container text-xs xs:text-sm sm:text-base lg:text-lg">
+        {" "}
+        {/* <div className="relative z-10 content-container text-sm sm:text-base lg:text-lg"> */}
         <address>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
@@ -95,7 +97,6 @@ export function Footer() {
             </p>
           </div>
         </address>
-
         <div className="flex justify-between items-center mt-8">
           <a href="/" className="font-bold tracking-tight text-[1.8em] logo">
             BBP
