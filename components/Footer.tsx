@@ -36,7 +36,7 @@ export function Footer() {
       <div className="relative z-10 content-container text-sm sm:text-base lg:text-lg">
         <address>
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               <span className="font-medium text-[1.8em]">Email</span>
 
               <div className="flex-grow border-t border-black" />
@@ -68,7 +68,7 @@ export function Footer() {
               </span>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               <a
                 href="https://br.linkedin.com/in/bbechtold"
                 target="_blank"
