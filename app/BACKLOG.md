@@ -5,4 +5,6 @@
 4) [x] Find better serif font for paragraphs
 5) [ ] Add dark theme
 6) [x] Centralize typeface usage
-7) [ ] Adapt to mobile
+7) [x] Adapt to mobile
+8) [ ] Add color blue when pressed address buttons in footer on mobile
+9) [ ] Hover effect on scroll for my tools section on mobile (wrapped)
