@@ -1,3 +1,4 @@
+import { Footer } from "@/components/Footer";
 import Header from "@/components/Header";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { Metadata } from "next";
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className={`${fontClasses} antialiased`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

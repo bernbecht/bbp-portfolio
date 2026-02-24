@@ -1,3 +1,6 @@
+// import MyIcon from "../public/logo.svg"; // The file path can be outside the public folder
+import Logo from "@assets/logo.svg";
+
 export default function Header() {
   return (
     <header className="bg-white/80 backdrop-blur border-b">
@@ -5,9 +8,7 @@ export default function Header() {
         aria-label="Main navigation"
         className="content-container py-4 flex items-center justify-between"
       >
-        <a href="/" className="font-bold tracking-tight text-3xl logo">
-          BBP
-        </a>
+        <Logo />
         <ul className="flex items-center gap-6">
           <li>
             <a
