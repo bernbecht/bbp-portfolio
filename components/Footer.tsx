@@ -1,5 +1,6 @@
 "use client";
 
+import Logo from "@assets/logo.svg";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons/faCircleCheck";
 import { faCopy } from "@fortawesome/free-regular-svg-icons/faCopy";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons/faArrowUpRightFromSquare";
@@ -95,9 +96,7 @@ export function Footer() {
           </div>
         </address>
         <div className="flex justify-between items-center mt-4 gap-16">
-          <a href="/" className="font-bold tracking-tight text-[1.8em] logo">
-            BBP
-          </a>
+          <Logo />
           <span className="text-[0.9em]">© 2026 Bernardo Bechtold</span>
         </div>
       </div>
