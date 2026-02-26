@@ -4,16 +4,17 @@ function scrollToFooter() {
   document.getElementById("footer")?.scrollIntoView();
 }
 
-export function StatusBar() {
+type StatusBarProps = React.ComponentProps<"div">;
+
+export function StatusBar({ className, ...rest }: StatusBarProps) {
   return (
-    <div className="statusBar flex mt-16 justify-between mb-24">
-      <div>
+    <div
+      {...rest}
+      className={`statusBar flex justify-between gap-8 ${className ?? ""}`}
+    >
+      <div className="hidden xs:block">
         <div className="statusBar__header">Brazil based</div>
         <div className="statusBar__info">Working globally</div>
-      </div>
-      <div>
-        <div className="statusBar__header">Currently</div>
-        <div className="statusBar__info">Available for work</div>
       </div>
       <div className="pressable-button">
         <button

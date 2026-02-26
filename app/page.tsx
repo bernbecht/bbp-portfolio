@@ -1,16 +1,12 @@
 import { CompaniesGrid } from "@/components/CompaniesGrid";
 import { Hero } from "@/components/Hero";
 import { Section, SectionParagraph } from "@/components/Section";
-import { StatusBar } from "@/components/StatusBar";
 
 export default function Home() {
   return (
     <>
       <div className="content-container">
         <Hero />
-        <div className="hidden sm:block">
-          <StatusBar />
-        </div>
       </div>
       <Section id="what" label="/what">
         <SectionParagraph>
