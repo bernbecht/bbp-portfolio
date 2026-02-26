@@ -38,10 +38,10 @@ export default function Home() {
       <Section id="how" label="/how">
         <div className="flex flex-wrap sm:flex-nowrap gap-10">
           <SectionParagraph>
-            I combine strategy, systems thinking, and execution. My work
-            includes user research, journey definition, design system creation
-            and evolution, improving developer experience, and facilitating
-            workshops to align teams around clear decisions.
+            I combine systems thinking with hands-on execution. I build and
+            evolve design systems, create reusable React architectures, improve
+            CI/CD pipelines, introduce visual testing strategies, and facilitate
+            workshops to align design and engineering.
           </SectionParagraph>
 
           <ul className="text-4xl leading-11">
@@ -50,9 +50,9 @@ export default function Home() {
             <li>Node</li>
             <li>Storybook</li>
             <li>Playwright</li>
-            <li>Figma</li>
+            <li>Design Tokens</li>
             <li>Material UI</li>
-            <li>PostgreSQL</li>
+            <li>Accessibility (WCAG)</li>
           </ul>
         </div>
 
