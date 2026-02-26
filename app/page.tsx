@@ -18,7 +18,7 @@ export default function Home() {
 
         <SectionParagraph>My work connects:</SectionParagraph>
 
-        <ul className="section__paragraph text-2xl text-gray-700 mb-6">
+        <ul className="section__paragraph text-2xl text-gray-700 mb-6 mb-0">
           <li>design and engineering</li>
           <li>engineering and production-ready code</li>
           <li>customers and their business goals</li>
@@ -30,11 +30,6 @@ export default function Home() {
           I have worked at global companies within multidisciplinary and
           distributed teams, collaborating closely with product, design,
           engineering, and leadership.
-        </SectionParagraph>
-
-        <SectionParagraph>
-          I have contributed both to building products from scratch and to
-          evolving mature platforms at scale.
         </SectionParagraph>
 
         <CompaniesGrid />
