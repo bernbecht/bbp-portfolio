@@ -13,13 +13,13 @@ export function StatusBar({ className, ...rest }: StatusBarProps) {
       className={`statusBar flex justify-between gap-8 ${className ?? ""}`}
     >
       <div className="hidden xs:block">
-        <div className="statusBar__header">Brazil based</div>
-        <div className="statusBar__info">Working globally</div>
+        <div className="font-bold">Brazil based</div>
+        <div className="text-gray-500">Working globally</div>
       </div>
       <div className="pressable-button">
         <button
           onClick={scrollToFooter}
-          className="button--secondary px-10 py-2"
+          className="font-bold border-solid border cursor-pointer px-10 py-2"
         >
           Say Hello
         </button>

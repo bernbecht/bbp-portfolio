@@ -8,57 +8,80 @@ export default function Home() {
       <div className="content-container">
         <Hero />
       </div>
+
       <Section id="what" label="/what">
         <SectionParagraph>
-          Jornadas de usuários mobile, elevando a usabilidade, promovendo e
-          implementando design systems, melhorando a development experience,
-          <b>aproximando times de design com o de engenharia e facilitando</b>
-          treinamentos de design thinking.
+          As a software engineer with a background in design, I operate at the
+          intersection of experience, architecture, and delivery. I reduce
+          friction, create clarity, and turn good ideas into scalable systems.
         </SectionParagraph>
+
+        <SectionParagraph>My work connects:</SectionParagraph>
+
+        <ul className="section__paragraph text-2xl text-gray-700 mb-6">
+          <li>design and engineering</li>
+          <li>engineering and production-ready code</li>
+          <li>customers and their business goals</li>
+        </ul>
+      </Section>
+
+      <Section id="where" label="/where">
         <SectionParagraph>
-          Atuei em empresas globais, dentro de times diversos e multiculturais.
+          I have worked at global companies within multidisciplinary and
+          distributed teams, collaborating closely with product, design,
+          engineering, and leadership.
         </SectionParagraph>
+
+        <SectionParagraph>
+          I have contributed both to building products from scratch and to
+          evolving mature platforms at scale.
+        </SectionParagraph>
+
         <CompaniesGrid />
       </Section>
+
       <Section id="how" label="/how">
         <div className="flex flex-wrap sm:flex-nowrap gap-10">
           <SectionParagraph>
-            Pesquisa de usuário, criação e implementação de jornadas de usuário,
-            criação e desenvolvimento de design systems, melhoramento da
-            developer experience, aproximando design e engenharia e facilitando
-            workshops e treinamentos de Design Thinking.
+            I combine strategy, systems thinking, and execution. My work
+            includes user research, journey definition, design system creation
+            and evolution, improving developer experience, and facilitating
+            workshops to align teams around clear decisions.
           </SectionParagraph>
+
           <ul className="text-4xl leading-11">
-            <li>ReactJS</li>
-            <li>Typescript</li>
-            <li>NodeJS</li>
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>Node</li>
             <li>Storybook</li>
             <li>Playwright</li>
             <li>Figma</li>
-            <li>MaterialUI</li>
-            <li>ExpressJS</li>
+            <li>Material UI</li>
             <li>PostgreSQL</li>
           </ul>
         </div>
+
         <div className="sm:text-right text-3xl mt-10 font-bold">
-          ... and everything in between!
+          ...and everything in between!
         </div>
       </Section>
+
       <Section id="next" label="/what's next">
         <SectionParagraph>
-          Recently I&apos;m researching the current status of medical professionals
-          and observing them in the wild. It&apos;s a area where professionals and
-          resources are stretch thin but I still believe that it&apos;s possible to
-          bring some joy to the digital tools they need to interact to get the
-          job done.
+          I am currently researching the day-to-day reality of medical
+          professionals and observing how they interact with digital tools in
+          high-pressure environments.
         </SectionParagraph>
+
         <SectionParagraph>
-          Still, I&apos;m always up for making the process of creating and using
-          products more fun, regardless the are.
+          It is a space where resources are stretched thin and decisions carry
+          weight. I believe there is still significant room to improve clarity,
+          efficiency, and even joy in the tools they rely on.
         </SectionParagraph>
+
         <SectionParagraph>
-          If you need a hand, I&apos;m up for chat (specially if you have a medical
-          product).
+          If you are building in healthcare or in complex domains where
+          experience and architecture truly matter, let’s talk.
         </SectionParagraph>
       </Section>
     </>
