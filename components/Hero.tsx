@@ -1,11 +1,15 @@
+import Image from "next/image";
+
 export function Hero() {
   return (
     <section className="my-24">
       <div className="flex items-center gap-4 mb-12 items-end">
-        <img
+        <Image
           src="/profile.jpeg"
           alt="portrait"
-          className="w-[100px] rounded-xl"
+          width={100}
+          height={100}
+          className="rounded-xl"
         />
 
         <div className="text-3xl  ">

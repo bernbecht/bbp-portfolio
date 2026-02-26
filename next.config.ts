@@ -10,7 +10,8 @@ const nextConfig = {
     },
   },
   // Keep your existing webpack config for production/non-turbo builds
-  webpack(config) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  webpack(config: any) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
