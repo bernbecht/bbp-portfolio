@@ -20,9 +20,9 @@ export default function Home() {
           <SectionParagraph>My work connects:</SectionParagraph>
 
           <ul className="text-3xl text-gray-700 mb-6 mb-0 leading-10">
-            <li>Design and engineering</li>
-            <li>Engineering and production code</li>
-            <li>Customers and their business goals</li>
+            <li className="font-mono">↳ Design with engineering</li>
+            <li className="font-mono">↳ Engineering with production code</li>
+            <li className="font-mono">↳ Customers with their business goals</li>
           </ul>
         </div>
       </Section>
