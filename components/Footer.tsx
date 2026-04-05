@@ -29,7 +29,7 @@ export function Footer() {
     <footer
       id="footer"
       aria-labelledby="footer-heading"
-      className="relative pt-24 pb-8"
+      className="relative pt-12 md:pt-24 pb-8"
     >
       <div className="absolute inset-0 z-0 opacity-20 dither" aria-hidden />
 
@@ -89,7 +89,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="text-center mt-24">
+          <div className="text-center mt-12 md:mt-24">
             <p className="text-[1.8em] font-medium border-b border-black pt-4 pb-4 font-serif">
               Thank you and have a nice day!
             </p>
