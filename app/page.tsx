@@ -4,7 +4,7 @@ import { Section, SectionParagraph } from "@/components/Section";
 
 export default function Home() {
   return (
-    <>
+    <div className="fade-up">
       <div className="content-container">
         <Hero />
       </div>
@@ -73,6 +73,6 @@ export default function Home() {
           clarity and experience matter, let&apos;s talk.
         </SectionParagraph>
       </Section>
-    </>
+    </div>
   );
 }
