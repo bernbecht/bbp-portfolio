@@ -20,7 +20,6 @@ export function Footer() {
 
   function handleCopy(text: string) {
     copyToClipboardSync(text);
-
     setCopiedText(true);
     setTimeout(() => setCopiedText(false), 1500);
   }
@@ -36,19 +35,26 @@ export function Footer() {
       <div className="relative z-10 content-container text-xs xs:text-sm sm:text-base lg:text-lg">
         <address>
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-medium text-[1.8em]">Email</span>
-
-              <div className="flex-grow border-t border-black" />
-
+            {/* EMAIL */}
+            <div>
               <button
                 type="button"
-                onClick={() => handleCopy("bernbechtold@gmail.com")}
+                onClick={(e) => {
+                  if (e.metaKey || e.ctrlKey) {
+                    window.location.href = "mailto:bernbechtold@gmail.com";
+                  } else {
+                    handleCopy("bernbechtold@gmail.com");
+                  }
+                }}
                 aria-describedby="copy-email-feedback"
                 aria-label="Copy email address"
-                className="flex gap-2 items-baseline hover:text-blue-600 transition-colors cursor-pointer"
+                className="flex items-center gap-2 flex-wrap w-full text-left hover:text-blue-600 transition-colors cursor-pointer"
               >
-                <span className="text-[1.8em] font-serif" aria-hidden="true">
+                <span className="font-medium text-[1.8em]">Email</span>
+
+                <div className="flex-grow border-t border-black" />
+
+                <span className="text-[1.8em] font-serif">
                   bernbechtold@gmail.com
                 </span>
 
@@ -68,13 +74,14 @@ export function Footer() {
               </span>
             </div>
 
+            {/* LINKEDIN */}
             <div className="flex items-center gap-2">
               <a
                 href="https://br.linkedin.com/in/bbechtold"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn profile, opens in new tab"
-                className="flex items-baseline gap-2 hover:text-blue-600 transition-colors"
+                className="flex items-baseline gap-2 hover:text-blue-600 transition-colors w-full"
               >
                 <span className="font-medium text-[1.8em]">LinkedIn</span>
 
@@ -83,9 +90,9 @@ export function Footer() {
                   aria-hidden="true"
                   size="lg"
                 />
-              </a>
 
-              <div className="flex-grow border-t border-black" />
+                <div className="flex-grow border-t border-black" />
+              </a>
             </div>
           </div>
 
@@ -95,6 +102,7 @@ export function Footer() {
             </p>
           </div>
         </address>
+
         <div className="flex justify-between items-center mt-4 gap-16">
           <Logo />
           <span className="text-[0.9em]">© 2026 Bernardo Bechtold</span>
