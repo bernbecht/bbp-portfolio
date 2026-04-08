@@ -104,8 +104,8 @@ export function Footer() {
         </address>
 
         <div className="flex justify-between items-center mt-4 gap-16">
-          <Logo />
-          <span className="text-[0.9em]">© 2026 Bernardo Bechtold</span>
+          <Logo className="w-8 h-8" />
+          <span className="text-sm">© 2026 Bernardo Bechtold</span>
         </div>
       </div>
     </footer>
