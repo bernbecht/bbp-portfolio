@@ -81,7 +81,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn profile, opens in new tab"
-                className="flex items-baseline gap-2 hover:text-blue-600 transition-colors w-full"
+                className="flex items-center gap-2 hover:text-blue-600 transition-colors w-full"
               >
                 <span className="font-medium text-[1.8em]">LinkedIn</span>
 
