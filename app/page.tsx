@@ -1,3 +1,4 @@
+import { Card, WorkCardContent } from "@/components/Card";
 import { CompaniesGrid } from "@/components/CompaniesGrid";
 import { Hero } from "@/components/Hero";
 import { Section, SectionParagraph } from "@/components/Section";
@@ -19,10 +20,34 @@ export default function Home() {
         <div className="">
           <SectionParagraph>My work connects:</SectionParagraph>
 
-          <ul className="text-3xl text-gray-700 mb-6 mb-0 leading-10">
-            <li className="font-mono">↳ Design with engineering</li>
-            <li className="font-mono">↳ Engineering with production code</li>
-            <li className="font-mono">↳ Customers with their business goals</li>
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <li>
+              <Card>
+                <WorkCardContent
+                  header="Design with Engineering"
+                  icon="🎨"
+                  subtitle="design systems, accessibility, consistency"
+                />
+              </Card>
+            </li>
+            <li>
+              <Card>
+                <WorkCardContent
+                  header="Engineering with Code"
+                  icon="⚙️"
+                  subtitle="scalable, tested, maintainable"
+                />
+              </Card>
+            </li>
+            <li>
+              <Card>
+                <WorkCardContent
+                  header="Customers with Goals"
+                  icon="📈"
+                  subtitle="outcomes, not just features"
+                />
+              </Card>
+            </li>
           </ul>
         </div>
       </Section>
