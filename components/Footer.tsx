@@ -15,21 +15,19 @@ export function copyToClipboardSync(text: string) {
   navigator.clipboard.writeText(text);
 }
 
-export function Footer() {
-  const [copiedText, setCopiedText] = useState<boolean>(false);
+const emailAddress = "bernbechtold@gmail.com";
 
-  function handleCopy(text: string) {
-    copyToClipboardSync(text);
-    setCopiedText(true);
-    setTimeout(() => setCopiedText(false), 1500);
+export function Footer() {
+  const [copied, setCopied] = useState(false);
+
+  function handleCopy(email: string) {
+    copyToClipboardSync(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1200);
   }
 
   return (
-    <footer
-      id="footer"
-      aria-labelledby="footer-heading"
-      className="relative pt-12 md:pt-24 pb-8"
-    >
+    <footer className="relative pt-12 md:pt-24 pb-8">
       <div className="absolute inset-0 z-0 opacity-20 dither" aria-hidden />
 
       <div className="relative z-10 content-container text-xs xs:text-sm sm:text-base lg:text-lg">
@@ -39,30 +37,42 @@ export function Footer() {
             <div>
               <button
                 type="button"
-                onClick={(e) => {
-                  if (e.metaKey || e.ctrlKey) {
-                    window.location.href = "mailto:bernbechtold@gmail.com";
-                  } else {
-                    handleCopy("bernbechtold@gmail.com");
-                  }
+                onClick={() => {
+                  handleCopy(emailAddress);
                 }}
                 aria-describedby="copy-email-feedback"
                 aria-label="Copy email address"
-                className="flex items-center gap-2 flex-wrap w-full text-left hover:text-blue-600 transition-colors cursor-pointer"
+                className="relative flex items-center gap-2 w-full text-left cursor-pointer hover:text-blue-600 transition-colors"
               >
-                <span className="font-medium text-[1.8em]">Email</span>
+                {/* normal */}
+                <div
+                  className={`flex items-center gap-2 w-full transition-opacity duration-150 ${
+                    copied ? "opacity-0" : "opacity-100"
+                  }`}
+                >
+                  <span className="font-medium text-[1.8em]">Email</span>
 
-                <div className="flex-grow border-t border-black" />
+                  <div className="flex-grow border-t border-black" />
 
-                <span className="text-[1.8em] font-serif">
-                  bernbechtold@gmail.com
-                </span>
+                  <span className="text-[1.8em] font-serif">
+                    {emailAddress}
+                  </span>
 
-                <FontAwesomeIcon
-                  icon={copiedText ? faCircleCheck : faCopy}
-                  aria-hidden="true"
-                  size="lg"
-                />
+                  <FontAwesomeIcon icon={faCopy} size="lg" />
+                </div>
+
+                {/* copied */}
+                <div
+                  className={`absolute inset-0 flex items-center justify-center gap-2 transition-opacity duration-150 ${
+                    copied ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <span className="text-[1.8em] font-serif font-medium tracking-wide">
+                    Email copied!
+                  </span>
+
+                  <FontAwesomeIcon icon={faCircleCheck} size="lg" />
+                </div>
               </button>
 
               <span
@@ -70,7 +80,7 @@ export function Footer() {
                 aria-live="polite"
                 className="sr-only"
               >
-                {copiedText && "Email copied to clipboard"}
+                {copied && "Email copied to clipboard"}
               </span>
             </div>
 
@@ -80,31 +90,26 @@ export function Footer() {
                 href="https://br.linkedin.com/in/bbechtold"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn profile, opens in new tab"
                 className="flex items-center gap-2 hover:text-blue-600 transition-colors w-full"
               >
                 <span className="font-medium text-[1.8em]">LinkedIn</span>
 
-                <FontAwesomeIcon
-                  icon={faArrowUpRightFromSquare}
-                  aria-hidden="true"
-                  size="lg"
-                />
+                <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="lg" />
 
                 <div className="flex-grow border-t border-black" />
               </a>
             </div>
           </div>
-
-          <div className="text-center mt-12 md:mt-24">
-            <p className="text-[1.8em] font-medium border-b border-black pt-4 pb-4 font-serif">
-              Thank you and have a nice day!
-            </p>
-          </div>
         </address>
 
+        <div className="text-center mt-12 md:mt-24">
+          <p className="text-[1.8em] font-medium border-b border-black pt-4 pb-4 font-serif">
+            Thank you and have a nice day!
+          </p>
+        </div>
+
         <div className="flex justify-between items-center mt-4 gap-16">
-          <Logo className="w-8 h-8" />
+          <Logo className="w-12 h-12" />
           <span className="text-sm">© 2026 Bernardo Bechtold</span>
         </div>
       </div>
