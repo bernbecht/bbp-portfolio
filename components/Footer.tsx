@@ -7,7 +7,7 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons/faAr
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-export function copyToClipboardSync(text: string) {
+async function copyToClipboardSync(text: string) {
   if (!navigator.clipboard || !window.isSecureContext) {
     throw new Error("Clipboard unavailable");
   }
@@ -20,8 +20,8 @@ const emailAddress = "bernbechtold@gmail.com";
 export function Footer() {
   const [copied, setCopied] = useState(false);
 
-  function handleCopy(email: string) {
-    copyToClipboardSync(email);
+  async function handleCopy(email: string) {
+    await copyToClipboardSync(email);
     setCopied(true);
     setTimeout(() => setCopied(false), 1200);
   }
@@ -41,7 +41,7 @@ export function Footer() {
                   handleCopy(emailAddress);
                 }}
                 aria-describedby="copy-email-feedback"
-                aria-label="Copy email address"
+                aria-label={copied ? "Email copied" : "Copy email address"}
                 className="relative flex items-center gap-2 w-full text-left cursor-pointer hover:text-blue-600 transition-colors"
               >
                 {/* normal */}
