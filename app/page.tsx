@@ -10,7 +10,7 @@ export default function Home() {
         <Hero />
       </div>
 
-      <Section id="what" label="/what">
+      <Section id="what" label="/about">
         <SectionParagraph>
           As a software engineer with a background in design, I operate at the
           intersection of experience, architecture, and delivery. I reduce
@@ -70,7 +70,7 @@ export default function Home() {
             and help teams align design and engineering.
           </SectionParagraph>
 
-          <ul className="text-4xl leading-11">
+          <ul className="text-4xl leading-11 font-mono">
             <li>React</li>
             <li>TypeScript</li>
             <li>Node</li>
