@@ -16,38 +16,6 @@ const companies: Company[] = [
   { name: "Axonify", logo: AxonifyLogo, link: "https://axonify.com" },
 ];
 
-// export function CompaniesGrid() {
-//   return (
-//     <>
-//       <ul className="grid grid-cols-1 sm:grid-cols-2 border border-solid border-gray-950">
-//         {companies.map((company, index) => {
-//           const isOdd = index % 2 === 1;
-//           const isLastRow = index > 1;
-//           return (
-//             <li
-//               key={company.name}
-//               className={`
-//               ${!isLastRow ? "border-b border-b-gray-300" : ""}
-//               ${!isOdd ? "border-r border-r-gray-300 " : ""}
-//             `}
-//             >
-//               <a
-//                 href={company.link}
-//                 className="flex items-center justify-center"
-//               >
-//                 <div className="py-8">
-//                   <company.logo className="w-64 h-32" />
-//                 </div>
-//               </a>
-//             </li>
-//           );
-//         })}
-//       </ul>
-//       <div className="dither w-full h-3"></div>
-//     </>
-//   );
-// }
-
 export function CompaniesGrid() {
   return (
     <>
@@ -65,7 +33,7 @@ export function CompaniesGrid() {
           <li key={company.name}>
             <a
               href={company.link}
-              className="flex items-center justify-center py-8"
+              className="flex items-center justify-center py-8 hover:bg-gray-900 text-black hover:text-white transition-colors"
             >
               <company.logo className="w-64 h-32" />
             </a>
