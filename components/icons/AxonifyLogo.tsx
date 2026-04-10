@@ -1,5 +1,10 @@
 const SVGComponent = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 216 61.71" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg
+    viewBox="0 0 216 61.71"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+    fill="currentColor"
+  >
     <title>{"axonify-logo"}</title>
     <path
       className="a"
