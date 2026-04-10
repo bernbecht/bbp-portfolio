@@ -19,7 +19,7 @@ export function StatusBar({ className, ...rest }: StatusBarProps) {
       <div className="pressable-button">
         <button
           onClick={scrollToFooter}
-          className="font-bold border-solid border cursor-pointer px-10 py-2"
+          className="font-bold font-mono border-solid border cursor-pointer px-10 py-2"
         >
           Say Hello
         </button>
