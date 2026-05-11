@@ -3,7 +3,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --layout-nav: 900px;
   --content-container-max-width: 48rem;
 }
 
@@ -17,6 +16,7 @@
 
 @theme {
   --breakpoint-xs: 460px; /* 640px */
+  --breakpoint-layout: 900px;
 }
 
 /* @media (prefers-color-scheme: dark) {
