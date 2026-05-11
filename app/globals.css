@@ -64,9 +64,6 @@ address {
       transform: translateY(0);
     }
   }
-  .logo {
-    font-family: var(--font-limelight-400);
-  }
 
   .content-container {
     max-width: var(--content-container-max-width);
