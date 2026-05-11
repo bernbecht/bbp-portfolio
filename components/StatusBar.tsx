@@ -1,5 +1,7 @@
 "use client";
 
+import { cn } from "@/lib/cn";
+
 function scrollToFooter() {
   document.getElementById("footer")?.scrollIntoView();
 }
@@ -10,7 +12,10 @@ export function StatusBar({ className, ...rest }: StatusBarProps) {
   return (
     <div
       {...rest}
-      className={`statusBar flex justify-between gap-8 ${className ?? ""}`}
+      className={cn(
+        "statusBar flex justify-between gap-8",
+        className,
+      )}
     >
       <div className="hidden xs:block">
         <div className="font-bold">Brazil based</div>

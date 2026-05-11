@@ -7,6 +7,8 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons/faAr
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
+import { cn } from "@/lib/cn";
+
 async function copyToClipboardSync(text: string) {
   if (!navigator.clipboard || !window.isSecureContext) {
     throw new Error("Clipboard unavailable");
@@ -46,9 +48,10 @@ export function Footer() {
               >
                 {/* normal */}
                 <div
-                  className={`flex items-center gap-2 w-full transition-opacity duration-150 ${
-                    copied ? "opacity-0" : "opacity-100"
-                  }`}
+                  className={cn(
+                    "flex items-center gap-2 w-full transition-opacity duration-150",
+                    copied ? "opacity-0" : "opacity-100",
+                  )}
                 >
                   <span className="font-medium text-[1.8em]">Email</span>
 
@@ -63,9 +66,10 @@ export function Footer() {
 
                 {/* copied */}
                 <div
-                  className={`absolute inset-0 flex items-center justify-center gap-2 transition-opacity duration-150 ${
-                    copied ? "opacity-100" : "opacity-0"
-                  }`}
+                  className={cn(
+                    "absolute inset-0 flex items-center justify-center gap-2 transition-opacity duration-150",
+                    copied ? "opacity-100" : "opacity-0",
+                  )}
                 >
                   <span className="text-[1.8em] font-serif font-medium tracking-wide">
                     Email copied!
