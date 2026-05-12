@@ -1,6 +1,7 @@
 import { Card, WorkCardContent } from "@/components/Card";
 import { CompaniesGrid } from "@/components/CompaniesGrid";
 import { Hero } from "@/components/Hero";
+import HowTechList from "@/components/HowTechList";
 import { Section, SectionParagraph } from "@/components/Section";
 
 export default function Home() {
@@ -70,16 +71,7 @@ export default function Home() {
             and help teams align design and engineering.
           </SectionParagraph>
 
-          <ul className="text-4xl leading-11 font-mono">
-            <li>React</li>
-            <li>TypeScript</li>
-            <li>Node</li>
-            <li>Storybook</li>
-            <li>Playwright</li>
-            <li>Design Tokens</li>
-            <li>Material UI</li>
-            <li>Accessibility</li>
-          </ul>
+          <HowTechList className="text-4xl leading-11 font-mono" />
         </div>
 
         <div className="sm:text-right text-3xl mt-10 font-bold">
