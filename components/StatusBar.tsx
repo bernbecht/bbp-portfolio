@@ -1,6 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/cn";
+import { useCallback } from "react";
+import { useWebHaptics } from "web-haptics/react";
 
 function scrollToFooter() {
   document.getElementById("footer")?.scrollIntoView();
@@ -9,13 +11,17 @@ function scrollToFooter() {
 type StatusBarProps = React.ComponentProps<"div">;
 
 export function StatusBar({ className, ...rest }: StatusBarProps) {
+  const { trigger } = useWebHaptics();
+
+  const handleSayHello = useCallback(() => {
+    scrollToFooter();
+    trigger("success");
+  }, [trigger]);
+
   return (
     <div
       {...rest}
-      className={cn(
-        "statusBar flex justify-between gap-8",
-        className,
-      )}
+      className={cn("statusBar flex justify-between gap-8", className)}
     >
       <div className="hidden xs:block">
         <div className="font-bold">Brazil based</div>
@@ -23,7 +29,8 @@ export function StatusBar({ className, ...rest }: StatusBarProps) {
       </div>
       <div className="pressable-button">
         <button
-          onClick={scrollToFooter}
+          type="button"
+          onClick={handleSayHello}
           className="font-bold font-mono border-solid border cursor-pointer px-10 py-2"
         >
           Say Hello
