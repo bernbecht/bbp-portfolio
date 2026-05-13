@@ -2,10 +2,10 @@ import { Footer } from "@/components/Footer";
 import Header from "@/components/Header";
 import { cn } from "@/lib/cn";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { fontClasses } from "./fonts";
 import "./globals.css";
-
 export const metadata: Metadata = {
   title: "Brnd | UI/UX Engineer",
   description:
@@ -23,6 +23,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
