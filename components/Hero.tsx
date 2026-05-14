@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export function Hero() {
   return (
@@ -6,7 +6,7 @@ export function Hero() {
       <div className="flex items-end gap-4 mb-12">
         <Image
           src="/profile.jpeg"
-          alt="portrait"
+          alt="Bernardo Bechtold, portrait"
           width={100}
           height={100}
           className="rounded-xl w-[66px] md:w-[100px]"
@@ -14,7 +14,7 @@ export function Hero() {
 
         <div className="text-2xl md:text-3xl">
           <p className="text-neutral-500">Glad to see you!</p>
-          <h1>I am Bernardo</h1>
+          <h1>I am Bernardo Bechtold</h1>
         </div>
       </div>
 
