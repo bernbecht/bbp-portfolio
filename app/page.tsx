@@ -4,6 +4,16 @@ import { Hero } from "@/components/Hero";
 import HowTechList from "@/components/HowTechList";
 import { PersonJsonLd } from "@/components/PersonJsonLd";
 import { Section, SectionParagraph } from "@/components/Section";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    url: "/",
+  },
+};
 
 export default function Home() {
   return (
