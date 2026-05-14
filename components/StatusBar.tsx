@@ -23,10 +23,6 @@ export function StatusBar({ className, ...rest }: StatusBarProps) {
       {...rest}
       className={cn("statusBar flex justify-between gap-8", className)}
     >
-      <div className="hidden xs:block">
-        <div className="font-bold">Brazil based</div>
-        <div className="text-gray-500">Working globally</div>
-      </div>
       <div className="pressable-button">
         <button
           type="button"
