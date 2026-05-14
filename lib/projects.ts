@@ -6,6 +6,8 @@ export type ProjectEntry = Readonly<{
   title: string;
   period: string;
   href?: string;
+  /** Matches `content/projects/{slug}.md` filename without extension. */
+  journalSlug?: string;
   summary?: string;
   company?: string;
   tags?: readonly string[];
@@ -29,6 +31,7 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
         period: '2025–Present',
         company: 'Self',
         href: '/',
+        journalSlug: 'portfolio-site',
         tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Accessibility'],
         summary:
           'Personal site built with Next.js and Tailwind. Replace this copy with a real project description.',
@@ -38,6 +41,7 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
         period: '2023–2024',
         company: 'Acme Corp (mock)',
         href: 'https://example.com',
+        journalSlug: 'design-system-rollout',
         tags: ['React', 'Design system', 'Storybook'],
         summary:
           'Mock client engagement: tokens, components, and documentation for product teams.',
@@ -46,6 +50,7 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
         title: 'Internal tooling sprint',
         period: '2024',
         company: 'Northwind Labs (mock)',
+        journalSlug: 'internal-tooling-sprint',
         tags: ['Node.js'],
         summary: 'Short engagement with a single tag line—useful for layout checks.',
       },
