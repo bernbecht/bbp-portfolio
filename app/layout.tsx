@@ -16,13 +16,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(resolveSiteUrl()),
   title: siteTitle,
   description: siteDescription,
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: siteTitle,
     description: siteDescription,
-    url: "/",
     siteName: "Bernardo Bechtold",
     type: "website",
     images: [
