@@ -42,14 +42,24 @@ const linkFocusClasses =
 
 function ProjectTitle({ entry }: Readonly<{ entry: ProjectEntry }>): React.ReactNode {
   const { title, href } = entry;
+  const journalSlug = entry.journalSlug?.trim();
+  const journalHref = journalSlug ? `/projects/${journalSlug}` : null;
+
+  const className = `text-xl font-semibold tracking-tight text-neutral-900 underline-offset-4 decoration-neutral-400 hover:underline ${linkFocusClasses}`;
+
+  if (journalHref) {
+    return (
+      <Link href={journalHref} className={className}>
+        {title}
+      </Link>
+    );
+  }
 
   if (!href) {
     return (
       <span className="text-xl font-semibold tracking-tight text-neutral-900">{title}</span>
     );
   }
-
-  const className = `text-xl font-semibold tracking-tight text-neutral-900 underline-offset-4 decoration-neutral-400 hover:underline ${linkFocusClasses}`;
 
   if (href.startsWith('/')) {
     return (
@@ -74,6 +84,11 @@ function ProjectTitle({ entry }: Readonly<{ entry: ProjectEntry }>): React.React
 function ProjectRow({ entry }: Readonly<{ entry: ProjectEntry }>): React.ReactNode {
   const companyLine = entry.company?.trim();
   const tagItems = (entry.tags ?? []).filter((tag) => tag.trim().length > 0);
+  const journalSlug = entry.journalSlug?.trim();
+  const journalHref = journalSlug ? `/projects/${journalSlug}` : null;
+  const href = entry.href?.trim();
+  const showSecondaryHref = Boolean(journalHref && href && href !== journalHref);
+  const secondaryClassName = `text-sm font-medium text-neutral-700 underline-offset-4 decoration-neutral-400 hover:underline ${linkFocusClasses}`;
 
   return (
     <li className="border-b border-neutral-200 py-8 last:border-b-0">
@@ -105,6 +120,24 @@ function ProjectRow({ entry }: Readonly<{ entry: ProjectEntry }>): React.ReactNo
       {entry.summary ? (
         <p className="section__paragraph mt-4 text-lg leading-relaxed text-gray-700">
           {entry.summary}
+        </p>
+      ) : null}
+      {showSecondaryHref && href ? (
+        <p className="mt-3">
+          {href.startsWith('/') ? (
+            <Link href={href} className={secondaryClassName}>
+              {href === '/' ? 'Site home' : 'Related page'}
+            </Link>
+          ) : (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={secondaryClassName}
+            >
+              Project link
+            </a>
+          )}
         </p>
       ) : null}
     </li>
