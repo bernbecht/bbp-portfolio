@@ -2,11 +2,13 @@ import { Card, WorkCardContent } from "@/components/Card";
 import { CompaniesGrid } from "@/components/CompaniesGrid";
 import { Hero } from "@/components/Hero";
 import HowTechList from "@/components/HowTechList";
+import { PersonJsonLd } from "@/components/PersonJsonLd";
 import { Section, SectionParagraph } from "@/components/Section";
 
 export default function Home() {
   return (
     <div className="fade-up">
+      <PersonJsonLd />
       <div className="content-container">
         <Hero />
       </div>
