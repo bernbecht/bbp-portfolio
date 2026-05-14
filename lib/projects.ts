@@ -7,6 +7,8 @@ export type ProjectEntry = Readonly<{
   period: string;
   href?: string;
   summary?: string;
+  company?: string;
+  tags?: readonly string[];
 }>;
 
 export type ProjectGroup = Readonly<{
@@ -25,9 +27,34 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
       {
         title: 'Portfolio site',
         period: '2025–Present',
-        href: 'https://github.com',
+        company: 'Self',
+        href: '/',
+        tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Accessibility'],
         summary:
           'Personal site built with Next.js and Tailwind. Replace this copy with a real project description.',
+      },
+      {
+        title: 'Design system rollout',
+        period: '2023–2024',
+        company: 'Acme Corp (mock)',
+        href: 'https://example.com',
+        tags: ['React', 'Design system', 'Storybook'],
+        summary:
+          'Mock client engagement: tokens, components, and documentation for product teams.',
+      },
+      {
+        title: 'Internal tooling sprint',
+        period: '2024',
+        company: 'Northwind Labs (mock)',
+        tags: ['Node.js'],
+        summary: 'Short engagement with a single tag line—useful for layout checks.',
+      },
+      {
+        title: 'Confidential engagement',
+        period: '2022',
+        company: 'Redacted Inc. (mock)',
+        summary:
+          'No public link or tags—row should show title, company, period, and summary only.',
       },
     ],
   },
@@ -36,9 +63,22 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
     title: 'Side projects',
     entries: [
       {
-        title: 'Open-source experiment',
+        title: 'CLI color helper',
         period: '2024',
-        summary: 'Placeholder entry—swap in real titles, links, and time ranges when you are ready.',
+        href: 'https://example.com',
+        tags: ['Rust', 'CLI'],
+        summary: 'Tags and summary, no company line—side project styling.',
+      },
+      {
+        title: 'Weekend CSS art',
+        period: '2023',
+        company: 'Personal',
+        summary: 'Company + summary only; no tags or outbound link in this mock row.',
+      },
+      {
+        title: 'Bare title row',
+        period: '2020',
+        summary: 'Minimal mock: period + summary only.',
       },
     ],
   },
