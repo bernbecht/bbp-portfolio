@@ -6,10 +6,51 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { fontClasses } from "./fonts";
 import "./globals.css";
+
+function resolveSiteUrl(): string {
+  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (fromEnv) {
+    return fromEnv.replace(/\/+$/, "");
+  }
+  const vercelUrl = process.env.VERCEL_URL?.trim();
+  if (vercelUrl) {
+    return `https://${vercelUrl.replace(/\/+$/, "")}`;
+  }
+  return "http://localhost:3000";
+}
+
+const siteTitle = "Bernardo Bechtold | Front-end Engineer & UI/UX Designer";
+const siteDescription =
+  "Bernardo Bechtold is a senior front-end engineer and UI/UX designer who builds accessible, scalable React applications with strong design collaboration.";
+
 export const metadata: Metadata = {
-  title: "Brnd | UI/UX Engineer",
-  description:
-    "Senior Frontend Engineer crafting accessible, scalable React apps with strong UX and design collaboration",
+  metadataBase: new URL(resolveSiteUrl()),
+  title: siteTitle,
+  description: siteDescription,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: "/",
+    siteName: "Bernardo Bechtold",
+    type: "website",
+    images: [
+      {
+        url: "/profile.jpeg",
+        width: 100,
+        height: 100,
+        alt: "Bernardo Bechtold, portrait",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/profile.jpeg"],
+  },
 };
 
 export default function RootLayout({

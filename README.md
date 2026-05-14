@@ -31,6 +31,10 @@ npm run dev
 
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Environment variables
+
+Set **`NEXT_PUBLIC_SITE_URL`** in production to your canonical HTTPS site URL (for example `https://yourdomain.com`). Next.js uses it as `metadataBase` so Open Graph, Twitter card, and canonical URLs resolve to your real domain instead of localhost or a generic host. Copy [.env.example](.env.example) to `.env.local` for local overrides. On Vercel, add the variable under Project → Settings → Environment Variables for the Production environment.
+
 ## Available Scripts
 
 - `npm run dev` - Start development server
