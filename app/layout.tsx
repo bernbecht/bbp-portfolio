@@ -1,23 +1,12 @@
 import { Footer } from "@/components/Footer";
 import Header from "@/components/Header";
 import { cn } from "@/lib/cn";
+import { resolveSiteUrl } from "@/lib/site-url";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { fontClasses } from "./fonts";
 import "./globals.css";
-
-function resolveSiteUrl(): string {
-  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (fromEnv) {
-    return fromEnv.replace(/\/+$/, "");
-  }
-  const vercelUrl = process.env.VERCEL_URL?.trim();
-  if (vercelUrl) {
-    return `https://${vercelUrl.replace(/\/+$/, "")}`;
-  }
-  return "http://localhost:3000";
-}
 
 const siteTitle = "Bernardo Bechtold | Front-end Engineer & UI/UX Designer";
 const siteDescription =
