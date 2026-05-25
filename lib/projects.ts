@@ -38,7 +38,7 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
       },
       {
         title:
-          "How a bottom sheet lifted mobile adoption by 10% on Shopify Store Editor",
+          "A bottom sheet lifted mobile adoption by 10% on Shopify Store Editor",
         period: "2022–2023",
         company: "Shopify",
         href: "https://example.com",
