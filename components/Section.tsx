@@ -54,7 +54,7 @@ type ParagraphProps = {
 
 export function SectionParagraph({ children }: ParagraphProps) {
   return (
-    <p className={`section__paragraph text-2xl text-gray-700 mb-6`}>
+    <p className={`section__paragraph text-xl text-gray-700 mb-6`}>
       {children}
     </p>
   );
