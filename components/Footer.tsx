@@ -108,7 +108,7 @@ export function Footer() {
 
         <div className="text-center mt-12 md:mt-24">
           <p className="text-[1.8em] font-medium border-b border-black pt-4 pb-4 font-serif">
-            Thank you and have a nice day!
+            Stay awesome. Stay in touch ✌️
           </p>
         </div>
 
