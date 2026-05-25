@@ -23,67 +23,29 @@ export type ProjectGroup = Readonly<{
 
 export const PROJECT_GROUPS: readonly ProjectGroup[] = [
   {
-    monoLabel: '/recent',
-    title: 'Recent work',
+    monoLabel: "/recent",
+    title: "Recent work",
     entries: [
       {
-        title: 'Portfolio site',
-        period: '2025–Present',
-        company: 'Self',
-        href: '/',
-        journalSlug: 'portfolio-site',
-        tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Accessibility'],
+        title: "How I stopped visual regressions",
+        period: "2025",
+        company: "Axonify",
+        href: "/",
+        journalSlug: "how-stopped-visual-regressions",
+        tags: ["Accessibility", "Visual regression", "Playwright", "Storybook"],
         summary:
-          'Personal site built with Next.js and Tailwind. Replace this copy with a real project description.',
+          "How I built an in-house visual regression pipeline using Playwright and Storybook, saving ~$10k/year and giving multiple teams the confidence to refactor freely.",
       },
       {
-        title: 'Design system rollout',
-        period: '2023–2024',
-        company: 'Acme Corp (mock)',
-        href: 'https://example.com',
-        journalSlug: 'design-system-rollout',
-        tags: ['React', 'Design system', 'Storybook'],
+        title:
+          "How a bottom sheet lifted mobile adoption by 10% on Shopify Store Editor",
+        period: "2022–2023",
+        company: "Shopify",
+        href: "https://example.com",
+        journalSlug: "10-percent",
+        tags: ["Interaction design", "Mobile", "Shopify"],
         summary:
-          'Mock client engagement: tokens, components, and documentation for product teams.',
-      },
-      {
-        title: 'Internal tooling sprint',
-        period: '2024',
-        company: 'Northwind Labs (mock)',
-        journalSlug: 'internal-tooling-sprint',
-        tags: ['Node.js'],
-        summary: 'Short engagement with a single tag line—useful for layout checks.',
-      },
-      {
-        title: 'Confidential engagement',
-        period: '2022',
-        company: 'Redacted Inc. (mock)',
-        summary:
-          'No public link or tags—row should show title, company, period, and summary only.',
-      },
-    ],
-  },
-  {
-    monoLabel: '/side',
-    title: 'Side projects',
-    entries: [
-      {
-        title: 'CLI color helper',
-        period: '2024',
-        href: 'https://example.com',
-        tags: ['Rust', 'CLI'],
-        summary: 'Tags and summary, no company line—side project styling.',
-      },
-      {
-        title: 'Weekend CSS art',
-        period: '2023',
-        company: 'Personal',
-        summary: 'Company + summary only; no tags or outbound link in this mock row.',
-      },
-      {
-        title: 'Bare title row',
-        period: '2020',
-        summary: 'Minimal mock: period + summary only.',
+          "A case study in interaction design: solving screen real estate constraints without sacrificing functionality, in one of Shopify's most-used features.",
       },
     ],
   },
