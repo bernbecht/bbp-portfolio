@@ -1,46 +1,48 @@
-import { SectionParagraph } from '@/components/Section';
-import type { ProjectEntry } from '@/lib/projects';
-import { PROJECT_GROUPS } from '@/lib/projects';
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Fragment } from 'react';
+import type { ProjectEntry } from "@/lib/projects";
+import { PROJECT_GROUPS } from "@/lib/projects";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Fragment } from "react";
 
-const pageTitle = 'Projects | Bernardo Bechtold | Front-end Engineer & UI/UX Designer';
+const pageTitle =
+  "Projects | Bernardo Bechtold | Front-end Engineer & UI/UX Designer";
 const pageDescription =
-  'Selected client work and side projects—links, timelines, and short notes on what shipped.';
+  "Selected client work and side projects—links, timelines, and short notes on what shipped.";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: '/projects',
+    canonical: "/projects",
   },
   openGraph: {
     title: pageTitle,
     description: pageDescription,
-    url: '/projects',
-    type: 'website',
+    url: "/projects",
+    type: "website",
     images: [
       {
-        url: '/profile.jpeg',
+        url: "/profile.jpeg",
         width: 100,
         height: 100,
-        alt: 'Bernardo Bechtold, portrait',
+        alt: "Bernardo Bechtold, portrait",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
-    images: ['/profile.jpeg'],
+    images: ["/profile.jpeg"],
   },
 };
 
 const linkFocusClasses =
-  'rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2';
+  "rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2";
 
-function ProjectTitle({ entry }: Readonly<{ entry: ProjectEntry }>): React.ReactNode {
+function ProjectTitle({
+  entry,
+}: Readonly<{ entry: ProjectEntry }>): React.ReactNode {
   const { title, href } = entry;
   const journalSlug = entry.journalSlug?.trim();
   const journalHref = journalSlug ? `/projects/${journalSlug}` : null;
@@ -57,11 +59,13 @@ function ProjectTitle({ entry }: Readonly<{ entry: ProjectEntry }>): React.React
 
   if (!href) {
     return (
-      <span className="text-xl font-semibold tracking-tight text-neutral-900">{title}</span>
+      <span className="text-xl font-semibold tracking-tight text-neutral-900">
+        {title}
+      </span>
     );
   }
 
-  if (href.startsWith('/')) {
+  if (href.startsWith("/")) {
     return (
       <Link href={href} className={className}>
         {title}
@@ -81,13 +85,17 @@ function ProjectTitle({ entry }: Readonly<{ entry: ProjectEntry }>): React.React
   );
 }
 
-function ProjectRow({ entry }: Readonly<{ entry: ProjectEntry }>): React.ReactNode {
+function ProjectRow({
+  entry,
+}: Readonly<{ entry: ProjectEntry }>): React.ReactNode {
   const companyLine = entry.company?.trim();
   const tagItems = (entry.tags ?? []).filter((tag) => tag.trim().length > 0);
   const journalSlug = entry.journalSlug?.trim();
   const journalHref = journalSlug ? `/projects/${journalSlug}` : null;
   const href = entry.href?.trim();
-  const showSecondaryHref = Boolean(journalHref && href && href !== journalHref);
+  const showSecondaryHref = Boolean(
+    journalHref && href && href !== journalHref,
+  );
   const secondaryClassName = `text-sm font-medium text-neutral-700 underline-offset-4 decoration-neutral-400 hover:underline ${linkFocusClasses}`;
 
   return (
@@ -124,9 +132,9 @@ function ProjectRow({ entry }: Readonly<{ entry: ProjectEntry }>): React.ReactNo
       ) : null}
       {showSecondaryHref && href ? (
         <p className="mt-3">
-          {href.startsWith('/') ? (
+          {href.startsWith("/") ? (
             <Link href={href} className={secondaryClassName}>
-              {href === '/' ? 'Site home' : 'Related page'}
+              {href === "/" ? "Site home" : "Related page"}
             </Link>
           ) : (
             <a
@@ -148,13 +156,9 @@ export default function ProjectsPage(): React.ReactNode {
   return (
     <div className="fade-up">
       <main className="content-container pb-24 pt-8">
-        <h1 className="mb-6 text-4xl font-bold tracking-tight text-neutral-900">Projects</h1>
-
-        <SectionParagraph>
-          Selected work and side projects—names, time ranges, and links where there is something to
-          share publicly.
-        </SectionParagraph>
-
+        <h1 className="mb-6 text-4xl font-bold tracking-tight text-neutral-900">
+          Projects
+        </h1>
         <div className="mt-12 space-y-16">
           {PROJECT_GROUPS.map((group, index) => (
             <Fragment key={group.title}>
@@ -163,7 +167,9 @@ export default function ProjectsPage(): React.ReactNode {
               ) : null}
               <section aria-labelledby={`projects-group-${index}-heading`}>
                 {group.monoLabel ? (
-                  <p className="mb-2 font-mono text-sm leading-9 text-gray-500">{group.monoLabel}</p>
+                  <p className="mb-2 font-mono text-sm leading-9 text-gray-500">
+                    {group.monoLabel}
+                  </p>
                 ) : null}
 
                 <h2
@@ -175,7 +181,10 @@ export default function ProjectsPage(): React.ReactNode {
 
                 <ul className="list-none p-0">
                   {group.entries.map((entry) => (
-                    <ProjectRow key={`${group.title}-${entry.title}`} entry={entry} />
+                    <ProjectRow
+                      key={`${group.title}-${entry.title}`}
+                      entry={entry}
+                    />
                   ))}
                 </ul>
               </section>
