@@ -1,5 +1,5 @@
 ---
-title: 'How a bottom sheet lifted mobile adoption by 10% on Shopify Store Editor'
+title: 'A bottom sheet lifted mobile adoption by 10% on Shopify Store Editor'
 date: '2025-11-08T12:00:00.000Z'
 description: >-
   A case study in interaction design: solving screen real estate constraints without sacrificing functionality, in one of Shopify's most-used features.
