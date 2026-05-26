@@ -33,9 +33,17 @@ export default function Header() {
           </NavLink>
           <div className="min-w-0 border border-black px-3">
             <ul className="flex shrink-0 list-none items-stretch gap-4 p-0 font-mono text-sm [&>li]:flex [&>li]:items-stretch [&>li:not(:last-child)]:border-r [&>li:not(:last-child)]:border-black [&>li>a]:flex [&>li>a]:h-full [&>li>a]:min-h-11 [&>li>a]:items-center [&>li>a]:px-0.5 [&>li>a]:py-3 [&>li:not(:last-child)>a]:pr-4 [&>li>button]:flex [&>li>button]:h-full [&>li>button]:min-h-11 [&>li>button]:w-full [&>li>button]:items-center [&>li>button]:py-3">
-              <li>
-                <NavLink href="/projects" className="pressable-button">
+              <li className="relative">
+                <NavLink
+                  href="/projects"
+                  className=" 
+                  group pressable-button group-hover:bg-black hover:text-white transition"
+                >
                   Projects
+                  <span
+                    className="origin-bottom transition absolute top-0 left-0 w-[102%] h-full bg-black block mix-blend-difference scale-y-0 group-hover:scale-y-100
+                  "
+                  ></span>
                 </NavLink>
               </li>
               <li>
