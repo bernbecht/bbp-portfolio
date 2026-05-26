@@ -39,14 +39,15 @@ export default function Header() {
               <li className="relative pressable-button">
                 <NavLink
                   href="/projects"
-                  className=" 
-                  group  group-hover:bg-black hover:text-white transition"
+                  match="prefix"
+                  activeClassName="bg-black font-bold text-white"
+                  className="group transition group-hover:bg-black hover:text-white group-aria-[current=page]:bg-black group-aria-[current=page]:text-white"
                 >
                   Projects
                   <span
-                    className="origin-bottom transition absolute top-0 left-0 w-[102%] h-full bg-black block mix-blend-difference scale-y-0 group-hover:scale-y-100
-                  "
-                  ></span>
+                    className="absolute top-0 left-0 block h-full w-[102%] origin-bottom scale-y-0 bg-black mix-blend-difference transition group-hover:scale-y-100 group-aria-[current=page]:scale-y-100"
+                    aria-hidden
+                  />
                 </NavLink>
               </li>
               <li className="relative pressable-button">
