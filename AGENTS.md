@@ -84,7 +84,7 @@ flowchart LR
 ## React boundaries
 
 - Default to **Server Components** unless you need client-only APIs.
-- Files with `'use client'` or `"use client"` (grep `use client` in `*.ts` / `*.tsx`): [`components/StatusBar.tsx`](components/StatusBar.tsx), [`components/Footer.tsx`](components/Footer.tsx), [`components/HowTechList.tsx`](components/HowTechList.tsx), [`components/NavLink.tsx`](components/NavLink.tsx). Prefer small leaf components for new interactivity.
+- Files with `'use client'` or `"use client"` (grep `use client` in `*.ts` / `*.tsx`): [`components/Header.tsx`](components/Header.tsx), [`components/Footer.tsx`](components/Footer.tsx), [`components/HowTechList.tsx`](components/HowTechList.tsx), [`components/NavLink.tsx`](components/NavLink.tsx). Prefer small leaf components for new interactivity.
 
 ## Styling
 
