@@ -31,13 +31,16 @@ export default function Header() {
           >
             <Logo />
           </NavLink>
-          <div className="min-w-0 border border-black px-3">
-            <ul className="flex shrink-0 list-none items-stretch gap-4 p-0 font-mono text-sm [&>li]:flex [&>li]:items-stretch [&>li:not(:last-child)]:border-r [&>li:not(:last-child)]:border-black [&>li>a]:flex [&>li>a]:h-full [&>li>a]:min-h-11 [&>li>a]:items-center [&>li>a]:px-0.5 [&>li>a]:py-3 [&>li:not(:last-child)>a]:pr-4 [&>li>button]:flex [&>li>button]:h-full [&>li>button]:min-h-11 [&>li>button]:w-full [&>li>button]:items-center [&>li>button]:py-3">
-              <li className="relative">
+          <div className="min-w-0 border border-black">
+            <ul
+              className="flex shrink-0 list-none items-stretch p-0 font-mono text-sm [&>li]:flex [&>li]:items-stretch [&>li:not(:last-child)]:border-r [&>li:not(:last-child)]:border-black [&>li>a]:flex [&>li>a]:h-full [&>li>a]:min-h-11 [&>li>a]:items-center [&>li>a]:px-0.5 [&>li>a]:py-3 [&>li>button]:flex [&>li>button]:h-full [&>li>button]:min-h-11 [&>li>button]:w-full [&>li>button]:items-center [&>li>button]:py-3
+            [&>li]:px-3"
+            >
+              <li className="relative pressable-button">
                 <NavLink
                   href="/projects"
                   className=" 
-                  group pressable-button group-hover:bg-black hover:text-white transition"
+                  group  group-hover:bg-black hover:text-white transition"
                 >
                   Projects
                   <span
@@ -46,13 +49,19 @@ export default function Header() {
                   ></span>
                 </NavLink>
               </li>
-              <li>
+              <li className="relative pressable-button">
                 <button
                   type="button"
                   onClick={handleSayHello}
-                  className="pressable-button cursor-pointer font-mono font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
+                  className=" cursor-pointer font-mono font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2
+                  group  group-hover:bg-black hover:text-white transition
+                  "
                 >
                   Say Hello
+                  <span
+                    className="origin-bottom transition absolute top-0 left-0 w-[102%] h-full bg-black block mix-blend-difference scale-y-0 group-hover:scale-y-100
+                  "
+                  ></span>
                 </button>
               </li>
             </ul>
