@@ -45,6 +45,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta
+        name="google-site-verification"
+        content="GtY3LNDFgGqkMEHr_LVhK9WhyblMkcve52dJ5BaFliI"
+      />
       <body className={cn(fontClasses, "font-sans antialiased")}>
         <Header />
         {children}
