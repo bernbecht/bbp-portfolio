@@ -157,6 +157,28 @@ export default async function ProjectPostPage({ params }: PageProps): Promise<Re
           </p>
         </header>
 
+        {post.heroVideo ? (
+          <figure className="mb-12 rounded-xl border border-neutral-200 bg-neutral-50 p-4 sm:p-6">
+            <div className="mx-auto max-w-[22rem] overflow-hidden rounded-[2rem] border-[6px] border-neutral-900 bg-neutral-900 shadow-xl">
+              <video
+                className="aspect-[9/16] w-full bg-neutral-950 object-cover"
+                controls
+                playsInline
+                preload="metadata"
+                poster={post.heroVideo.poster}
+                aria-label={post.heroVideo.ariaLabel}
+              >
+                <source src={post.heroVideo.src} type="video/mp4" />
+                Your browser does not support embedded video.{' '}
+                <a href={post.heroVideo.src}>Open the product walkthrough</a>.
+              </video>
+            </div>
+            <figcaption className="mx-auto mt-4 max-w-xl text-center text-sm leading-relaxed text-neutral-600">
+              {post.heroVideo.caption}
+            </figcaption>
+          </figure>
+        ) : null}
+
         <article
           className={cn(
             'prose prose-neutral max-w-none text-gray-700',
