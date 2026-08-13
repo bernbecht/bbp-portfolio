@@ -5,8 +5,8 @@
     How I preserved live editing on small screens with progressive disclosure—and contributed to a 10%
     increase in mobile Store Editor adoption.
   heroVideo:
-    src: '/projects/10-percent/store-editor-bottom-sheet.mp4'
-    poster: '/projects/10-percent/store-editor-bottom-sheet-poster.jpg'
+    src: '/projects/shopify-mobile-store-editor/store-editor-bottom-sheet.mp4'
+    poster: '/projects/shopify-mobile-store-editor/store-editor-bottom-sheet-poster.jpg'
     caption: 'The bottom sheet moving between collapsed, partially expanded, and fully expanded editing
     states.'
     ariaLabel: 'Demonstration of the mobile Shopify Store Editor bottom sheet'
