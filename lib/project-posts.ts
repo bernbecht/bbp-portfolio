@@ -15,6 +15,12 @@ export type ProjectPostFrontmatter = Readonly<{
   /** ISO 8601 string; used for ordering and metadata. */
   date: string;
   description: string;
+  heroVideo?: Readonly<{
+    src: string;
+    poster: string;
+    caption: string;
+    ariaLabel: string;
+  }>;
 }>;
 
 export type ProjectPost = ProjectPostFrontmatter &
@@ -37,6 +43,7 @@ function assertPostFrontmatter(
   const title = data.title;
   const date = data.date;
   const description = data.description;
+  const heroVideo = data.heroVideo;
 
   if (typeof title !== 'string' || title.trim() === '') {
     throw new Error(`Invalid or missing "title" in content/projects/${slug}.md frontmatter`);
@@ -49,6 +56,36 @@ function assertPostFrontmatter(
       `Invalid or missing "description" in content/projects/${slug}.md frontmatter`,
     );
   }
+  if (heroVideo !== undefined) {
+    if (typeof heroVideo !== 'object' || heroVideo === null || Array.isArray(heroVideo)) {
+      throw new Error(
+        `Invalid "heroVideo" in content/projects/${slug}.md frontmatter`,
+      );
+    }
+
+    const video = heroVideo as Record<string, unknown>;
+    const fields = ['src', 'poster', 'caption', 'ariaLabel'] as const;
+    for (const field of fields) {
+      if (typeof video[field] !== 'string' || video[field].trim() === '') {
+        throw new Error(
+          `Invalid or missing "heroVideo.${field}" in content/projects/${slug}.md frontmatter`,
+        );
+      }
+    }
+
+    return {
+      title,
+      date,
+      description,
+      heroVideo: {
+        src: video.src as string,
+        poster: video.poster as string,
+        caption: video.caption as string,
+        ariaLabel: video.ariaLabel as string,
+      },
+    };
+  }
+
   return { title, date, description };
 }
 
