@@ -49,7 +49,7 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
         title: "Designing and building Shopify's mobile Store Editor bottom sheet",
         period: "2022–2023",
         company: "Shopify",
-        journalSlug: "10-percent",
+        journalSlug: "shopify-mobile-store-editor",
         tags: ["Product design", "Front-end", "Mobile"],
         summary:
           "I designed and built a three-state bottom sheet that preserved live editing on small screens and contributed to a 10% increase in mobile Store Editor adoption.",
