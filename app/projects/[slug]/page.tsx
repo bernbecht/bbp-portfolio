@@ -1,4 +1,5 @@
 import { getAllSlugs, getPostBySlug } from '@/lib/project-posts';
+import ComponentLibraryDemo from '@/components/ComponentLibraryDemo';
 import { cn } from '@/lib/cn';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -156,6 +157,8 @@ export default async function ProjectPostPage({ params }: PageProps): Promise<Re
             {post.description}
           </p>
         </header>
+
+        {post.heroDemo === 'component-library' ? <ComponentLibraryDemo /> : null}
 
         {post.heroVideo ? (
           <figure className="mb-12 rounded-xl border border-neutral-200 bg-neutral-50 p-4 sm:p-6">
