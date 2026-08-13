@@ -27,6 +27,15 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
     title: "Recent work",
     entries: [
       {
+        title: "Building a flexible component library at Axonify",
+        period: "2025",
+        company: "Axonify",
+        journalSlug: "axonify-component-library",
+        tags: ["Design systems", "React", "Accessibility", "Component APIs"],
+        summary:
+          "How I balanced flexibility and consistency by standardizing interaction rules while giving product teams constrained, composable APIs.",
+      },
+      {
         title: "How I stopped visual regressions",
         period: "2025",
         company: "Axonify",

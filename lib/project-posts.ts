@@ -15,6 +15,7 @@ export type ProjectPostFrontmatter = Readonly<{
   /** ISO 8601 string; used for ordering and metadata. */
   date: string;
   description: string;
+  heroDemo?: 'component-library';
   heroVideo?: Readonly<{
     src: string;
     poster: string;
@@ -43,6 +44,7 @@ function assertPostFrontmatter(
   const title = data.title;
   const date = data.date;
   const description = data.description;
+  const heroDemo = data.heroDemo;
   const heroVideo = data.heroVideo;
 
   if (typeof title !== 'string' || title.trim() === '') {
@@ -54,6 +56,11 @@ function assertPostFrontmatter(
   if (typeof description !== 'string' || description.trim() === '') {
     throw new Error(
       `Invalid or missing "description" in content/projects/${slug}.md frontmatter`,
+    );
+  }
+  if (heroDemo !== undefined && heroDemo !== 'component-library') {
+    throw new Error(
+      `Invalid "heroDemo" in content/projects/${slug}.md frontmatter`,
     );
   }
   if (heroVideo !== undefined) {
@@ -77,6 +84,7 @@ function assertPostFrontmatter(
       title,
       date,
       description,
+      ...(heroDemo ? { heroDemo } : {}),
       heroVideo: {
         src: video.src as string,
         poster: video.poster as string,
@@ -86,7 +94,7 @@ function assertPostFrontmatter(
     };
   }
 
-  return { title, date, description };
+  return { title, date, description, ...(heroDemo ? { heroDemo } : {}) };
 }
 
 function parsePostFile(slug: string, raw: string): ProjectPost {
