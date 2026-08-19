@@ -155,11 +155,16 @@ function ProjectRow({
 export default function ProjectsPage(): React.ReactNode {
   return (
     <div className="fade-up">
-      <main className="content-container pb-24 pt-8">
-        <h1 className="mb-6 text-4xl font-bold tracking-tight text-neutral-900">
-          Projects
-        </h1>
-        <div className="mt-12 space-y-16">
+      <main className="content-container">
+        <section className="pt-12 md:pt-24">
+          <h1 className="mb-4 text-4xl font-bold font-mono tracking-tight text-neutral-900">
+            Projects
+          </h1>
+          <h2 className="mb-8 text-2xl tracking-tight text-neutral-500">
+            Things I have made or learned at the companies I have worked for.
+          </h2>
+        </section>
+        <div className="space-y-16">
           {PROJECT_GROUPS.map((group, index) => (
             <Fragment key={group.title}>
               {index > 0 ? (
@@ -172,20 +177,24 @@ export default function ProjectsPage(): React.ReactNode {
                   </p>
                 ) : null}
 
-                <h2
+                <h3
                   id={`projects-group-${index}-heading`}
-                  className="mb-8 text-2xl font-semibold tracking-tight text-neutral-900"
+                  className="font-mono tracking-tight text-neutral-500 border-b border-gray-300 pb-4"
                 >
                   {group.title}
-                </h2>
+                </h3>
 
                 <ul className="list-none p-0">
-                  {group.entries.map((entry) => (
-                    <ProjectRow
-                      key={`${group.title}-${entry.title}`}
-                      entry={entry}
-                    />
-                  ))}
+                  {group.entries.map((entry) => {
+                    return (
+                      entry.active && (
+                        <ProjectRow
+                          key={`${group.title}-${entry.title}`}
+                          entry={entry}
+                        />
+                      )
+                    );
+                  })}
                 </ul>
               </section>
             </Fragment>
