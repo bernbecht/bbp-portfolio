@@ -89,7 +89,7 @@ function ProjectRow({
   entry,
 }: Readonly<{ entry: ProjectEntry }>): React.ReactNode {
   const companyLine = entry.company?.trim();
-  const tagItems = (entry.tags ?? []).filter((tag) => tag.trim().length > 0);
+  // const tagItems = (entry.tags ?? []).filter((tag) => tag.trim().length > 0);
   const journalSlug = entry.journalSlug?.trim();
   const journalHref = journalSlug ? `/projects/${journalSlug}` : null;
   const href = entry.href?.trim();
