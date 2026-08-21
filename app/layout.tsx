@@ -49,9 +49,14 @@ export default function RootLayout({
         name="google-site-verification"
         content="GtY3LNDFgGqkMEHr_LVhK9WhyblMkcve52dJ5BaFliI"
       />
-      <body className={cn(fontClasses, "font-sans antialiased")}>
+      <body
+        className={cn(
+          fontClasses,
+          "font-sans antialiased flex min-h-dvh flex-col",
+        )}
+      >
         <Header />
-        {children}
+        <div className="flex-1">{children}</div>
         <Footer />
         <Analytics />
       </body>
