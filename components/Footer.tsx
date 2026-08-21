@@ -22,6 +22,8 @@ function formatSaoPauloTime() {
 }
 
 const emailAddress = "bernbechtold@gmail.com";
+const copyResetDelayMs = 1_800;
+const clockRefreshIntervalMs = 30_000;
 
 export function Footer() {
   const [copyStatus, setCopyStatus] = useState<CopyStatus>("idle");
@@ -34,12 +36,13 @@ export function Footer() {
     }
 
     updateTime();
-    const clockInterval = setInterval(updateTime, 30_000);
+    const clockInterval = setInterval(updateTime, clockRefreshIntervalMs);
 
     return () => {
       clearInterval(clockInterval);
       if (copyResetTimer.current) {
         clearTimeout(copyResetTimer.current);
+        copyResetTimer.current = null;
       }
     };
   }, []);
@@ -47,6 +50,7 @@ export function Footer() {
   async function handleCopy(email: string) {
     if (copyResetTimer.current) {
       clearTimeout(copyResetTimer.current);
+      copyResetTimer.current = null;
     }
 
     try {
@@ -58,7 +62,8 @@ export function Footer() {
 
     copyResetTimer.current = setTimeout(() => {
       setCopyStatus("idle");
-    }, 1800);
+      copyResetTimer.current = null;
+    }, copyResetDelayMs);
   }
 
   function handleBackToTop() {
@@ -80,16 +85,23 @@ export function Footer() {
         : "Copy email ↗";
 
   return (
-    <footer id="footer" className="text-white">
+    <footer
+      id="footer"
+      aria-labelledby="footer-heading"
+      className="text-white"
+    >
       <div className="footer-dither h-16" aria-hidden="true" />
 
-      <div className="relative bg-black">
+      <div className="bg-black">
         <div className="content-container py-12 md:py-24">
           <p className="mb-5 font-mono text-sm uppercase tracking-wider text-neutral-400">
             / Let&apos;s make something
           </p>
 
-          <h2 className="max-w-3xl font-serif text-5xl leading-[0.95] tracking-tight md:text-7xl">
+          <h2
+            id="footer-heading"
+            className="max-w-3xl font-serif text-5xl leading-[0.95] tracking-tight xs:text-6xl md:text-7xl"
+          >
             Have a complex idea?
           </h2>
 
@@ -103,9 +115,9 @@ export function Footer() {
           onClick={() => handleCopy(emailAddress)}
           aria-describedby="copy-email-feedback"
           aria-label={`Copy ${emailAddress}`}
-            className="group mt-10 flex w-full flex-col items-start justify-between gap-3 border border-neutral-500 px-5 py-5 text-left transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black sm:flex-row sm:items-center"
+            className="group mt-10 flex w-full cursor-pointer flex-col items-start justify-between gap-3 overflow-hidden border border-neutral-500 px-5 py-5 text-left transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black motion-reduce:transition-none sm:flex-row sm:items-center"
           >
-            <span className="font-serif text-xl sm:text-2xl md:text-3xl">
+            <span className="min-w-0 break-all font-serif text-xl sm:text-2xl md:text-3xl">
               {emailAddress}
           </span>
           <span className="shrink-0 font-mono text-xs uppercase tracking-wider">
@@ -128,21 +140,25 @@ export function Footer() {
               href="https://br.linkedin.com/in/bbechtold"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex min-h-14 items-center justify-between py-5 font-mono text-sm uppercase tracking-wide transition-colors hover:text-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="group flex min-h-14 items-center justify-between py-5 font-mono text-sm uppercase tracking-wide transition-colors hover:text-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white motion-reduce:transition-none"
             >
               <span>LinkedIn</span>
               <span
                 aria-hidden="true"
-                className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                className="transition-transform motion-safe:group-hover:translate-x-1 motion-safe:group-hover:-translate-y-1 motion-reduce:transition-none"
               >
                 ↗
               </span>
             </a>
           </nav>
 
-          <div className="flex flex-col gap-6 pt-6 font-mono text-xs uppercase text-neutral-400 sm:flex-row sm:items-center">
+          <div className="grid grid-cols-[auto_1fr] items-center gap-6 pt-6 font-mono text-xs uppercase text-neutral-400 sm:grid-cols-[auto_1fr_auto]">
             <div className="w-fit shrink-0 bg-white p-1">
-              <Logo aria-label="Bernardo Bechtold" className="size-8" />
+              <Logo
+                role="img"
+                aria-label="Bernardo Bechtold"
+                className="size-8"
+              />
             </div>
 
             <div className="flex-1">
@@ -160,7 +176,7 @@ export function Footer() {
             <button
               type="button"
               onClick={handleBackToTop}
-              className="w-fit cursor-pointer py-2 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="col-span-2 w-fit cursor-pointer justify-self-end py-2 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white motion-reduce:transition-none sm:col-span-1"
             >
               Back to top <span aria-hidden="true">↑</span>
             </button>
