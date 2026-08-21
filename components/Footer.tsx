@@ -1,9 +1,11 @@
 "use client";
 
 import Logo from "@assets/logo.svg";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-async function copyToClipboardSync(text: string) {
+type CopyStatus = "idle" | "copied" | "error";
+
+async function copyToClipboard(text: string) {
   if (!navigator.clipboard || !window.isSecureContext) {
     throw new Error("Clipboard unavailable");
   }
@@ -11,16 +13,71 @@ async function copyToClipboardSync(text: string) {
   await navigator.clipboard.writeText(text);
 }
 
+function formatSaoPauloTime() {
+  return new Intl.DateTimeFormat("en-GB", {
+    timeZone: "America/Sao_Paulo",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(new Date());
+}
+
 const emailAddress = "bernbechtold@gmail.com";
 
 export function Footer() {
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<CopyStatus>("idle");
+  const [saoPauloTime, setSaoPauloTime] = useState("--:--");
+  const copyResetTimer = useRef<ReturnType<typeof setTimeout>>(null);
+
+  useEffect(() => {
+    function updateTime() {
+      setSaoPauloTime(formatSaoPauloTime());
+    }
+
+    updateTime();
+    const clockInterval = setInterval(updateTime, 30_000);
+
+    return () => {
+      clearInterval(clockInterval);
+      if (copyResetTimer.current) {
+        clearTimeout(copyResetTimer.current);
+      }
+    };
+  }, []);
 
   async function handleCopy(email: string) {
-    await copyToClipboardSync(email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1200);
+    if (copyResetTimer.current) {
+      clearTimeout(copyResetTimer.current);
+    }
+
+    try {
+      await copyToClipboard(email);
+      setCopyStatus("copied");
+    } catch {
+      setCopyStatus("error");
+    }
+
+    copyResetTimer.current = setTimeout(() => {
+      setCopyStatus("idle");
+    }, 1800);
   }
+
+  function handleBackToTop() {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+  }
+
+  const copyActionLabel =
+    copyStatus === "copied"
+      ? "Copied — talk soon ✓"
+      : copyStatus === "error"
+        ? "Copy unavailable"
+        : "Copy email ↗";
 
   return (
     <footer id="footer" className="text-white">
@@ -42,21 +99,25 @@ export function Footer() {
           </p>
 
           <button
-            type="button"
-            onClick={() => handleCopy(emailAddress)}
-            aria-describedby="copy-email-feedback"
+          type="button"
+          onClick={() => handleCopy(emailAddress)}
+          aria-describedby="copy-email-feedback"
+          aria-label={`Copy ${emailAddress}`}
             className="group mt-10 flex w-full flex-col items-start justify-between gap-3 border border-neutral-500 px-5 py-5 text-left transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black sm:flex-row sm:items-center"
           >
             <span className="font-serif text-xl sm:text-2xl md:text-3xl">
               {emailAddress}
-            </span>
-            <span className="shrink-0 font-mono text-xs uppercase tracking-wider">
-              {copied ? "Copied — talk soon ✓" : "Copy email ↗"}
-            </span>
-          </button>
+          </span>
+          <span className="shrink-0 font-mono text-xs uppercase tracking-wider">
+            {copyActionLabel}
+          </span>
+        </button>
 
-          <span id="copy-email-feedback" aria-live="polite" className="sr-only">
-            {copied ? "Email copied to clipboard" : ""}
+        <span id="copy-email-feedback" aria-live="polite" className="sr-only">
+          {copyStatus === "copied" ? "Email copied to clipboard" : ""}
+          {copyStatus === "error"
+            ? "Clipboard unavailable. The email address is visible on screen."
+            : ""}
           </span>
 
           <nav
@@ -91,12 +152,14 @@ export function Footer() {
                 </span>
                 Available for select work
               </p>
-              <p className="mt-1">São Paulo · © 2026</p>
+              <p className="mt-1">
+                São Paulo · {saoPauloTime} · © 2026
+              </p>
             </div>
 
             <button
               type="button"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              onClick={handleBackToTop}
               className="w-fit cursor-pointer py-2 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               Back to top <span aria-hidden="true">↑</span>
