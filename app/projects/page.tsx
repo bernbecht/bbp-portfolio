@@ -160,7 +160,7 @@ export default function ProjectsPage(): React.ReactNode {
           <h1 className="mb-4 text-4xl font-bold font-mono tracking-tight text-neutral-900">
             Projects
           </h1>
-          <h2 className="mb-8 text-2xl tracking-tight text-neutral-500">
+          <h2 className="text-2xl tracking-tight text-neutral-500">
             Things I have made or learned at the companies I have worked for.
           </h2>
         </section>
