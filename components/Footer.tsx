@@ -90,7 +90,7 @@ export function Footer() {
       aria-labelledby="footer-heading"
       className="text-white"
     >
-      <div className="footer-dither h-16" aria-hidden="true" />
+      <div className="footer-dither" aria-hidden="true" />
 
       <div className="bg-black">
         <div className="content-container py-12 md:py-24">
