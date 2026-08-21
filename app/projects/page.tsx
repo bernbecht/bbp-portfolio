@@ -156,7 +156,7 @@ export default function ProjectsPage(): React.ReactNode {
   return (
     <div className="fade-up">
       <main className="content-container">
-        <section className="pb-12 md:pb-24">
+        <section className="pb-12">
           <h1 className="mb-4 text-4xl font-bold font-mono tracking-tight text-neutral-900">
             Projects
           </h1>
