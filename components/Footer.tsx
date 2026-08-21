@@ -113,7 +113,7 @@ export function Footer() {
         </div>
 
         <div className="flex justify-between items-center mt-4 gap-16">
-          <Logo className="w-12 h-12" />
+          <Logo className="size-8" />
           <span className="text-sm">© 2026 Bernardo Bechtold</span>
         </div>
       </div>
