@@ -52,11 +52,12 @@ address {
 }
 
 .footer-dither {
+  height: 4rem;
   background-color: var(--background);
   background-image: radial-gradient(
     circle,
-    rgb(0 0 0 / 25%) 1px,
-    transparent 1.25px
+    rgb(0 0 0 / 38%) 1.25px,
+    transparent 1.5px
   );
   background-size: 10px 10px;
 }
