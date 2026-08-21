@@ -156,7 +156,7 @@ export default function ProjectsPage(): React.ReactNode {
   return (
     <div className="fade-up">
       <main className="content-container">
-        <section className="pt-12 md:pt-24">
+        <section className="py-12 md:pt-24">
           <h1 className="mb-4 text-4xl font-bold font-mono tracking-tight text-neutral-900">
             Projects
           </h1>
@@ -164,7 +164,7 @@ export default function ProjectsPage(): React.ReactNode {
             Things I have made or learned at the companies I have worked for.
           </h2>
         </section>
-        <div className="space-y-16">
+        <section>
           {PROJECT_GROUPS.map((group, index) => (
             <Fragment key={group.title}>
               {index > 0 ? (
@@ -199,7 +199,7 @@ export default function ProjectsPage(): React.ReactNode {
               </section>
             </Fragment>
           ))}
-        </div>
+        </section>
       </main>
     </div>
   );
