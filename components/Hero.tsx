@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export function Hero() {
   return (
-    <section className="my-12 md:my-24">
+    <section className="mb-24">
       <div className="flex items-end gap-4 mb-12">
         <Image
           src="/profile.jpeg"

@@ -131,7 +131,7 @@ export default async function ProjectPostPage({
 
   return (
     <div className="fade-up">
-      <main className="content-container pb-24 pt-8">
+      <main className="content-container">
         <nav aria-label="Breadcrumb" className="mb-8">
           <ol className="flex list-none flex-wrap items-center gap-2 p-0 text-sm text-neutral-600">
             <li>
