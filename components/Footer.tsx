@@ -1,20 +1,14 @@
 "use client";
 
 import Logo from "@assets/logo.svg";
-import { faCircleCheck } from "@fortawesome/free-regular-svg-icons/faCircleCheck";
-import { faCopy } from "@fortawesome/free-regular-svg-icons/faCopy";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons/faArrowUpRightFromSquare";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-
-import { cn } from "@/lib/cn";
 
 async function copyToClipboardSync(text: string) {
   if (!navigator.clipboard || !window.isSecureContext) {
     throw new Error("Clipboard unavailable");
   }
 
-  navigator.clipboard.writeText(text);
+  await navigator.clipboard.writeText(text);
 }
 
 const emailAddress = "bernbechtold@gmail.com";
@@ -29,92 +23,51 @@ export function Footer() {
   }
 
   return (
-    <footer id="footer" className="relative pt-12 md:pt-24 pb-8">
-      <div className="absolute inset-0 z-0 opacity-20 dither" aria-hidden />
+    <footer id="footer">
+      <div>
+        <p>/ Let&apos;s make something</p>
+        <h2>Have a complex idea?</h2>
+        <p>
+          I work where product, design, and engineering meet. Tell me what
+          you&apos;re trying to untangle.
+        </p>
 
-      <div className="relative z-10 content-container text-xs xs:text-sm sm:text-sm lg:text-sm">
-        <address>
-          <div className="flex flex-col gap-4">
-            {/* EMAIL */}
+        <button
+          type="button"
+          onClick={() => handleCopy(emailAddress)}
+          aria-describedby="copy-email-feedback"
+        >
+          <span>{emailAddress}</span>
+          <span>{copied ? "Copied — talk soon ✓" : "Copy email ↗"}</span>
+        </button>
+
+        <span id="copy-email-feedback" aria-live="polite" className="sr-only">
+          {copied ? "Email copied to clipboard" : ""}
+        </span>
+
+        <nav aria-label="Social links">
+          <a>
+            <span>LinkedIn</span>
+            <span aria-hidden="true">↗</span>{" "}
+          </a>
+        </nav>
+
+        <div>
+          <div>
+            <Logo aria-label="Bernardo Bechtold" />
+
             <div>
-              <button
-                type="button"
-                onClick={() => {
-                  handleCopy(emailAddress);
-                }}
-                aria-describedby="copy-email-feedback"
-                aria-label={copied ? "Email copied" : "Copy email address"}
-                className="relative flex items-center gap-2 w-full text-left cursor-pointer hover:text-blue-600 transition-colors"
-              >
-                {/* normal */}
-                <div
-                  className={cn(
-                    "flex items-center gap-2 w-full transition-opacity duration-150",
-                    copied ? "opacity-0" : "opacity-100",
-                  )}
-                >
-                  <span className="font-medium text-[1.8em]">Email</span>
-
-                  <div className="flex-grow border-t border-black" />
-
-                  <span className="text-[1.8em] font-serif">
-                    {emailAddress}
-                  </span>
-
-                  <FontAwesomeIcon icon={faCopy} size="lg" />
-                </div>
-
-                {/* copied */}
-                <div
-                  className={cn(
-                    "absolute inset-0 flex items-center justify-center gap-2 transition-opacity duration-150",
-                    copied ? "opacity-100" : "opacity-0",
-                  )}
-                >
-                  <span className="text-[1.8em] font-serif font-medium tracking-wide">
-                    Email copied!
-                  </span>
-
-                  <FontAwesomeIcon icon={faCircleCheck} size="lg" />
-                </div>
-              </button>
-
-              <span
-                id="copy-email-feedback"
-                aria-live="polite"
-                className="sr-only"
-              >
-                {copied && "Email copied to clipboard"}
-              </span>
+              <p>Available for select work</p>
+              <p>São Paulo · © 2026</p>
             </div>
 
-            {/* LINKEDIN */}
-            <div className="flex items-center gap-2">
-              <a
-                href="https://br.linkedin.com/in/bbechtold"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-blue-600 transition-colors w-full"
-              >
-                <span className="font-medium text-[1.8em]">LinkedIn</span>
-
-                <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="lg" />
-
-                <div className="flex-grow border-t border-black" />
-              </a>
-            </div>
-          </div>
-        </address>
-
-        <div className="text-center mt-12 md:mt-24">
-          <p className="text-[1.8em] font-medium border-b border-black pt-4 pb-4 font-serif">
-            Stay awesome. Stay in touch ✌️
-          </p>
-        </div>
-
-        <div className="flex justify-between items-center mt-4 gap-16">
-          <Logo className="size-8" />
-          <span className="text-sm">© 2026 Bernardo Bechtold</span>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Back to top <span aria-hidden="true">↑</span>
+            </button>
+          </div>{" "}
         </div>
       </div>
     </footer>
