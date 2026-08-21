@@ -111,7 +111,7 @@ function ProjectRow({
           {entry.period}
         </span>
       </div>
-      {tagItems.length > 0 ? (
+      {/* {tagItems.length > 0 ? (
         <ul
           className="mt-3 flex list-none flex-wrap gap-2 p-0"
           aria-label="Project tags"
@@ -124,7 +124,7 @@ function ProjectRow({
             </li>
           ))}
         </ul>
-      ) : null}
+      ) : null} */}
       {entry.summary ? (
         <p className="section__paragraph mt-4 text-lg leading-relaxed text-gray-700">
           {entry.summary}
