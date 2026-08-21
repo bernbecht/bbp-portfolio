@@ -10,7 +10,7 @@ export function Section({ id, label, title, children }: SectionProps) {
     <section
       id={id}
       aria-labelledby={title ? `${id}-title` : undefined} // @TODO: add smart default
-      className="scroll-mt-24 mb-24 section-grid layout:grid"
+      className="scroll-mt-24 mb-24 last:mb-0 section-grid layout:grid"
     >
       <span
         className="
