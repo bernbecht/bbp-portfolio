@@ -29,7 +29,7 @@ export default function Header() {
             aria-label="Home"
             className="inline-flex shrink-0 pressable-button"
           >
-            <Logo />
+            <Logo className="size-11" />
           </NavLink>
           <div className="min-w-0 border border-black">
             <ul
