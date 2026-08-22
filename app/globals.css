@@ -2,9 +2,9 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --content-container-max-width: 48rem;
+  --background: #f1f0e8;
+  --foreground: #171914;
+  --content-container-max-width: 72rem;
 }
 
 @theme inline {
@@ -34,6 +34,8 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+  background-image: linear-gradient(rgb(23 25 20 / 6%) 1px, transparent 1px), linear-gradient(90deg, rgb(23 25 20 / 6%) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 ul {

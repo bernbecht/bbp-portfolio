@@ -19,19 +19,19 @@ export default function Header() {
 
   return (
     <>
-      <header className="backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-neutral-400 bg-[#f1f0e8]/90 backdrop-blur-md">
         <nav
           aria-label="Main navigation"
-          className="content-container flex flex-wrap items-center justify-between gap-4 py-4"
+          className="content-container flex items-center justify-between gap-4 py-3"
         >
           <NavLink
             href="/"
             aria-label="Home"
             className="inline-flex shrink-0 pressable-button"
           >
-            <Logo className="size-11" />
+            <Logo className="size-9" />
           </NavLink>
-          <div className="min-w-0 border border-black">
+          <div className="min-w-0 border border-black bg-[#f1f0e8]">
             <ul
               className="flex shrink-0 list-none items-stretch p-0 font-mono text-sm [&>li]:flex [&>li]:items-stretch [&>li:not(:last-child)]:border-r [&>li:not(:last-child)]:border-black [&>li>a]:flex [&>li>a]:h-full [&>li>a]:min-h-11 [&>li>a]:items-center [&>li>a]:px-0.5 [&>li>a]:py-3 [&>li>button]:flex [&>li>button]:h-full [&>li>button]:min-h-11 [&>li>button]:w-full [&>li>button]:items-center [&>li>button]:py-3
             [&>li]:px-3"
@@ -43,7 +43,7 @@ export default function Header() {
                   activeClassName="bg-black font-bold text-white"
                   className="group transition group-hover:bg-black hover:text-white group-aria-[current=page]:bg-black group-aria-[current=page]:text-white"
                 >
-                  Projects
+                  Workbench
                   <span
                     className="absolute top-0 left-0 block h-full w-[102%] origin-bottom scale-y-0 bg-black mix-blend-difference transition group-hover:scale-y-100 group-aria-[current=page]:scale-y-100"
                     aria-hidden
