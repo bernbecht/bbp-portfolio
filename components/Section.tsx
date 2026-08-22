@@ -3,14 +3,15 @@ type SectionProps = {
   label: string;
   title?: string;
   children: React.ReactNode;
+  tone?: "light" | "dark";
 };
 
-export function Section({ id, label, title, children }: SectionProps) {
+export function Section({ id, label, title, children, tone = "light" }: SectionProps) {
   return (
     <section
       id={id}
       aria-labelledby={title ? `${id}-title` : undefined} // @TODO: add smart default
-      className="scroll-mt-24 mb-24 last:mb-0 section-grid layout:grid"
+      className={`scroll-mt-24 section-grid layout:grid ${tone === "dark" ? "bg-black py-20 text-white md:py-28" : "py-20 md:py-28"}`}
     >
       <span
         className="
@@ -54,7 +55,7 @@ type ParagraphProps = {
 
 export function SectionParagraph({ children }: ParagraphProps) {
   return (
-    <p className={`section__paragraph text-xl text-gray-700 mb-6`}>
+    <p className="section__paragraph mb-6 text-lg leading-relaxed text-current opacity-75 md:text-xl">
       {children}
     </p>
   );

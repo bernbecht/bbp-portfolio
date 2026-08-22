@@ -4,7 +4,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --content-container-max-width: 48rem;
+  --content-container-max-width: 72rem;
 }
 
 @theme inline {
@@ -85,6 +85,11 @@ address {
 
   .section-grid {
     grid-template-columns: 1fr var(--content-container-max-width) 1fr;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
   .section__paragraph {

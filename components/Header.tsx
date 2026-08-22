@@ -19,31 +19,33 @@ export default function Header() {
 
   return (
     <>
-      <header className="backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-black bg-white/90 backdrop-blur-md">
         <nav
           aria-label="Main navigation"
-          className="content-container flex flex-wrap items-center justify-between gap-4 py-4"
+          className="content-container flex items-center justify-between gap-4 py-3"
         >
           <NavLink
             href="/"
             aria-label="Home"
-            className="inline-flex shrink-0 pressable-button"
+            className="inline-flex shrink-0 items-center gap-3 pressable-button"
           >
-            <Logo className="size-11" />
+            <Logo className="size-9" />
+            <span className="hidden font-mono text-[11px] uppercase leading-tight tracking-wider sm:block">
+              Bernardo<br />Bechtold
+            </span>
           </NavLink>
-          <div className="min-w-0 border border-black">
+          <div className="min-w-0">
             <ul
-              className="flex shrink-0 list-none items-stretch p-0 font-mono text-sm [&>li]:flex [&>li]:items-stretch [&>li:not(:last-child)]:border-r [&>li:not(:last-child)]:border-black [&>li>a]:flex [&>li>a]:h-full [&>li>a]:min-h-11 [&>li>a]:items-center [&>li>a]:px-0.5 [&>li>a]:py-3 [&>li>button]:flex [&>li>button]:h-full [&>li>button]:min-h-11 [&>li>button]:w-full [&>li>button]:items-center [&>li>button]:py-3
-            [&>li]:px-3"
+              className="flex shrink-0 list-none items-stretch gap-1 p-0 font-mono text-xs uppercase tracking-wider [&>li]:flex [&>li]:items-stretch [&>li>a]:flex [&>li>a]:min-h-10 [&>li>a]:items-center [&>li>a]:px-3 [&>li>button]:flex [&>li>button]:min-h-10 [&>li>button]:items-center [&>li>button]:px-3"
             >
               <li className="relative pressable-button">
                 <NavLink
                   href="/projects"
                   match="prefix"
-                  activeClassName="bg-black font-bold text-white"
+                  activeClassName="bg-neutral-100 font-bold text-black"
                   className="group transition group-hover:bg-black hover:text-white group-aria-[current=page]:bg-black group-aria-[current=page]:text-white"
                 >
-                  Projects
+                  Work
                   <span
                     className="absolute top-0 left-0 block h-full w-[102%] origin-bottom scale-y-0 bg-black mix-blend-difference transition group-hover:scale-y-100 group-aria-[current=page]:scale-y-100"
                     aria-hidden
@@ -54,15 +56,9 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={handleSayHello}
-                  className=" cursor-pointer font-mono font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2
-                  group  group-hover:bg-black hover:text-white transition
-                  "
+                  className="group cursor-pointer border border-black bg-black font-mono font-bold text-white transition hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
                 >
-                  Say Hello
-                  <span
-                    className="origin-bottom transition absolute top-0 left-0 w-[102%] h-full bg-black block mix-blend-difference scale-y-0 group-hover:scale-y-100
-                  "
-                  ></span>
+                  Let&apos;s talk <span className="ml-2" aria-hidden="true">↘</span>
                 </button>
               </li>
             </ul>

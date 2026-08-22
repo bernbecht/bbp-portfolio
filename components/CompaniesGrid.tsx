@@ -33,9 +33,13 @@ export function CompaniesGrid() {
           <li key={company.name}>
             <a
               href={company.link}
-              className="flex items-center justify-center py-8 hover:bg-gray-900 text-black hover:text-white transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${company.name}`}
+              className="group relative flex min-h-40 items-center justify-center overflow-hidden py-8 text-black transition-colors hover:bg-gray-900 hover:text-white"
             >
-              <company.logo className="w-64 h-32" />
+              <company.logo className="h-24 w-52 transition-transform duration-300 motion-safe:group-hover:scale-105" />
+              <span className="absolute right-3 top-3 font-mono text-xs opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true">↗</span>
             </a>
           </li>
         ))}
