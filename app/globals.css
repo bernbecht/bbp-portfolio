@@ -2,9 +2,9 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
+  --background: #f5f1e8;
   --foreground: #171717;
-  --content-container-max-width: 48rem;
+  --content-container-max-width: 72rem;
 }
 
 @theme inline {
@@ -34,6 +34,23 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+.dual-home {
+  --dual-accent: #171717;
+}
+
+.dual-home.is-design {
+  --dual-accent: #ee5d3f;
+}
+
+.dual-home.is-engineering {
+  --dual-accent: #3155d9;
+}
+
+.dual-action {
+  background: var(--dual-accent);
+  color: white;
 }
 
 ul {

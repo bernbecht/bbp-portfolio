@@ -19,17 +19,18 @@ export default function Header() {
 
   return (
     <>
-      <header className="backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-black bg-[#f5f1e8]/90 backdrop-blur-md">
         <nav
           aria-label="Main navigation"
-          className="content-container flex flex-wrap items-center justify-between gap-4 py-4"
+          className="content-container flex items-center justify-between gap-4 py-3"
         >
           <NavLink
             href="/"
             aria-label="Home"
-            className="inline-flex shrink-0 pressable-button"
+            className="inline-flex shrink-0 items-center gap-3 pressable-button"
           >
-            <Logo className="size-11" />
+            <Logo className="size-9" />
+            <span className="hidden font-mono text-[10px] uppercase leading-tight tracking-wider sm:block">Bernardo Bechtold<br />Design × Engineering</span>
           </NavLink>
           <div className="min-w-0 border border-black">
             <ul
@@ -43,7 +44,7 @@ export default function Header() {
                   activeClassName="bg-black font-bold text-white"
                   className="group transition group-hover:bg-black hover:text-white group-aria-[current=page]:bg-black group-aria-[current=page]:text-white"
                 >
-                  Projects
+                  Selected work
                   <span
                     className="absolute top-0 left-0 block h-full w-[102%] origin-bottom scale-y-0 bg-black mix-blend-difference transition group-hover:scale-y-100 group-aria-[current=page]:scale-y-100"
                     aria-hidden
