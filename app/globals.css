@@ -87,11 +87,6 @@ address {
     grid-template-columns: 1fr var(--content-container-max-width) 1fr;
   }
 
-  .hero-grid {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-  }
-
   .section__paragraph {
     font-family: var(--font-ibm-plex-serif-400);
   }

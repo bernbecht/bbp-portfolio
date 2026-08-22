@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function Hero() {
   return (
-    <section className="hero-grid mb-20 border-x border-t border-black md:mb-32">
+    <section className="mb-20 grid grid-cols-1 border-x border-t border-black md:mb-32 layout:grid-cols-12">
       <div className="col-span-full flex items-center justify-between border-b border-black px-4 py-3 font-mono text-[11px] uppercase tracking-[0.14em] sm:px-6">
         <p>Independent design engineer</p>
         <p className="hidden items-center gap-2 text-neutral-600 sm:flex">
@@ -13,7 +13,7 @@ export function Hero() {
         <p className="sm:hidden">SP · BR</p>
       </div>
 
-      <div className="col-span-full px-4 pb-12 pt-8 sm:px-6 md:col-span-8 md:border-r md:border-black md:pb-16 md:pt-12">
+      <div className="col-span-full px-4 pb-12 pt-8 sm:px-6 layout:col-span-8 layout:border-r layout:border-black layout:pb-16 layout:pt-12">
         <p className="mb-5 font-mono text-xs uppercase tracking-[0.16em] text-neutral-500">
           Product thinking, expressed in code
         </p>
@@ -43,7 +43,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative col-span-full min-h-72 overflow-hidden bg-neutral-200 md:col-span-4 md:min-h-full">
+      <div className="relative col-span-full min-h-80 overflow-hidden bg-neutral-200 layout:col-span-4 layout:min-h-[36rem]">
         <Image
           src="/profile.jpeg"
           alt="Bernardo Bechtold, portrait"
