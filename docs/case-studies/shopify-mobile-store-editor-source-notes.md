@@ -1,8 +1,8 @@
 # Shopify mobile Store Editor case study: source notes
 
-Status: **In progress — interview paused after ownership and collaboration**
+Status: **In progress — source interview complete; artifact inventory in progress**
 
-Last updated: 2026-08-24
+Last updated: 2026-08-26
 
 Related plan: [Shopify mobile Store Editor case study plan](shopify-mobile-store-editor-plan.md)
 
@@ -84,9 +84,12 @@ The initial implementation had only two working states: collapsed and fully expa
 It could also overlap the primary header of the store shown in the live preview.
 
 The original interaction direction appears to have included a partially expanded state.
-That state was dropped before or during the initial implementation, possibly because of
-time constraints. Bernardo was later asked to restore the functionality when the team
-had capacity. The reason it was originally dropped is not confirmed.
+Bernardo thinks the initial Figma concept contained all three states: collapsed,
+partially expanded, and fully expanded. This is a probable memory rather than a fact
+confirmed by the original artifact. The partially expanded state was dropped before or
+during the initial implementation, possibly because of time constraints. Bernardo was
+later asked to restore the functionality when the team had capacity. The reason it was
+originally dropped is not confirmed.
 
 `dnd-kit` was already the predetermined interaction library. Its creator worked at
 Shopify at the time and was available to provide development support, which helped the
@@ -158,6 +161,355 @@ needed.
 This is promising technical material, but do not describe exact component API,
 accessibility, or styling changes until memory or artifacts can verify them.
 
+## Engineering implementation
+
+### State ownership and sheet sizing
+
+A parent component owned the bottom sheet's state. It calculated the sheet height for
+the different resting states using CSS custom properties and passed those variables
+down to the sheet component.
+
+The precise React state shape, CSS custom-property names, formulas, and component names
+are not currently remembered. Do not claim that the implementation used an enum, formal
+state machine, or a particular state-management library without artifact verification.
+
+### State transitions and gesture behavior
+
+The sheet responded to drag velocity as well as its position when released:
+
+- A sufficiently fast upward drag sent it to fully expanded.
+- A sufficiently fast downward drag sent it to fully collapsed.
+
+When the drag velocity did not determine the destination, the viewport was divided into
+three drop zones after subtracting the storefront header height of 58 pixels. Releasing
+the sheet within a zone changed its resting state to collapsed, partially expanded, or
+fully expanded. This connects the viewport-relative sizing to a concrete interaction:
+the header was excluded from the available vertical area before the three zones were
+calculated.
+
+Tapping the bottom-sheet handle used these confirmed transitions:
+
+- Collapsed to partially expanded
+- Partially expanded to fully collapsed
+- Fully expanded to fully collapsed
+
+### Selecting elements in the preview
+
+When the merchant selected an editable storefront element while the sheet was
+collapsed, the sheet stayed collapsed and bounced to signal that its controls had
+changed. When the sheet was already open, it loaded the newly selected element's
+controls without the bounce or another state change.
+
+### Drag-versus-scroll boundary
+
+Dragging the sheet was restricted to its handle. A merchant could not initiate a sheet
+drag from the controls or other sheet content, leaving vertical gestures in the content
+area available for scrolling. The implementation therefore avoided resolving drag and
+scroll intent dynamically based on the content's current scroll position.
+
+### Nested controls and stacked sheets
+
+Some controls opened a second bottom sheet over the original sheet, behaving like a
+modal dialog:
+
+- A backdrop visually emphasized the modal relationship and made the original sheet
+  non-interactive.
+- The nested sheet opened partially expanded.
+- It could be expanded fully or closed.
+- Selecting its Done action collapsed the nested sheet, removed the backdrop, and made
+  the original sheet interactive again.
+
+This behavior was debated. Bernardo felt that replacing the original sheet's content
+with the nested controls, together with a Back or Done action, would have produced a
+clearer navigation model than stacking sheets. Such a replacement would also have
+needed a transition animation to communicate the navigation and preserve spatial
+continuity.
+
+The team did not have time to redesign and implement that alternative. Bernardo
+accepted the stacked-sheet behavior in part because products such as Google Maps were
+already using multiple sheets for navigation, suggesting that users may recognize the
+pattern. Treat that comparison as Bernardo's contemporaneous design rationale, not as
+usability evidence or proof that the pattern was universally established.
+
+### `dnd-kit` boundary
+
+`dnd-kit` provided three remembered building blocks:
+
+- The draggable object representing the bottom sheet
+- The droppable targets used to select a resting state when the sheet was released
+- A modifier that restricted dragging to the vertical axis
+
+The library did not provide the drag-velocity measurement needed by this interaction.
+Bernardo implemented a custom function that calculated the movement delta so a fast
+upward or downward drag could override the position-based drop-zone result. The exact
+formula, time sampling, and velocity threshold are not remembered and should not be
+invented.
+
+The parent also recalculated the available height for the sheet's content when the
+sheet state changed and passed the result down through a CSS custom property. This is
+more specific than the earlier recollection of state-dependent sheet sizing: the CSS
+variable controlled the content height for the current sheet state. The precise formula
+and variable name remain unverified.
+
+### Preview synchronization and visual stability
+
+Bernardo does not recall a specific preview-synchronization or visual-jump problem, its
+cause, or a corresponding fix. Do not include such an engineering claim unless an
+artifact supplies evidence. The separately confirmed behavior—loading controls and
+bouncing the collapsed sheet when an element was selected—can still be described.
+
+### Cross-platform behavior
+
+Bernardo does not recall specific differences or bugs between iOS and Android or
+between emulators and physical devices. Do not claim platform-specific accommodations
+or test findings without supporting artifacts.
+
+### Viewport and environment changes
+
+Bernardo does not recall how the implementation handled safe-area insets, orientation
+changes, browser viewport resizing, or the virtual keyboard opening over inputs. Do not
+describe specific handling for these cases without artifact evidence.
+
+### Accessibility
+
+Bernardo remembers testing the implementation with a screen reader throughout the
+work. No specific screen-reader issue, design change, focus behavior, semantic
+implementation, keyboard interaction, touch-target adjustment, or reduced-motion
+behavior is remembered. The final case study may describe ongoing screen-reader
+testing, but it must not imply particular findings, remediations, or conformance without
+additional evidence.
+
+### Performance measurement
+
+No formal animation or rendering performance measurement is remembered. Do not claim
+frame-rate measurement, profiling, performance traces, or a quantified performance
+result. Physical-device testing remains confirmed, but it should not be reframed as a
+specific performance methodology without evidence.
+
+### Technical compromise in retrospect
+
+The only technical or interaction compromise Bernardo would identify today is the
+stacked nested-sheet behavior described above. He does not remember another feature
+that was knowingly omitted or implemented incorrectly. In reflection, focus on the
+alternative navigation model—replacing content in the original sheet and communicating
+the transition—without manufacturing a broader list of shortcomings.
+
+## Reflection
+
+The main lesson Bernardo draws from the work is the importance of treating mobile as a
+distinct product and interaction context rather than translating a desktop interface
+directly into a smaller viewport.
+
+In Bernardo's reflection, moving a desktop experience to mobile can require more
+adaptation than moving a mobile experience to desktop. Desktop offers more forgiving
+screen real estate and interactions centered largely on mouse and keyboard. Mobile
+design may also need to account for:
+
+- Data usage
+- Touch gestures
+- Limited screen real estate
+- The user's surrounding context, such as commuting or completing a task briefly while
+  waiting in line, compared with more stationary desktop use at home or in an office
+
+These are retrospective design considerations, not all confirmed requirements or user
+research findings from this Store Editor project. In particular, do not imply that data
+usage or commuting scenarios drove the original work unless further evidence supports
+that claim. They may be explored in the reflection as examples of the broader mobile
+design context.
+
+Bernardo does not recall additional lessons specific to the project. Keep the final
+reflection focused rather than manufacturing several takeaways.
+
+## Publication safety and confidentiality
+
+Bernardo considers all topics recovered in this interview safe to publish, including:
+
+- The connection to Shopify's focus on Brazil and India
+- The 58-pixel storefront header measurement
+- The Store Editor's internal Polaris fork
+- The `dnd-kit` creator's connection to Shopify and availability for support
+- The debate and compromise around stacked nested sheets
+- The product manager's reported adoption increase
+
+This is Bernardo's publication-safety assessment. The final editorial review should
+still avoid exposing source code, internal documents, personal names, or additional
+company information that was not evaluated here.
+
+## Artifact inventory
+
+### Local project-specific artifacts
+
+#### Demonstration video
+
+- Path: `public/projects/shopify-mobile-store-editor/store-editor-bottom-sheet.mp4`
+- Format: H.264 video in a QuickTime-compatible container
+- Dimensions: 756 by 1326 pixels
+- Frame rate: 60 frames per second
+- Duration: approximately 23.9 seconds
+- File size: approximately 4.7 MB
+
+Visual review confirms that the video contains frames suitable for explaining:
+
+- The collapsed state with most of the storefront preview visible
+- The partially expanded state with controls and preview visible together
+- The fully expanded state with the controls occupying most of the viewport
+- Selecting an editable element in the storefront preview
+- Navigation to nested controls
+
+The video is the strongest available visual evidence and can supply three annotated
+stills in Phase 3. Exact timestamps should be selected when those assets are extracted.
+It does not expose the code-level velocity calculation, CSS custom properties, exact
+drop-zone math, analytics, or the history of the design decision.
+
+#### Poster image
+
+- Path: `public/projects/shopify-mobile-store-editor/store-editor-bottom-sheet-poster.jpg`
+- Dimensions: 720 by 1262 pixels
+
+The poster is an existing project-specific still and is already referenced by the post's
+`heroVideo` frontmatter. It can remain the video poster, but the three-state explanation
+will require additional frames from the video.
+
+#### Current case-study Markdown
+
+- Path: `content/projects/shopify-mobile-store-editor.md`
+
+This is an editorial artifact, not independent evidence. It contains several claims
+that the interview has corrected or left unverified, including sole design ownership,
+pressure-testing three alternatives, cross-platform differences, preview
+synchronization without visual jumps, and a loosely defined 10% adoption increase.
+
+### Local artifacts not found
+
+The repository contains no additional project-specific screenshots, Figma exports,
+prototype files, implementation source code, technical diagrams, research reports,
+analytics reports, or product-manager messages. Git history for the case-study content
+does not add earlier evidence beyond the current Markdown, video, poster, and planning
+notes.
+
+### Public sources
+
+Two public sources can support limited background context:
+
+- [Shopify Help Center: Online store editor for the Shopify app](https://help.shopify.com/en/manual/shopify-admin/shopify-app/mobile-online-store)
+  confirms that merchants can customize themes on mobile and edit sections, blocks, and
+  theme settings. It does not verify this project's design history or outcome.
+- [Shopify Help Center: The theme editor](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor)
+  confirms that the theme editor presents an automatically updating preview alongside
+  customization controls. It supports the product-context description, not the claim
+  that this project introduced live feedback.
+- [Official `dnd-kit` modifier documentation](https://dndkit.com/extend/modifiers/)
+  confirms that modifiers constrain draggable movement, including restriction to the
+  vertical axis. The current documentation may differ from the version used during the
+  project, so it should support only the general library capability.
+
+A [June 2026 Shopify changelog entry](https://changelog.shopify.com/posts/online-store-editor-with-sidekick-on-mobile)
+describes a newer rebuilt mobile Online Store Editor. Because it postdates this project
+and may describe a successor implementation, do not use its details as evidence for
+Bernardo's work. It may be mentioned only if the final narrative explicitly distinguishes
+the later product from the historical project.
+
+No public source was found for the 10-percentage-point usage increase, the internal
+Polaris fork, the original Figma concept, the 58-pixel header constraint, the custom
+velocity calculation, or the nested-sheet design debate.
+
+### Evidence classification
+
+Approved evidence currently consists of:
+
+- Bernardo's labeled recollections in this file
+- The demonstration video and poster
+- Public Shopify documentation for general product context
+- Official `dnd-kit` documentation for general modifier capability
+
+Unverified information must remain qualified or be omitted. The product manager's
+reported outcome has no available artifact and should be attributed rather than stated
+as independently measured fact. No information recovered in the interview was marked
+unpublishable by Bernardo.
+
+## External capture brief
+
+Bernardo has access to a Shopify store that may be used to collect additional
+screenshots and videos. Before capturing, confirm whether the available editor is the
+same implementation shown in the existing project video. If it is a newer editor,
+retain the captures only as present-day reference or a clearly labeled reenactment; do
+not use them as historical evidence of the shipped project.
+
+Use a disposable or non-sensitive theme with fictional storefront content. Remove or
+crop store identifiers, account information, customer information, unpublished business
+data, browser chrome containing personal details, and notifications.
+
+### Required screenshots
+
+Capture the same selected storefront element and device orientation in all three images
+so the sheet-height comparison is clear:
+
+1. **Collapsed:** most of the storefront is visible; the sheet handle and collapsed
+   label remain legible.
+2. **Partially expanded:** controls and the storefront header are both visible, showing
+   how editing context is preserved.
+3. **Fully expanded:** the controls occupy most of the available viewport and the sheet
+   is visibly at its upper stopping position.
+
+For each image:
+
+- Use portrait orientation.
+- Prefer a physical phone or a consistent mobile viewport around 390 by 844 CSS pixels.
+- Keep the same theme, page, editable element, and scroll position.
+- Avoid pointer indicators unless they explain an interaction boundary.
+- Capture the clean interface without annotations; annotations will be added later.
+- Retain the original-resolution PNG when possible.
+
+### Required videos
+
+Record short, separate clips rather than one long walkthrough:
+
+1. **State transitions:** begin collapsed, tap the handle to reach partial, drag to full,
+   then tap the handle to collapse. Pause briefly at each resting state.
+2. **Drop zones:** slowly drag and release the handle once in each of the three vertical
+   zones so the resulting state is visible.
+3. **Velocity override:** demonstrate a quick upward flick to full and a quick downward
+   flick to collapsed, if the accessible implementation still behaves this way.
+4. **Preview selection feedback:** with the sheet collapsed, select a different editable
+   storefront element and capture the sheet's bounce plus its updated label or content;
+   repeat with the sheet open to show controls changing without the bounce.
+5. **Nested controls:** open a control that creates the second sheet, show its backdrop
+   and partially expanded starting position, expand it fully, then select Done to return
+   control to the original sheet.
+6. **Content scrolling boundary:** scroll controls from within the sheet, then drag only
+   from the handle, making the distinct interaction targets visible.
+
+Record at native resolution and 60 frames per second if convenient. Disable taps or
+touch indicators for the clean master recording; an additional version with touch
+indicators is useful only if the gesture would otherwise be ambiguous. Avoid narration,
+background audio, and notifications.
+
+### Optional evidence captures
+
+- A screen-reader recording that demonstrates an actual, understandable interaction is
+  useful only if the accessible implementation and spoken output can be shared safely.
+- A screenshot of the Figma three-state concept would upgrade the recollection about
+  the original design to artifact-backed evidence, if Bernardo can access and publish
+  it.
+- A safely redacted product-manager message or document containing the outcome would
+  strengthen the metric. Do not collect or publish internal analytics merely to fill
+  this gap.
+
+### File organization
+
+Place approved captures under
+`public/projects/shopify-mobile-store-editor/evidence/` with descriptive names such as:
+
+- `sheet-collapsed.png`
+- `sheet-partial.png`
+- `sheet-full.png`
+- `state-transitions.mp4`
+- `preview-selection-feedback.mp4`
+- `nested-sheet-controls.mp4`
+
+Preserve untouched originals outside the public folder until each file has been checked
+for sensitive content and approved for publication.
+
 ## Collaboration
 
 Bernardo's main collaborators were:
@@ -190,12 +542,34 @@ recovered so far.
 
 The current published post says the broader redesign period saw a 10% increase in mobile
 Store Editor adoption and describes the bottom sheet as contributing to that increase.
-No additional definition or verification of that metric has been recovered during the
-interview yet.
+Bernardo remembers that "adoption" referred to the frequency of mobile Store Editor use,
+not merely opening the editor or completing a particular editing task. The precise
+analytics event, population, and denominator are not yet recovered.
 
-Questions still to answer include what "adoption" measured, whether 10% was relative or
-percentage-point growth, the measurement period, and which other changes shipped during
-the same period.
+Bernardo recalls the magnitude more accurately as a 10-percentage-point increase (in
+the sense of a change such as 20% to 30%) rather than 10% relative growth (which would
+mean 20% to 22%). The actual starting and ending values are not remembered; 20% and 30%
+were used only to clarify the distinction. Verify the percentage-point interpretation
+against an artifact before publication.
+
+The team's product manager communicated the result to Bernardo. Bernardo does not
+remember the measurement window and does not currently have the underlying analytics
+definition or report. Treat the product manager's communication as the remembered
+source, not as independently verified analytics.
+
+No public or private artifact is currently available to verify the metric. The product
+manager's statement is the only source Bernardo remembers. Any published use of the
+result should explicitly attribute it to the team's reported outcome and retain the
+uncertainty around its definition and measurement context.
+
+The measurement period remains unknown. Bernardo also does not remember which other
+changes shipped during the same period. Because possible concurrent changes cannot be
+enumerated or ruled out, preserve contributory rather than sole-causation language in
+the final case study.
+
+No qualitative outcome or follow-up signal is remembered. Do not claim merchant
+feedback, fewer complaints, post-launch team feedback, or continued investment as
+evidence of success.
 
 ## Corrections to the current post or earlier evaluation
 
@@ -212,42 +586,51 @@ the same period.
 
 ## Interview resume point
 
-Resume with the exploration and interaction-decision questions below.
+Resume with the exploration and interaction-decision questions below. Question 1 has
+been answered with uncertain confidence; continue with question 2.
 
-1. Did the initial Figma concept contain three states? Can we confidently say the
-   partially expanded state was part of the original design but omitted from the initial
-   implementation?
+1. **Answered, with uncertainty:** Bernardo thinks the initial Figma concept contained
+   all three states. The artifact should be checked before presenting this as a
+   confirmed historical fact.
 
-2. Were these three alternatives genuinely considered or prototyped?
+2. **Answered:** Bernardo does not remember whether these three alternatives were
+   genuinely considered or prototyped:
    - Controls always visible
    - Separate edit and preview screens
    - A three-state bottom sheet
 
-   The current post claims they were pressure-tested. If that is not remembered, remove
-   the comparison rather than reconstructing it as history.
+   The current post's claim that they were pressure-tested is therefore unverified.
+   Remove that claim and the historical comparison unless an artifact confirms them;
+   do not reconstruct the exploration as history.
 
-3. Does this description of the states match Bernardo's recollection?
+3. **Answered and confirmed:** These descriptions match Bernardo's recollection:
    - **Collapsed:** maximize the storefront preview while retaining access to editing.
    - **Partially expanded:** expose useful controls while keeping enough of the
      storefront visible to understand the edit.
    - **Fully expanded:** provide space for editing controls that need greater attention.
 
-4. How were the partially expanded height and other stopping positions determined? Were
-   they fixed dimensions, viewport percentages, calculated around the storefront header,
-   inherited from the designs, or adjusted during device testing?
+4. **Answered:** The partially expanded height and other stopping positions were based
+   on viewport percentages. Their placement also took the storefront header into
+   consideration so the sheet would not cover it. The exact percentages and calculation
+   are not yet recovered.
 
-5. Is there a concrete issue remembered from physical-device testing, such as scrolling
-   conflicts, browser gestures, snap behavior, keyboard behavior, insufficient visible
-   content, or a difference between iOS and Android?
+5. **Answered:** Bernardo does not remember a concrete issue discovered during
+   physical-device testing. The final case study may say that implementation testing
+   occurred on physical devices, but it must not attribute a specific discovery or
+   design change to that testing without further evidence.
 
 ## Remaining interview areas
 
-After exploration and interaction decisions, continue with:
+The source-material interview, repository inventory, and public-source inventory are
+complete. External evidence capture has been scoped; Phase 1 remains open until those
+captures are collected and reviewed or explicitly deferred:
 
-- Engineering implementation details
-- Outcome definition and attribution
-- Reflection and what Bernardo would do differently
-- Publication safety and confidentiality review
+- Engineering implementation details (complete)
+- Outcome definition and attribution (complete)
+- Reflection and what Bernardo would do differently (complete)
+- Publication safety and confidentiality review (complete)
+- Inventory available screenshots, videos, prototypes, diagrams, metrics, and public
+  sources (repository and web complete; external capture brief prepared)
 
 Artifact inventory is Phase 1, Task 2 and should begin only after the interview questions
 in Task 1 are complete.
