@@ -1,8 +1,8 @@
 # Shopify mobile Store Editor case study: source notes
 
-Status: **In progress — source interview complete; artifact inventory in progress**
+Status: **In progress — source interview and artifact inventory complete; external capture pending**
 
-Last updated: 2026-08-26
+Last updated: 2026-08-31
 
 Related plan: [Shopify mobile Store Editor case study plan](shopify-mobile-store-editor-plan.md)
 
@@ -387,6 +387,34 @@ analytics reports, or product-manager messages. Git history for the case-study c
 does not add earlier evidence beyond the current Markdown, video, poster, and planning
 notes.
 
+### Artifact pursuit scope
+
+Bernardo no longer works at Shopify and does not have access to Shopify's internal
+systems. The artifact search should therefore not depend on recovering:
+
+- Internal source code, branches, commits, pull requests, or review discussions
+- Internal Slack messages or product-manager communications
+- Analytics dashboards, metric definitions, or adoption reports
+- Internal briefs, RFCs, launch summaries, QA reports, or accessibility reviews
+- Private Figma files or version history
+- Documentation for Polaris or the Store Editor's internal Polaris fork
+
+Do not ask former colleagues to share material they are not authorized to disclose.
+These unavailable artifacts are evidence limitations, not open collection tasks.
+
+The remaining artifact work should focus on sources Bernardo can access and publish:
+
+1. New screenshots and recordings of the current browser experience
+2. Frames and short sequences extracted from the existing demonstration video
+3. The existing poster image
+4. Relevant files in Bernardo's lawful personal archives, if any
+5. Public Shopify documentation, archived pages, talks, engineering posts, and
+   official `dnd-kit` documentation
+6. Bernardo's labeled recollections, used with appropriate qualification
+
+A single bounded search of personal archives is reasonable. Do not leave Phase 1 open
+indefinitely for artifacts that are unlikely to be recoverable.
+
 ### Public sources
 
 Two public sources can support limited background context:
@@ -422,6 +450,11 @@ Approved evidence currently consists of:
 - Public Shopify documentation for general product context
 - Official `dnd-kit` documentation for general modifier capability
 
+Bernardo has confirmed that the current mobile Store Editor experience available in a
+browser is still the interaction he developed. New captures may therefore corroborate
+the shipped behavior. They do not independently establish authorship, chronology,
+historical design ownership, code-level implementation details, or business outcomes.
+
 Unverified information must remain qualified or be omitted. The product manager's
 reported outcome has no available artifact and should be attributed rather than stated
 as independently measured fact. No information recovered in the interview was marked
@@ -430,10 +463,14 @@ unpublishable by Bernardo.
 ## External capture brief
 
 Bernardo has access to a Shopify store that may be used to collect additional
-screenshots and videos. Before capturing, confirm whether the available editor is the
-same implementation shown in the existing project video. If it is a newer editor,
-retain the captures only as present-day reference or a clearly labeled reenactment; do
-not use them as historical evidence of the shipped project.
+screenshots and videos. He has confirmed that the current browser experience is still
+the interaction he developed. These captures should be described as present-day
+confirmation of the shipped interaction and paired with the existing demonstration
+video as the historical project artifact.
+
+Before publication, verify that the captured behavior still matches the demonstration
+video. If a particular interaction has changed, label that capture as present-day
+reference and do not use it to establish the historical behavior.
 
 Use a disposable or non-sensitive theme with fictional storefront content. Remove or
 crop store identifiers, account information, customer information, unpublished business
@@ -488,12 +525,17 @@ background audio, and notifications.
 
 - A screen-reader recording that demonstrates an actual, understandable interaction is
   useful only if the accessible implementation and spoken output can be shared safely.
-- A screenshot of the Figma three-state concept would upgrade the recollection about
-  the original design to artifact-backed evidence, if Bernardo can access and publish
-  it.
-- A safely redacted product-manager message or document containing the outcome would
-  strengthen the metric. Do not collect or publish internal analytics merely to fill
-  this gap.
+- Additional clean frames or short sequences may be extracted from the existing
+  demonstration video when they explain an interaction more clearly than a new capture.
+- Public historical screenshots, talks, documentation, or archived pages may be kept
+  when they directly support product context or visible behavior.
+- Relevant screenshots, exports, presentations, or recordings already present in
+  Bernardo's lawful personal archives may be considered after a confidentiality review.
+
+Private Figma history, internal messages, source code, and analytics are intentionally
+out of scope because Bernardo no longer has access to Shopify's internal systems. The
+unverified adoption metric should not remain an artifact-acquisition task; either omit
+the number or retain it only as a clearly attributed recollection.
 
 ### File organization
 
@@ -621,9 +663,9 @@ been answered with uncertain confidence; continue with question 2.
 
 ## Remaining interview areas
 
-The source-material interview, repository inventory, and public-source inventory are
-complete. External evidence capture has been scoped; Phase 1 remains open until those
-captures are collected and reviewed or explicitly deferred:
+The source-material interview, repository inventory, public-source inventory, and
+artifact pursuit scope are complete. Phase 1 remains open only until the accessible
+browser captures are collected and reviewed or explicitly deferred:
 
 - Engineering implementation details (complete)
 - Outcome definition and attribution (complete)
@@ -632,5 +674,5 @@ captures are collected and reviewed or explicitly deferred:
 - Inventory available screenshots, videos, prototypes, diagrams, metrics, and public
   sources (repository and web complete; external capture brief prepared)
 
-Artifact inventory is Phase 1, Task 2 and should begin only after the interview questions
-in Task 1 are complete.
+Artifact inventory is Phase 1, Task 2 and is complete. Inaccessible internal Shopify
+artifacts are recorded as evidence limitations rather than remaining collection tasks.
