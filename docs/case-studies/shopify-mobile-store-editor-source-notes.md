@@ -361,6 +361,27 @@ stills in Phase 3. Exact timestamps should be selected when those assets are ext
 It does not expose the code-level velocity calculation, CSS custom properties, exact
 drop-zone math, analytics, or the history of the design decision.
 
+The following full-resolution PNG frames have now been extracted from the video:
+
+- `evidence/sheet-collapsed.png` at approximately 0.25 seconds
+- `evidence/sheet-partial.png` at approximately 6.5 seconds
+- `evidence/sheet-full.png` at approximately 9.5 seconds
+- `evidence/nested-sheet-controls.png` at approximately 16.5 seconds
+
+The three state frames cleanly show their different relationships between preview and
+controls. The nested-controls frame shows navigation within the editing experience; do
+not use that single frame alone to claim the complete stacked-sheet transition,
+backdrop, or modal interaction.
+
+Three focused, silent H.264 clips have also been extracted from the historical video:
+
+- `evidence/preview-selection-feedback.mp4`, covering approximately 1.75–5.25 seconds
+- `evidence/state-transitions.mp4`, covering approximately 4.75–12.25 seconds
+- `evidence/nested-sheet-controls.mp4`, covering approximately 14.75–19.75 seconds
+
+These clips are editorial extracts of the demonstration video, not independent
+evidence. Keep the original video as the preserved master.
+
 #### Poster image
 
 - Path: `public/projects/shopify-mobile-store-editor/store-editor-bottom-sheet-poster.jpg`
