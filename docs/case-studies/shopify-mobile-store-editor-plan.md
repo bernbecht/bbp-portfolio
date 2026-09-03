@@ -1,6 +1,6 @@
 # Shopify mobile Store Editor case study plan
 
-Status: **Phase 2 in progress — building the narrative**
+Status: **Phase 2 draft complete — revisions pending**
 
 Last updated: 2026-09-03
 
@@ -229,9 +229,9 @@ Deliverable: factual notes and an approved evidence set. **Completed 2026-09-03.
 
 ### Phase 2: Build the narrative
 
-- [ ] Confirm the central thesis and title direction.
-- [ ] Map evidence to the proposed story.
-- [ ] Write a rough draft without polishing individual sentences.
+- [x] Confirm the central thesis and title direction.
+- [x] Map evidence to the proposed story.
+- [x] Write a rough draft without polishing individual sentences.
 - [ ] Review the draft separately as a recruiter, designer, and engineer.
 
 Deliverable: structurally complete draft.
@@ -262,8 +262,8 @@ Deliverable: publication-ready post.
 - A recruiter can identify role, ownership, problem, solution, and impact in 30 seconds.
 - An engineer can understand at least one meaningful implementation challenge and the
   reasoning behind its solution.
-- A design reader can connect each interaction state to a user need and understand why
-  the rejected alternatives were weaker.
+- A design reader can connect each interaction state to a user need and understand the
+  known tradeoff in the nested-navigation model.
 - The story contains at least one concrete iteration or validation example.
 - The outcome has an unambiguous definition and appropriately cautious attribution.
 - Every substantial claim is verified and safe to publish.
@@ -281,8 +281,29 @@ Use this table as decisions are made so context is not lost.
 | 2026-08-24 | Lead with the mobile editing conflict rather than the UI component. | This better communicates product judgment and transferable impact. |
 | 2026-08-24 | Preserve cautious attribution of the 10% increase. | Multiple improvements shipped during the same redesign period. |
 | 2026-09-03 | Close Phase 1 and begin Phase 2. | The existing video, poster, extracted frames, and clips are recent captures of the current mobile browser experience; further captures are optional supplements rather than a Phase 1 requirement. |
+| 2026-09-03 | Use “Preserving Shopify's live Store Editor on mobile” as the Phase 2 title direction. | It leads with the product problem while the description and opening clarify the implementation. |
+| 2026-09-03 | Center the narrative on turning an early two-state component into an integrated mobile Store Editor experience. | This accurately distinguishes inherited work from Bernardo's ownership and supports both the interaction-design and engineering story. |
+| 2026-09-03 | Replace the definition-of-done requirement about rejected alternatives with the verified nested-navigation tradeoff. | No evidence establishes that alternative overall interaction models were explored; retaining that criterion would encourage an unsupported narrative. |
 
 ## Working notes
 
-Add newly recovered facts, links to approved artifacts, draft fragments, and unresolved
-questions here during the project. Move lasting decisions into the decision log above.
+### Phase 2 evidence map
+
+| Story section | Supporting evidence | Boundary |
+|---|---|---|
+| Mobile editing conflict | Product requirements, representative homepage-editing task, public Shopify product context | Present the task as an example, not a research finding. |
+| Starting point and ownership | Source interview recollections | Do not claim authorship of the original component, Figma direction, or Store Editor. |
+| Three resting positions | Source interview and present-day state frames/video | Do not claim Bernardo originated the three-state concept. |
+| Viewport sizing and header constraint | Source interview recollection of parent state, CSS custom property, and 58-pixel header | Omit exact percentages, formulas, and variable names. |
+| Gesture behavior | Source interview recollection of velocity override, drop zones, handle taps, and `dnd-kit` responsibilities | Omit unrecovered thresholds and velocity formula. |
+| Drag-versus-scroll boundary | Source interview recollection | State only that dragging began at the handle and content remained scrollable. |
+| Preview-selection feedback | Source interview and present-day clip | Describe the visible bounce without claiming a synchronization fix. |
+| Nested controls | Source interview and present-day frame/clip | Treat the Google Maps comparison as design rationale, not validation. |
+| Validation | Recollection of team feedback, screen-reader checks, and physical-device testing | Do not claim merchant research, specific findings, or accessibility conformance. |
+| Outcome | Product manager's remembered report | Attribute the approximate 10-percentage-point increase; disclose missing definition, baseline, window, and confounding releases. |
+| Reflection | Bernardo's retrospective assessment | Keep the nested-navigation alternative distinct from what shipped. |
+
+The rough draft now lives in
+`content/projects/shopify-mobile-store-editor.md`. The three-audience review and
+consolidated revision queue are recorded in
+`docs/case-studies/shopify-mobile-store-editor-phase-2-review.md`.

@@ -1,14 +1,14 @@
 ---
-  title: "Designing and building Shopify's mobile Store Editor bottom sheet"
+  title: "Preserving Shopify's live Store Editor on mobile"
   date: '2025-11-08T12:00:00.000Z'
   description: >-
-    How I preserved live editing on small screens with progressive disclosure—and contributed to a 10%
-    increase in mobile Store Editor adoption.
+    How I turned an early two-state bottom-sheet component into an integrated mobile editing
+    experience with three working positions, nested controls, and predictable touch interactions.
   heroVideo:
     src: '/projects/shopify-mobile-store-editor/store-editor-bottom-sheet.mp4'
     poster: '/projects/shopify-mobile-store-editor/store-editor-bottom-sheet-poster.jpg'
-    caption: 'The bottom sheet moving between collapsed, partially expanded, and fully expanded editing
-    states.'
+    caption: 'A recent capture of the shipped interaction moving between collapsed, partially
+    expanded, and fully expanded editing states.'
     ariaLabel: 'Demonstration of the mobile Shopify Store Editor bottom sheet'
 ---
 
@@ -16,63 +16,156 @@
 
 | | |
 |---|---|
-| **Role** | Interaction design and front-end implementation |
+| **Role** | Front-end engineer working across interaction design and implementation |
 | **Product** | Shopify Online Store Editor |
-| **Contribution** | Designed and built a three-state mobile bottom sheet |
-| **Outcome** | Contributed to a 10% increase in mobile adoption |
+| **Ownership** | Sole engineer responsible for integrating the bottom sheet into the Store Editor |
+| **Starting point** | An early React component with collapsed and fully expanded states |
+| **Result** | A shipped three-state editing experience; the team later reported increased mobile usage during the broader redesign |
 
-> **Hardest design decision:** Preserving both the live preview and the full editing controls on a small screen. I resolved it with a three-state bottom sheet that progressively disclosed controls without breaking the editor's feedback loop.
+> I took an early two-state bottom-sheet component and turned it into an integrated mobile Store Editor experience.
 
-## The product problem
+## The conflict on a small screen
 
-Merchants use Shopify's Store Editor to shape their storefronts, adjusting layouts and content while seeing every change in a live preview. That immediate feedback is the product's central value, but the desktop interface placed a dense set of controls beside the preview. On a phone, both could not comfortably remain visible.
+A merchant editing a homepage section might change its text, replace an image, or
+adjust its settings while watching the storefront preview update. On desktop, the
+Store Editor could place those controls beside the preview. A narrow mobile viewport
+could not preserve the same relationship.
 
-The mobile experience became cramped and made merchants repeatedly lose context as they moved between editing and previewing. My task was to make the editor usable on a small screen without removing important controls or weakening the live feedback loop.
+The mobile interface still needed to provide the editing capabilities available on
+desktop. It also needed to keep the storefront visible so merchants could see the
+effect of a change. Capability parity did not require copying the desktop layout, but
+it did require a mobile interaction that protected this feedback loop.
 
-## My role and constraints
+This work became more important as Shopify increased its focus on markets including
+Brazil and India, where mobile devices played a significant role in internet access.
+The Store Editor team saw an opportunity to make storefront editing more practical in
+that context.
 
-I designed the interaction and built its front-end implementation, working with product and design partners to identify the main friction points and validate the direction.
+## The component I inherited
 
-The solution needed to:
+The direction did not begin with me. A designer had created early interaction mocks,
+and another developer had built a generic bottom-sheet component in React. By the time
+I took responsibility for the work, that component had two working positions:
+collapsed and fully expanded.
 
-- Keep the storefront preview visible while merchants edited it
-- Preserve the controls available on desktop
-- Work with touch, scrolling, and the browser's own gestures
-- Make each interaction state understandable without instructions
-- Keep edits and the preview synchronized throughout the transition
+It was not yet an integrated Store Editor experience. The sheet needed to contain the
+editor's sections, panels, and controls; support navigation into nested settings; and
+respond coherently when a merchant selected something in the storefront preview. Its
+upper position could also overlap the storefront's primary header.
 
-## Choosing progressive disclosure
+I became the sole engineer responsible for that integration. My work included adding
+the third working position, adapting editing controls to the mobile context,
+implementing nested navigation, preventing header overlap, testing on physical mobile
+devices, and adding feedback when the selected storefront element changed.
 
-I pressure-tested three approaches before committing to the interaction:
+## Three positions, three purposes
 
-| Approach | Benefit | Why it did or did not work |
-|---|---|---|
-| Controls always visible | Everything stays immediately available | The interface remained crowded and left too little room for the preview |
-| Separate edit and preview screens | Each screen became simpler | Switching screens broke the immediate feedback loop |
-| Three-state bottom sheet | Controls remain available while the preview stays in context | Added interaction complexity, but preserved the editor's core value |
+The completed interaction used three intentional resting positions:
 
-I chose the bottom sheet because its complexity served a meaningful purpose: merchants could decide how much space the controls occupied without losing sight of the storefront they were changing.
+1. **Collapsed** prioritized the storefront preview while keeping editing within
+   reach.
+2. **Partially expanded** exposed useful controls while leaving enough of the
+   storefront visible to understand the edit in context.
+3. **Fully expanded** provided room for controls that needed more focused attention.
 
-## What I designed and built
+The intermediate position was important because the problem was not simply whether
+the controls were open or closed. Merchants sometimes needed controls and preview at
+the same time. A stable middle state let the interface allocate space to both instead
+of forcing a switch between them.
 
-The sheet supports three intentional states:
+## Engineering predictable movement
 
-1. **Collapsed:** the storefront preview is the focus.
-2. **Partially expanded:** frequently used controls are within quick reach while enough preview remains visible to understand their effect.
-3. **Fully expanded:** the sheet provides room for detailed editing when the controls need full attention.
+### Sizing around the storefront
 
-I used `dnd-kit` for the drag interaction and tuned the thresholds, easing, and snap behavior so the component felt predictable rather than merely animated. Each stopping point needed to communicate what would happen next and avoid leaving the interface in an ambiguous position.
+A parent component owned the sheet state and calculated the height available at each
+resting position. It passed the resulting content height into the sheet through a CSS
+custom property.
 
-Gesture handling required particular care. Touch input, content scrolling, and browser gestures behave differently across iOS and Android, so I tested the interaction on physical devices as well as emulators. I also coordinated the sheet's animation state with the editor's render cycle so changes remained synchronized with the live preview without visual jumps.
+The calculation accounted for the storefront header, which occupied 58 pixels. The
+sheet's upper boundary stopped below that header instead of covering it. The resting
+positions were therefore relative to the usable viewport rather than arbitrary fixed
+coordinates.
 
-## Validation and outcome
+### Combining velocity with drop zones
 
-The bottom sheet shipped as part of a broader effort to close the gap between desktop and mobile editing. Mobile adoption of the Store Editor increased by 10% during that redesign period.
+The implementation used `dnd-kit` for the draggable sheet, its droppable targets, and
+a modifier that restricted movement to the vertical axis. The interaction also needed
+behavior that the library did not provide: using drag velocity to influence the final
+position.
 
-Several improvements shipped in the same period, so I describe the bottom sheet as contributing to that increase rather than claiming it as an isolated causal result. The outcome nevertheless supported the core design decision: preserving both context and capability made the editor more useful on mobile.
+I added a custom movement calculation so a sufficiently fast upward gesture expanded
+the sheet fully and a sufficiently fast downward gesture collapsed it. For slower
+gestures, the remaining viewport—after subtracting the 58-pixel header—was divided into
+three vertical drop zones. Releasing the handle in a zone selected the corresponding
+resting position.
 
-## What I learned
+This combined two kinds of intent. Position handled deliberate placement, while
+velocity let a quick flick communicate direction without requiring the pointer to
+cross an exact threshold.
 
-Screen constraints do not automatically require removing functionality. The more useful question is what the user needs in the current moment and what can remain one clear gesture away.
+Tapping the handle provided a second path through the states. From collapsed it opened
+the sheet to the intermediate position; from either open position it collapsed the
+sheet.
 
-Progressive disclosure worked here because it protected the product's defining behavior—seeing an edit take effect immediately—while allowing a complex tool to adapt to a much smaller screen.
+### Separating dragging from scrolling
+
+A sheet full of form controls creates an input conflict: the same vertical gesture
+could mean “move the sheet” or “scroll its contents.” I avoided making that decision
+dynamically. Dragging could begin only from the sheet's handle, while gestures inside
+the content area remained available for scrolling and interacting with controls.
+
+That boundary made the interaction easier to predict and kept the implementation from
+depending on the content's current scroll position to infer intent.
+
+### Signaling a changed selection
+
+When the sheet was collapsed, a merchant could select a different editable element
+directly in the storefront preview. The sheet remained collapsed, but its contents had
+changed outside the merchant's immediate focus.
+
+I added a short bounce to the collapsed sheet to point back to the newly loaded
+controls. When the sheet was already open, the controls changed without the bounce or
+a state transition because the update was already visible.
+
+### Navigating nested controls
+
+Some settings opened a second sheet above the first. The nested sheet began partially
+expanded, placed a backdrop over the original sheet, and could expand fully or close.
+Selecting **Done** returned control to the original sheet.
+
+I questioned whether stacking sheets was the clearest model. Replacing the original
+sheet's contents and providing a Back or Done action could have expressed navigation
+more directly, especially with a transition showing where the merchant had moved. The
+team did not have time to redesign and implement that alternative, so we retained the
+stacked approach. Similar patterns in products such as Google Maps gave us some
+confidence that the interaction would be recognizable, though that comparison was not
+a substitute for usability research.
+
+## Validation and reported outcome
+
+The work received feedback from the product team and was tested on physical mobile
+devices. We did not conduct formal merchant research for this interaction, so I do not
+present internal feedback or device testing as user validation.
+
+After the broader mobile redesign shipped, the product manager told the team that the
+frequency of mobile Store Editor use had increased by approximately 10 percentage
+points. I no longer have the underlying report, metric definition, measurement window,
+or baseline, and multiple changes shipped during the same period. I therefore treat
+that number as a remembered, team-reported result—not as an independently verified
+measurement or an effect attributable to the bottom sheet alone.
+
+The result provides useful context, but the durable evidence of my contribution is the
+interaction itself: the component moved from an incomplete container to a mobile editor
+that coordinated preview, controls, navigation, scrolling, and touch-driven state
+changes.
+
+## What I would change today
+
+I would revisit the stacked nested sheets. I would prototype replacing the original
+sheet's content, add a transition that preserves spatial continuity, and compare the
+two approaches with merchants before committing to the navigation model.
+
+More broadly, this project changed how I think about adapting desktop products. Mobile
+is not simply the same interface at a narrower width. Touch input, limited space, and
+the situations in which people use a phone change how capabilities need to be
+organized—even when the underlying product remains the same.
