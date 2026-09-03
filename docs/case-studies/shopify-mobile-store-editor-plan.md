@@ -1,6 +1,6 @@
 # Shopify mobile Store Editor case study plan
 
-Status: **Phase 2 draft complete — revisions pending**
+Status: **Phase 2 review complete — applying revisions pending**
 
 Last updated: 2026-09-03
 
