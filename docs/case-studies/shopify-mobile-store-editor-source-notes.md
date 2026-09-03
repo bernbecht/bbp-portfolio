@@ -1,8 +1,8 @@
 # Shopify mobile Store Editor case study: source notes
 
-Status: **In progress — source interview and artifact inventory complete; external capture pending**
+Status: **Phase 1 complete — approved source material ready for narrative development**
 
-Last updated: 2026-08-31
+Last updated: 2026-09-03
 
 Related plan: [Shopify mobile Store Editor case study plan](shopify-mobile-store-editor-plan.md)
 
@@ -373,7 +373,8 @@ controls. The nested-controls frame shows navigation within the editing experien
 not use that single frame alone to claim the complete stacked-sheet transition,
 backdrop, or modal interaction.
 
-Three focused, silent H.264 clips have also been extracted from the historical video:
+Three focused, silent H.264 clips have also been extracted from the present-day
+demonstration video:
 
 - `evidence/preview-selection-feedback.mp4`, covering approximately 1.75–5.25 seconds
 - `evidence/state-transitions.mp4`, covering approximately 4.75–12.25 seconds
@@ -423,9 +424,10 @@ systems. The artifact search should therefore not depend on recovering:
 Do not ask former colleagues to share material they are not authorized to disclose.
 These unavailable artifacts are evidence limitations, not open collection tasks.
 
-The remaining artifact work should focus on sources Bernardo can access and publish:
+Any supplemental artifact work should focus on sources Bernardo can access and publish:
 
-1. New screenshots and recordings of the current browser experience
+1. Additional screenshots and recordings of the current browser experience, if they
+   explain behavior not already clear in the approved captures
 2. Frames and short sequences extracted from the existing demonstration video
 3. The existing poster image
 4. Relevant files in Bernardo's lawful personal archives, if any
@@ -433,8 +435,8 @@ The remaining artifact work should focus on sources Bernardo can access and publ
    official `dnd-kit` documentation
 6. Bernardo's labeled recollections, used with appropriate qualification
 
-A single bounded search of personal archives is reasonable. Do not leave Phase 1 open
-indefinitely for artifacts that are unlikely to be recoverable.
+A single bounded search of personal archives remains optional. Phase 1 is complete and
+does not depend on further artifact recovery.
 
 ### Public sources
 
@@ -467,37 +469,39 @@ velocity calculation, or the nested-sheet design debate.
 Approved evidence currently consists of:
 
 - Bernardo's labeled recollections in this file
-- The demonstration video and poster
+- The recently captured demonstration video and poster, plus the frames and clips
+  extracted from them
 - Public Shopify documentation for general product context
 - Official `dnd-kit` documentation for general modifier capability
 
-Bernardo has confirmed that the current mobile Store Editor experience available in a
-browser is still the interaction he developed. New captures may therefore corroborate
-the shipped behavior. They do not independently establish authorship, chronology,
-historical design ownership, code-level implementation details, or business outcomes.
+Bernardo captured the demonstration video recently from the current mobile Store Editor
+in a browser and confirmed that it is still the interaction he developed. The video and
+its derivatives are therefore present-day evidence of the visible shipped behavior.
+They do not independently establish authorship, chronology, historical design ownership,
+code-level implementation details, or business outcomes.
 
 Unverified information must remain qualified or be omitted. The product manager's
 reported outcome has no available artifact and should be attributed rather than stated
 as independently measured fact. No information recovered in the interview was marked
 unpublishable by Bernardo.
 
-## External capture brief
+## Optional supplemental capture brief
 
-Bernardo has access to a Shopify store that may be used to collect additional
-screenshots and videos. He has confirmed that the current browser experience is still
-the interaction he developed. These captures should be described as present-day
-confirmation of the shipped interaction and paired with the existing demonstration
-video as the historical project artifact.
+The approved demonstration video was captured recently from the current mobile browser
+experience and already provides present-day confirmation of the visible shipped
+interaction. Additional screenshots or videos are optional and should be collected only
+when they explain behavior that the approved evidence does not show clearly, especially
+drop zones, velocity overrides, or the boundary between content scrolling and dragging
+from the handle.
 
-Before publication, verify that the captured behavior still matches the demonstration
-video. If a particular interaction has changed, label that capture as present-day
-reference and do not use it to establish the historical behavior.
+If another capture is made later and a particular interaction has changed, label that
+capture as a later reference and do not use it to establish the earlier behavior.
 
 Use a disposable or non-sensitive theme with fictional storefront content. Remove or
 crop store identifiers, account information, customer information, unpublished business
 data, browser chrome containing personal details, and notifications.
 
-### Required screenshots
+### Optional screenshots
 
 Capture the same selected storefront element and device orientation in all three images
 so the sheet-height comparison is clear:
@@ -518,7 +522,7 @@ For each image:
 - Capture the clean interface without annotations; annotations will be added later.
 - Retain the original-resolution PNG when possible.
 
-### Required videos
+### Optional videos
 
 Record short, separate clips rather than one long walkthrough:
 
@@ -682,18 +686,19 @@ been answered with uncertain confidence; continue with question 2.
    occurred on physical devices, but it must not attribute a specific discovery or
    design change to that testing without further evidence.
 
-## Remaining interview areas
+## Phase 1 completion
 
 The source-material interview, repository inventory, public-source inventory, and
-artifact pursuit scope are complete. Phase 1 remains open only until the accessible
-browser captures are collected and reviewed or explicitly deferred:
+artifact pursuit scope are complete. The recently recorded browser video, its poster,
+and the extracted evidence assets satisfy the capture requirement:
 
 - Engineering implementation details (complete)
 - Outcome definition and attribution (complete)
 - Reflection and what Bernardo would do differently (complete)
 - Publication safety and confidentiality review (complete)
 - Inventory available screenshots, videos, prototypes, diagrams, metrics, and public
-  sources (repository and web complete; external capture brief prepared)
+  sources (complete)
 
 Artifact inventory is Phase 1, Task 2 and is complete. Inaccessible internal Shopify
 artifacts are recorded as evidence limitations rather than remaining collection tasks.
+Phase 1 closed on 2026-09-03; Phase 2 narrative development may proceed.

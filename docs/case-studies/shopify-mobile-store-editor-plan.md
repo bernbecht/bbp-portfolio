@@ -1,5 +1,9 @@
 # Shopify mobile Store Editor case study plan
 
+Status: **Phase 2 in progress — building the narrative**
+
+Last updated: 2026-09-03
+
 ## Purpose
 
 Turn the existing Shopify post into a case study that demonstrates product thinking,
@@ -217,11 +221,11 @@ Reader takeaway: the project produced reusable judgment, not only a shipped feat
 
 ### Phase 1: Recover the evidence
 
-- [ ] Answer the source-material questions above.
-- [ ] Inventory available screenshots, prototypes, diagrams, metrics, and public sources.
-- [ ] Mark information that cannot be published or cannot be verified.
+- [x] Answer the source-material questions above.
+- [x] Inventory available screenshots, prototypes, diagrams, metrics, and public sources.
+- [x] Mark information that cannot be published or cannot be verified.
 
-Deliverable: factual notes and an approved evidence set.
+Deliverable: factual notes and an approved evidence set. **Completed 2026-09-03.**
 
 ### Phase 2: Build the narrative
 
@@ -276,9 +280,9 @@ Use this table as decisions are made so context is not lost.
 | 2026-08-24 | Treat the rewrite as an evidence, narrative, visual, and implementation project. | The case study must serve both fast-scanning recruiters and technical readers. |
 | 2026-08-24 | Lead with the mobile editing conflict rather than the UI component. | This better communicates product judgment and transferable impact. |
 | 2026-08-24 | Preserve cautious attribution of the 10% increase. | Multiple improvements shipped during the same redesign period. |
+| 2026-09-03 | Close Phase 1 and begin Phase 2. | The existing video, poster, extracted frames, and clips are recent captures of the current mobile browser experience; further captures are optional supplements rather than a Phase 1 requirement. |
 
 ## Working notes
 
 Add newly recovered facts, links to approved artifacts, draft fragments, and unresolved
 questions here during the project. Move lasting decisions into the decision log above.
-
