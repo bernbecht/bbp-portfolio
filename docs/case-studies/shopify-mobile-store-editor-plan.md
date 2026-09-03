@@ -1,6 +1,6 @@
 # Shopify mobile Store Editor case study plan
 
-Status: **Phase 2 review complete — applying revisions pending**
+Status: **Phase 2 complete — ready for Phase 3 visual development**
 
 Last updated: 2026-09-03
 
@@ -203,18 +203,18 @@ Reader takeaway: the project produced reusable judgment, not only a shipped feat
 
 ## Copy work
 
-- [ ] Choose a problem-led title. Working options:
+- [x] Choose a problem-led title. Working options:
   - Rebuilding Shopify's Store Editor for mobile
   - Preserving live storefront editing on mobile
   - Designing a mobile Store Editor without losing the preview
-- [ ] Rewrite the description after the outcome terminology is verified.
-- [ ] Draft the opening around one concrete merchant task.
-- [ ] Replace vague phrases such as "pressure-tested," "tuned," and "coordinated" with
+- [x] Rewrite the description after the outcome terminology is verified.
+- [x] Draft the opening around one concrete merchant task.
+- [x] Replace vague phrases such as "pressure-tested," "tuned," and "coordinated" with
   observable actions and decisions.
-- [ ] Remove repetition of the preview-versus-controls conflict once later sections
+- [x] Remove repetition of the preview-versus-controls conflict once later sections
   provide evidence for it.
-- [ ] Check every technical and UX claim against the research notes.
-- [ ] Edit for short paragraphs and useful headings.
+- [x] Check every technical and UX claim against the research notes.
+- [x] Edit for short paragraphs and useful headings.
 - [ ] Perform a final confidentiality review.
 
 ## Suggested execution phases
@@ -232,9 +232,9 @@ Deliverable: factual notes and an approved evidence set. **Completed 2026-09-03.
 - [x] Confirm the central thesis and title direction.
 - [x] Map evidence to the proposed story.
 - [x] Write a rough draft without polishing individual sentences.
-- [ ] Review the draft separately as a recruiter, designer, and engineer.
+- [x] Review the draft separately as a recruiter, designer, and engineer.
 
-Deliverable: structurally complete draft.
+Deliverable: structurally complete draft. **Completed 2026-09-03.**
 
 ### Phase 3: Build the visual explanation
 
@@ -284,6 +284,8 @@ Use this table as decisions are made so context is not lost.
 | 2026-09-03 | Use “Preserving Shopify's live Store Editor on mobile” as the Phase 2 title direction. | It leads with the product problem while the description and opening clarify the implementation. |
 | 2026-09-03 | Center the narrative on turning an early two-state component into an integrated mobile Store Editor experience. | This accurately distinguishes inherited work from Bernardo's ownership and supports both the interaction-design and engineering story. |
 | 2026-09-03 | Replace the definition-of-done requirement about rejected alternatives with the verified nested-navigation tradeoff. | No evidence establishes that alternative overall interaction models were explored; retaining that criterion would encourage an unsupported narrative. |
+| 2026-09-03 | Publish one layered narrative for all audiences until role personalization is implemented. | A recruiter-first opening followed by design reasoning and engineering depth serves all three audiences without adding client-side behavior now. |
+| 2026-09-03 | Preserve audience-specific briefs instead of maintaining three unpublished article copies. | Briefs retain the expert recommendations and evidence boundaries without creating four narratives that can drift apart. |
 
 ## Working notes
 
@@ -307,3 +309,8 @@ The rough draft now lives in
 `content/projects/shopify-mobile-store-editor.md`. The three-audience review and
 consolidated revision queue are recorded in
 `docs/case-studies/shopify-mobile-store-editor-phase-2-review.md`.
+
+The review revisions have been incorporated into the unified article. Audience goals,
+content priorities, evidence, and future interaction intent are preserved in
+`docs/case-studies/shopify-mobile-store-editor-audience-briefs.md` for a later
+role-personalization feature.

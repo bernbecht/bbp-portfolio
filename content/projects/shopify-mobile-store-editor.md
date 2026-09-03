@@ -3,7 +3,7 @@
   date: '2025-11-08T12:00:00.000Z'
   description: >-
     How I turned an early two-state bottom-sheet component into an integrated mobile editing
-    experience with three working positions, nested controls, and predictable touch interactions.
+    experience with three working positions, nested controls, and touch-driven state changes.
   heroVideo:
     src: '/projects/shopify-mobile-store-editor/store-editor-bottom-sheet.mp4'
     poster: '/projects/shopify-mobile-store-editor/store-editor-bottom-sheet-poster.jpg'
@@ -20,9 +20,16 @@
 | **Product** | Shopify Online Store Editor |
 | **Ownership** | Sole engineer responsible for integrating the bottom sheet into the Store Editor |
 | **Starting point** | An early React component with collapsed and fully expanded states |
-| **Result** | A shipped three-state editing experience; the team later reported increased mobile usage during the broader redesign |
+| **Shipped** | A three-state mobile editing experience connecting controls and the storefront preview |
+| **Reported outcome** | Approximately 10 percentage points more frequent mobile use during the broader redesign; reported by the product manager, with the underlying analytics no longer available |
 
 > I took an early two-state bottom-sheet component and turned it into an integrated mobile Store Editor experience.
+
+My contribution centered on three areas:
+
+- Integrating Store Editor navigation and controls into the sheet
+- Completing its state model and touch interactions
+- Coordinating the sheet with storefront selection and nested settings
 
 ## The conflict on a small screen
 
@@ -40,6 +47,18 @@ This work became more important as Shopify increased its focus on markets includ
 Brazil and India, where mobile devices played a significant role in internet access.
 The Store Editor team saw an opportunity to make storefront editing more practical in
 that context.
+
+## What the mobile experience had to preserve
+
+The implementation had three practical success criteria:
+
+- Retain the editing capabilities available on desktop
+- Keep the storefront preview visible enough to understand an edit in context
+- Support dragging, scrolling, and control interaction without making their gestures
+  compete
+
+These criteria shaped the sheet integration and provided a way to evaluate each
+interaction decision without requiring the mobile layout to mirror desktop.
 
 ## The component I inherited
 
@@ -73,7 +92,7 @@ the controls were open or closed. Merchants sometimes needed controls and previe
 the same time. A stable middle state let the interface allocate space to both instead
 of forcing a switch between them.
 
-## Engineering predictable movement
+## Engineering movement around clear rules
 
 ### Sizing around the storefront
 
@@ -143,9 +162,12 @@ a substitute for usability research.
 
 ## Validation and reported outcome
 
-The work received feedback from the product team and was tested on physical mobile
-devices. We did not conduct formal merchant research for this interaction, so I do not
-present internal feedback or device testing as user validation.
+The work received feedback from the product team. Throughout implementation, I checked
+the experience with a screen reader and tested it on physical mobile devices. I no
+longer have records of particular accessibility findings or changes, so I do not claim
+specific remediations or conformance. We did not conduct formal merchant research for
+this interaction, and I do not present internal feedback or device testing as user
+validation.
 
 After the broader mobile redesign shipped, the product manager told the team that the
 frequency of mobile Store Editor use had increased by approximately 10 percentage

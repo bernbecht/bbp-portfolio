@@ -1,5 +1,7 @@
 # Shopify mobile Store Editor: Phase 2 draft review
 
+Status: **Complete — narrative recommendations incorporated 2026-09-03**
+
 Date: 2026-09-03
 
 Draft reviewed:
@@ -127,6 +129,9 @@ diagram in Phase 3. Do not fill unrecovered implementation details with plausibl
 reconstructions.
 
 ## Consolidated revision queue
+
+The Phase 2 narrative items below have been incorporated into the unified article. The
+Phase 3 items remain future visual and layout work.
 
 ### Phase 2 narrative revisions
 
