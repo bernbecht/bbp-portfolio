@@ -24,7 +24,6 @@
 | **Shipped** | A three-state mobile editing experience connecting controls and the storefront preview |
 | **Reported outcome** | Increased frequency of mobile Store Editor use during the broader redesign, as reported by the product manager; the underlying analytics are no longer available |
 
-> I took an early two-state bottom-sheet component and turned it into an integrated mobile Store Editor experience.
 
 My contribution centered on three areas:
 
@@ -75,10 +74,9 @@ editor's sections, panels, and controls; support navigation into nested settings
 respond coherently when a merchant selected something in the storefront preview. Its
 upper position could also overlap the storefront's primary header.
 
-I became the sole engineer responsible for that integration. My work included adding
-the third working position, adapting editing controls to the mobile context,
-implementing nested navigation, preventing header overlap, testing on physical mobile
-devices, and adding feedback when the selected storefront element changed.
+Integrating the component into the Store Editor required a third working position,
+mobile adaptations for editing controls, nested navigation, and protection against header
+overlap. I was the engineer responsible for this integration.
 
 <!-- case-study-visual:shopify-sheet-states -->
 
@@ -104,8 +102,8 @@ a modifier that restricted movement to the vertical axis. The interaction also n
 behavior that the library did not provide: using drag velocity to influence the final
 position.
 
-I added a custom movement calculation so a sufficiently fast upward gesture expanded
-the sheet fully and a sufficiently fast downward gesture collapsed it. For slower
+A custom movement calculation allowed a sufficiently fast upward gesture to expand the
+sheet fully and a sufficiently fast downward gesture to collapse it. For slower
 gestures, the remaining viewport was divided into three vertical drop zones after
 subtracting the 58-pixel header. Releasing the handle in a zone selected the
 corresponding resting position.
@@ -123,9 +121,9 @@ sheet.
 ### Separating dragging from scrolling
 
 A sheet full of form controls creates an input conflict: the same vertical gesture
-could mean “move the sheet” or “scroll its contents.” I avoided making that decision
-dynamically. Dragging could begin only from the sheet's handle, while gestures inside
-the content area remained available for scrolling and interacting with controls.
+could mean “move the sheet” or “scroll its contents.” The interaction avoided resolving
+that ambiguity dynamically. Dragging began only from the sheet's handle, while gestures
+inside the content area remained available for scrolling and interacting with controls.
 
 <!-- case-study-visual:shopify-drag-scroll-boundary -->
 
@@ -138,9 +136,9 @@ When the sheet was collapsed, a merchant could select a different editable eleme
 directly in the storefront preview. The sheet remained collapsed, but its contents had
 changed outside the merchant's immediate focus.
 
-I added a short bounce to the collapsed sheet to point back to the newly loaded
-controls. When the sheet was already open, the controls changed without the bounce or
-a state transition because the update was already visible.
+A short bounce from the collapsed sheet pointed back to the newly loaded controls. When
+the sheet was already open, the controls changed without the bounce or a state
+transition because the update was already visible.
 
 <!-- case-study-visual:shopify-preview-selection -->
 
