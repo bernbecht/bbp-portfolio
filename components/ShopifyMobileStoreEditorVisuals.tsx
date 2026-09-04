@@ -42,6 +42,83 @@ const ENDPOINTS = [
   },
 ] as const;
 
+export function ShopifyViewportConflictFigure() {
+  return (
+    <figure className="not-prose my-10 rounded-xl border border-neutral-200 bg-neutral-50 p-5 sm:p-6">
+      <figcaption className="mb-6 max-w-2xl">
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-neutral-500">
+          Conceptual layout comparison
+        </p>
+        <h3 className="mt-2 text-xl font-semibold tracking-tight text-neutral-900">
+          The same workflow had to fit a different geometry
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+          Desktop could keep controls and the live preview side by side. On mobile,
+          both still mattered, but they competed for one narrow viewport.
+        </p>
+      </figcaption>
+
+      <div className="grid items-center gap-8 sm:grid-cols-2">
+        <div>
+          <p className="mb-3 text-center font-mono text-xs font-medium uppercase tracking-wider text-neutral-500">
+            Desktop
+          </p>
+          <div
+            className="aspect-[16/10] overflow-hidden rounded-lg border border-neutral-300 bg-white p-2"
+            role="img"
+            aria-label="Conceptual desktop layout with editing controls and storefront preview visible side by side."
+          >
+            <div className="flex h-full gap-2">
+              <div className="flex w-2/5 items-center justify-center rounded-md bg-neutral-200 px-2 text-center text-sm font-medium text-neutral-700">
+                Editing controls
+              </div>
+              <div className="flex flex-1 items-center justify-center rounded-md border border-neutral-200 bg-neutral-50 px-2 text-center text-sm font-medium text-neutral-700">
+                Live preview
+              </div>
+            </div>
+          </div>
+          <p className="mt-3 text-center text-sm font-medium text-neutral-700">
+            Both remain visible
+          </p>
+        </div>
+
+        <div>
+          <p className="mb-3 text-center font-mono text-xs font-medium uppercase tracking-wider text-neutral-500">
+            Mobile
+          </p>
+          <div
+            className="mx-auto aspect-[9/14] w-full max-w-40 overflow-hidden rounded-[1.25rem] border-4 border-neutral-800 bg-white p-2"
+            role="img"
+            aria-label="Conceptual mobile layout showing editing controls and storefront preview competing for the same narrow viewport."
+          >
+            <div className="grid h-full grid-rows-[1fr_auto_1fr]">
+              <div className="flex items-center justify-center rounded-t-md border border-neutral-200 bg-neutral-50 px-2 text-center text-sm font-medium text-neutral-700">
+                Live preview
+              </div>
+              <div className="relative z-10 -my-3 flex items-center justify-center">
+                <span className="flex size-9 items-center justify-center rounded-full border border-neutral-300 bg-white font-mono text-xs font-semibold uppercase text-neutral-500">
+                  or
+                </span>
+              </div>
+              <div className="flex items-center justify-center rounded-b-md bg-neutral-200 px-2 text-center text-sm font-medium text-neutral-700">
+                Editing controls
+              </div>
+            </div>
+          </div>
+          <p className="mt-3 text-center text-sm font-medium text-neutral-700">
+            Both still remain required
+          </p>
+        </div>
+      </div>
+
+      <p className="mt-6 border-t border-neutral-200 pt-4 text-xs leading-relaxed text-neutral-500">
+        This diagram explains the spatial constraint; it is not a reconstruction
+        of the previous mobile interface.
+      </p>
+    </figure>
+  );
+}
+
 export function ShopifySheetStatesFigure() {
   return (
     <section

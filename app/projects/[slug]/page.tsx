@@ -2,6 +2,7 @@ import ComponentLibraryDemo from "@/components/ComponentLibraryDemo";
 import {
   ShopifyDragResolutionFigure,
   ShopifySheetStatesFigure,
+  ShopifyViewportConflictFigure,
 } from "@/components/ShopifyMobileStoreEditorVisuals";
 import { cn } from "@/lib/cn";
 import { getAllSlugs, getPostBySlug } from "@/lib/project-posts";
@@ -44,6 +45,7 @@ function splitLeadSection(content: string): readonly [string, string] {
 }
 
 const caseStudyVisuals = {
+  "shopify-viewport-conflict": ShopifyViewportConflictFigure,
   "shopify-sheet-states": ShopifySheetStatesFigure,
   "shopify-drag-resolution": ShopifyDragResolutionFigure,
 } as const;

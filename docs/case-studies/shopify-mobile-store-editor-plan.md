@@ -289,6 +289,7 @@ Use this table as decisions are made so context is not lost.
 | 2026-09-04 | Use a responsive three-frame comparison plus a compact drag-resolution flow. | The frames explain the purpose of each resting position; the flow adds the velocity-versus-position decision that still images cannot show. |
 | 2026-09-04 | Add an opt-in lead-section placement before hero media. | It moves scope, ownership, and reported outcome above the video without changing the layout of other posts. |
 | 2026-09-04 | Place each Phase 3 visual where its question arises in the narrative. | The state comparison now follows the inherited-component and ownership context; the drag-resolution flow sits inside the velocity and drop-zone explanation. |
+| 2026-09-04 | Add a conceptual desktop-versus-mobile layout comparison inside the conflict section. | It makes the spatial constraint visible without presenting a reconstruction as historical evidence or revealing the three-state solution too early. |
 
 ## Working notes
 

@@ -39,6 +39,8 @@ adjust its settings while watching the storefront preview update. On desktop, th
 Store Editor could place those controls beside the preview. A narrow mobile viewport
 could not preserve the same relationship.
 
+<!-- case-study-visual:shopify-viewport-conflict -->
+
 The mobile interface still needed to provide the editing capabilities available on
 desktop. It also needed to keep the storefront visible so merchants could see the
 effect of a change. Capability parity did not require copying the desktop layout, but
