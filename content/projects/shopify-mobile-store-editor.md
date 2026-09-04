@@ -95,6 +95,8 @@ sheet's upper boundary stopped below that header instead of covering it. The res
 positions were therefore relative to the usable viewport rather than arbitrary fixed
 coordinates.
 
+<!-- case-study-visual:shopify-viewport-anatomy -->
+
 ### Combining velocity with drop zones
 
 The implementation used `dnd-kit` for the draggable sheet, its droppable targets, and

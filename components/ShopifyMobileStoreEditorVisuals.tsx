@@ -177,6 +177,116 @@ export function ShopifySheetStatesFigure() {
   );
 }
 
+export function ShopifyViewportAnatomyFigure() {
+  return (
+    <figure className="not-prose my-8 rounded-xl border border-neutral-200 bg-neutral-50 p-5 sm:p-6">
+      <figcaption className="mb-6 max-w-2xl">
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-neutral-500">
+          Viewport anatomy
+        </p>
+        <h4 className="mt-2 text-lg font-semibold tracking-tight text-neutral-900">
+          The header defined the sheet&rsquo;s usable range
+        </h4>
+        <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+          The storefront header was removed from the available height before the
+          remaining viewport was divided into three release zones.
+        </p>
+      </figcaption>
+
+      <div className="grid items-center gap-8 sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+        <div
+          className="mx-auto aspect-[9/16] w-full max-w-56 overflow-hidden rounded-[1.5rem] border-4 border-neutral-800 bg-white p-2"
+          role="img"
+          aria-label="Simplified mobile viewport with a reserved 58-pixel storefront header above three release zones. The top zone maps to fully expanded, the middle zone to partially expanded, and the bottom zone to collapsed."
+        >
+          <div className="grid h-full grid-rows-[auto_1fr] overflow-hidden rounded-xl border border-neutral-200">
+            <div className="flex min-h-16 items-center justify-center border-b-2 border-neutral-500 bg-neutral-200 px-3 text-center">
+              <div>
+                <p className="font-mono text-xs font-semibold text-neutral-700">
+                  58px
+                </p>
+                <p className="mt-1 text-xs text-neutral-600">
+                  Storefront header
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-rows-3">
+              <div className="flex items-center justify-between border-b border-dashed border-neutral-300 bg-white px-3">
+                <span className="font-mono text-xs text-neutral-500">
+                  Top zone
+                </span>
+                <span className="text-xs font-semibold text-neutral-800">
+                  Full
+                </span>
+              </div>
+              <div className="flex items-center justify-between border-b border-dashed border-neutral-300 bg-neutral-100 px-3">
+                <span className="font-mono text-xs text-neutral-500">
+                  Middle zone
+                </span>
+                <span className="text-xs font-semibold text-neutral-800">
+                  Partial
+                </span>
+              </div>
+              <div className="flex items-center justify-between bg-neutral-200 px-3">
+                <span className="font-mono text-xs text-neutral-600">
+                  Bottom zone
+                </span>
+                <span className="text-xs font-semibold text-neutral-800">
+                  Collapsed
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ol className="m-0 list-none space-y-5 p-0">
+          <li className="grid grid-cols-[auto_1fr] gap-3">
+            <span className="font-mono text-xs text-neutral-400">01</span>
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">
+                Reserve the header
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                The sheet&rsquo;s upper position stopped below the 58-pixel storefront
+                header instead of covering it.
+              </p>
+            </div>
+          </li>
+          <li className="grid grid-cols-[auto_1fr] gap-3">
+            <span className="font-mono text-xs text-neutral-400">02</span>
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">
+                Divide the usable height
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                The remaining viewport supplied three positional drop zones.
+              </p>
+            </div>
+          </li>
+          <li className="grid grid-cols-[auto_1fr] gap-3">
+            <span className="font-mono text-xs text-neutral-400">03</span>
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">
+                Map position to state
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                A slower release settled into collapsed, partially expanded, or
+                fully expanded according to its zone.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <p className="mt-6 border-t border-neutral-200 pt-4 text-xs leading-relaxed text-neutral-500">
+        Simplified explanation, not to scale. The original percentages and exact
+        calculations are no longer available.
+      </p>
+    </figure>
+  );
+}
+
 export function ShopifyDragResolutionFigure() {
   return (
     <figure className="not-prose my-8 rounded-xl border border-neutral-200 bg-neutral-50 p-5 sm:p-6">
