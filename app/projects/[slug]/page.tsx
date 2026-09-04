@@ -1,5 +1,8 @@
 import ComponentLibraryDemo from "@/components/ComponentLibraryDemo";
-import ShopifyMobileStoreEditorVisuals from "@/components/ShopifyMobileStoreEditorVisuals";
+import {
+  ShopifyDragResolutionFigure,
+  ShopifySheetStatesFigure,
+} from "@/components/ShopifyMobileStoreEditorVisuals";
 import { cn } from "@/lib/cn";
 import { getAllSlugs, getPostBySlug } from "@/lib/project-posts";
 import type { Metadata } from "next";
@@ -40,6 +43,14 @@ function splitLeadSection(content: string): readonly [string, string] {
   return [content.slice(0, nextHeadingIndex), content.slice(nextHeadingIndex + 1)];
 }
 
+const caseStudyVisuals = {
+  "shopify-sheet-states": ShopifySheetStatesFigure,
+  "shopify-drag-resolution": ShopifyDragResolutionFigure,
+} as const;
+
+const caseStudyVisualPattern =
+  /<!-- case-study-visual:([a-z0-9-]+) -->/g;
+
 const markdownComponents: Components = {
   a: ({ href, children, title }) => {
     const className = cn(
@@ -76,6 +87,52 @@ const markdownComponents: Components = {
     />
   ),
 };
+
+function renderPostContent(content: string): React.ReactNode[] {
+  const rendered: React.ReactNode[] = [];
+  let previousIndex = 0;
+
+  for (const match of content.matchAll(caseStudyVisualPattern)) {
+    const markerIndex = match.index;
+    const visualName = match[1] as keyof typeof caseStudyVisuals;
+    const Visual = caseStudyVisuals[visualName];
+
+    if (!Visual) {
+      throw new Error(`Unknown case-study visual: ${match[1]}`);
+    }
+
+    const markdown = content.slice(previousIndex, markerIndex);
+    if (markdown.trim()) {
+      rendered.push(
+        <ReactMarkdown
+          key={`markdown-${previousIndex}`}
+          remarkPlugins={[remarkGfm]}
+          components={markdownComponents}
+        >
+          {markdown}
+        </ReactMarkdown>,
+      );
+    }
+
+    rendered.push(<Visual key={`visual-${visualName}-${markerIndex}`} />);
+    previousIndex = markerIndex + match[0].length;
+  }
+
+  const remainingMarkdown = content.slice(previousIndex);
+  if (remainingMarkdown.trim()) {
+    rendered.push(
+      <ReactMarkdown
+        key={`markdown-${previousIndex}`}
+        remarkPlugins={[remarkGfm]}
+        components={markdownComponents}
+      >
+        {remainingMarkdown}
+      </ReactMarkdown>,
+    );
+  }
+
+  return rendered;
+}
 
 export function generateStaticParams(): PageParams[] {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -223,17 +280,8 @@ export default async function ProjectPostPage({
           </figure>
         ) : null}
 
-        {post.slug === "shopify-mobile-store-editor" ? (
-          <ShopifyMobileStoreEditorVisuals />
-        ) : null}
-
         <article className={proseClasses}>
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={markdownComponents}
-          >
-            {bodyContent}
-          </ReactMarkdown>
+          {renderPostContent(bodyContent)}
         </article>
       </main>
     </div>

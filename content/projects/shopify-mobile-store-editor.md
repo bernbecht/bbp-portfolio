@@ -78,6 +78,8 @@ the third working position, adapting editing controls to the mobile context,
 implementing nested navigation, preventing header overlap, testing on physical mobile
 devices, and adding feedback when the selected storefront element changed.
 
+<!-- case-study-visual:shopify-sheet-states -->
+
 ## Engineering movement around clear rules
 
 ### Sizing around the storefront
@@ -103,6 +105,8 @@ the sheet fully and a sufficiently fast downward gesture collapsed it. For slowe
 gestures, the remaining viewport—after subtracting the 58-pixel header—was divided into
 three vertical drop zones. Releasing the handle in a zone selected the corresponding
 resting position.
+
+<!-- case-study-visual:shopify-drag-resolution -->
 
 This combined two kinds of intent. Position handled deliberate placement, while
 velocity let a quick flick communicate direction without requiring the pointer to

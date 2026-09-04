@@ -1,6 +1,6 @@
 # Shopify mobile Store Editor case study plan
 
-Status: **Phase 3 in progress — visual implementation complete; browser QA pending**
+Status: **Phase 3 in progress — visual placement corrected; accessibility QA pending**
 
 Last updated: 2026-09-04
 
@@ -288,6 +288,7 @@ Use this table as decisions are made so context is not lost.
 | 2026-09-03 | Preserve audience-specific briefs instead of maintaining three unpublished article copies. | Briefs retain the expert recommendations and evidence boundaries without creating four narratives that can drift apart. |
 | 2026-09-04 | Use a responsive three-frame comparison plus a compact drag-resolution flow. | The frames explain the purpose of each resting position; the flow adds the velocity-versus-position decision that still images cannot show. |
 | 2026-09-04 | Add an opt-in lead-section placement before hero media. | It moves scope, ownership, and reported outcome above the video without changing the layout of other posts. |
+| 2026-09-04 | Place each Phase 3 visual where its question arises in the narrative. | The state comparison now follows the inherited-component and ownership context; the drag-resolution flow sits inside the velocity and drop-zone explanation. |
 
 ## Working notes
 
@@ -318,6 +319,7 @@ content priorities, evidence, and future interaction intent are preserved in
 role-personalization feature.
 
 Phase 3 visual implementation uses the approved state frames in
-`components/ShopifyMobileStoreEditorVisuals.tsx`. Lint, production build, and rendered
-HTML checks pass. Final visual inspection at mobile and desktop widths remains pending
-because no browser surface was available during this pass.
+`components/ShopifyMobileStoreEditorVisuals.tsx`. Explicit, allowlisted Markdown slots
+place the state comparison and drag-resolution flow at their corresponding narrative
+sections without enabling arbitrary embedded components. Bernardo has verified the
+mobile layout and media loading. Accessibility QA remains before Phase 3 can close.

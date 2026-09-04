@@ -42,11 +42,11 @@ const ENDPOINTS = [
   },
 ] as const;
 
-export default function ShopifyMobileStoreEditorVisuals() {
+export function ShopifySheetStatesFigure() {
   return (
     <section
       aria-labelledby="sheet-visual-heading"
-      className="mb-14 border-y border-neutral-200 py-10"
+      className="not-prose my-14 border-y border-neutral-200 py-10"
     >
       <div className="mb-6 max-w-2xl">
         <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-neutral-500">
@@ -96,59 +96,63 @@ export default function ShopifyMobileStoreEditorVisuals() {
           </figure>
         ))}
       </div>
+    </section>
+  );
+}
 
-      <figure className="mt-10 rounded-xl border border-neutral-200 bg-neutral-50 p-5 sm:p-6">
-        <figcaption className="mb-5">
-          <h3 className="text-lg font-semibold text-neutral-900">
-            How a drag resolves
-          </h3>
-          <p className="mt-1 text-sm leading-relaxed text-neutral-600">
-            Direction takes priority during a fast gesture. Position decides the
-            state when the release is slower.
-          </p>
-        </figcaption>
+export function ShopifyDragResolutionFigure() {
+  return (
+    <figure className="not-prose my-8 rounded-xl border border-neutral-200 bg-neutral-50 p-5 sm:p-6">
+      <figcaption className="mb-5">
+        <h4 className="text-lg font-semibold text-neutral-900">
+          How a drag resolves
+        </h4>
+        <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+          Direction takes priority during a fast gesture. Position decides the
+          state when the release is slower.
+        </p>
+      </figcaption>
 
-        <div className="grid items-stretch gap-3 sm:grid-cols-[minmax(0,0.8fr)_auto_minmax(0,2fr)]">
-          <div className="flex items-center justify-center rounded-lg border border-neutral-300 bg-white px-4 py-4 text-center">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-wider text-neutral-500">
-                Input
-              </p>
-              <p className="mt-1 font-semibold text-neutral-900">
-                Release the handle
-              </p>
-            </div>
+      <div className="grid items-stretch gap-3 sm:grid-cols-[minmax(0,0.8fr)_auto_minmax(0,2fr)]">
+        <div className="flex items-center justify-center rounded-lg border border-neutral-300 bg-white px-4 py-4 text-center">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-wider text-neutral-500">
+              Input
+            </p>
+            <p className="mt-1 font-semibold text-neutral-900">
+              Release the handle
+            </p>
           </div>
-
-          <div
-            aria-hidden="true"
-            className="flex items-center justify-center text-xl text-neutral-400 max-sm:rotate-90"
-          >
-            →
-          </div>
-
-          <ol className="grid list-none gap-2 p-0 sm:grid-cols-3">
-            {ENDPOINTS.map((endpoint) => (
-              <li
-                key={endpoint.condition}
-                className="rounded-lg border border-neutral-200 bg-white px-4 py-3"
-              >
-                <p className="font-mono text-xs text-neutral-500">
-                  {endpoint.condition}
-                </p>
-                <p className="mt-1 text-sm font-semibold leading-snug text-neutral-900">
-                  {endpoint.result}
-                </p>
-              </li>
-            ))}
-          </ol>
         </div>
 
-        <p className="mt-4 border-t border-neutral-200 pt-4 text-sm leading-relaxed text-neutral-600">
-          Dragging starts only at the handle. Vertical gestures within the sheet
-          remain available for scrolling through controls.
-        </p>
-      </figure>
-    </section>
+        <div
+          aria-hidden="true"
+          className="flex items-center justify-center text-xl text-neutral-400 max-sm:rotate-90"
+        >
+          →
+        </div>
+
+        <ol className="grid list-none gap-2 p-0 sm:grid-cols-3">
+          {ENDPOINTS.map((endpoint) => (
+            <li
+              key={endpoint.condition}
+              className="rounded-lg border border-neutral-200 bg-white px-4 py-3"
+            >
+              <p className="font-mono text-xs text-neutral-500">
+                {endpoint.condition}
+              </p>
+              <p className="mt-1 text-sm font-semibold leading-snug text-neutral-900">
+                {endpoint.result}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <p className="mt-4 border-t border-neutral-200 pt-4 text-sm leading-relaxed text-neutral-600">
+        Dragging starts only at the handle. Vertical gestures within the sheet
+        remain available for scrolling through controls.
+      </p>
+    </figure>
   );
 }
