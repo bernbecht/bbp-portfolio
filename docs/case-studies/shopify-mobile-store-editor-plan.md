@@ -1,6 +1,6 @@
 # Shopify mobile Store Editor case study plan
 
-Status: **Phase 3 in progress — visual placement corrected; accessibility QA pending**
+Status: **Phase 4 complete — publication-ready**
 
 Last updated: 2026-09-04
 
@@ -241,21 +241,21 @@ Deliverable: structurally complete draft. **Completed 2026-09-03.**
 - [x] Extract or source the three state images.
 - [x] Create annotations and, if useful, the technical diagram.
 - [x] Add any page component needed for the at-a-glance summary or figures.
-- [ ] Verify mobile layout, media loading, and accessibility.
+- [x] Verify mobile layout, media loading, and accessibility.
 
-Deliverable: complete case-study page with supporting visuals.
+Deliverable: complete case-study page with supporting visuals. **Completed 2026-09-04.**
 
 ### Phase 4: Edit and verify
 
-- [ ] Tighten the copy and remove unsupported claims.
-- [ ] Verify outcome terminology and attribution.
-- [ ] Review ownership and confidentiality language.
-- [ ] Check heading hierarchy, links, captions, alt text, and metadata.
-- [ ] Run `npm run lint`.
-- [ ] Run `npm run build`.
-- [ ] Review the rendered page on mobile and desktop.
+- [x] Tighten the copy and remove unsupported claims.
+- [x] Verify outcome terminology and attribution.
+- [x] Review ownership and confidentiality language.
+- [x] Check heading hierarchy, links, captions, alt text, and metadata.
+- [x] Run `npm run lint`.
+- [x] Run `npm run build`.
+- [x] Review the rendered page on mobile and desktop.
 
-Deliverable: publication-ready post.
+Deliverable: publication-ready post. **Completed 2026-09-04.**
 
 ## Definition of done
 
@@ -290,6 +290,9 @@ Use this table as decisions are made so context is not lost.
 | 2026-09-04 | Add an opt-in lead-section placement before hero media. | It moves scope, ownership, and reported outcome above the video without changing the layout of other posts. |
 | 2026-09-04 | Place each Phase 3 visual where its question arises in the narrative. | The state comparison now follows the inherited-component and ownership context; the drag-resolution flow sits inside the velocity and drop-zone explanation. |
 | 2026-09-04 | Add a conceptual desktop-versus-mobile layout comparison inside the conflict section. | It makes the spatial constraint visible without presenting a reconstruction as historical evidence or revealing the three-state solution too early. |
+| 2026-09-04 | Close Phase 3 and begin Phase 4. | Bernardo approved the visual sequence and verified the mobile layout and media loading; the page-level semantic review found labeled media, descriptive alternatives, captions, and a valid heading hierarchy. |
+| 2026-09-04 | Remove the remembered 10-percentage-point magnitude from publication copy. | The directional increase and its source are remembered, but no artifact verifies the exact magnitude, definition, baseline, or measurement window. |
+| 2026-09-04 | Close Phase 4 after desktop visual approval. | Bernardo reviewed the rendered desktop page and approved it; mobile layout, media, semantics, lint, and production build had already been verified. |
 
 ## Working notes
 
@@ -306,7 +309,7 @@ Use this table as decisions are made so context is not lost.
 | Preview-selection feedback | Source interview and present-day clip | Describe the visible bounce without claiming a synchronization fix. |
 | Nested controls | Source interview and present-day frame/clip | Treat the Google Maps comparison as design rationale, not validation. |
 | Validation | Recollection of team feedback, screen-reader checks, and physical-device testing | Do not claim merchant research, specific findings, or accessibility conformance. |
-| Outcome | Product manager's remembered report | Attribute the approximate 10-percentage-point increase; disclose missing definition, baseline, window, and confounding releases. |
+| Outcome | Product manager's remembered report | Describe the directional increase without an unverified magnitude; disclose the missing definition, baseline, window, and confounding releases. |
 | Reflection | Bernardo's retrospective assessment | Keep the nested-navigation alternative distinct from what shipped. |
 
 The rough draft now lives in
@@ -323,4 +326,14 @@ Phase 3 visual implementation uses the approved state frames in
 `components/ShopifyMobileStoreEditorVisuals.tsx`. Explicit, allowlisted Markdown slots
 place the state comparison and drag-resolution flow at their corresponding narrative
 sections without enabling arbitrary embedded components. Bernardo has verified the
-mobile layout and media loading. Accessibility QA remains before Phase 3 can close.
+mobile layout and media loading. The visual semantics, alternative text, captions, and
+media labels have also been reviewed. Phase 3 closed on 2026-09-04.
+
+Phase 4 editorial verification removed the unverified outcome magnitude while retaining
+the product manager's directional report and its limitations. Ownership and
+confidentiality language remain within the approved evidence boundary. The rendered
+HTML has a valid heading sequence, labeled video elements, descriptive image alternatives,
+figure captions, canonical metadata, and successful responses for the three video files.
+Lint and the production build pass. Bernardo completed and approved the final desktop
+visual review on 2026-09-04, closing Phase 4. A project-specific social image remains an
+optional enhancement rather than a publication blocker.

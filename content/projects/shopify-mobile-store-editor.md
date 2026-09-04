@@ -22,7 +22,7 @@
 | **Ownership** | Sole engineer responsible for integrating the bottom sheet into the Store Editor |
 | **Starting point** | An early React component with collapsed and fully expanded states |
 | **Shipped** | A three-state mobile editing experience connecting controls and the storefront preview |
-| **Reported outcome** | Approximately 10 percentage points more frequent mobile use during the broader redesign; reported by the product manager, with the underlying analytics no longer available |
+| **Reported outcome** | Increased frequency of mobile Store Editor use during the broader redesign, as reported by the product manager; the underlying analytics are no longer available |
 
 > I took an early two-state bottom-sheet component and turned it into an integrated mobile Store Editor experience.
 
@@ -170,11 +170,11 @@ this interaction, and I do not present internal feedback or device testing as us
 validation.
 
 After the broader mobile redesign shipped, the product manager told the team that the
-frequency of mobile Store Editor use had increased by approximately 10 percentage
-points. I no longer have the underlying report, metric definition, measurement window,
-or baseline, and multiple changes shipped during the same period. I therefore treat
-that number as a remembered, team-reported result—not as an independently verified
-measurement or an effect attributable to the bottom sheet alone.
+frequency of mobile Store Editor use had increased. I no longer have the underlying
+report, metric definition, measurement window, baseline, or verified magnitude, and
+multiple changes shipped during the same period. I therefore treat this as a
+team-reported directional result—not as an independently verified measurement or an
+effect attributable to the bottom sheet alone.
 
 The result provides useful context, but the durable evidence of my contribution is the
 interaction itself: the component moved from an incomplete container to a mobile editor
