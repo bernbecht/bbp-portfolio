@@ -1,4 +1,5 @@
 import ComponentLibraryDemo from "@/components/ComponentLibraryDemo";
+import ShopifyMobileStoreEditorVisuals from "@/components/ShopifyMobileStoreEditorVisuals";
 import { cn } from "@/lib/cn";
 import { getAllSlugs, getPostBySlug } from "@/lib/project-posts";
 import type { Metadata } from "next";
@@ -29,6 +30,14 @@ function formatDisplayDate(isoDate: string): string {
     month: "long",
     day: "numeric",
   }).format(new Date(time));
+}
+
+function splitLeadSection(content: string): readonly [string, string] {
+  const nextHeadingIndex = content.indexOf("\n## ", 1);
+  if (nextHeadingIndex === -1) {
+    return [content, ""];
+  }
+  return [content.slice(0, nextHeadingIndex), content.slice(nextHeadingIndex + 1)];
 }
 
 const markdownComponents: Components = {
@@ -128,6 +137,17 @@ export default async function ProjectPostPage({
   }
 
   const backHref = "/projects";
+  const [leadContent, bodyContent] = post.leadSectionBeforeHero
+    ? splitLeadSection(post.content)
+    : ["", post.content];
+  const proseClasses = cn(
+    "prose prose-neutral max-w-none text-gray-700",
+    "prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-neutral-900",
+    "prose-pre:border prose-pre:border-neutral-200 prose-pre:bg-neutral-50",
+    "prose-code:rounded-sm prose-code:bg-neutral-100 prose-code:px-1 prose-code:py-0.5 prose-code:text-[0.9em] prose-code:before:content-none prose-code:after:content-none",
+    "prose-blockquote:border-l-neutral-300 prose-blockquote:text-neutral-700",
+    "prose-table:text-sm",
+  );
 
   return (
     <div className="fade-up">
@@ -170,6 +190,17 @@ export default async function ProjectPostPage({
           <ComponentLibraryDemo />
         ) : null}
 
+        {leadContent ? (
+          <div className={cn(proseClasses, "mb-12")}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={markdownComponents}
+            >
+              {leadContent}
+            </ReactMarkdown>
+          </div>
+        ) : null}
+
         {post.heroVideo ? (
           <figure className="mb-12 rounded-xl border border-neutral-200 bg-neutral-50 p-4 sm:p-6">
             <div className="mx-auto max-w-[22rem] overflow-hidden rounded-[2rem] border-[6px] border-neutral-900 bg-neutral-900 shadow-xl">
@@ -192,21 +223,16 @@ export default async function ProjectPostPage({
           </figure>
         ) : null}
 
-        <article
-          className={cn(
-            "prose prose-neutral max-w-none text-gray-700",
-            "prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-neutral-900",
-            "prose-pre:border prose-pre:border-neutral-200 prose-pre:bg-neutral-50",
-            "prose-code:rounded-sm prose-code:bg-neutral-100 prose-code:px-1 prose-code:py-0.5 prose-code:text-[0.9em] prose-code:before:content-none prose-code:after:content-none",
-            "prose-blockquote:border-l-neutral-300 prose-blockquote:text-neutral-700",
-            "prose-table:text-sm",
-          )}
-        >
+        {post.slug === "shopify-mobile-store-editor" ? (
+          <ShopifyMobileStoreEditorVisuals />
+        ) : null}
+
+        <article className={proseClasses}>
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={markdownComponents}
           >
-            {post.content}
+            {bodyContent}
           </ReactMarkdown>
         </article>
       </main>

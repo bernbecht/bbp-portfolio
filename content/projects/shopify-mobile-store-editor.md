@@ -4,6 +4,7 @@
   description: >-
     How I turned an early two-state bottom-sheet component into an integrated mobile editing
     experience with three working positions, nested controls, and touch-driven state changes.
+  leadSectionBeforeHero: true
   heroVideo:
     src: '/projects/shopify-mobile-store-editor/store-editor-bottom-sheet.mp4'
     poster: '/projects/shopify-mobile-store-editor/store-editor-bottom-sheet-poster.jpg'
@@ -76,21 +77,6 @@ I became the sole engineer responsible for that integration. My work included ad
 the third working position, adapting editing controls to the mobile context,
 implementing nested navigation, preventing header overlap, testing on physical mobile
 devices, and adding feedback when the selected storefront element changed.
-
-## Three positions, three purposes
-
-The completed interaction used three intentional resting positions:
-
-1. **Collapsed** prioritized the storefront preview while keeping editing within
-   reach.
-2. **Partially expanded** exposed useful controls while leaving enough of the
-   storefront visible to understand the edit in context.
-3. **Fully expanded** provided room for controls that needed more focused attention.
-
-The intermediate position was important because the problem was not simply whether
-the controls were open or closed. Merchants sometimes needed controls and preview at
-the same time. A stable middle state let the interface allocate space to both instead
-of forcing a switch between them.
 
 ## Engineering movement around clear rules
 

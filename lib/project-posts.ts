@@ -15,6 +15,7 @@ export type ProjectPostFrontmatter = Readonly<{
   /** ISO 8601 string; used for ordering and metadata. */
   date: string;
   description: string;
+  leadSectionBeforeHero?: boolean;
   heroDemo?: 'component-library';
   heroVideo?: Readonly<{
     src: string;
@@ -44,6 +45,7 @@ function assertPostFrontmatter(
   const title = data.title;
   const date = data.date;
   const description = data.description;
+  const leadSectionBeforeHero = data.leadSectionBeforeHero;
   const heroDemo = data.heroDemo;
   const heroVideo = data.heroVideo;
 
@@ -56,6 +58,14 @@ function assertPostFrontmatter(
   if (typeof description !== 'string' || description.trim() === '') {
     throw new Error(
       `Invalid or missing "description" in content/projects/${slug}.md frontmatter`,
+    );
+  }
+  if (
+    leadSectionBeforeHero !== undefined &&
+    typeof leadSectionBeforeHero !== 'boolean'
+  ) {
+    throw new Error(
+      `Invalid "leadSectionBeforeHero" in content/projects/${slug}.md frontmatter`,
     );
   }
   if (heroDemo !== undefined && heroDemo !== 'component-library') {
@@ -84,6 +94,7 @@ function assertPostFrontmatter(
       title,
       date,
       description,
+      ...(leadSectionBeforeHero ? { leadSectionBeforeHero } : {}),
       ...(heroDemo ? { heroDemo } : {}),
       heroVideo: {
         src: video.src as string,
@@ -94,7 +105,13 @@ function assertPostFrontmatter(
     };
   }
 
-  return { title, date, description, ...(heroDemo ? { heroDemo } : {}) };
+  return {
+    title,
+    date,
+    description,
+    ...(leadSectionBeforeHero ? { leadSectionBeforeHero } : {}),
+    ...(heroDemo ? { heroDemo } : {}),
+  };
 }
 
 function parsePostFile(slug: string, raw: string): ProjectPost {

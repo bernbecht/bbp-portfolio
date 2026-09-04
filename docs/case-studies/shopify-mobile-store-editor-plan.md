@@ -1,8 +1,8 @@
 # Shopify mobile Store Editor case study plan
 
-Status: **Phase 2 complete — ready for Phase 3 visual development**
+Status: **Phase 3 in progress — visual implementation complete; browser QA pending**
 
-Last updated: 2026-09-03
+Last updated: 2026-09-04
 
 ## Purpose
 
@@ -189,14 +189,14 @@ Reader takeaway: the project produced reusable judgment, not only a shipped feat
 
 ## Layout work
 
-- [ ] Move scope and outcome above the hero video.
+- [x] Move scope and outcome above the hero video.
 - [ ] Replace or restyle the Markdown summary table for narrow screens.
-- [ ] Create a three-state visual using approved screenshots or frames from the existing
+- [x] Create a three-state visual using approved screenshots or frames from the existing
   video.
-- [ ] Annotate the user purpose and relevant interaction boundary in each state.
-- [ ] Decide whether an interaction-state or event-flow diagram adds distinct value.
-- [ ] Break the engineering section into scannable subsections.
-- [ ] Confirm figures have useful alt text and captions.
+- [x] Annotate the user purpose and relevant interaction boundary in each state.
+- [x] Decide whether an interaction-state or event-flow diagram adds distinct value.
+- [x] Break the engineering section into scannable subsections.
+- [x] Confirm figures have useful alt text and captions.
 - [ ] Create a project-specific social image instead of using the profile photo, if the
   scope permits.
 - [ ] Check the finished page at mobile and desktop widths.
@@ -238,9 +238,9 @@ Deliverable: structurally complete draft. **Completed 2026-09-03.**
 
 ### Phase 3: Build the visual explanation
 
-- [ ] Extract or source the three state images.
-- [ ] Create annotations and, if useful, the technical diagram.
-- [ ] Add any page component needed for the at-a-glance summary or figures.
+- [x] Extract or source the three state images.
+- [x] Create annotations and, if useful, the technical diagram.
+- [x] Add any page component needed for the at-a-glance summary or figures.
 - [ ] Verify mobile layout, media loading, and accessibility.
 
 Deliverable: complete case-study page with supporting visuals.
@@ -286,6 +286,8 @@ Use this table as decisions are made so context is not lost.
 | 2026-09-03 | Replace the definition-of-done requirement about rejected alternatives with the verified nested-navigation tradeoff. | No evidence establishes that alternative overall interaction models were explored; retaining that criterion would encourage an unsupported narrative. |
 | 2026-09-03 | Publish one layered narrative for all audiences until role personalization is implemented. | A recruiter-first opening followed by design reasoning and engineering depth serves all three audiences without adding client-side behavior now. |
 | 2026-09-03 | Preserve audience-specific briefs instead of maintaining three unpublished article copies. | Briefs retain the expert recommendations and evidence boundaries without creating four narratives that can drift apart. |
+| 2026-09-04 | Use a responsive three-frame comparison plus a compact drag-resolution flow. | The frames explain the purpose of each resting position; the flow adds the velocity-versus-position decision that still images cannot show. |
+| 2026-09-04 | Add an opt-in lead-section placement before hero media. | It moves scope, ownership, and reported outcome above the video without changing the layout of other posts. |
 
 ## Working notes
 
@@ -314,3 +316,8 @@ The review revisions have been incorporated into the unified article. Audience g
 content priorities, evidence, and future interaction intent are preserved in
 `docs/case-studies/shopify-mobile-store-editor-audience-briefs.md` for a later
 role-personalization feature.
+
+Phase 3 visual implementation uses the approved state frames in
+`components/ShopifyMobileStoreEditorVisuals.tsx`. Lint, production build, and rendered
+HTML checks pass. Final visual inspection at mobile and desktop widths remains pending
+because no browser surface was available during this pass.
