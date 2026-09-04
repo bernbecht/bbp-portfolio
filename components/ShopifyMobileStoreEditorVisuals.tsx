@@ -343,3 +343,82 @@ export function ShopifyDragResolutionFigure() {
     </figure>
   );
 }
+
+export function ShopifyDragScrollBoundaryFigure() {
+  return (
+    <figure className="not-prose my-8 rounded-xl border border-neutral-200 bg-neutral-50 p-5 sm:p-6">
+      <figcaption className="mb-6 max-w-2xl">
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-neutral-500">
+          Gesture boundary
+        </p>
+        <h4 className="mt-2 text-lg font-semibold tracking-tight text-neutral-900">
+          The starting point determined the gesture
+        </h4>
+        <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+          The interface did not need to infer whether the merchant meant to move
+          the sheet or scroll its controls.
+        </p>
+      </figcaption>
+
+      <div className="grid items-center gap-8 sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+        <div className="relative mx-auto w-full max-w-64 overflow-hidden rounded-xl border border-neutral-300 bg-neutral-100">
+          <Image
+            src="/projects/shopify-mobile-store-editor/evidence/sheet-partial.png"
+            alt="Shopify mobile Store Editor with the sheet partially expanded, showing its drag handle above a scrollable area of editing controls."
+            width={756}
+            height={1326}
+            className="h-auto w-full"
+            sizes="16rem"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute left-1/2 top-[46%] flex size-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-neutral-900 font-mono text-xs font-semibold text-white shadow-md"
+          >
+            1
+          </span>
+          <span
+            aria-hidden="true"
+            className="absolute right-[7%] top-[70%] flex size-7 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-neutral-900 font-mono text-xs font-semibold text-white shadow-md"
+          >
+            2
+          </span>
+        </div>
+
+        <ol className="m-0 list-none space-y-6 p-0">
+          <li className="grid grid-cols-[auto_1fr] gap-3">
+            <span className="flex size-7 items-center justify-center rounded-full bg-neutral-900 font-mono text-xs font-semibold text-white">
+              1
+            </span>
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">
+                Start on the handle
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                A vertical gesture beginning here dragged the entire sheet between
+                positions.
+              </p>
+            </div>
+          </li>
+          <li className="grid grid-cols-[auto_1fr] gap-3">
+            <span className="flex size-7 items-center justify-center rounded-full bg-neutral-900 font-mono text-xs font-semibold text-white">
+              2
+            </span>
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">
+                Start inside the content
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                The same vertical gesture scrolled through controls instead of
+                moving the sheet.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <p className="mt-6 border-t border-neutral-200 pt-4 text-xs leading-relaxed text-neutral-500">
+        Numbered markers identify the two gesture regions in the shipped interface.
+      </p>
+    </figure>
+  );
+}

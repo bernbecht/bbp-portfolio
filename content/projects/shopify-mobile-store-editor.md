@@ -127,6 +127,8 @@ could mean “move the sheet” or “scroll its contents.” I avoided making t
 dynamically. Dragging could begin only from the sheet's handle, while gestures inside
 the content area remained available for scrolling and interacting with controls.
 
+<!-- case-study-visual:shopify-drag-scroll-boundary -->
+
 That boundary made the interaction easier to predict and kept the implementation from
 depending on the content's current scroll position to infer intent.
 

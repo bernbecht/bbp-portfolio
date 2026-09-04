@@ -1,5 +1,6 @@
 import ComponentLibraryDemo from "@/components/ComponentLibraryDemo";
 import {
+  ShopifyDragScrollBoundaryFigure,
   ShopifyDragResolutionFigure,
   ShopifySheetStatesFigure,
   ShopifyViewportAnatomyFigure,
@@ -50,6 +51,7 @@ const caseStudyVisuals = {
   "shopify-sheet-states": ShopifySheetStatesFigure,
   "shopify-viewport-anatomy": ShopifyViewportAnatomyFigure,
   "shopify-drag-resolution": ShopifyDragResolutionFigure,
+  "shopify-drag-scroll-boundary": ShopifyDragScrollBoundaryFigure,
 } as const;
 
 const caseStudyVisualPattern =
