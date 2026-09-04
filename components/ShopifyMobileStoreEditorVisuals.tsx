@@ -422,3 +422,163 @@ export function ShopifyDragScrollBoundaryFigure() {
     </figure>
   );
 }
+
+export function ShopifyPreviewSelectionFigure() {
+  return (
+    <figure className="not-prose my-8 rounded-xl border border-neutral-200 bg-neutral-50 p-5 sm:p-6">
+      <figcaption className="mb-6 max-w-2xl">
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-neutral-500">
+          Selection feedback
+        </p>
+        <h4 className="mt-2 text-lg font-semibold tracking-tight text-neutral-900">
+          A preview selection redirected attention to its controls
+        </h4>
+        <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+          Selecting the logo changed the editing context. Motion from the collapsed
+          sheet pointed toward the controls that had updated below the viewport.
+        </p>
+      </figcaption>
+
+      <div className="grid items-center gap-8 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+        <div className="mx-auto w-full max-w-64 overflow-hidden rounded-[1.5rem] border-4 border-neutral-800 bg-neutral-900 shadow-lg">
+          <video
+            className="aspect-[9/16] w-full bg-neutral-950 object-cover"
+            controls
+            muted
+            playsInline
+            preload="metadata"
+            poster="/projects/shopify-mobile-store-editor/evidence/sheet-collapsed.png"
+            aria-label="Demonstration of selecting the storefront logo and the mobile editing sheet responding with the corresponding controls"
+          >
+            <source
+              src="/projects/shopify-mobile-store-editor/evidence/preview-selection-feedback.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support embedded video.
+          </video>
+        </div>
+
+        <ol className="m-0 list-none space-y-5 p-0">
+          <li className="grid grid-cols-[auto_1fr] gap-3">
+            <span className="font-mono text-xs text-neutral-400">01</span>
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">
+                Select in the preview
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                The merchant chose the logo directly on the storefront.
+              </p>
+            </div>
+          </li>
+          <li className="grid grid-cols-[auto_1fr] gap-3">
+            <span className="font-mono text-xs text-neutral-400">02</span>
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">
+                Update the editing context
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                The sheet loaded the controls associated with that selection.
+              </p>
+            </div>
+          </li>
+          <li className="grid grid-cols-[auto_1fr] gap-3">
+            <span className="font-mono text-xs text-neutral-400">03</span>
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">
+                Signal the off-screen change
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                The collapsed sheet moved without forcing the editing controls open.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <p className="mt-6 border-t border-neutral-200 pt-4 text-xs leading-relaxed text-neutral-500">
+        Recent capture of the shipped interaction. The clip has no audio.
+      </p>
+    </figure>
+  );
+}
+
+export function ShopifyNestedControlsFigure() {
+  return (
+    <figure className="not-prose my-8 rounded-xl border border-neutral-200 bg-neutral-50 p-5 sm:p-6">
+      <figcaption className="mb-6 max-w-2xl">
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-neutral-500">
+          Nested navigation
+        </p>
+        <h4 className="mt-2 text-lg font-semibold tracking-tight text-neutral-900">
+          A second editing context opened above the first
+        </h4>
+        <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+          A nested color control opened partially over the parent sheet, expanded
+          for focused editing, then returned the merchant to the original controls.
+        </p>
+      </figcaption>
+
+      <div className="grid items-center gap-8 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+        <div className="mx-auto w-full max-w-64 overflow-hidden rounded-[1.5rem] border-4 border-neutral-800 bg-neutral-900 shadow-lg">
+          <video
+            className="aspect-[9/16] w-full bg-neutral-950 object-cover"
+            controls
+            muted
+            playsInline
+            preload="metadata"
+            poster="/projects/shopify-mobile-store-editor/evidence/nested-sheet-interaction-poster.png"
+            aria-label="Demonstration of a nested color-control sheet opening partially over its parent, expanding fully, and closing with Done"
+          >
+            <source
+              src="/projects/shopify-mobile-store-editor/evidence/nested-sheet-interaction.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support embedded video.
+          </video>
+        </div>
+
+        <ol className="m-0 list-none space-y-5 p-0">
+          <li className="grid grid-cols-[auto_1fr] gap-3">
+            <span className="font-mono text-xs text-neutral-400">01</span>
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">
+                Begin in the original sheet
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                The main editing controls remained the parent context.
+              </p>
+            </div>
+          </li>
+          <li className="grid grid-cols-[auto_1fr] gap-3">
+            <span className="font-mono text-xs text-neutral-400">02</span>
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">
+                Open above the parent
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                A second sheet began partially expanded while a backdrop made the
+                parent non-interactive.
+              </p>
+            </div>
+          </li>
+          <li className="grid grid-cols-[auto_1fr] gap-3">
+            <span className="font-mono text-xs text-neutral-400">03</span>
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">
+                Expand, then return
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                The nested sheet expanded fully; selecting Done closed it and
+                restored interaction with the parent.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <p className="mt-6 border-t border-neutral-200 pt-4 text-xs leading-relaxed text-neutral-500">
+        Recent capture of the shipped navigation sequence. The clip has no audio.
+      </p>
+    </figure>
+  );
+}

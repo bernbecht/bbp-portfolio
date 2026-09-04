@@ -2,7 +2,7 @@
 
 Status: **Phase 1 complete — approved source material ready for narrative development**
 
-Last updated: 2026-09-03
+Last updated: 2026-09-04
 
 Related plan: [Shopify mobile Store Editor case study plan](shopify-mobile-store-editor-plan.md)
 
@@ -383,6 +383,28 @@ demonstration video:
 These clips are editorial extracts of the demonstration video, not independent
 evidence. Keep the original video as the preserved master.
 
+#### Complete nested-sheet interaction capture
+
+Bernardo supplied a separate present-day recording that shows the complete stacked-
+sheet behavior:
+
+- Source master: `evidence/nested-sheet-controls.mov`
+- Web-ready remux: `evidence/nested-sheet-interaction.mp4`
+- Matching poster: `evidence/nested-sheet-interaction-poster.png`, extracted at
+  approximately 5 seconds
+- Video format: H.264, 746 by 1326 pixels, 60 frames per second
+- Duration: approximately 16 seconds
+
+The recording confirms the parent sheet under a backdrop, the nested color-control
+sheet opening partially expanded, expansion to the full position, the Done action, and
+return to the parent sheet. The MP4 contains the same video stream in a browser-friendly
+container; it was remuxed without re-encoding.
+
+The earlier `evidence/nested-sheet-controls.mp4` and
+`evidence/nested-sheet-controls.png` remain separate evidence of the shorter Logo
+options navigation. Do not use the older PNG as the poster for the complete interaction
+because it depicts a different nested view with a Back action.
+
 #### Poster image
 
 - Path: `public/projects/shopify-mobile-store-editor/store-editor-bottom-sheet-poster.jpg`
@@ -573,6 +595,8 @@ Place approved captures under
 - `state-transitions.mp4`
 - `preview-selection-feedback.mp4`
 - `nested-sheet-controls.mp4`
+- `nested-sheet-interaction.mp4`
+- `nested-sheet-interaction-poster.png`
 
 Preserve untouched originals outside the public folder until each file has been checked
 for sensitive content and approved for publication.

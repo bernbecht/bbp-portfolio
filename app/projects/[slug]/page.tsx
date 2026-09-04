@@ -2,6 +2,8 @@ import ComponentLibraryDemo from "@/components/ComponentLibraryDemo";
 import {
   ShopifyDragScrollBoundaryFigure,
   ShopifyDragResolutionFigure,
+  ShopifyNestedControlsFigure,
+  ShopifyPreviewSelectionFigure,
   ShopifySheetStatesFigure,
   ShopifyViewportAnatomyFigure,
   ShopifyViewportConflictFigure,
@@ -52,6 +54,8 @@ const caseStudyVisuals = {
   "shopify-viewport-anatomy": ShopifyViewportAnatomyFigure,
   "shopify-drag-resolution": ShopifyDragResolutionFigure,
   "shopify-drag-scroll-boundary": ShopifyDragScrollBoundaryFigure,
+  "shopify-preview-selection": ShopifyPreviewSelectionFigure,
+  "shopify-nested-controls": ShopifyNestedControlsFigure,
 } as const;
 
 const caseStudyVisualPattern =

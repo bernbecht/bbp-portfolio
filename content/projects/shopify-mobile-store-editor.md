@@ -142,11 +142,15 @@ I added a short bounce to the collapsed sheet to point back to the newly loaded
 controls. When the sheet was already open, the controls changed without the bounce or
 a state transition because the update was already visible.
 
+<!-- case-study-visual:shopify-preview-selection -->
+
 ### Navigating nested controls
 
 Some settings opened a second sheet above the first. The nested sheet began partially
 expanded, placed a backdrop over the original sheet, and could expand fully or close.
-Selecting **Done** returned control to the original sheet.
+Selecting **Done** restored control to the original sheet.
+
+<!-- case-study-visual:shopify-nested-controls -->
 
 I questioned whether stacking sheets was the clearest model. Replacing the original
 sheet's contents and providing a Back or Done action could have expressed navigation
