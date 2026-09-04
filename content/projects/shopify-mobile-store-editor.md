@@ -2,8 +2,8 @@
   title: "Preserving Shopify's live Store Editor on mobile"
   date: '2025-11-08T12:00:00.000Z'
   description: >-
-    How I turned an early two-state bottom-sheet component into an integrated mobile editing
-    experience with three working positions, nested controls, and touch-driven state changes.
+    Integrating an early two-state bottom-sheet component into Shopify's mobile Store Editor,
+    with three working positions, nested controls, and touch-driven state changes.
   leadSectionBeforeHero: true
   heroVideo:
     src: '/projects/shopify-mobile-store-editor/store-editor-bottom-sheet.mp4'
@@ -106,9 +106,9 @@ position.
 
 I added a custom movement calculation so a sufficiently fast upward gesture expanded
 the sheet fully and a sufficiently fast downward gesture collapsed it. For slower
-gestures, the remaining viewport—after subtracting the 58-pixel header—was divided into
-three vertical drop zones. Releasing the handle in a zone selected the corresponding
-resting position.
+gestures, the remaining viewport was divided into three vertical drop zones after
+subtracting the 58-pixel header. Releasing the handle in a zone selected the
+corresponding resting position.
 
 <!-- case-study-visual:shopify-drag-resolution -->
 
@@ -173,8 +173,8 @@ After the broader mobile redesign shipped, the product manager told the team tha
 frequency of mobile Store Editor use had increased. I no longer have the underlying
 report, metric definition, measurement window, baseline, or verified magnitude, and
 multiple changes shipped during the same period. I therefore treat this as a
-team-reported directional result—not as an independently verified measurement or an
-effect attributable to the bottom sheet alone.
+team-reported directional result. It is not an independently verified measurement or
+an effect attributable to the bottom sheet alone.
 
 The result provides useful context, but the durable evidence of my contribution is the
 interaction itself: the component moved from an incomplete container to a mobile editor
@@ -190,4 +190,4 @@ two approaches with merchants before committing to the navigation model.
 More broadly, this project changed how I think about adapting desktop products. Mobile
 is not simply the same interface at a narrower width. Touch input, limited space, and
 the situations in which people use a phone change how capabilities need to be
-organized—even when the underlying product remains the same.
+organized, even when the underlying product remains the same.
