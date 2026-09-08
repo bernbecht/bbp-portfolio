@@ -1,6 +1,6 @@
 # Portfolio public copy review
 
-Status: Copy suggestions preserved. Integration reverted at Bernardo's request.
+Status: Approved revisions implemented; original proposals and decision history preserved.
 Date: 2026-09-08
 
 This is the complete proposed public UI copy pass. The integration was reverted;
@@ -517,3 +517,20 @@ Bernardo approved **01 · UI engineering**, **02 · Design systems**, and
 These supersede **Interfaces · Design systems · Testing**, approved in Revision 6,
 to align with the specialized positioning. Testing remains explicit in the hero
 introduction and Axonify project. Site code has not been changed.
+
+### Revision 25: Approved copy implemented — 2026-09-08
+
+At Bernardo's request, implemented the latest approved decisions through Revision
+24 across the hero, homepage sections, footer, Work listings, and metadata.
+The provisional Experience heading is included and remains open to later revision.
+Person structured data now matches the approved hero role. Homepage Open Graph
+metadata inherits the root title and description, with its URL defined at the root.
+
+Preserved availability indicators, the footer clock timezone, approved existing
+introductions, and all long-form Markdown/frontmatter, slugs, and listing schema.
+Featured project headings now use h2 after removal of the additional section
+headline. The hero role row wraps to accommodate its longer label.
+
+Validation: ESLint and production build passed. Chrome's accessibility tree
+confirmed the updated homepage and footer copy. Full responsive visual QA was
+not completed. Implementation commits are separated by area for easier reversal.
