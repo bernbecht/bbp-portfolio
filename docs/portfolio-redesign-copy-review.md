@@ -160,3 +160,360 @@ Paulo. After integration, Bernardo requested restoration of the code from before
 that copy pass while retaining this document. All copy-pass code changes, including
 the location change, were reverted. The Brazil correction remains in these saved
 suggestions for any future integration. Technical redesign changes remain intact.
+
+## Section-by-section revision history
+
+This review preserves the original proposals above. Record subsequent wording and
+its rationale here as each section is discussed. Later confirmed decisions supersede
+earlier proposals for the same element. Discussion does not change site code.
+
+### Review opened: 2026-09-08
+
+- Bernardo requested a guided review, one section at a time, with questions and an
+  additional history section for modifications.
+- Start with the hero, then practice, selected work, experience, toolkit, navigation
+  and footer, and projects/metadata.
+- Brazil remains the previously confirmed location correction.
+- Hero role, headline, introduction, availability, and supporting labels are open
+  for this review. No new wording decision has been made yet.
+
+### Revision 1: Bernardo's section feedback — 2026-09-08
+
+These decisions supersede the conflicting original proposals above. They are
+recorded for the copy review; site implementation remains pending.
+
+#### Hero
+
+- Keep the current availability wording and dot. Bernardo explicitly confirmed
+  this preference; the earlier recommendation to remove them is superseded.
+- Do not mention companies in the introduction.
+- Use Brazil for the location, including the mobile version.
+- Exact introduction wording remains open, as do the role, headline, eyebrow,
+  and supporting labels from the ongoing hero review.
+
+#### Practice
+
+- Keep the current headline: **The best interface is only half the job. The other
+  half is making it durable.**
+- Keep the current introduction: **I move between product intent, interaction
+  design, and production code—closing the gaps where good ideas usually lose
+  their shape.**
+- Remove **Currently focused on complex, high-stakes product environments.**
+- Use a neutral tone in the steps, avoiding repeated “I”. Exact step wording
+  remains open; the original first-person proposals are superseded.
+- Preserving this introduction takes precedence over the earlier blanket
+  zero-em-dash recommendation.
+
+#### Selected work
+
+- Remove the additional section headline. Retain the Selected work section label
+  and View all work link.
+- Match featured project titles to their corresponding titles on the Work
+  (`/projects`) page. Current listing titles are:
+  - **Designing and building Shopify's mobile Store Editor bottom sheet**
+  - **How I stopped visual regressions**
+- Keep the style and substance of the current summaries. Limit revisions to the
+  difficult-to-substantiate results, particularly 10% adoption and ~$10k/year.
+  Removing a number must not leave an equally unsupported outcome claim.
+- Review those targeted revisions across featured cards and active Work listings;
+  the earlier wholesale summary rewrites are superseded. Exact wording is pending.
+
+#### Experience
+
+- Keep the current introduction: **I've worked across product, design, and
+  engineering, building interfaces and foundations used in real production
+  environments.**
+- Find a more informative heading with personality. Bernardo finds the current
+  **From global platforms to growing product teams.** uninformative, and the
+  proposed **Experience across product teams** too bland.
+- Replacement heading remains open.
+
+#### Toolkit
+
+- Find a more informative heading with personality. Bernardo finds the current
+  **Design judgment, engineering depth.** uninformative, and **Tools I use** too
+  bland.
+- Replacement heading remains open. No new decision on the introduction or tool
+  labels was made in this feedback.
+
+#### Shared navigation and footer
+
+- Keep the current footer as the baseline, including **Have a complex idea?**,
+  availability wording and dot, and existing controls.
+- Replace the eyebrow **/ Let's make something**; exact wording remains open.
+- Use the proposed role/project invitation as the basis for a friendlier
+  introduction. **Contact me to discuss a role or project.** is direction, not
+  final wording.
+- Change the displayed location from São Paulo to Brazil, consistent with the hero.
+  The clock's existing timezone can remain unchanged.
+- No additional navigation changes were requested.
+
+#### Next discussion: hero introduction
+
+Candidate for discussion, not approved:
+
+> I'm Bernardo, a frontend engineer with a designer's eye. I build clear
+> interfaces and the systems that help teams keep them consistent as products grow.
+
+This retains the personal design-and-engineering framing of the current copy,
+removes company references, and describes the work more concretely.
+
+### Revision 2: Hero introduction approved — 2026-09-08
+
+Bernardo approved the introduction proposed in Revision 1:
+
+> I'm Bernardo, a frontend engineer with a designer's eye. I build clear
+> interfaces and the systems that help teams keep them consistent as products grow.
+
+This replaces the original company-specific introduction proposal. Availability
+and its dot remain; the displayed location will be Brazil. This approval concerns
+the introduction only; other open hero wording still needs review. Site code has
+not been changed.
+
+### Revision 3: Hero headline approved — 2026-09-08
+
+Bernardo felt the current headline, **I make complex products feel obvious.**,
+was too strong and did not feel confident making that claim.
+
+Approved replacement:
+
+> Thoughtful interfaces, from design to code.
+
+This supersedes both the current headline and the original review's proposed
+headline. It describes a focus connecting design and engineering without
+promising an outcome. Site code has not been changed.
+
+### Revision 4: Hero role label approved — 2026-09-08
+
+Bernardo approved **Senior frontend engineer** as the hero role label, replacing
+**Independent design engineer**. The role is explicit; the approved headline and
+introduction communicate the design experience. Site code has not been changed.
+
+### Revision 5: Hero eyebrow removal approved — 2026-09-08
+
+Bernardo approved removing **Product thinking, expressed in code** from the hero.
+The approved headline already connects design and code, making the eyebrow
+redundant. Site code has not been changed.
+
+### Revision 6: Hero supporting labels approved — 2026-09-08
+
+Bernardo approved **01 · Interfaces**, **02 · Design systems**, and
+**03 · Testing** as the hero's supporting labels, replacing **Interfaces ·
+Systems · Outcomes**. These describe concrete areas of work.
+
+The hero role, headline, introduction, eyebrow removal, supporting labels,
+availability indicator, and Brazil location now have recorded decisions.
+Site code has not been changed. The review moves to the practice steps, with
+its current headline and introduction retained as recorded in Revision 1.
+
+### Revision 7: Practice steps approved — 2026-09-08
+
+Bernardo approved keeping the current step titles with these neutral descriptions:
+
+| Step | Title | Description |
+| --- | --- | --- |
+| 01 | Frame the problem | Clarify the workflow, constraints, and tradeoffs before shaping the solution. |
+| 02 | Design the behavior | Work through interaction states, gestures, and accessibility alongside the implementation. |
+| 03 | Build the system | Build reusable components, document their use, and test their behavior and appearance. |
+
+These supersede the original first-person step proposals. The current practice
+headline and introduction remain, and the “Currently focused…” sentence will be
+removed, as recorded in Revision 1. Site code has not been changed.
+
+### Revision 8: Shopify selected-work summary approved — 2026-09-08
+
+Bernardo approved this replacement for the homepage Shopify card summary:
+
+> A three-state editing surface that kept editing controls and the live preview
+> within reach on small screens.
+
+This replaces the 10% mobile-adoption claim with a description of the interface's
+behavior. The corresponding Work listing still needs its targeted summary wording
+reviewed; this approval does not change long-form case-study content. Site code has
+not been changed.
+
+### Revision 9: Axonify selected-work summary approved — 2026-09-08
+
+Bernardo approved this replacement for the homepage Axonify card summary:
+
+> An in-house visual testing workflow that helped teams catch interface changes
+> before shipping.
+
+This replaces the savings and safer-refactoring claims with the workflow's
+purpose. The corresponding Work listing still needs its targeted summary wording
+reviewed. Site code has not been changed.
+
+### Revision 10: Work-page summaries approved — 2026-09-08
+
+Bernardo approved these targeted revisions to the active Work-page listings:
+
+- **Shopify:** I designed and built a three-state bottom sheet that preserved live editing on small screens.
+- **Axonify:** How I built an in-house visual regression pipeline using Playwright and Storybook to help teams review interface changes before shipping.
+
+These remove the numerical outcome claims while retaining the listings' more
+detailed descriptions. Homepage summaries remain as approved in Revisions 8 and 9;
+featured titles will match the Work-page titles as recorded in Revision 1.
+Long-form case-study content remains unchanged. Site code has not been changed.
+
+### Revision 11: Experience heading provisionally accepted — 2026-09-08
+
+Bernardo accepted this heading “for now”:
+
+> Working at the intersection of design and engineering.
+
+This is the provisional choice and can be revisited. Keep the current Experience
+introduction as recorded in Revision 1.
+
+Discussion history:
+
+- **Building interfaces at Shopify, SAP, CI&T, and Axonify.** was rejected because
+  the company names already appear on the cards.
+- **A career connecting design and engineering.** had the desired connection,
+  but “career” felt too strong.
+- The accepted wording retains that connection with a more modest description
+  of the work.
+
+Site code has not been changed.
+
+### Revision 12: Toolkit heading approved — 2026-09-08
+
+Bernardo approved this Toolkit heading:
+
+> From components to testing, the tools behind the work.
+
+This supersedes both **Design judgment, engineering depth.** and the original
+proposal **Tools I use**. The Toolkit introduction and tool labels remain open
+for review. Site code has not been changed.
+
+### Revision 13: Toolkit introduction retained — 2026-09-08
+
+Bernardo approved keeping the current Toolkit introduction:
+
+> Tools change. The goal stays the same: reduce uncertainty, make behavior
+> explicit, and leave the product easier to evolve.
+
+This supersedes the original proposed Toolkit introduction. The heading remains
+as approved in Revision 12. Site code has not been changed.
+
+### Revision 14: Footer eyebrow approved — 2026-09-08
+
+Bernardo approved **/ Let's connect** as the footer eyebrow, replacing
+**/ Let's make something**. Keep the existing **Have a complex idea?** heading,
+as recorded in Revision 1. The friendlier role/project invitation remains open
+for review. Site code has not been changed.
+
+### Revision 15: Footer headline and introduction approved — 2026-09-08
+
+Bernardo chose to move the role/project question into the headline and retain
+the warm invitation as the introduction:
+
+- **Eyebrow:** / Let's connect
+- **Headline:** Have a role or project in mind?
+- **Introduction:** I'd love to hear about it.
+
+This supersedes the Revision 1 decision to retain **Have a complex idea?**.
+The question appears only in the headline, avoiding consecutive questions.
+The availability wording and dot remain, and the displayed location will be
+Brazil, as previously agreed. Site code has not been changed.
+
+### Revision 16: Projects page introduction approved — 2026-09-08
+
+Bernardo approved the Projects page introduction:
+
+> Selected projects and implementation notes.
+
+This confirms the original proposal for this element. Search and social metadata
+remain to be reviewed. Site code has not been changed.
+
+### Revision 17: Root search and social metadata approved — 2026-09-08
+
+Bernardo approved:
+
+- **Title:** Bernardo Bechtold | Senior Frontend Engineer
+- **Description:** Bernardo Bechtold is a senior frontend engineer with experience in interface design, design systems, and visual testing. Explore selected projects and implementation notes.
+
+Use these for the root search metadata and corresponding social previews.
+This confirms the original proposal for these elements. Site code has not been
+changed.
+
+### Revision 18: Projects search and social metadata approved — 2026-09-08
+
+Bernardo approved:
+
+- **Title:** Projects | Bernardo Bechtold
+- **Description:** Selected projects and implementation notes by Bernardo Bechtold.
+
+Use these for Projects page search metadata and corresponding social previews.
+These supersede the original longer Projects title and description. Site code
+has not been changed.
+
+### Revision 19: Case-study browser title format approved — 2026-09-08
+
+Bernardo approved this case-study browser title format:
+
+> [Case-study title] | Bernardo Bechtold
+
+This supersedes the original proposal to include Senior Frontend Engineer in
+the article title suffix. Article titles and descriptions sourced from Markdown
+remain unchanged. Site code has not been changed.
+
+### Revision 20: Toolkit label normalization approved — 2026-09-08
+
+Bernardo approved changing **Node** to **Node.js** and **Design Tokens** to
+**Design tokens**, keeping the rest of the Toolkit list unchanged.
+
+Final list: React, TypeScript, Node.js, Storybook, Playwright, Design tokens,
+Material UI, Accessibility. Site code has not been changed.
+
+### Revision 21: Specialized positioning approved — 2026-09-08
+
+Bernardo liked **Senior UI Engineer · Design Systems** as the main role label.
+This supersedes the **Senior frontend engineer** hero label approved in Revision 4.
+He also requested retaining the frontend aspect in metadata to support discovery
+by recruiters looking for frontend roles.
+
+Exact revised metadata wording remains proposed, not approved:
+
+- **Root title:** Bernardo Bechtold | Senior Frontend & UI Engineer
+- **Root description:** Senior frontend and UI engineer specializing in design systems, accessibility, and frontend architecture. Explore Bernardo Bechtold's work and projects.
+
+This metadata proposal preserves the familiar frontend role alongside the UI
+specialization. Other positioning suggestions from the discussion, including a
+revised hero introduction and supporting labels, remain unapproved; earlier
+approved wording for those elements is retained pending review. Site code has
+not been changed.
+
+### Revision 22: Frontend-inclusive metadata approved — 2026-09-08
+
+Bernardo approved the combination proposed in Revision 21:
+
+- **Hero role:** Senior UI Engineer · Design Systems
+- **Root search/social title:** Bernardo Bechtold | Senior Frontend & UI Engineer
+- **Root search/social description:** Senior frontend and UI engineer specializing in design systems, accessibility, and frontend architecture. Explore Bernardo Bechtold's work and projects.
+
+This supersedes the root metadata approved in Revision 17. Projects and case-study
+metadata decisions remain unchanged. Retain “frontend” naturally in the visible
+hero introduction; its exact revised wording still needs review. Site code has
+not been changed.
+
+### Revision 23: Specialized hero introduction approved — 2026-09-08
+
+Bernardo approved:
+
+> I'm Bernardo, a frontend and UI engineer focused on design systems and
+> accessibility. I build interfaces, reusable components, and tools that help
+> teams develop and test their UI.
+
+This supersedes the introduction approved in Revision 2. It retains “frontend”
+while making the design-systems and accessibility specialization explicit.
+The hero role and root metadata remain as approved in Revision 22. Site code
+has not been changed.
+
+### Revision 24: Specialized hero supporting labels approved — 2026-09-08
+
+Bernardo approved **01 · UI engineering**, **02 · Design systems**, and
+**03 · Accessibility** as the hero's supporting labels.
+
+These supersede **Interfaces · Design systems · Testing**, approved in Revision 6,
+to align with the specialized positioning. Testing remains explicit in the hero
+introduction and Axonify project. Site code has not been changed.
