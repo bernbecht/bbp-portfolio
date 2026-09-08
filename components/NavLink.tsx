@@ -47,10 +47,10 @@ export function NavLink({
       aria-label={ariaLabel}
       aria-current={isActive ? 'page' : undefined}
       className={cn(
-        'rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2',
+        'rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2',
         isActive
-          ? (activeClassName ?? 'font-bold text-neutral-900')
-          : 'text-neutral-600 hover:text-neutral-900',
+          ? (activeClassName ?? 'font-bold text-foreground')
+          : 'text-secondary hover:text-foreground',
         className,
       )}
     >

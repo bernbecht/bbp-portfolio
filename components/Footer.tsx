@@ -88,13 +88,13 @@ export function Footer() {
     <footer
       id="footer"
       aria-labelledby="footer-heading"
-      className="text-white"
+      className="text-on-inverse"
     >
       <div className="footer-dither" aria-hidden="true" />
 
-      <div className="bg-black">
-        <div className="content-container py-12 md:py-24">
-          <p className="mb-5 font-mono text-sm uppercase tracking-wider text-neutral-400">
+      <div className="bg-inverse">
+        <div className="content-container section-space">
+          <p className="mb-5 type-meta uppercase tracking-wider text-inverse-muted">
             / Let&apos;s make something
           </p>
 
@@ -105,7 +105,7 @@ export function Footer() {
             Have a complex idea?
           </h2>
 
-          <p className="section__paragraph mt-6 max-w-xl text-lg leading-relaxed text-neutral-400 md:text-xl">
+          <p className="section__paragraph mt-6 max-w-xl type-body text-inverse-muted md:text-xl">
             I work where product, design, and engineering meet. Tell me what
             you&apos;re trying to untangle.
           </p>
@@ -115,12 +115,12 @@ export function Footer() {
           onClick={() => handleCopy(emailAddress)}
           aria-describedby="copy-email-feedback"
           aria-label={`Copy ${emailAddress}`}
-            className="group mt-10 flex w-full cursor-pointer flex-col items-start justify-between gap-3 overflow-hidden border border-neutral-500 px-5 py-5 text-left transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black motion-reduce:transition-none sm:flex-row sm:items-center"
+            className="group mt-10 flex w-full cursor-pointer flex-col items-start justify-between gap-3 overflow-hidden border border-inverse-border px-5 py-5 text-left transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-inverse motion-reduce:transition-none sm:flex-row sm:items-center"
           >
             <span className="min-w-0 break-all font-serif text-xl sm:text-2xl md:text-3xl">
               {emailAddress}
           </span>
-          <span className="shrink-0 font-mono text-xs uppercase tracking-wider">
+          <span className="shrink-0 type-label">
             {copyActionLabel}
           </span>
         </button>
@@ -134,13 +134,13 @@ export function Footer() {
 
           <nav
             aria-label="Social links"
-            className="border-b border-neutral-700"
+            className="border-b border-inverse-border"
           >
             <a
               href="https://br.linkedin.com/in/bbechtold"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex min-h-14 items-center justify-between py-5 font-mono text-sm uppercase tracking-wide transition-colors hover:text-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white motion-reduce:transition-none"
+              className="group flex min-h-14 items-center justify-between py-5 type-meta uppercase tracking-wide transition-colors hover:text-inverse-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus motion-reduce:transition-none"
             >
               <span>LinkedIn</span>
               <span
@@ -152,8 +152,8 @@ export function Footer() {
             </a>
           </nav>
 
-          <div className="grid grid-cols-[auto_1fr] items-center gap-6 pt-6 font-mono text-xs uppercase text-neutral-400 sm:grid-cols-[auto_1fr_auto]">
-            <div className="w-fit shrink-0 bg-white p-1">
+          <div className="grid grid-cols-[auto_1fr] items-center gap-6 pt-6 font-mono text-xs uppercase text-inverse-muted sm:grid-cols-[auto_1fr_auto]">
+            <div className="w-fit shrink-0 bg-background p-1">
               <Logo
                 role="img"
                 aria-label="Bernardo Bechtold"
@@ -162,8 +162,8 @@ export function Footer() {
             </div>
 
             <div className="flex-1">
-              <p className="text-white">
-                <span className="mr-2 text-green-400" aria-hidden="true">
+              <p className="text-on-inverse">
+                <span className="mr-2 text-availability-inverse" aria-hidden="true">
                   ●
                 </span>
                 Available for select work
@@ -176,7 +176,7 @@ export function Footer() {
             <button
               type="button"
               onClick={handleBackToTop}
-              className="col-span-2 w-fit cursor-pointer justify-self-end py-2 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white motion-reduce:transition-none sm:col-span-1"
+              className="col-span-2 w-fit cursor-pointer justify-self-end py-2 transition-colors hover:text-on-inverse focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus motion-reduce:transition-none sm:col-span-1"
             >
               Back to top <span aria-hidden="true">↑</span>
             </button>

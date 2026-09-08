@@ -22,8 +22,8 @@ export function CompaniesGrid() {
       <ul
         className="
           grid grid-cols-1 sm:grid-cols-2
-          border border-gray-950
-        [&>li]:border-gray-300
+          border border-strong
+        [&>li]:border-subtle
           [&>li]:border-b
           [&>li:last-child]:border-b-0
           sm:[&>li:nth-last-child(-n+2)]:border-b-0
@@ -36,9 +36,9 @@ export function CompaniesGrid() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Visit ${company.name}`}
-              className="group relative flex min-h-40 items-center justify-center overflow-hidden py-8 text-black transition-colors hover:bg-gray-900 hover:text-white"
+              className="group relative flex min-h-40 items-center justify-center overflow-hidden py-8 text-foreground transition-colors hover:bg-inverse hover:text-on-inverse"
             >
-              <company.logo className="h-24 w-52 transition-transform duration-300 motion-safe:group-hover:scale-105" />
+              <company.logo className="h-24 w-52 transition-transform duration-(--motion-standard) motion-safe:group-hover:scale-105" />
               <span className="absolute right-3 top-3 font-mono text-xs opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true">↗</span>
             </a>
           </li>

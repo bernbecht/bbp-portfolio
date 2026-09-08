@@ -19,7 +19,7 @@ const PRACTICE_STEPS = [
 
 export default function Home() {
   return (
-    <div className="fade-up">
+    <main className="fade-up">
       <PersonJsonLd />
       <div className="content-container"><Hero /></div>
 
@@ -33,18 +33,18 @@ export default function Home() {
               I move between product intent, interaction design, and production
               code—closing the gaps where good ideas usually lose their shape.
             </SectionParagraph>
-            <p className="font-mono text-xs uppercase tracking-wider text-neutral-500">
+            <p className="type-label text-muted">
               Currently focused on complex, high-stakes product environments.
             </p>
           </div>
         </div>
 
-        <ol className="mt-14 border-t border-black">
+        <ol className="mt-14 border-t border-strong">
           {PRACTICE_STEPS.map(([number, title, copy]) => (
-            <li key={number} className="group grid gap-3 border-b border-black py-6 sm:grid-cols-[4rem_1fr_1.3fr] sm:items-baseline">
-              <span className="font-mono text-xs text-neutral-500">{number}</span>
+            <li key={number} className="group grid gap-3 border-b border-strong py-6 sm:grid-cols-[4rem_1fr_1.3fr] sm:items-baseline">
+              <span className="font-mono text-xs text-muted">{number}</span>
               <h2 className="text-xl font-semibold tracking-tight transition-transform motion-safe:group-hover:translate-x-1">{title}</h2>
-              <p className="section__paragraph text-neutral-600">{copy}</p>
+              <p className="section__paragraph text-secondary">{copy}</p>
             </li>
           ))}
         </ol>
@@ -52,35 +52,35 @@ export default function Home() {
 
       <Section id="work" label="/02 — Selected work" tone="dark">
         <div className="mb-10 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <h2 className="max-w-2xl font-serif text-4xl leading-tight tracking-tight md:text-6xl">Systems built for real-world pressure.</h2>
-          <Link href="/projects" className="w-fit border-b border-current pb-1 font-mono text-xs uppercase tracking-wider transition-opacity hover:opacity-60">View all work ↗</Link>
+          <h2 className="max-w-2xl font-serif type-heading">Systems built for real-world pressure.</h2>
+          <Link href="/projects" className="w-fit border-b border-current pb-1 type-label transition-opacity hover:opacity-60">View all work ↗</Link>
         </div>
 
-        <div className="grid border border-neutral-700 md:grid-cols-2">
-          <Link href="/projects/shopify-mobile-store-editor" className="group flex min-h-80 flex-col justify-between border-b border-neutral-700 p-6 transition-colors hover:bg-white hover:text-black md:border-b-0 md:border-r">
-            <div className="flex justify-between font-mono text-xs uppercase tracking-wider text-neutral-400 group-hover:text-neutral-600"><span>Shopify · Product + code</span><span>2022–23</span></div>
+        <div className="grid border border-inverse-border md:grid-cols-2">
+          <Link href="/projects/shopify-mobile-store-editor" className="group flex min-h-80 flex-col justify-between border-b border-inverse-border p-6 transition-colors hover:bg-background hover:text-foreground md:border-b-0 md:border-r">
+            <div className="flex justify-between type-label text-inverse-muted group-hover:text-secondary"><span>Shopify · Product + code</span><span>2022–23</span></div>
             <div>
-              <p className="mb-4 font-mono text-xs uppercase tracking-wider">Case study 01</p>
+              <p className="mb-4 type-label">Case study 01</p>
               <h3 className="text-3xl leading-tight tracking-tight md:text-4xl">Designing the mobile Store Editor bottom sheet</h3>
-              <p className="section__paragraph mt-4 max-w-md text-neutral-400 group-hover:text-neutral-700">A three-state editing surface that helped increase mobile adoption by 10%.</p>
+              <p className="section__paragraph mt-4 max-w-md text-inverse-muted group-hover:text-secondary">A three-state editing surface that helped increase mobile adoption by 10%.</p>
             </div>
-            <span className="mt-8 font-mono text-sm transition-transform motion-safe:group-hover:translate-x-2">Read the story →</span>
+            <span className="mt-8 type-meta transition-transform motion-safe:group-hover:translate-x-2">Read the story →</span>
           </Link>
-          <Link href="/projects/how-stopped-visual-regressions" className="group flex min-h-80 flex-col justify-between p-6 transition-colors hover:bg-white hover:text-black">
-            <div className="flex justify-between font-mono text-xs uppercase tracking-wider text-neutral-400 group-hover:text-neutral-600"><span>Axonify · Platform systems</span><span>2025</span></div>
+          <Link href="/projects/how-stopped-visual-regressions" className="group flex min-h-80 flex-col justify-between p-6 transition-colors hover:bg-background hover:text-foreground">
+            <div className="flex justify-between type-label text-inverse-muted group-hover:text-secondary"><span>Axonify · Platform systems</span><span>2025</span></div>
             <div>
-              <p className="mb-4 font-mono text-xs uppercase tracking-wider">Case study 02</p>
+              <p className="mb-4 type-label">Case study 02</p>
               <h3 className="text-3xl leading-tight tracking-tight md:text-4xl">Stopping visual regressions before they shipped</h3>
-              <p className="section__paragraph mt-4 max-w-md text-neutral-400 group-hover:text-neutral-700">An in-house confidence layer that saved about $10k/year and made refactoring safer.</p>
+              <p className="section__paragraph mt-4 max-w-md text-inverse-muted group-hover:text-secondary">An in-house confidence layer that saved about $10k/year and made refactoring safer.</p>
             </div>
-            <span className="mt-8 font-mono text-sm transition-transform motion-safe:group-hover:translate-x-2">Read the story →</span>
+            <span className="mt-8 type-meta transition-transform motion-safe:group-hover:translate-x-2">Read the story →</span>
           </Link>
         </div>
       </Section>
 
       <Section id="where" label="/03 — Experience">
         <div className="mb-10 grid gap-8 md:grid-cols-2 md:items-end">
-          <h2 className="font-serif text-4xl leading-tight tracking-tight md:text-5xl">From global platforms to growing product teams.</h2>
+          <h2 className="font-serif type-heading">From global platforms to growing product teams.</h2>
           <SectionParagraph>I&apos;ve worked across product, design, and engineering, building interfaces and foundations used in real production environments.</SectionParagraph>
         </div>
         <CompaniesGrid />
@@ -89,12 +89,12 @@ export default function Home() {
       <Section id="how" label="/04 — Toolkit">
         <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-20">
           <div>
-            <h2 className="font-serif text-4xl leading-tight tracking-tight md:text-5xl">Design judgment, engineering depth.</h2>
-            <p className="section__paragraph mt-6 text-lg leading-relaxed text-neutral-600">Tools change. The goal stays the same: reduce uncertainty, make behavior explicit, and leave the product easier to evolve.</p>
+            <h2 className="font-serif type-heading">Design judgment, engineering depth.</h2>
+            <p className="section__paragraph mt-6 type-body text-secondary">Tools change. The goal stays the same: reduce uncertainty, make behavior explicit, and leave the product easier to evolve.</p>
           </div>
-          <HowTechList className="divide-y divide-neutral-300 border-y border-black font-mono text-2xl [&>li]:flex [&>li]:items-center [&>li]:justify-between [&>li]:py-3 [&>li]:after:text-xs [&>li]:after:text-neutral-400 [&>li]:after:content-['↗'] md:text-3xl" />
+          <HowTechList className="divide-y divide-subtle border-y border-strong font-mono text-2xl [&>li]:flex [&>li]:items-center [&>li]:justify-between [&>li]:py-3 [&>li]:after:text-xs [&>li]:after:text-inverse-muted [&>li]:after:content-['↗'] md:text-3xl" />
         </div>
       </Section>
-    </div>
+    </main>
   );
 }
