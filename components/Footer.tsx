@@ -95,19 +95,18 @@ export function Footer() {
       <div className="bg-inverse">
         <div className="content-container section-space">
           <p className="mb-5 type-meta uppercase tracking-wider text-inverse-muted">
-            / Let&apos;s make something
+            / Let&apos;s connect
           </p>
 
           <h2
             id="footer-heading"
             className="max-w-3xl font-serif text-5xl leading-[0.95] tracking-tight xs:text-6xl md:text-7xl"
           >
-            Have a complex idea?
+            Have a role or project in mind?
           </h2>
 
           <p className="section__paragraph mt-6 max-w-xl type-body text-inverse-muted md:text-xl">
-            I work where product, design, and engineering meet. Tell me what
-            you&apos;re trying to untangle.
+            I&apos;d love to hear about it.
           </p>
 
           <button
@@ -169,7 +168,7 @@ export function Footer() {
                 Available for select work
               </p>
               <p className="mt-1">
-                São Paulo · {saoPauloTime} · © 2026
+                Brazil · {saoPauloTime} · © 2026
               </p>
             </div>
 
