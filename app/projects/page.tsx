@@ -5,9 +5,9 @@ import Link from "next/link";
 import { Fragment } from "react";
 
 const pageTitle =
-  "Projects | Bernardo Bechtold | Front-end Engineer & UI/UX Designer";
+  "Projects | Bernardo Bechtold";
 const pageDescription =
-  "Selected client work and side projects—links, timelines, and short notes on what shipped.";
+  "Selected projects and implementation notes by Bernardo Bechtold.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -161,7 +161,7 @@ export default function ProjectsPage(): React.ReactNode {
             Projects
           </h1>
           <p className="type-body text-muted">
-            Things I have made or learned at the companies I have worked for.
+            Selected projects and implementation notes.
           </p>
         </section>
         <section>

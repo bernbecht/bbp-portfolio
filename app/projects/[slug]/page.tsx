@@ -161,7 +161,7 @@ export async function generateMetadata({
   }
 
   const path = `/projects/${slug}`;
-  const title = `${post.title} | Bernardo Bechtold | Front-end Engineer & UI/UX Designer`;
+  const title = `${post.title} | Bernardo Bechtold`;
 
   return {
     title,
