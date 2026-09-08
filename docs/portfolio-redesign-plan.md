@@ -1,6 +1,6 @@
 # Portfolio redesign implementation plan
 
-Status: **Technical implementation complete; copy approval/integration and browser QA pending**
+Status: **Phases 1–3 complete; Phase 4 implemented; Phase 5 browser QA pending**
 
 Last updated: 2026-09-08
 
@@ -30,8 +30,8 @@ The finished site should:
 - Keep new interactivity inside a small client component.
 - Add no runtime dependency unless the approved interaction cannot reasonably be built
   with the existing stack.
-- Do not use em dashes to join sentences in public UI copy. En dashes remain valid for
-  date and numeric ranges.
+- Avoid em dashes in new public UI copy. Preserve the explicitly retained Practice
+  introduction and footer copy feedback. En dashes remain valid for date ranges.
 
 ## Decisions made
 
@@ -144,8 +144,8 @@ understand Bernardo's experience.
 
 - [x] Inventory public UI copy across the homepage, shared navigation, footer, projects
   index, metadata, structured person data, and active project summaries.
-- [x] Extract verified facts about roles, responsibilities, experience, outcomes, and
-  availability from the approved professional sources.
+- [x] Extract source-supported facts about roles, responsibilities, experience, and
+  outcomes; record Bernardo’s explicit availability confirmation separately.
 - [x] Create `docs/portfolio-redesign-copy-review.md`.
 - [x] Map each proposed claim to its source.
 - [x] Mark uncertain, unsupported, confidential, or outdated claims for omission.
@@ -155,13 +155,14 @@ understand Bernardo's experience.
 - [x] Keep section introductions to approximately 30 words or fewer.
 - [x] Keep project summaries concise while preserving supported responsibilities and
   outcomes.
-- [ ] Remove redundant positioning, slogans, unsupported adjectives, and decorative
-  sentences.
-- [ ] Replace sentence-style em dashes with periods, commas, parentheses, or colons.
-- [ ] Preserve en dashes in legitimate date and numeric ranges.
+- [x] Remove redundant positioning and unsupported outcome claims according to the
+  approved section-by-section decisions; retain wording Bernardo explicitly chose.
+- [x] Audit em dashes against the approved copy; retain the Practice introduction
+  and footer copy feedback as explicit exceptions.
+- [x] Preserve en dashes in legitimate date and numeric ranges.
 - [x] Submit the copy review to Bernardo before changing the site.
-- [ ] Integrate only the approved wording.
-- [ ] Keep the metadata and structured person data aligned with the visible copy.
+- [x] Integrate only the approved wording.
+- [x] Keep the metadata and structured person data aligned with the visible copy.
 
 ### Deliverable
 
@@ -172,7 +173,7 @@ Approved, source-backed public UI copy and a preserved copy decision record.
 - Every substantial professional claim is supported by the provided material.
 - A hiring reader can quickly identify role, relevant experience, representative work,
   and the contact path.
-- No public UI sentence contains an em dash.
+- Public UI punctuation follows the approved copy, including the recorded exceptions.
 - Metadata and structured data do not overstate the visible positioning.
 - Long-form Markdown case studies remain unchanged.
 
@@ -221,15 +222,16 @@ technical gaps.
 
 ### Tasks
 
-- [ ] Review the complete page for factual tone and unnecessary copy.
+- [x] Review the complete page for factual tone and unnecessary copy.
 - [x] Check the implementation for accidental one-off values that should use an
   approved token.
 - [x] Confirm that local case-study values have not been forced into the global token
   vocabulary.
 - [ ] Verify heading hierarchy, landmarks, focus styles, image semantics, and link
   behavior.
-- [ ] Confirm metadata and structured person data match the approved copy.
-- [ ] Search public UI sources for the em dash character and require zero occurrences.
+- [x] Confirm metadata and structured person data match the approved copy.
+- [x] Search public UI sources for em dashes and confirm only the two approved
+  retained occurrences remain (Practice introduction and footer copy feedback).
 - [ ] Confirm portrait visibility and hero layout on both sides of the 900px breakpoint.
 - [ ] Confirm the interaction fallback and reduced-motion treatment.
 - [ ] Confirm the shared frame and reading measure across the migrated routes.
@@ -261,7 +263,7 @@ A release-ready portfolio redesign.
 - Reduced-motion and unsupported-mask fallbacks remain usable.
 - Public UI copy is concise, humble, factual, and approved.
 - Every professional claim can be traced to supplied source material.
-- Public UI sentences contain no em dashes.
+- Public UI punctuation follows the approved copy and recorded exceptions.
 - Case-study Markdown content and content schemas remain intact.
 - The site is responsive, accessible, lint-clean, and build-clean.
 
@@ -282,16 +284,17 @@ Use this table as implementation decisions are made so their context is not lost
 
 ## Working notes
 
-- Phase 3 source review is complete using the supplied Master CV and STAR stories. Exact proposed wording is ready for approval in the copy-review document.
-- `docs/design-tokens.md` will become the teaching reference created during Phase 1.
-- `docs/portfolio-redesign-copy-review.md` will preserve the evidence and approval trail
+- Phase 3 is complete: source review, section-by-section approval, specialized
+  positioning, and implementation are recorded in the copy-review document.
+- `docs/design-tokens.md` is the teaching reference created during Phase 1.
+- `docs/portfolio-redesign-copy-review.md` preserves the evidence and approval trail
   created during Phase 3.
 - This document is the authoritative status tracker for the redesign.
 - Update the status, task checkboxes, completion dates, and decision log at the end of
   each phase.
 
 
-## Implementation record: 2026-09-08
+## Initial implementation record: 2026-09-08 (historical)
 
 - Phase 1 implementation complete: palette foundations, semantic color/layout/type/
   motion tokens, Tailwind mapping, and `docs/design-tokens.md` with exercises.
@@ -313,17 +316,20 @@ Use this table as implementation decisions are made so their context is not lost
   longer depend on an introductory heading. `git diff --check` passed.
   Browser QA could not run because no browser is connected to the UI tool.
 
-### Remaining release gates
+### Remaining release gates (current)
 
-1. Receive and review professional sources, finalize source-to-claim mappings,
-   obtain Bernardo's wording approval, and integrate across UI/metadata/JSON-LD.
-2. Repeat em-dash audit after integration. Eight existing occurrences across homepage,
-   hero, footer, and projects metadata remain intentionally pending copy approval.
-3. In a connected browser, inspect 375px, 640px, 899px, 900px, 1024px, and 1440px;
-   check overflow, frame and reading measure, keyboard focus, pointer lens, click,
-   Enter/Space toggles, reduced motion, and disabled CSS masking.
-4. Re-run lint and build after approved copy integration. Deployment remains outside
-   this project as specified in the plan.
+1. Inspect 375px, 640px, 899px, 900px, 1024px, and 1440px in a browser. Check
+   overflow, the longer approved headings and labels, portrait visibility, the
+   shared frame, and article reading measure across migrated routes.
+2. Verify keyboard focus, landmarks, heading hierarchy, image semantics, and
+   navigation/link behavior in the rendered site.
+3. Exercise the portrait pointer lens, click and Enter/Space toggles, pressed
+   state, reduced motion, and disabled CSS masking.
+4. Fix any findings and repeat relevant checks. Lint and production build already
+   pass after copy integration; rerun them if implementation changes.
+
+Deployment remains outside this project. The provisional Experience heading can
+be revisited later and does not block completion.
 
 | Date | Decision | Reason |
 |---|---|---|
@@ -353,3 +359,27 @@ Bernardo approved the suggested copy with Brazil as the location, then requested
 that the code return to its pre-copy-integration state. The copy pass was reverted
 while preserving the technical redesign and copy suggestions document. Copy
 integration is deferred by user request. Lint and diff whitespace checks pass.
+
+### Current completion audit: 2026-09-08
+
+This entry supersedes the earlier pending-copy and rollback status notes, which
+remain above as history.
+
+| Phase | Current status | Evidence / remaining work |
+| --- | --- | --- |
+| 1 — Design system | Complete | Token system and learning guide implemented. |
+| 2 — Layout foundations | Complete | Shared layout implemented; lint and build pass. Responsive browser confirmation remains in Phase 5. |
+| 3 — Copy | Complete | Approved revisions through 24 integrated; metadata and Person JSON-LD aligned; long-form content unchanged. |
+| 4 — Portrait | Implementation complete | Browser verification of input modes and fallbacks remains in Phase 5; completion gate is not yet fully verified. |
+| 5 — Release verification | Partial | Copy review, source audit, metadata checks, lint, build, and implementation records complete. Responsive, visual, and interaction QA remain. |
+
+Copy implementation commits: `ca2133c`, `01f28d3`, `0328546`, `0e26772`;
+implementation record: `2bf7d9a`. Chrome's accessibility tree confirmed updated
+homepage and footer text, but that does not establish responsive visual quality
+or interaction correctness.
+
+The em-dash audit found exactly two occurrences in shared UI sources:
+`app/page.tsx` (retained Practice introduction) and `components/Footer.tsx`
+(retained copy-success label). The latest user-approved retention decisions
+supersede the original blanket zero-em-dash rule. No copy change is required
+solely to satisfy the obsolete rule.
