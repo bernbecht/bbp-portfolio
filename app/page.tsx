@@ -8,13 +8,12 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
-  openGraph: { url: '/' },
 };
 
 const PRACTICE_STEPS = [
-  ['01', 'Frame the problem', 'Find the real friction before polishing the visible symptoms.'],
-  ['02', 'Design the behavior', 'Make workflows, states, and accessibility part of the architecture.'],
-  ['03', 'Build the system', 'Ship resilient React interfaces that teams can confidently extend.'],
+  ['01', 'Frame the problem', 'Clarify the workflow, constraints, and tradeoffs before shaping the solution.'],
+  ['02', 'Design the behavior', 'Work through interaction states, gestures, and accessibility alongside the implementation.'],
+  ['03', 'Build the system', 'Build reusable components, document their use, and test their behavior and appearance.'],
 ] as const;
 
 export default function Home() {
@@ -23,7 +22,7 @@ export default function Home() {
       <PersonJsonLd />
       <div className="content-container"><Hero /></div>
 
-      <Section id="what" label="/01 — Practice">
+      <Section id="what" label="/01 · Practice">
         <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-16">
           <p className="font-serif text-3xl leading-tight tracking-tight md:text-5xl">
             The best interface is only half the job. The other half is making it durable.
@@ -33,9 +32,6 @@ export default function Home() {
               I move between product intent, interaction design, and production
               code—closing the gaps where good ideas usually lose their shape.
             </SectionParagraph>
-            <p className="type-label text-muted">
-              Currently focused on complex, high-stakes product environments.
-            </p>
           </div>
         </div>
 
@@ -50,9 +46,8 @@ export default function Home() {
         </ol>
       </Section>
 
-      <Section id="work" label="/02 — Selected work" tone="dark">
+      <Section id="work" label="/02 · Selected work" tone="dark">
         <div className="mb-10 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <h2 className="max-w-2xl font-serif type-heading">Systems built for real-world pressure.</h2>
           <Link href="/projects" className="w-fit border-b border-current pb-1 type-label transition-opacity hover:opacity-60">View all work ↗</Link>
         </div>
 
@@ -61,8 +56,8 @@ export default function Home() {
             <div className="flex justify-between type-label text-inverse-muted group-hover:text-secondary"><span>Shopify · Product + code</span><span>2022–23</span></div>
             <div>
               <p className="mb-4 type-label">Case study 01</p>
-              <h3 className="text-3xl leading-tight tracking-tight md:text-4xl">Designing the mobile Store Editor bottom sheet</h3>
-              <p className="section__paragraph mt-4 max-w-md text-inverse-muted group-hover:text-secondary">A three-state editing surface that helped increase mobile adoption by 10%.</p>
+              <h2 className="text-3xl leading-tight tracking-tight md:text-4xl">Designing and building Shopify&apos;s mobile Store Editor bottom sheet</h2>
+              <p className="section__paragraph mt-4 max-w-md text-inverse-muted group-hover:text-secondary">A three-state editing surface that kept editing controls and the live preview within reach on small screens.</p>
             </div>
             <span className="mt-8 type-meta transition-transform motion-safe:group-hover:translate-x-2">Read the story →</span>
           </Link>
@@ -70,26 +65,26 @@ export default function Home() {
             <div className="flex justify-between type-label text-inverse-muted group-hover:text-secondary"><span>Axonify · Platform systems</span><span>2025</span></div>
             <div>
               <p className="mb-4 type-label">Case study 02</p>
-              <h3 className="text-3xl leading-tight tracking-tight md:text-4xl">Stopping visual regressions before they shipped</h3>
-              <p className="section__paragraph mt-4 max-w-md text-inverse-muted group-hover:text-secondary">An in-house confidence layer that saved about $10k/year and made refactoring safer.</p>
+              <h2 className="text-3xl leading-tight tracking-tight md:text-4xl">How I stopped visual regressions</h2>
+              <p className="section__paragraph mt-4 max-w-md text-inverse-muted group-hover:text-secondary">An in-house visual testing workflow that helped teams catch interface changes before shipping.</p>
             </div>
             <span className="mt-8 type-meta transition-transform motion-safe:group-hover:translate-x-2">Read the story →</span>
           </Link>
         </div>
       </Section>
 
-      <Section id="where" label="/03 — Experience">
+      <Section id="where" label="/03 · Experience">
         <div className="mb-10 grid gap-8 md:grid-cols-2 md:items-end">
-          <h2 className="font-serif type-heading">From global platforms to growing product teams.</h2>
+          <h2 className="font-serif type-heading">Working at the intersection of design and engineering.</h2>
           <SectionParagraph>I&apos;ve worked across product, design, and engineering, building interfaces and foundations used in real production environments.</SectionParagraph>
         </div>
         <CompaniesGrid />
       </Section>
 
-      <Section id="how" label="/04 — Toolkit">
+      <Section id="how" label="/04 · Toolkit">
         <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-20">
           <div>
-            <h2 className="font-serif type-heading">Design judgment, engineering depth.</h2>
+            <h2 className="font-serif type-heading">From components to testing, the tools behind the work.</h2>
             <p className="section__paragraph mt-6 type-body text-secondary">Tools change. The goal stays the same: reduce uncertainty, make behavior explicit, and leave the product easier to evolve.</p>
           </div>
           <HowTechList className="divide-y divide-subtle border-y border-strong font-mono text-2xl [&>li]:flex [&>li]:items-center [&>li]:justify-between [&>li]:py-3 [&>li]:after:text-xs [&>li]:after:text-inverse-muted [&>li]:after:content-['↗'] md:text-3xl" />

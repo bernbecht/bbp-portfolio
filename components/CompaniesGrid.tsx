@@ -12,7 +12,7 @@ type Company = {
 const companies: Company[] = [
   { name: "Shopify", logo: ShopifyLogo, link: "https://www.shopify.com" },
   { name: "SAP", logo: SapLogo, link: "https://www.sap.com" },
-  { name: "CIT", logo: CitLogo, link: "https://ciandt.com" },
+  { name: "CI&T", logo: CitLogo, link: "https://ciandt.com" },
   { name: "Axonify", logo: AxonifyLogo, link: "https://axonify.com" },
 ];
 
