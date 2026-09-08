@@ -1,8 +1,8 @@
 # Portfolio redesign implementation plan
 
-Status: **Planning complete, implementation not started**
+Status: **Technical implementation complete; copy approval/integration and browser QA pending**
 
-Last updated: 2026-09-04
+Last updated: 2026-09-08
 
 ## Purpose
 
@@ -59,24 +59,24 @@ Create a small, coherent token vocabulary before changing individual components.
 
 ### Tasks
 
-- [ ] Inventory repeated color, typography, spacing, layout, border, and motion values.
-- [ ] Sort the inventory into foundation values, semantic tokens, and local component
+- [x] Inventory repeated color, typography, spacing, layout, border, and motion values.
+- [x] Sort the inventory into foundation values, semantic tokens, and local component
   values.
-- [ ] Define semantic colors for the canvas, surfaces, text levels, borders, focus,
+- [x] Define semantic colors for the canvas, surfaces, text levels, borders, focus,
   inverse surfaces, and availability status.
-- [ ] Define the 64rem content frame, 42rem reading measure, responsive gutters, and
+- [x] Define the 64rem content frame, 42rem reading measure, responsive gutters, and
   responsive section spacing.
-- [ ] Define reusable type roles for display text, section headings, body copy, labels,
+- [x] Define reusable type roles for display text, section headings, body copy, labels,
   and metadata.
-- [ ] Define shared motion durations and easing values.
-- [ ] Map the semantic tokens into Tailwind 4 without replacing the existing framework
+- [x] Define shared motion durations and easing values.
+- [x] Map the semantic tokens into Tailwind 4 without replacing the existing framework
   configuration.
-- [ ] Create `docs/design-tokens.md`.
-- [ ] Explain how foundation, semantic, and component token layers differ.
-- [ ] Include examples showing how one token changes several related surfaces.
-- [ ] Include a short exercise for changing layout, color, and motion without editing
+- [x] Create `docs/design-tokens.md`.
+- [x] Explain how foundation, semantic, and component token layers differ.
+- [x] Include examples showing how one token changes several related surfaces.
+- [x] Include a short exercise for changing layout, color, and motion without editing
   component markup.
-- [ ] Document when a local value should not become a global token.
+- [x] Document when a local value should not become a global token.
 
 ### Deliverable
 
@@ -99,21 +99,21 @@ behavior.
 
 ### Tasks
 
-- [ ] Implement the approved tokens in the global stylesheet.
-- [ ] Change the shared content frame from 72rem to 64rem.
-- [ ] Add the 42rem reading measure for long text.
-- [ ] Apply responsive gutters of 1rem by default, 1.5rem from the small breakpoint,
+- [x] Implement the approved tokens in the global stylesheet.
+- [x] Change the shared content frame from 72rem to 64rem.
+- [x] Add the 42rem reading measure for long text.
+- [x] Apply responsive gutters of 1rem by default, 1.5rem from the small breakpoint,
   and 2rem from the 900px layout breakpoint.
-- [ ] Apply the shared section-spacing tokens.
-- [ ] Migrate the header, footer, homepage, projects index, and article typography to
+- [x] Apply the shared section-spacing tokens.
+- [x] Migrate the header, footer, homepage, projects index, and article typography to
   semantic tokens.
-- [ ] Preserve local values inside bespoke case-study diagrams and demonstrations.
-- [ ] Hide the portrait below 900px.
-- [ ] Let the hero copy occupy the complete row when the portrait is hidden.
-- [ ] Remove eager loading from the noncritical portrait.
-- [ ] Confirm that project routes and Markdown rendering remain structurally unchanged.
-- [ ] Run `npm run lint`.
-- [ ] Run `npm run build`.
+- [x] Preserve local values inside bespoke case-study diagrams and demonstrations.
+- [x] Hide the portrait below 900px.
+- [x] Let the hero copy occupy the complete row when the portrait is hidden.
+- [x] Remove eager loading from the noncritical portrait.
+- [x] Confirm that project routes and Markdown rendering remain structurally unchanged.
+- [x] Run `npm run lint`.
+- [x] Run `npm run build`.
 
 ### Deliverable
 
@@ -142,24 +142,24 @@ understand Bernardo's experience.
 
 ### Tasks
 
-- [ ] Inventory public UI copy across the homepage, shared navigation, footer, projects
+- [x] Inventory public UI copy across the homepage, shared navigation, footer, projects
   index, metadata, structured person data, and active project summaries.
-- [ ] Extract verified facts about roles, responsibilities, experience, outcomes, and
+- [x] Extract verified facts about roles, responsibilities, experience, outcomes, and
   availability from the approved professional sources.
-- [ ] Create `docs/portfolio-redesign-copy-review.md`.
-- [ ] Map each proposed claim to its source.
-- [ ] Mark uncertain, unsupported, confidential, or outdated claims for omission.
-- [ ] Draft replacements using direct and qualified first-person language.
-- [ ] Keep the hero headline to approximately 10 words.
-- [ ] Keep the hero introduction between approximately 25 and 40 words.
-- [ ] Keep section introductions to approximately 30 words or fewer.
-- [ ] Keep project summaries concise while preserving supported responsibilities and
+- [x] Create `docs/portfolio-redesign-copy-review.md`.
+- [x] Map each proposed claim to its source.
+- [x] Mark uncertain, unsupported, confidential, or outdated claims for omission.
+- [x] Draft replacements using direct and qualified first-person language.
+- [x] Keep the hero headline to approximately 10 words.
+- [x] Keep the hero introduction between approximately 25 and 40 words.
+- [x] Keep section introductions to approximately 30 words or fewer.
+- [x] Keep project summaries concise while preserving supported responsibilities and
   outcomes.
 - [ ] Remove redundant positioning, slogans, unsupported adjectives, and decorative
   sentences.
 - [ ] Replace sentence-style em dashes with periods, commas, parentheses, or colons.
 - [ ] Preserve en dashes in legitimate date and numeric ranges.
-- [ ] Submit the copy review to Bernardo before changing the site.
+- [x] Submit the copy review to Bernardo before changing the site.
 - [ ] Integrate only the approved wording.
 - [ ] Keep the metadata and structured person data aligned with the visible copy.
 
@@ -185,20 +185,20 @@ accessible.
 
 ### Tasks
 
-- [ ] Create a focused client-side portrait component.
-- [ ] Render a grayscale base image and a color reveal layer.
-- [ ] Reveal color through a soft dithered lens that follows pointer movement.
-- [ ] Let clicking the portrait toggle the complete color reveal.
-- [ ] Expose the toggle through a meaningful accessible label and pressed state.
-- [ ] Support keyboard focus, Enter, and Space.
-- [ ] Use shared color, border, and motion tokens.
-- [ ] Disable pointer-following movement when reduced motion is requested.
-- [ ] For reduced motion, switch directly between grayscale and color.
-- [ ] Provide a simple opacity fallback when CSS masking is unavailable.
-- [ ] Keep the entire interaction hidden with the portrait below 900px.
-- [ ] Avoid React state updates for every pointer movement by updating CSS custom
+- [x] Create a focused client-side portrait component.
+- [x] Render a grayscale base image and a color reveal layer.
+- [x] Reveal color through a soft dithered lens that follows pointer movement.
+- [x] Let clicking the portrait toggle the complete color reveal.
+- [x] Expose the toggle through a meaningful accessible label and pressed state.
+- [x] Support keyboard focus, Enter, and Space.
+- [x] Use shared color, border, and motion tokens.
+- [x] Disable pointer-following movement when reduced motion is requested.
+- [x] For reduced motion, switch directly between grayscale and color.
+- [x] Provide a simple opacity fallback when CSS masking is unavailable.
+- [x] Keep the entire interaction hidden with the portrait below 900px.
+- [x] Avoid React state updates for every pointer movement by updating CSS custom
   properties on the interaction element.
-- [ ] Add no canvas or animation dependency.
+- [x] Add no canvas or animation dependency.
 
 ### Deliverable
 
@@ -222,9 +222,9 @@ technical gaps.
 ### Tasks
 
 - [ ] Review the complete page for factual tone and unnecessary copy.
-- [ ] Check the implementation for accidental one-off values that should use an
+- [x] Check the implementation for accidental one-off values that should use an
   approved token.
-- [ ] Confirm that local case-study values have not been forced into the global token
+- [x] Confirm that local case-study values have not been forced into the global token
   vocabulary.
 - [ ] Verify heading hierarchy, landmarks, focus styles, image semantics, and link
   behavior.
@@ -233,9 +233,9 @@ technical gaps.
 - [ ] Confirm portrait visibility and hero layout on both sides of the 900px breakpoint.
 - [ ] Confirm the interaction fallback and reduced-motion treatment.
 - [ ] Confirm the shared frame and reading measure across the migrated routes.
-- [ ] Run `npm run lint`.
-- [ ] Run `npm run build`.
-- [ ] Record completed work, approved changes, and deferred improvements in this plan.
+- [x] Run `npm run lint`.
+- [x] Run `npm run build`.
+- [x] Record completed work, approved changes, and deferred improvements in this plan.
 
 ### Deliverable
 
@@ -282,10 +282,74 @@ Use this table as implementation decisions are made so their context is not lost
 
 ## Working notes
 
-- Phase 3 cannot begin until the CV and professional-material folder are available.
+- Phase 3 source review is complete using the supplied Master CV and STAR stories. Exact proposed wording is ready for approval in the copy-review document.
 - `docs/design-tokens.md` will become the teaching reference created during Phase 1.
 - `docs/portfolio-redesign-copy-review.md` will preserve the evidence and approval trail
   created during Phase 3.
 - This document is the authoritative status tracker for the redesign.
 - Update the status, task checkboxes, completion dates, and decision log at the end of
   each phase.
+
+
+## Implementation record: 2026-09-08
+
+- Phase 1 implementation complete: palette foundations, semantic color/layout/type/
+  motion tokens, Tailwind mapping, and `docs/design-tokens.md` with exercises.
+  Vocabulary follows the plan's authorized design direction; no separate approval
+  of new copy is implied.
+- Phase 2 complete: 64rem frame, responsive gutters and section spacing, 42rem text
+  measure, shared surface migration, portrait hidden below 900px, and lazy images.
+  Labels now sit inside the fluid frame to avoid the former fixed grid overflow.
+  Markdown parsing, routes, content schemas, and case-study files are untouched.
+- Phase 3 pending: prepared `docs/portfolio-redesign-copy-review.md` with surface
+  inventory, provisional replacements, source register, and unresolved claims.
+  Requested the CV and professional-material folder location. No proposed career
+  copy has been integrated and no unprovided approval has been recorded.
+- Phase 4 implementation complete: small client component, native button semantics,
+  pointer CSS properties, dither mask, complete color toggle, reduced-motion handling,
+  and opacity fallback. Browser interaction verification is still pending.
+- Phase 5 partial: lint and production build passed; static generation retains all
+  existing routes. Homepage now has a main landmark; projects group headings no
+  longer depend on an introductory heading. `git diff --check` passed.
+  Browser QA could not run because no browser is connected to the UI tool.
+
+### Remaining release gates
+
+1. Receive and review professional sources, finalize source-to-claim mappings,
+   obtain Bernardo's wording approval, and integrate across UI/metadata/JSON-LD.
+2. Repeat em-dash audit after integration. Eight existing occurrences across homepage,
+   hero, footer, and projects metadata remain intentionally pending copy approval.
+3. In a connected browser, inspect 375px, 640px, 899px, 900px, 1024px, and 1440px;
+   check overflow, frame and reading measure, keyboard focus, pointer lens, click,
+   Enter/Space toggles, reduced motion, and disabled CSS masking.
+4. Re-run lint and build after approved copy integration. Deployment remains outside
+   this project as specified in the plan.
+
+| Date | Decision | Reason |
+|---|---|---|
+| 2026-09-08 | Place section labels inside the content frame. | Fixed-width side-label tracks could overflow near the layout breakpoint. |
+| 2026-09-08 | Retain current professional copy pending sources and approval. | The plan explicitly requires source-backed review before integration. |
+| 2026-09-08 | Use a native button and CSS masking for the portrait. | Keyboard semantics are built in; pointer updates avoid React renders and require no dependency. |
+| 2026-09-08 | Record browser verification as pending. | No browser is available through the connected UI tool; build success cannot establish visual correctness. |
+
+
+### Source review update: 2026-09-08
+
+Received the professional folder location and reviewed `Master CV.md`, Axonify and
+Shopify STAR stories, and the collaboration story. The copy-review document now
+contains exact proposed wording and source mappings for all affected surfaces.
+Seniority, company history, design-systems work, and toolkit claims are supported
+by the supplied records. Shopify's metric definition conflicts across records;
+Axonify's cost figure mixes reported savings with projected licensing expense.
+Both numbers are omitted from proposed UI summaries. No public wording has changed.
+
+Source access is resolved. Next gate: Bernardo's approval of the concrete copy set,
+then integration and final validation. Browser QA remains pending.
+
+
+### Copy integration rollback
+
+Bernardo approved the suggested copy with Brazil as the location, then requested
+that the code return to its pre-copy-integration state. The copy pass was reverted
+while preserving the technical redesign and copy suggestions document. Copy
+integration is deferred by user request. Lint and diff whitespace checks pass.
