@@ -191,7 +191,17 @@ address {
     --tw-prose-td-borders: var(--border-subtle);
   }
   .article-prose > :where(p, h2, h3, h4, ul, ol, blockquote, pre) { max-width: var(--reading-measure); }
-
+  .portrait { position: relative; overflow: hidden; width: 100%; min-height: 36rem; cursor: pointer; background: var(--surface-hover); }
+  .portrait-color { opacity: 0; transition: opacity var(--motion-standard) var(--ease-standard); }
+  .portrait[data-following='true'] .portrait-color,
+  .portrait[aria-pressed='true'] .portrait-color { opacity: 1; }
+  @supports (mask-image: radial-gradient(black, transparent)) and (mask-composite: intersect) {
+    .portrait[data-following='true'][aria-pressed='false'] .portrait-color {
+      mask-image: radial-gradient(circle 7rem at var(--pointer-x, 50%) var(--pointer-y, 50%), black 30%, transparent 100%), radial-gradient(circle, black 1.5px, transparent 2px);
+      mask-size: auto, 4px 4px;
+      mask-composite: intersect;
+    }
+  }
 }
 :where(a, button):focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
 .bg-inverse { --focus: var(--on-inverse); }
@@ -200,5 +210,7 @@ address {
   *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }
   .fade-up { opacity: 1; transform: none; }
   .pressable-button:active { transform: none; }
+  .portrait[data-following='true'][aria-pressed='false'] .portrait-color { opacity: 0; mask-image: none; }
 }
 
+.portrait:focus-visible { box-shadow: inset 0 0 0 6px var(--background); }

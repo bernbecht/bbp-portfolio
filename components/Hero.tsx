@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Portrait from '@/components/Portrait';
 import Link from 'next/link';
 
 export function Hero() {
@@ -43,18 +43,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative hidden min-h-80 layout:block overflow-hidden bg-surface-hover layout:col-span-4 layout:min-h-[36rem]">
-        <Image
-          src="/profile.jpeg"
-          alt="Bernardo Bechtold, portrait"
-          fill
-          sizes="(min-width: 1024px) 320px, 33vw"
-          className="object-cover grayscale transition duration-700 hover:grayscale-0 motion-reduce:transition-none"
-        />
-        <span className="absolute bottom-3 right-3 border border-white/50 bg-black/80 px-2 py-1 font-mono text-[10px] uppercase tracking-widest text-white backdrop-blur">
-          Designer × Engineer
-        </span>
-      </div>
+      <Portrait />
 
       <div className="col-span-full grid grid-cols-3 border-t border-strong font-mono text-[10px] uppercase tracking-wider sm:text-xs">
         <p className="border-r border-strong px-3 py-3 sm:px-5">01 · Interfaces</p>
