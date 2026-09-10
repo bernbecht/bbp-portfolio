@@ -88,8 +88,7 @@ export default function Home() {
             <div>
               <p className="mb-4 type-label">Case study 01</p>
               <h2 className="text-3xl leading-tight tracking-tight md:text-4xl">
-                Designing and building Shopify&apos;s mobile Store Editor bottom
-                sheet
+                Making room for editing and preview
               </h2>
               <p className="section__paragraph mt-4 max-w-md text-inverse-muted group-hover:text-secondary">
                 A three-state editing surface that kept editing controls and the
@@ -111,7 +110,7 @@ export default function Home() {
             <div>
               <p className="mb-4 type-label">Case study 02</p>
               <h2 className="text-3xl leading-tight tracking-tight md:text-4xl">
-                How I stopped visual regressions
+                Catching UI regressions before they ship
               </h2>
               <p className="section__paragraph mt-4 max-w-md text-inverse-muted group-hover:text-secondary">
                 An in-house visual testing workflow that helped teams catch
