@@ -88,7 +88,7 @@ export function Footer() {
     <footer
       id="footer"
       aria-labelledby="footer-heading"
-      className="text-on-inverse"
+      className="text-on-inverse mt-24"
     >
       <div className="footer-dither" aria-hidden="true" />
 
