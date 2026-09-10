@@ -1,5 +1,5 @@
 ---
-title: 'How we stopped visual regressions from breaking our design system — without paying for it'
+title: 'Catching UI regressions before they ship'
 date: '2025-11-08T12:00:00.000Z'
 description: >-
   A practical story about building an in-house visual regression pipeline using Playwright and Storybook, saving ~$10k/year and giving multiple teams the confidence to refactor freely.

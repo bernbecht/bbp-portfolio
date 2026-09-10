@@ -38,7 +38,7 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
         active: false,
       },
       {
-        title: "How I stopped visual regressions",
+        title: "Catching UI regressions before they ship",
         period: "2025",
         company: "Axonify",
         // href: "/",
@@ -49,8 +49,7 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
         active: true,
       },
       {
-        title:
-          "Designing and building Shopify's mobile Store Editor bottom sheet",
+        title: "Making room for editing and preview",
         period: "2022–2023",
         company: "Shopify",
         journalSlug: "shopify-mobile-store-editor",

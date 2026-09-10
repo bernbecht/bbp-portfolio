@@ -1,5 +1,5 @@
 ---
-  title: "Preserving Shopify's live Store Editor on mobile"
+  title: "Making room for editing and preview"
   date: '2025-11-08T12:00:00.000Z'
   description: >-
     Integrating an early two-state bottom-sheet component into Shopify's mobile Store Editor,
