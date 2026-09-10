@@ -15,6 +15,8 @@ export type ProjectPostFrontmatter = Readonly<{
   /** ISO 8601 string; used for ordering and metadata. */
   date: string;
   description: string;
+  /** Optional project-specific image URL for Open Graph and Twitter cards. */
+  socialImage?: string;
   leadSectionBeforeHero?: boolean;
   heroDemo?: 'component-library';
   heroVideo?: Readonly<{
@@ -45,6 +47,7 @@ function assertPostFrontmatter(
   const title = data.title;
   const date = data.date;
   const description = data.description;
+  const socialImage = data.socialImage;
   const leadSectionBeforeHero = data.leadSectionBeforeHero;
   const heroDemo = data.heroDemo;
   const heroVideo = data.heroVideo;
@@ -58,6 +61,11 @@ function assertPostFrontmatter(
   if (typeof description !== 'string' || description.trim() === '') {
     throw new Error(
       `Invalid or missing "description" in content/projects/${slug}.md frontmatter`,
+    );
+  }
+  if (socialImage !== undefined && (typeof socialImage !== 'string' || socialImage.trim() === '')) {
+    throw new Error(
+      `Invalid "socialImage" in content/projects/${slug}.md frontmatter`,
     );
   }
   if (
@@ -94,6 +102,7 @@ function assertPostFrontmatter(
       title,
       date,
       description,
+      ...(socialImage ? { socialImage } : {}),
       ...(leadSectionBeforeHero ? { leadSectionBeforeHero } : {}),
       ...(heroDemo ? { heroDemo } : {}),
       heroVideo: {
@@ -109,6 +118,7 @@ function assertPostFrontmatter(
     title,
     date,
     description,
+    ...(socialImage ? { socialImage } : {}),
     ...(leadSectionBeforeHero ? { leadSectionBeforeHero } : {}),
     ...(heroDemo ? { heroDemo } : {}),
   };
