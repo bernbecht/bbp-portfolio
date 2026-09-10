@@ -8,15 +8,16 @@ import type { Metadata } from "next";
 import { fontClasses } from "./fonts";
 import "./globals.css";
 
-const siteTitle = "Bernardo Bechtold | Front-end Engineer & UI/UX Designer";
+const siteTitle = "Bernardo Bechtold | Senior Frontend & UI Engineer";
 const siteDescription =
-  "Bernardo Bechtold is a senior front-end engineer and UI/UX designer who builds accessible, scalable React applications with strong design collaboration.";
+  "Senior frontend and UI engineer specializing in design systems, accessibility, and frontend architecture. Explore Bernardo Bechtold's work and projects.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(resolveSiteUrl()),
   title: siteTitle,
   description: siteDescription,
   openGraph: {
+    url: "/",
     title: siteTitle,
     description: siteDescription,
     siteName: "Bernardo Bechtold",
@@ -56,7 +57,7 @@ export default function RootLayout({
         )}
       >
         <Header />
-        <div className="flex-1 py-12 md:py-24">{children}</div>
+        <div className="flex-1 pt-8 md:pt-12">{children}</div>
         <Footer />
         <Analytics />
       </body>

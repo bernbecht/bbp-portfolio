@@ -18,7 +18,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 const linkFocusClasses =
-  "rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2";
+  "rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2";
 
 type PageParams = Readonly<{
   slug: string;
@@ -64,7 +64,7 @@ const caseStudyVisualPattern =
 const markdownComponents: Components = {
   a: ({ href, children, title }) => {
     const className = cn(
-      "text-neutral-900 underline-offset-4 decoration-neutral-400 hover:underline",
+      "text-foreground underline-offset-4 decoration-muted hover:underline",
       linkFocusClasses,
     );
     if (href?.startsWith("/")) {
@@ -91,7 +91,7 @@ const markdownComponents: Components = {
     <img
       src={typeof src === "string" ? src : undefined}
       alt={alt ?? ""}
-      className="max-h-[min(28rem,70vh)] w-auto max-w-full rounded-md border border-neutral-200"
+      className="max-h-[min(28rem,70vh)] w-auto max-w-full rounded-md border border-subtle"
       loading="lazy"
       decoding="async"
     />
@@ -161,7 +161,7 @@ export async function generateMetadata({
   }
 
   const path = `/projects/${slug}`;
-  const title = `${post.title} | Bernardo Bechtold | Front-end Engineer & UI/UX Designer`;
+  const title = `${post.title} | Bernardo Bechtold`;
 
   return {
     title,
@@ -208,11 +208,11 @@ export default async function ProjectPostPage({
     ? splitLeadSection(post.content)
     : ["", post.content];
   const proseClasses = cn(
-    "prose prose-neutral max-w-none text-gray-700",
-    "prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-neutral-900",
-    "prose-pre:border prose-pre:border-neutral-200 prose-pre:bg-neutral-50",
-    "prose-code:rounded-sm prose-code:bg-neutral-100 prose-code:px-1 prose-code:py-0.5 prose-code:text-[0.9em] prose-code:before:content-none prose-code:after:content-none",
-    "prose-blockquote:border-l-neutral-300 prose-blockquote:text-neutral-700",
+    "prose article-prose max-w-none text-secondary",
+    "prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-foreground",
+    "prose-pre:border prose-pre:border-subtle prose-pre:bg-surface",
+    "prose-code:rounded-sm prose-code:bg-surface-hover prose-code:px-1 prose-code:py-0.5 prose-code:text-[0.9em] prose-code:before:content-none prose-code:after:content-none",
+    "prose-blockquote:border-l-neutral-300 prose-blockquote:text-secondary",
     "prose-table:text-sm",
   );
 
@@ -220,35 +220,35 @@ export default async function ProjectPostPage({
     <div className="fade-up">
       <main className="content-container">
         <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex list-none flex-wrap items-center gap-2 p-0 text-sm text-neutral-600">
+          <ol className="flex list-none flex-wrap items-center gap-2 p-0 text-sm text-secondary">
             <li>
               <Link
                 href={backHref}
                 className={cn(
-                  "font-medium text-neutral-900 underline-offset-4 decoration-neutral-400 hover:underline",
+                  "font-medium text-foreground underline-offset-4 decoration-muted hover:underline",
                   linkFocusClasses,
                 )}
               >
                 Projects
               </Link>
             </li>
-            <li aria-hidden="true" className="text-neutral-400">
+            <li aria-hidden="true" className="text-inverse-muted">
               /
             </li>
-            <li className="min-w-0 truncate font-mono text-neutral-500">
+            <li className="min-w-0 truncate font-mono text-muted">
               {slug}
             </li>
           </ol>
         </nav>
 
-        <header className="mb-10 border-b border-neutral-200 pb-10">
-          <p className="font-mono text-sm text-neutral-500">
+        <header className="mb-10 border-b border-subtle pb-10">
+          <p className="type-meta text-muted">
             {formatDisplayDate(post.date)}
           </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             {post.title}
           </h1>
-          <p className="section__paragraph mt-4 text-lg leading-relaxed text-gray-700">
+          <p className="section__paragraph mt-4 type-body text-secondary">
             {post.description}
           </p>
         </header>
@@ -269,7 +269,7 @@ export default async function ProjectPostPage({
         ) : null}
 
         {post.heroVideo ? (
-          <figure className="mb-12 rounded-xl border border-neutral-200 bg-neutral-50 p-4 sm:p-6">
+          <figure className="mb-12 rounded-xl border border-subtle bg-surface p-4 sm:p-6">
             <div className="mx-auto max-w-[22rem] overflow-hidden rounded-[2rem] border-[6px] border-neutral-900 bg-neutral-900 shadow-xl">
               <video
                 className="aspect-[9/16] w-full bg-neutral-950 object-cover"
@@ -284,7 +284,7 @@ export default async function ProjectPostPage({
                 <a href={post.heroVideo.src}>Open the product walkthrough</a>.
               </video>
             </div>
-            <figcaption className="mx-auto mt-4 max-w-xl text-center text-sm leading-relaxed text-neutral-600">
+            <figcaption className="mx-auto mt-4 max-w-xl text-center text-sm leading-relaxed text-secondary">
               {post.heroVideo.caption}
             </figcaption>
           </figure>

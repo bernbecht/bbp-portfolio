@@ -12,7 +12,7 @@ type Company = {
 const companies: Company[] = [
   { name: "Shopify", logo: ShopifyLogo, link: "https://www.shopify.com" },
   { name: "SAP", logo: SapLogo, link: "https://www.sap.com" },
-  { name: "CIT", logo: CitLogo, link: "https://ciandt.com" },
+  { name: "CI&T", logo: CitLogo, link: "https://ciandt.com" },
   { name: "Axonify", logo: AxonifyLogo, link: "https://axonify.com" },
 ];
 
@@ -22,8 +22,8 @@ export function CompaniesGrid() {
       <ul
         className="
           grid grid-cols-1 sm:grid-cols-2
-          border border-gray-950
-        [&>li]:border-gray-300
+          border border-strong
+        [&>li]:border-subtle
           [&>li]:border-b
           [&>li:last-child]:border-b-0
           sm:[&>li:nth-last-child(-n+2)]:border-b-0
@@ -33,9 +33,13 @@ export function CompaniesGrid() {
           <li key={company.name}>
             <a
               href={company.link}
-              className="flex items-center justify-center py-8 hover:bg-gray-900 text-black hover:text-white transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${company.name}`}
+              className="group relative flex min-h-40 items-center justify-center overflow-hidden py-8 text-foreground transition-colors hover:bg-inverse hover:text-on-inverse"
             >
-              <company.logo className="w-64 h-32" />
+              <company.logo className="h-24 w-52 transition-transform duration-(--motion-standard) motion-safe:group-hover:scale-105" />
+              <span className="absolute right-3 top-3 font-mono text-xs opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true">↗</span>
             </a>
           </li>
         ))}

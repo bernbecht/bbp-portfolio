@@ -6,10 +6,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 const TECH_ITEMS = [
   "React",
   "TypeScript",
-  "Node",
+  "Node.js",
   "Storybook",
   "Playwright",
-  "Design Tokens",
+  "Design tokens",
   "Material UI",
   "Accessibility",
 ] as const;

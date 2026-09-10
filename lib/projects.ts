@@ -45,7 +45,7 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
         journalSlug: "how-stopped-visual-regressions",
         tags: ["Accessibility", "Visual regression", "Playwright", "Storybook"],
         summary:
-          "How I built an in-house visual regression pipeline using Playwright and Storybook, saving ~$10k/year and giving multiple teams the confidence to refactor freely.",
+          "How I built an in-house visual regression pipeline using Playwright and Storybook to help teams review interface changes before shipping.",
         active: true,
       },
       {
@@ -56,7 +56,7 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
         journalSlug: "shopify-mobile-store-editor",
         tags: ["Product design", "Front-end", "Mobile"],
         summary:
-          "I designed and built a three-state bottom sheet that preserved live editing on small screens and contributed to a 10% increase in mobile Store Editor adoption.",
+          "I designed and built a three-state bottom sheet that preserved live editing on small screens.",
         active: true,
       },
     ],

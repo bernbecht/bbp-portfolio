@@ -1,7 +1,7 @@
 import { resolveSiteUrl } from '@/lib/site-url';
 
 const PERSON_NAME = 'Bernardo Bechtold';
-const JOB_TITLE = 'Front-end Engineer & UI/UX Designer';
+const JOB_TITLE = 'Senior UI Engineer · Design Systems';
 const LINKEDIN_URL = 'https://br.linkedin.com/in/bbechtold';
 
 export function PersonJsonLd() {
