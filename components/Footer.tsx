@@ -102,33 +102,31 @@ export function Footer() {
             id="footer-heading"
             className="max-w-3xl font-serif text-5xl leading-[0.95] tracking-tight xs:text-6xl md:text-7xl"
           >
-            Have a role or project in mind?
+            Have a project in mind?
           </h2>
 
           <p className="section__paragraph mt-6 max-w-xl type-body text-inverse-muted md:text-xl">
-            I&apos;d love to hear about it.
+            I&apos;d love to hear about it 🤍
           </p>
 
           <button
-          type="button"
-          onClick={() => handleCopy(emailAddress)}
-          aria-describedby="copy-email-feedback"
-          aria-label={`Copy ${emailAddress}`}
+            type="button"
+            onClick={() => handleCopy(emailAddress)}
+            aria-describedby="copy-email-feedback"
+            aria-label={`Copy ${emailAddress}`}
             className="group mt-10 flex w-full cursor-pointer flex-col items-start justify-between gap-3 overflow-hidden border border-inverse-border px-5 py-5 text-left transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-inverse motion-reduce:transition-none sm:flex-row sm:items-center"
           >
             <span className="min-w-0 break-all font-serif text-xl sm:text-2xl md:text-3xl">
               {emailAddress}
-          </span>
-          <span className="shrink-0 type-label">
-            {copyActionLabel}
-          </span>
-        </button>
+            </span>
+            <span className="shrink-0 type-label">{copyActionLabel}</span>
+          </button>
 
-        <span id="copy-email-feedback" aria-live="polite" className="sr-only">
-          {copyStatus === "copied" ? "Email copied to clipboard" : ""}
-          {copyStatus === "error"
-            ? "Clipboard unavailable. The email address is visible on screen."
-            : ""}
+          <span id="copy-email-feedback" aria-live="polite" className="sr-only">
+            {copyStatus === "copied" ? "Email copied to clipboard" : ""}
+            {copyStatus === "error"
+              ? "Clipboard unavailable. The email address is visible on screen."
+              : ""}
           </span>
 
           <nav
@@ -162,14 +160,15 @@ export function Footer() {
 
             <div className="flex-1">
               <p className="text-on-inverse">
-                <span className="mr-2 text-availability-inverse" aria-hidden="true">
+                <span
+                  className="mr-2 text-availability-inverse"
+                  aria-hidden="true"
+                >
                   ●
                 </span>
                 Available for select work
               </p>
-              <p className="mt-1">
-                Brazil · {saoPauloTime} · © 2026
-              </p>
+              <p className="mt-1">Brazil · {saoPauloTime} · © 2026</p>
             </div>
 
             <button
