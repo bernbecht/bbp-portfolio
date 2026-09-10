@@ -143,7 +143,6 @@ address {
   }
 
   .section__paragraph {
-    max-width: var(--reading-measure);
     font-family: var(--font-ibm-plex-serif-400);
   }
 
@@ -190,7 +189,6 @@ address {
     --tw-prose-th-borders: var(--border-strong);
     --tw-prose-td-borders: var(--border-subtle);
   }
-  .article-prose > :where(p, h2, h3, h4, ul, ol, blockquote, pre) { max-width: var(--reading-measure); }
   .portrait { position: relative; overflow: hidden; width: 100%; min-height: 36rem; cursor: pointer; background: var(--surface-hover); }
   .portrait-color { opacity: 0; transition: opacity var(--motion-standard) var(--ease-standard); }
   .portrait[data-following='true'] .portrait-color,
