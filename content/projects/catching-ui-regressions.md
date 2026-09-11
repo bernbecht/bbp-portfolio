@@ -42,6 +42,8 @@ The process is simple: render the component in a known state, capture a screensh
 
 That difference is then reviewed: if the change is intentional, the new screenshot becomes the baseline; if it is not, the implementation needs to be fixed.
 
+<!-- case-study-visual:visual-regression-explainer -->
+
 In our case, Storybook provided the known component states, while Playwright rendered, captured, and compared them automatically.
 
 ## Build vs. buy
@@ -174,4 +176,3 @@ At a larger scale, I would expect the architecture to evolve as well. Running ev
 Finally, I would introduce more explicit baseline governance: clearer ownership, review rules, and processes for approving intentional visual changes.
 
 These are not features the original system needed to succeed. They are the next set of problems I would expect to solve as adoption and complexity increased.
-

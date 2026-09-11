@@ -1,4 +1,5 @@
 import ComponentLibraryDemo from "@/components/ComponentLibraryDemo";
+import VisualRegressionExplainer from "@/components/VisualRegressionExplainer";
 import {
   VisualRegressionPipelineFigure,
   VisualRegressionReviewFigure,
@@ -62,6 +63,7 @@ const caseStudyVisuals = {
   "shopify-nested-controls": ShopifyNestedControlsFigure,
   "visual-regression-pipeline": VisualRegressionPipelineFigure,
   "visual-regression-review": VisualRegressionReviewFigure,
+  "visual-regression-explainer": VisualRegressionExplainer,
 } as const;
 
 const caseStudyVisualPattern =
