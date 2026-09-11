@@ -100,6 +100,7 @@ flowchart LR
 - **TypeScript:** Strict; define props interfaces before components; use `Readonly<>` for props; explicit annotations where it helps clarity.
 - **React:** Semantic HTML; accessibility (`aria-label`, `alt`); focus-visible styling.
 - **Formatting:** Trailing commas; **prefer** single quotes — some files mix quote styles; match the nearest file when editing, but new code should prefer single quotes.
+- **Copy punctuation:** Do not use en dashes em dashes (`—`) in user-facing copy. Use commas, periods, parentheses, or a colon instead.
 - **Patterns:** Destructure props in the signature; use `React.ReactNode` for children.
 
 ## Quality gates

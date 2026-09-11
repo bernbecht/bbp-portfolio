@@ -42,7 +42,7 @@ export const PROJECT_GROUPS: readonly ProjectGroup[] = [
         period: "2025",
         company: "Axonify",
         // href: "/",
-        journalSlug: "how-stopped-visual-regressions",
+        journalSlug: "catching-ui-regressions",
         tags: ["Accessibility", "Visual regression", "Playwright", "Storybook"],
         summary:
           "How I built an in-house visual regression pipeline using Playwright and Storybook to help teams review interface changes before shipping.",

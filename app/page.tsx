@@ -100,7 +100,7 @@ export default function Home() {
             </span>
           </Link>
           <Link
-            href="/projects/how-stopped-visual-regressions"
+            href="/projects/catching-ui-regressions"
             className="group flex min-h-80 flex-col justify-between p-6 transition-colors hover:bg-background hover:text-foreground"
           >
             <div className="flex justify-between type-label text-inverse-muted group-hover:text-secondary">

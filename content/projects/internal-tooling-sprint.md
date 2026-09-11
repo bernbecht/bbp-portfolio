@@ -7,7 +7,7 @@ description: >-
 
 ## Minimal body
 
-This file intentionally stays small: one `h2`, one paragraph, a tight table, and an image—plus the
+This file intentionally stays small: one `h2`, one paragraph, a tight table, and an image, plus the
 few extra blocks the full mock suite expects.
 
 | Check   | Status |

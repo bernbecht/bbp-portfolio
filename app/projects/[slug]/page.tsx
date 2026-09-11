@@ -1,4 +1,9 @@
 import ComponentLibraryDemo from "@/components/ComponentLibraryDemo";
+import VisualRegressionExplainer from "@/components/VisualRegressionExplainer";
+import {
+  VisualRegressionPipelineFigure,
+  VisualRegressionReviewFigure,
+} from "@/components/VisualRegressionVisuals";
 import {
   ShopifyDragScrollBoundaryFigure,
   ShopifyDragResolutionFigure,
@@ -56,6 +61,9 @@ const caseStudyVisuals = {
   "shopify-drag-scroll-boundary": ShopifyDragScrollBoundaryFigure,
   "shopify-preview-selection": ShopifyPreviewSelectionFigure,
   "shopify-nested-controls": ShopifyNestedControlsFigure,
+  "visual-regression-pipeline": VisualRegressionPipelineFigure,
+  "visual-regression-review": VisualRegressionReviewFigure,
+  "visual-regression-explainer": VisualRegressionExplainer,
 } as const;
 
 const caseStudyVisualPattern =
@@ -162,6 +170,7 @@ export async function generateMetadata({
 
   const path = `/projects/${slug}`;
   const title = `${post.title} | Bernardo Bechtold`;
+  const socialImage = post.socialImage ?? "/profile.jpeg";
 
   return {
     title,
@@ -178,10 +187,12 @@ export async function generateMetadata({
       siteName: "Bernardo Bechtold",
       images: [
         {
-          url: "/profile.jpeg",
-          width: 100,
-          height: 100,
-          alt: "Bernardo Bechtold, portrait",
+          url: socialImage,
+          width: post.socialImage ? 1200 : 100,
+          height: post.socialImage ? 630 : 100,
+          alt: post.socialImage
+            ? `Social preview for ${post.title}`
+            : "Bernardo Bechtold, portrait",
         },
       ],
     },
@@ -189,7 +200,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: ["/profile.jpeg"],
+      images: [socialImage],
     },
   };
 }

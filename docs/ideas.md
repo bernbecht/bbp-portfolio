@@ -13,6 +13,9 @@ Add one idea per line. Review and move ideas into the roadmap when prioritizing.
 - [ ] Add i18n
 - [ ] Add dark/light themes
 - [ ] Add a Thoughts section
+- [ ] We can explore more the item 3. Reliability in Axonify blog post something and explore the engineering:
+  - explain how we stabilize the screenshots
+  - which are the ways for it
 
 ## Prioritized ideas roadmap
 
