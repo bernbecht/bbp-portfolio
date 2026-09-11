@@ -3,7 +3,7 @@ title: 'Catching UI regressions before they ship'
 date: '2025-11-08T12:00:00.000Z'
 description: >-
   Building a visual-regression system with Playwright and Storybook that made UI changes reviewable before merge and avoided an estimated $10k/year in paid-tool spend at scale.
-socialImage: '/projects/how-stopped-visual-regressions/opengraph-image'
+socialImage: '/projects/catching-ui-regressions/opengraph-image'
 ---
 
 ## At a glance

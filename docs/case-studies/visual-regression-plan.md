@@ -28,5 +28,5 @@ reliable system, and introduce it so teams can use it.
 ## Verification
 
 - Review the post and figures at mobile and desktop widths for reading order, contrast, and text legibility.
-- Confirm the social card resolves at `/projects/how-stopped-visual-regressions/opengraph-image`.
+- Confirm the social card resolves at `/projects/catching-ui-regressions/opengraph-image`.
 - Run `npm run lint` and `npm run build`.
