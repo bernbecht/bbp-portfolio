@@ -1,6 +1,7 @@
 "use client";
 
 import Logo from "@assets/logo.svg";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 type CopyStatus = "idle" | "copied" | "error";
@@ -130,7 +131,7 @@ export function Footer() {
           </span>
 
           <nav
-            aria-label="Social links"
+            aria-label="Site and social links"
             className="border-b border-inverse-border"
           >
             <a
@@ -147,6 +148,18 @@ export function Footer() {
                 ↗
               </span>
             </a>
+            <Link
+              href="/experiments"
+              className="group flex min-h-14 items-center justify-between py-5 type-meta uppercase tracking-wide transition-colors hover:text-inverse-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus motion-reduce:transition-none"
+            >
+              <span>Experiments</span>
+              <span
+                aria-hidden="true"
+                className="transition-transform motion-safe:group-hover:translate-x-1 motion-safe:group-hover:-translate-y-1 motion-reduce:transition-none"
+              >
+                ↗
+              </span>
+            </Link>
           </nav>
 
           <div className="grid grid-cols-[auto_1fr] items-center gap-6 pt-6 font-mono text-xs uppercase text-inverse-muted sm:grid-cols-[auto_1fr_auto]">
