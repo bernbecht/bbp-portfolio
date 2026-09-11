@@ -1,7 +1,7 @@
 # Ideas
 
-**Last updated:** 2026-09-10  
-**Current focus:** Strengthen proof of impact before adding new surface area.
+**Last updated:** 2026-09-11  
+**Current focus:** Add an accessibility check to the build.
 
 ## Idea inbox
 
@@ -21,7 +21,6 @@ Add one idea per line. Review and move ideas into the roadmap when prioritizing.
 
 | Priority | Initiative | Value | Effort | Why now | Status |
 | --- | --- | ---: | ---: | --- | --- |
-| P0 | Improve the visual-regression case study | High | M | It is the clearest existing proof of technical, business, and cross-team impact. Add architecture/CI visuals, examples, and outcomes. | Next |
 | P0 | Add an accessibility check to the build | High | S | Turns accessibility from a portfolio claim into demonstrated engineering practice. | Next |
 | P1 | Create a Storybook for this portfolio | High | L | A durable portfolio artifact showing component, token, state, and accessibility-system practice. | Planned |
 | P1 | Add a design × engineering intersection diagram | Medium | S | Clarifies positioning quickly and supports the homepage narrative. | Planned |
@@ -35,4 +34,5 @@ Add one idea per line. Review and move ideas into the roadmap when prioritizing.
 
 | Initiative | Completed |
 | --- | --- |
+| Improve the visual-regression case study | Yes |
 | Shorten the “/02 · Selected work” title and reflect the change on the Work page | Yes |
