@@ -32,6 +32,18 @@ The question I wanted to answer was:
 
 > **How could we make UI changes safer to ship, without adding significant recurring costs or creating more work for QA?**
 
+## What is visual regression testing?
+
+Traditional automated tests can verify whether a component behaves correctly, but they usually cannot tell whether it still **looks** correct.
+
+Visual regression testing fills that gap by comparing the rendered UI against a previously approved screenshot, called a **baseline**.
+
+The process is simple: render the component in a known state, capture a screenshot, and compare it with the baseline. If there is a difference, a **visual diff** highlights what changed.
+
+That difference is then reviewed: if the change is intentional, the new screenshot becomes the baseline; if it is not, the implementation needs to be fixed.
+
+In our case, Storybook provided the known component states, while Playwright rendered, captured, and compared them automatically.
+
 ## Build vs. buy
 
 With the problem defined, I evaluated two main approaches: adopting a managed visual-testing service built around Storybook or building the capability into our existing testing infrastructure.
