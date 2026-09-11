@@ -1,7 +1,7 @@
 "use client";
 
-import Logo from "@assets/logo.svg";
 import { ScrollToTopLink } from "@/components/ScrollToTopLink";
+import Logo from "@assets/logo.svg";
 import { useEffect, useRef, useState } from "react";
 
 type CopyStatus = "idle" | "copied" | "error";
@@ -83,7 +83,7 @@ export function Footer() {
       ? "Copied — talk soon ✓"
       : copyStatus === "error"
         ? "Copy unavailable"
-        : "Copy email ↗";
+        : "Copy email";
 
   return (
     <footer
@@ -155,9 +155,9 @@ export function Footer() {
               <span>Experiments</span>
               <span
                 aria-hidden="true"
-                className="transition-transform motion-safe:group-hover:translate-x-1 motion-safe:group-hover:-translate-y-1 motion-reduce:transition-none"
+                className="transition-transform motion-safe:group-hover:translate-x-1  motion-reduce:transition-none"
               >
-                ↗
+                →
               </span>
             </ScrollToTopLink>
           </nav>

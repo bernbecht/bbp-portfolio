@@ -151,7 +151,7 @@ export default function Home() {
               href="/experiments"
               className="mt-8 inline-flex border-b border-current pb-1 type-label transition-opacity hover:opacity-60"
             >
-              Explore experiments ↗
+              Explore experiments →
             </Link>
           </div>
           <HowTechList className="divide-y divide-subtle border-y border-strong font-mono text-2xl [&>li]:flex [&>li]:items-center [&>li]:justify-between [&>li]:py-3 [&>li]:after:text-xs [&>li]:after:text-inverse-muted [&>li] md:text-3xl" />
