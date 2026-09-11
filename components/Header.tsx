@@ -31,13 +31,13 @@ export default function Header() {
           >
             <Logo className="size-9" />
             <span className="hidden font-mono text-[11px] uppercase leading-tight tracking-wider sm:block">
-              Bernardo<br />Bechtold
+              Bernardo
+              <br />
+              Bechtold
             </span>
           </NavLink>
           <div className="min-w-0">
-            <ul
-              className="flex shrink-0 list-none items-stretch gap-1 p-0 type-label [&>li]:flex [&>li]:items-stretch [&>li>a]:flex [&>li>a]:min-h-10 [&>li>a]:items-center [&>li>a]:px-3 [&>li>button]:flex [&>li>button]:min-h-10 [&>li>button]:items-center [&>li>button]:px-3"
-            >
+            <ul className="flex shrink-0 list-none items-stretch gap-1 p-0 type-label [&>li]:flex [&>li]:items-stretch [&>li>a]:flex [&>li>a]:min-h-10 [&>li>a]:items-center [&>li>a]:px-3 [&>li>button]:flex [&>li>button]:min-h-10 [&>li>button]:items-center [&>li>button]:px-3">
               <li className="relative pressable-button">
                 <NavLink
                   href="/projects"
@@ -58,7 +58,10 @@ export default function Header() {
                   onClick={handleSayHello}
                   className="group cursor-pointer border border-strong bg-inverse font-mono font-bold text-on-inverse transition hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2"
                 >
-                  Let&apos;s talk <span className="ml-2" aria-hidden="true">↘</span>
+                  Let&apos;s talk{" "}
+                  <span className="ml-2" aria-hidden="true">
+                    ↓
+                  </span>
                 </button>
               </li>
             </ul>

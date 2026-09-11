@@ -16,6 +16,8 @@ Add one idea per line. Review and move ideas into the roadmap when prioritizing.
 - [ ] We can explore more the item 3. Reliability in Axonify blog post something and explore the engineering:
   - explain how we stabilize the screenshots
   - which are the ways for it
+- [ ] create an experiments page in my website
+- [ ] learn omarchy dot animation using the experiments page in my website
 
 ## Prioritized ideas roadmap
 

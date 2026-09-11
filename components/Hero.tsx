@@ -37,7 +37,7 @@ export function Hero() {
             >
               See selected work{" "}
               <span className="ml-3" aria-hidden="true">
-                ↗
+                →
               </span>
             </Link>
             <a

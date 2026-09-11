@@ -1,5 +1,6 @@
 import { Footer } from "@/components/Footer";
 import Header from "@/components/Header";
+import { ScrollToTopOnNavigation } from "@/components/ScrollToTopOnNavigation";
 import { cn } from "@/lib/cn";
 import { resolveSiteUrl } from "@/lib/site-url";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -56,6 +57,7 @@ export default function RootLayout({
           "font-sans antialiased flex min-h-dvh flex-col",
         )}
       >
+        <ScrollToTopOnNavigation />
         <Header />
         <div className="flex-1 pt-8 md:pt-12">{children}</div>
         <Footer />
