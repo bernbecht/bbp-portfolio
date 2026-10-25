@@ -33,7 +33,7 @@ export function Hero() {
           <div className="mt-9 flex flex-wrap gap-3 type-meta">
             <Link
               href="/projects"
-              className="pressable-button inline-flex min-h-12 items-center border border-strong bg-inverse px-5 text-on-inverse transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2"
+              className="pressable-button inline-flex min-h-12 items-center border border-strong bg-inverse px-5 text-on-inverse transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               See selected work{" "}
               <span className="ml-3" aria-hidden="true">
@@ -42,7 +42,7 @@ export function Hero() {
             </Link>
             <a
               href="#what"
-              className="pressable-button inline-flex min-h-12 items-center border border-strong px-5 transition-colors hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2"
+              className="pressable-button inline-flex min-h-12 items-center border border-strong px-5 transition-colors hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               How I work{" "}
               <span className="ml-3" aria-hidden="true">

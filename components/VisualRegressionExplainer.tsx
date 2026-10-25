@@ -31,7 +31,7 @@ function SaveButton({
       type="button"
       tabIndex={-1}
       aria-hidden="true"
-      className={`flex w-full items-center justify-center gap-2 bg-blue-600 font-semibold text-white shadow-sm ${changedColor ? "bg-violet-600" : "bg-blue-600"} ${compact ? "px-4 py-2.5" : "px-6 py-4"} ${sharp ? "rounded-md" : "rounded-xl"}`}
+      className={`flex w-full items-center justify-center gap-2 font-semibold text-white shadow-sm ${changedColor ? "bg-violet-600" : "bg-blue-600"} ${compact ? "px-4 py-2.5" : "px-6 py-4"} ${sharp ? "rounded-md" : "rounded-xl"}`}
     >
       {showIcon ? (
         <svg
@@ -61,12 +61,12 @@ function RenderCard({
   children: React.ReactNode;
 }>): React.ReactNode {
   return (
-    <section className="rounded-lg border border-neutral-200 bg-white p-4 sm:p-5">
-      <p className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-neutral-500">
+    <section className="rounded-lg border border-subtle bg-background p-4 sm:p-5">
+      <p className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-muted">
         {title}
       </p>
-      <p className="mt-1 text-sm text-neutral-600">{subtitle}</p>
-      <div className="mt-5 rounded-md border border-neutral-200 bg-neutral-50 p-5 sm:p-7">
+      <p className="mt-1 text-sm text-secondary">{subtitle}</p>
+      <div className="mt-5 rounded-md border border-subtle bg-surface p-5 sm:p-7">
         {children}
       </div>
     </section>
@@ -87,15 +87,15 @@ export default function VisualRegressionExplainer(): React.ReactNode {
   }
 
   return (
-    <figure className="hidden md:block not-prose my-12 overflow-hidden rounded-xl border border-neutral-200 bg-neutral-50">
-      <figcaption className="border-b border-neutral-200 bg-white px-5 py-5 sm:px-7">
-        <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-neutral-500">
+    <figure className="hidden md:block not-prose my-12 overflow-hidden rounded-xl border border-subtle bg-surface">
+      <figcaption className="border-b border-subtle bg-background px-5 py-5 sm:px-7">
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-muted">
           Interactive example
         </p>
-        <h3 className="mt-2 text-xl font-semibold tracking-tight text-neutral-900">
+        <h3 className="mt-2 text-xl font-semibold tracking-tight text-foreground">
           Make a change, then inspect the visual diff
         </h3>
-        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-600">
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-secondary">
           Toggle an implementation change to see how a baseline and a
           pull-request render diverge.
         </p>
@@ -103,7 +103,7 @@ export default function VisualRegressionExplainer(): React.ReactNode {
 
       <div className="p-5 sm:p-7">
         <fieldset>
-          <legend className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-neutral-500">
+          <legend className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-muted">
             Simulate a component change
           </legend>
           <div className="mt-3 flex flex-wrap gap-2">
@@ -115,7 +115,7 @@ export default function VisualRegressionExplainer(): React.ReactNode {
                   type="button"
                   aria-pressed={selected}
                   onClick={() => toggleChange(change)}
-                  className={`rounded-md border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 ${selected ? "border-neutral-900 bg-neutral-900 text-white" : "border-neutral-300 bg-white text-neutral-800 hover:bg-neutral-100"}`}
+                  className={`rounded-md border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-background ${selected ? "border-strong bg-inverse text-on-inverse" : "border-subtle bg-background text-foreground hover:bg-surface-hover"}`}
                 >
                   {changeLabels[change]}
                 </button>
@@ -139,18 +139,18 @@ export default function VisualRegressionExplainer(): React.ReactNode {
               <SaveButton activeChanges={[]} baseline />
               {showDiff && hasChanges ? (
                 <>
-                  <div className="pointer-events-none absolute inset-0 rounded-xl bg-rose-400/35 mix-blend-multiply" />
+                  <div className="pointer-events-none absolute inset-0 rounded-xl bg-rose-400/35 mix-blend-multiply dark:mix-blend-screen" />
                   {activeChanges.includes("icon") ? (
-                    <span className="pointer-events-none absolute left-[20%] top-1/2 size-9 -translate-y-1/2 rounded border-2 border-rose-600 bg-rose-300/60" />
+                    <span className="pointer-events-none absolute left-[20%] top-1/2 size-9 -translate-y-1/2 rounded border-2 border-rose-600 dark:border-rose-400 bg-rose-300/60" />
                   ) : null}
                   {activeChanges.includes("color") ? (
-                    <span className="pointer-events-none absolute inset-0 rounded-xl border-2 border-violet-700 bg-violet-400/25" />
+                    <span className="pointer-events-none absolute inset-0 rounded-xl border-2 border-violet-700 dark:border-violet-400 bg-violet-400/25" />
                   ) : null}
                   {activeChanges.includes("padding") ? (
-                    <span className="pointer-events-none absolute inset-x-[12%] bottom-0 h-3 border-x-2 border-b-2 border-rose-600 bg-rose-300/50" />
+                    <span className="pointer-events-none absolute inset-x-[12%] bottom-0 h-3 border-x-2 border-b-2 border-rose-600 dark:border-rose-400 bg-rose-300/50" />
                   ) : null}
                   {activeChanges.includes("radius") ? (
-                    <span className="pointer-events-none absolute inset-0 rounded-xl border-2 border-rose-600" />
+                    <span className="pointer-events-none absolute inset-0 rounded-xl border-2 border-rose-600 dark:border-rose-400" />
                   ) : null}
                 </>
               ) : null}
@@ -159,7 +159,7 @@ export default function VisualRegressionExplainer(): React.ReactNode {
               type="button"
               aria-pressed={showDiff}
               onClick={() => setShowDiff((current) => !current)}
-              className="mt-4 text-sm font-medium text-neutral-800 underline decoration-neutral-300 underline-offset-4 hover:decoration-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
+              className="mt-4 text-sm font-medium text-foreground underline decoration-subtle underline-offset-4 hover:decoration-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               {showDiff ? "Hide diff overlay" : "Show diff overlay"}
             </button>
@@ -167,16 +167,16 @@ export default function VisualRegressionExplainer(): React.ReactNode {
         </div>
 
         <div
-          className={`mt-5 rounded-lg border p-4 sm:flex sm:items-center sm:justify-between sm:gap-6 ${hasChanges ? "border-amber-300 bg-amber-50" : "border-emerald-300 bg-emerald-50"}`}
+          className={`mt-5 rounded-lg border p-4 sm:flex sm:items-center sm:justify-between sm:gap-6 ${hasChanges ? "border-amber-300 dark:border-amber-600 bg-amber-50 dark:bg-amber-950" : "border-emerald-300 dark:border-emerald-600 bg-emerald-50 dark:bg-emerald-950"}`}
           aria-live="polite"
         >
           <div>
-            <p className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-neutral-600">
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-secondary">
               {hasChanges
                 ? "Visual difference detected"
                 : "No visual difference"}
             </p>
-            <p className="mt-1 text-sm font-medium text-neutral-900">
+            <p className="mt-1 text-sm font-medium text-foreground">
               {hasChanges
                 ? "Review the change before the pull request merges."
                 : "The current render matches the approved baseline."}
@@ -184,10 +184,10 @@ export default function VisualRegressionExplainer(): React.ReactNode {
           </div>
           {hasChanges ? (
             <div className="mt-3 flex flex-wrap gap-2 sm:mt-0">
-              <span className="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-800">
+              <span className="rounded-md border border-subtle bg-background px-3 py-2 text-sm text-foreground">
                 Regression: fix it
               </span>
-              <span className="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-800">
+              <span className="rounded-md border border-subtle bg-background px-3 py-2 text-sm text-foreground">
                 Intentional: approve baseline
               </span>
             </div>

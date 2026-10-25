@@ -89,13 +89,13 @@ export function Footer() {
     <footer
       id="footer"
       aria-labelledby="footer-heading"
-      className="text-on-inverse mt-24"
+      className="site-footer text-footer-foreground mt-24"
     >
       <div className="footer-dither" aria-hidden="true" />
 
-      <div className="bg-inverse">
+      <div className="bg-footer">
         <div className="content-container section-space">
-          <p className="mb-5 type-meta uppercase tracking-wider text-inverse-muted">
+          <p className="mb-5 type-meta uppercase tracking-wider text-footer-muted">
             / Let&apos;s connect
           </p>
 
@@ -106,7 +106,7 @@ export function Footer() {
             Have a project in mind?
           </h2>
 
-          <p className="section__paragraph mt-6 max-w-xl type-body text-inverse-muted md:text-xl">
+          <p className="section__paragraph mt-6 max-w-xl type-body text-footer-muted md:text-xl">
             I&apos;d love to hear about it 🤍
           </p>
 
@@ -115,7 +115,7 @@ export function Footer() {
             onClick={() => handleCopy(emailAddress)}
             aria-describedby="copy-email-feedback"
             aria-label={`Copy ${emailAddress}`}
-            className="group mt-10 flex w-full cursor-pointer flex-col items-start justify-between gap-3 overflow-hidden border border-inverse-border px-5 py-5 text-left transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-inverse motion-reduce:transition-none sm:flex-row sm:items-center"
+            className="group mt-10 flex w-full cursor-pointer flex-col items-start justify-between gap-3 overflow-hidden border border-footer-border px-5 py-5 text-left transition-colors hover:bg-footer-hover hover:text-footer-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-footer motion-reduce:transition-none sm:flex-row sm:items-center"
           >
             <span className="min-w-0 break-all font-serif text-xl sm:text-2xl md:text-3xl">
               {emailAddress}
@@ -132,13 +132,13 @@ export function Footer() {
 
           <nav
             aria-label="Site and social links"
-            className="border-b border-inverse-border"
+            className="border-b border-footer-border"
           >
             <a
               href="https://br.linkedin.com/in/bbechtold"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex min-h-14 items-center justify-between py-5 type-meta uppercase tracking-wide transition-colors hover:text-inverse-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus motion-reduce:transition-none"
+              className="group flex min-h-14 items-center justify-between py-5 type-meta uppercase tracking-wide transition-colors hover:text-footer-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus motion-reduce:transition-none"
             >
               <span>LinkedIn</span>
               <span
@@ -150,7 +150,7 @@ export function Footer() {
             </a>
             <ScrollToTopLink
               href="/experiments"
-              className="group flex min-h-14 items-center justify-between py-5 type-meta uppercase tracking-wide transition-colors hover:text-inverse-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus motion-reduce:transition-none"
+              className="group flex min-h-14 items-center justify-between py-5 type-meta uppercase tracking-wide transition-colors hover:text-footer-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus motion-reduce:transition-none"
             >
               <span>Experiments</span>
               <span
@@ -162,8 +162,8 @@ export function Footer() {
             </ScrollToTopLink>
           </nav>
 
-          <div className="grid grid-cols-[auto_1fr] items-center gap-6 pt-6 font-mono text-xs uppercase text-inverse-muted sm:grid-cols-[auto_1fr_auto]">
-            <div className="w-fit shrink-0 bg-background p-1">
+          <div className="grid grid-cols-[auto_1fr] items-center gap-6 pt-6 font-mono text-xs uppercase text-footer-muted sm:grid-cols-[auto_1fr_auto]">
+            <div className="w-fit shrink-0 bg-footer-hover p-1">
               <Logo
                 role="img"
                 aria-label="Bernardo Bechtold"
@@ -172,9 +172,9 @@ export function Footer() {
             </div>
 
             <div className="flex-1">
-              <p className="text-on-inverse">
+              <p className="text-footer-foreground">
                 <span
-                  className="mr-2 text-availability-inverse"
+                  className="mr-2 text-emerald-300"
                   aria-hidden="true"
                 >
                   ●
@@ -187,7 +187,7 @@ export function Footer() {
             <button
               type="button"
               onClick={handleBackToTop}
-              className="col-span-2 w-fit cursor-pointer justify-self-end py-2 transition-colors hover:text-on-inverse focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus motion-reduce:transition-none sm:col-span-1"
+              className="col-span-2 w-fit cursor-pointer justify-self-end py-2 transition-colors hover:text-footer-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus motion-reduce:transition-none sm:col-span-1"
             >
               Back to top <span aria-hidden="true">↑</span>
             </button>

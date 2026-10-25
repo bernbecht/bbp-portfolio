@@ -11,7 +11,7 @@ export function Section({ id, label, title, children, tone = 'light' }: Readonly
     <section
       id={id}
       aria-labelledby={`${id}-${title ? 'title' : 'label'}`}
-      className={`scroll-mt-24 section-space ${tone === 'dark' ? 'bg-inverse text-on-inverse' : ''}`}
+      className={`scroll-mt-24 section-space ${tone === 'dark' ? 'section-dark bg-inverse text-on-inverse' : ''}`}
     >
       <div className="content-container">
         <p id={`${id}-label`} className={`type-label mb-6 ${tone === 'dark' ? 'text-inverse-muted' : 'text-muted'}`}>{label}</p>

@@ -70,6 +70,16 @@ const caseStudyVisualPattern =
   /<!-- case-study-visual:([a-z0-9-]+) -->/g;
 
 const markdownComponents: Components = {
+  table: ({ children }) => (
+    <div
+      role="region"
+      aria-label="Scrollable table"
+      tabIndex={0}
+      className="overflow-x-auto focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
+    >
+      <table>{children}</table>
+    </div>
+  ),
   a: ({ href, children, title }) => {
     const className = cn(
       "text-foreground underline-offset-4 decoration-muted hover:underline",
@@ -223,7 +233,7 @@ export default async function ProjectPostPage({
     "prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-foreground",
     "prose-pre:border prose-pre:border-subtle prose-pre:bg-surface",
     "prose-code:rounded-sm prose-code:bg-surface-hover prose-code:px-1 prose-code:py-0.5 prose-code:text-[0.9em] prose-code:before:content-none prose-code:after:content-none",
-    "prose-blockquote:border-l-neutral-300 prose-blockquote:text-secondary",
+    "prose-blockquote:border-l-subtle prose-blockquote:text-secondary",
     "prose-table:text-sm",
   );
 

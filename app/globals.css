@@ -1,7 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 :root {
+  color-scheme: light;
   /* Foundations: palette primitives, consumed by semantic decisions below. */
   --neutral-0: #ffffff;
   --neutral-50: #fafafa;
@@ -26,6 +28,11 @@
   --inverse-border: var(--neutral-600);
   --availability: #047857;
   --availability-inverse: #6ee7b7;
+  --footer-background: #0a0a0a;
+  --footer-foreground: #ffffff;
+  --footer-muted: #a3a3a3;
+  --footer-border: #525252;
+  --footer-hover: #202020;
   --content-container-max-width: 64rem;
   --reading-measure: 42rem;
   --page-gutter: 1rem;
@@ -39,6 +46,77 @@
   --motion-standard: 240ms;
   --motion-enter: 600ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Neutral dark surfaces preserve the light theme's monochrome character. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --background: #171717;
+  --foreground: #f5f5f5;
+  --surface: #202020;
+  --surface-hover: #2b2b2b;
+  --text-secondary: #c2c2c2;
+  --text-muted: #a3a3a3;
+  --border-subtle: #404040;
+  --border-strong: #a3a3a3;
+  --focus: #f5f5f5;
+  --inverse: #f5f5f5;
+  --on-inverse: #171717;
+  --inverse-muted: #525252;
+  --inverse-border: #737373;
+  --availability: #6ee7b7;
+  --availability-inverse: #047857;
+  --footer-foreground: #f5f5f5;
+  --footer-border: #404040;
+}
+
+/* Both icons are server-rendered; the pre-paint theme selects the current one. */
+.theme-moon,
+:root[data-theme='dark'] .theme-sun {
+  display: none;
+}
+:root[data-theme='dark'] .theme-moon {
+  display: block;
+}
+
+/* Append colors to existing transitions without changing motion or media. */
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-theme-transition] {
+    --theme-color-transition:
+      background-color 400ms ease-in-out, color 400ms ease-in-out,
+      border-color 400ms ease-in-out, outline-color 400ms ease-in-out,
+      text-decoration-color 400ms ease-in-out, fill 400ms ease-in-out,
+      stroke 400ms ease-in-out, box-shadow 400ms ease-in-out,
+      text-shadow 400ms ease-in-out;
+  }
+  :root[data-theme-transition],
+  :root[data-theme-transition] *:not(img, video, canvas, iframe, picture) {
+    transition: var(--theme-existing-transition, opacity 0s), var(--theme-color-transition) !important;
+  }
+  :root[data-theme-transition] *::before {
+    transition: var(--theme-existing-transition-before, opacity 0s), var(--theme-color-transition) !important;
+  }
+  :root[data-theme-transition] *::after {
+    transition: var(--theme-existing-transition-after, opacity 0s), var(--theme-color-transition) !important;
+  }
+}
+:root[data-theme-immediate],
+:root[data-theme-immediate] *,
+:root[data-theme-immediate] *::before,
+:root[data-theme-immediate] *::after {
+  transition: none !important;
+}
+:root[data-theme='dark'] .dither {
+  filter: invert(1);
+}
+.section-dark {
+  --inverse: #0a0a0a;
+  --on-inverse: #f5f5f5;
+  --inverse-muted: #a3a3a3;
+  --inverse-border: #525252;
+}
+.site-footer {
+  --focus: var(--footer-foreground);
 }
 
 @media (min-width: 640px) {
@@ -68,6 +146,11 @@
   --color-on-inverse: var(--on-inverse);
   --color-inverse-muted: var(--inverse-muted);
   --color-inverse-border: var(--inverse-border);
+  --color-footer: var(--footer-background);
+  --color-footer-foreground: var(--footer-foreground);
+  --color-footer-muted: var(--footer-muted);
+  --color-footer-border: var(--footer-border);
+  --color-footer-hover: var(--footer-hover);
   --color-availability: var(--availability);
   --color-availability-inverse: var(--availability-inverse);
   --font-sans: var(--font-geist-sans);
@@ -116,7 +199,7 @@ address {
   background-color: var(--background);
   background-image: radial-gradient(
     circle,
-    rgb(0 0 0 / 38%) 1.25px,
+    color-mix(in srgb, var(--foreground) 25%, transparent) 1.25px,
     transparent 1.5px
   );
   background-size: 10px 10px;
@@ -205,22 +288,7 @@ address {
     font-family: var(--font-mono);
     font-size: var(--type-meta);
   }
-  .article-prose {
-    --tw-prose-body: var(--text-secondary);
-    --tw-prose-headings: var(--foreground);
-    --tw-prose-links: var(--foreground);
-    --tw-prose-bold: var(--foreground);
-    --tw-prose-counters: var(--text-muted);
-    --tw-prose-bullets: var(--text-muted);
-    --tw-prose-hr: var(--border-subtle);
-    --tw-prose-quotes: var(--foreground);
-    --tw-prose-quote-borders: var(--border-subtle);
-    --tw-prose-code: var(--foreground);
-    --tw-prose-pre-code: var(--foreground);
-    --tw-prose-pre-bg: var(--surface);
-    --tw-prose-th-borders: var(--border-strong);
-    --tw-prose-td-borders: var(--border-subtle);
-  }
+
   .portrait {
     position: relative;
     overflow: hidden;
@@ -254,11 +322,11 @@ address {
     }
   }
 }
-:where(a, button):focus-visible {
+:where(a, button, input, select, textarea):focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 4px;
 }
-.bg-inverse {
+.section-dark {
   --focus: var(--on-inverse);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -286,4 +354,22 @@ address {
 
 .portrait:focus-visible {
   box-shadow: inset 0 0 0 6px var(--background);
+}
+
+/* Override typography defaults after Tailwind layers in both themes. */
+.article-prose {
+  --tw-prose-body: var(--text-secondary);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-links: var(--foreground);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--text-muted);
+  --tw-prose-bullets: var(--text-muted);
+  --tw-prose-hr: var(--border-subtle);
+  --tw-prose-quotes: var(--foreground);
+  --tw-prose-quote-borders: var(--border-subtle);
+  --tw-prose-code: var(--foreground);
+  --tw-prose-pre-code: var(--foreground);
+  --tw-prose-pre-bg: var(--surface);
+  --tw-prose-th-borders: var(--border-strong);
+  --tw-prose-td-borders: var(--border-subtle);
 }

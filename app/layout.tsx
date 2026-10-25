@@ -46,7 +46,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(() => {
+          let saved;
+          try { saved = localStorage.getItem('portfolio-theme'); } catch {}
+          document.documentElement.dataset.theme = saved === 'light' || saved === 'dark'
+            ? saved : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        })();` }} />
+      </head>
       <meta
         name="google-site-verification"
         content="GtY3LNDFgGqkMEHr_LVhK9WhyblMkcve52dJ5BaFliI"

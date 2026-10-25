@@ -135,7 +135,7 @@ export default function HowTechList({ className }: Readonly<HowTechListProps>) {
             key={label}
             className={cn(
               !reduceMotion && "transition-colors duration-200",
-              isMobile && !isActive && "text-neutral-300",
+              isMobile && !isActive && "text-muted",
               isMobile && isActive && "text-foreground",
               !isMobile && "text-foreground",
             )}
