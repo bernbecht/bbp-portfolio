@@ -1,6 +1,12 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import type { Howl } from "howler";
+import { useEffect, useSyncExternalStore } from "react";
+import useSound from "use-sound";
+
+function stopFailedSound(this: Howl) {
+  this.stop();
+}
 
 const storageKey = "portfolio-theme";
 const changeEvent = "portfolio-theme-change";
@@ -12,9 +18,9 @@ let transitionElements: (HTMLElement | SVGElement)[] = [];
 
 function finishThemeFade() {
   clearTimeout(fadeTimer);
-  document.documentElement.removeAttribute('data-theme-transition');
+  document.documentElement.removeAttribute("data-theme-transition");
   for (const element of transitionElements) {
-    for (const suffix of ['', '-before', '-after']) {
+    for (const suffix of ["", "-before", "-after"]) {
       element.style.removeProperty(`--theme-existing-transition${suffix}`);
     }
   }
@@ -22,33 +28,33 @@ function finishThemeFade() {
 }
 
 function prepareThemeFade() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     finishThemeFade();
     return false;
   }
   clearTimeout(fadeTimer);
   const root = document.documentElement;
-  if (!root.hasAttribute('data-theme-transition')) {
-    transitionElements = [root, ...root.querySelectorAll('*')].filter(
+  if (!root.hasAttribute("data-theme-transition")) {
+    transitionElements = [root, ...root.querySelectorAll("*")].filter(
       (element): element is HTMLElement | SVGElement =>
         element instanceof HTMLElement || element instanceof SVGElement,
     );
     // Read before writing so existing hover, transform and opacity transitions survive.
     const transitions = transitionElements.map((element) =>
-      [null, '::before', '::after'].map((pseudo) => {
+      [null, "::before", "::after"].map((pseudo) => {
         const transition = getComputedStyle(element, pseudo).transition;
-        return transition === 'none' ? 'opacity 0s' : transition;
+        return transition === "none" ? "opacity 0s" : transition;
       }),
     );
     transitionElements.forEach((element, index) => {
-      ['', '-before', '-after'].forEach((suffix, pseudoIndex) => {
+      ["", "-before", "-after"].forEach((suffix, pseudoIndex) => {
         element.style.setProperty(
           `--theme-existing-transition${suffix}`,
           transitions[index][pseudoIndex],
         );
       });
     });
-    root.setAttribute('data-theme-transition', '');
+    root.setAttribute("data-theme-transition", "");
   }
   // Establish the current colors before changing the palette. On rapid clicks,
   // CSS transitions reverse from their currently interpolated colors.
@@ -67,7 +73,7 @@ function subscribe(onChange: () => void) {
     }
     finishThemeFade();
     const root = document.documentElement;
-    root.setAttribute('data-theme-immediate', '');
+    root.setAttribute("data-theme-immediate", "");
     void root.offsetWidth;
     root.dataset.theme =
       saved === "light" || saved === "dark"
@@ -76,7 +82,7 @@ function subscribe(onChange: () => void) {
           ? "dark"
           : "light";
     void root.offsetWidth;
-    root.removeAttribute('data-theme-immediate');
+    root.removeAttribute("data-theme-immediate");
     onChange();
   }
   function syncStorage(event: StorageEvent) {
@@ -101,6 +107,33 @@ function subscribe(onChange: () => void) {
 }
 
 export default function ThemeToggle() {
+  const [playOn, { stop: stopOn, sound: onSound }] = useSound(
+    "/sounds/theme-on.wav",
+    {
+      volume: 0.5,
+      interrupt: true,
+      html5: true,
+      onplayerror: stopFailedSound,
+    },
+  );
+  const [playOff, { stop: stopOff, sound: offSound }] = useSound(
+    "/sounds/theme-off.wav",
+    {
+      volume: 0.35,
+      interrupt: true,
+      html5: true,
+      onplayerror: stopFailedSound,
+    },
+  );
+
+  useEffect(
+    () => () => {
+      stopOn();
+      stopOff();
+    },
+    [stopOn, stopOff],
+  );
+
   const isDark = useSyncExternalStore(
     subscribe,
     () => document.documentElement.dataset.theme === "dark",
@@ -110,6 +143,16 @@ export default function ThemeToggle() {
   function toggleTheme() {
     const theme =
       document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    // Audio is optional and must never prevent a theme change or queue while loading.
+    try {
+      stopOn();
+      stopOff();
+      const sound = theme === "light" ? onSound : offSound;
+      if (sound?.state() === "loaded") {
+        if (theme === "light") playOn();
+        else playOff();
+      }
+    } catch {}
     const shouldFade = prepareThemeFade();
     sessionTheme = theme;
     document.documentElement.dataset.theme = theme;
@@ -123,7 +166,7 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       onClick={toggleTheme}
       className="theme-toggle inline-flex min-h-11 min-w-11 shrink-0 cursor-pointer items-center justify-center text-foreground hover:bg-surface-hover"
     >
