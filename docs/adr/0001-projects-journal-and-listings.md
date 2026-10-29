@@ -27,7 +27,7 @@ We split **listing data** and **journal posts** into separate sources, linked ma
 
 - Listing fields: `title`, `period`, optional `company`, `tags`, `summary`, `href`, and optional `journalSlug`.
 - Journal frontmatter (required): `title`, `date` (ISO 8601), `description`. Body is GitHub-flavored Markdown.
-- **Linkage:** When set, `journalSlug` on a `ProjectEntry` must equal the Markdown filename stem (`portfolio-site` ↔ `content/projects/portfolio-site.md`). This contract is **not validated at compile time**; maintainers keep the two layers aligned.
+- **Linkage:** When set, `journalSlug` on a `ProjectEntry` must equal the Markdown filename stem (`axonify-component-library` ↔ `content/projects/axonify-component-library.md`). This contract is not validated at compile time; `npm run check:content` enforces it and CI runs it.
 
 ```mermaid
 flowchart LR
