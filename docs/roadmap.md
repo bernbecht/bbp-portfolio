@@ -24,5 +24,5 @@ until the spec is created.
 ## Ideas not yet scheduled
 
 See the prioritized table in [`ideas.md`](ideas.md). The accessibility check in the build (P0) is covered
-by spec 003. The dot field (P2) is spec 005 and CI path filtering (P2) is spec 006. Content ideas (Reliability
-section of the visual-regression post, intersection diagram, Storybook) have no spec row yet.
+by spec 003. The dot field (P2) is spec 005 and CI path filtering (P2) is spec 006. Content ideas (intersection
+diagram, Storybook) have no spec row yet.

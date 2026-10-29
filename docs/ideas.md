@@ -19,13 +19,11 @@ Completed. Prioritized ideas that become specs get a row in [`roadmap.md`](roadm
 | P1 | Add a design × engineering intersection diagram | Medium | S | Clarifies positioning quickly and supports the homepage narrative. Small and independent. | Planned |
 | P2 | Ship the dot field experiment on the Experiments page | Medium | M | `app/experiments/page.tsx` still says "Coming soon" and `components/DotFieldExperiment.tsx` is not used by any route. Finishing it makes a public, sitemap-listed page real. Needs the Principle VII checklist and a Principle VIII check. | Planned (roadmap 005) |
 | P2 | Run CI performance job only when relevant | Medium | S | Skips Lighthouse on docs-only PRs and saves CI minutes (Principle IX spirit). Principle VIII says the job runs on every PR, so it needs a constitution amendment; fold it into the spec 004 restructure. | Planned (roadmap 006) |
-| P2 | Deepen the "Reliability" section of the visual-regression post (screenshot stabilization) | Medium | S | Strong engineering-depth signal for engineers. Recovered from the earlier inbox, where it was dropped (see Questions). | Planned |
 | P2 | Add audience controls to the blog | Medium | M | Prioritize only after validating distinct recruiter, designer, and engineer needs. | Validate |
 | P2 | Add a Thoughts section | Medium | M | Builds a long-term point of view, provided a sustainable publishing cadence exists. | Later |
 | P2 | Coordinate multiple agents working on specs in parallel | Low | M | Process improvement. Spec Kit handles one feature at a time and `docs/roadmap.md` already encodes dependencies, so revisit after 003 and 004 show real parallel work. | Later |
 | P3 | Add i18n | Low | L | Valuable only when it supports a specific audience goal. It also conflicts in spirit with the English-only rule, so it needs a constitution change. | Backlog |
 | P3 | Style "code" in the hero headline | Low | S | A visual refinement with limited impact. `components/Hero.tsx` still renders "code" as plain text. | Backlog |
-| P3 | Needs clarification: "rework on" | Unknown | Unknown | The inbox line was an unfinished sentence. See Questions. | Needs clarification |
 
 ## Proposals from the curator
 
@@ -40,9 +38,7 @@ Written by the `roadmap-curator` agent, each with evidence. Accept one by tellin
 ## Questions for you
 
 Items the agent could not triage without your answer.
-
-1. The inbox line "rework on" ended mid-sentence. What should be reworked (a page, a case study, the agent, the CI)?
-2. The earlier inbox on `main` had "explore the Reliability item in the Axonify blog post: how we stabilize screenshots, and which ways exist". It disappeared from the inbox on this branch without a record. I recovered it as a P2 row. The post is `content/projects/catching-ui-regressions.md` (section "3. Reliability"), not the Axonify component library post. Is that the one you meant, and is it already covered by the completed "Improve the visual-regression case study"?
+None.
 
 ## Rejected
 
