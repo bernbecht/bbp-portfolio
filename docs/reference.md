@@ -48,6 +48,14 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
   merges. Each round writes `docs/replans/after-NNN-<slug>.md` and updates `docs/roadmap.md`.
 - Spec Kit finds the active feature through `.specify/feature.json`, not the branch name, so the
   `replan/` prefix does not interfere.
+- Roadmap curation branches: `roadmap/YYYY-MM-DD`, short-lived, opened by the `roadmap-curator` agent.
+
+## Roadmap curation
+
+- Run `/roadmap` (skill in `.claude/skills/roadmap/`) to launch the `roadmap-curator` agent
+  (`.claude/agents/roadmap-curator.md`). It empties the inbox in `docs/ideas.md`, reprioritizes, updates
+  `docs/roadmap.md`, and opens a PR. Run it with a clean working tree.
+- Add new ideas only to the inbox in `docs/ideas.md`; the agent triages them.
 
 ## Repository map
 

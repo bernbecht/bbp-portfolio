@@ -5,21 +5,24 @@
 
 ## Idea inbox
 
-Add one idea per line. Review and move ideas into the roadmap when prioritizing. Prioritized ideas that
-become specs get a row in [`roadmap.md`](roadmap.md).
+Just jot the idea, one per line, and move on. Do not prioritize here. The `roadmap-curator` agent
+(`/roadmap`) empties this inbox on every round and sends each item to the table below, to Rejected, or to
+Completed. Prioritized ideas that become specs get a row in [`roadmap.md`](roadmap.md).
 
 - [ ] Style “code” in the hero headline with code typography
 - [ ] Add a diagram of the intersections I work in
 - [ ] Add audience controls to the blog
 - [ ] Add i18n
-- [ ] Add dark/light themes
+- [x] Add dark/light themes
 - [ ] Add a Thoughts section
-- [ ] We can explore more the item 3. Reliability in Axonify blog post something and explore the engineering:
-  - explain how we stabilize the screenshots
-  - which are the ways for it
+
 - [ ] create an experiments page in my website
 - [ ] learn omarchy dot animation using the experiments page in my website
 
+- [ ] run CI/performance only when relevant. When changes happen only on documentation, we don't need to run that job
+- [ ] way to organize multiple agents to work on specs in parallel
+- [ ] create agent that's reponsible for updating roadmap and ideas
+- [ ] rework on  
 ## Prioritized ideas roadmap
 
 | Priority | Initiative | Value | Effort | Why now | Status |
@@ -29,9 +32,27 @@ become specs get a row in [`roadmap.md`](roadmap.md).
 | P1 | Add a design × engineering intersection diagram | Medium | S | Clarifies positioning quickly and supports the homepage narrative. | Planned |
 | P2 | Add audience controls to the blog | Medium | M | Prioritize only after validating distinct recruiter, designer, and engineer needs. | Validate |
 | P2 | Add a Thoughts section | Medium | M | Builds a long-term point of view, provided a sustainable publishing cadence exists. | Later |
-| P3 | Add dark/light themes | Low | M | Useful polish, but currently limited differentiation. | Backlog |
+| P3 | Add dark/light themes | Low | M | Useful polish, but currently limited differentiation. | Implemented |
 | P3 | Add i18n | Low | L | Valuable only when it supports a specific audience goal. | Backlog |
 | P3 | Style “code” in the hero headline | Low | S | A visual refinement with limited impact on portfolio outcomes. | Backlog |
+
+## Proposals from the curator
+
+Written by the `roadmap-curator` agent, each with evidence. Accept one by telling the agent, or reject it
+(it moves to Rejected and is not proposed again).
+
+None yet.
+
+## Questions for you
+
+Items the agent could not triage without your answer.
+
+None yet.
+
+## Rejected
+
+| Idea | Reason |
+| --- | --- |
 
 ## Completed
 
