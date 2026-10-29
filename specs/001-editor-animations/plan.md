@@ -14,7 +14,7 @@ Implement two article-local animation groups sharing geometry and deterministic 
 | Framework | Not inspected; reuse existing article/component architecture. No framework installation in this workspace. |
 | Dependencies | Prefer current host animation utilities if they support deterministic time and lifecycle control; otherwise native requestAnimationFrame and DOM/SVG. No new physics library required. |
 | Storage/backend | None; session-local playback intent only. |
-| Tests | Host unit runner plus existing browser runner; Playwright is a fallback proposal if none exists. |
+| Tests | Vitest (unit, component, bundle size) and Playwright (e2e, axe, responsive, layout shift). Failing versus recorded-only checks are listed in quickstart.md. |
 | Platform | Web, keyboard/touch, current and previous stable Chrome/Edge, Firefox and Safari at integration time; record exact versions. Include iOS Safari and Android Chrome smoke tests. |
 | Goals | SC-005–SC-007; transforms/opacity for animated properties; no per-frame application tree rerender. |
 | Scope | One existing article, two groups, five miniature editor frames. |

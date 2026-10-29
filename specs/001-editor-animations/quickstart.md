@@ -38,3 +38,16 @@ Suspend via offscreen and document hidden separately for ten seconds; inspect sc
 ## Release acceptance
 
 All FRs, SCs and story scenarios have evidence. No critical accessibility or lifecycle failure remains. A reviewer has confirmed the integrated visuals fit the actual article and that captions do not overstate Shopify behavior. Required repository checks pass. Update final constitution gate and record any deferred work explicitly. Publishing/deployment remains outside this documentation task.
+
+## Automation policy (added 2026-10-28)
+
+Checks that fail the test run (`npm test`, `npm run test:e2e`):
+- axe-core scan of both groups in light and dark themes (no violations).
+- Viewport widths 320, 375, 768, 1024 and 1440 px: no horizontal overflow; state cards in three columns only when the container allows 200 px each, comparison in two columns only when it allows 240 px each; text zoom emulated at 200%.
+- Layout shift: no `layout-shift` entry attributable to the feature's frames.
+- Bundle: the feature's minified and gzipped JavaScript and CSS (React external) is at most 20 KiB.
+- Cleanup: ten mount/unmount cycles leave no scheduled frame callback.
+
+Recorded only (headless numbers vary by machine, so they never fail the build): frame interval percentiles from a 20 second capture. The result goes in validation-report.md with device and browser.
+
+Manual only: VoiceOver and NVDA, real mobile device, human visual review.

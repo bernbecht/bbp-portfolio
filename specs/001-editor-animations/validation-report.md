@@ -49,3 +49,22 @@ Computed contrast on resolved colors (sRGB mix, WCAG formula), light / dark:
 The 12% header value was computed after the 16% value gave 2.86 in light; it is not covered by a separate automated test.
 
 Still not run: bundle size, frame timing and CLS, VoiceOver/NVDA, 200% zoom, 768 and 1440 px, visual snapshot suite.
+
+Manual check, 2026-10-28 (product owner): reduced motion works as specified, including switching the preference while the page is open. No-script also checked manually and passes.
+
+## Automated quality checks (added 2026-10-28)
+
+Run on macOS, Chromium headless shell 156 against a production build. Policy in quickstart.md.
+
+| Check | Result |
+|---|---|
+| axe-core, both groups, light and dark | 0 violations (`tests/e2e/editor-animations-quality.spec.ts`) |
+| Widths 320, 375, 768, 1024, 1440 | No page overflow; state grid 3 columns only at container width 648 px or more, comparison 2 columns at 504 px or more |
+| 200% text zoom at 375 and 1024 px | Groups do not overflow. The outcome table is wider than the viewport at 375 px and scrolls inside its own region. The page itself overflows at 200% because of the site header button, outside this feature (not fixed here) |
+| Layout shift | 0 entries attributable to the feature |
+| Bundle (esbuild, minified, gzipped, React external) | 4423 bytes of the 20480 byte budget (`__tests__/bundle.test.ts`). Measured on the feature in isolation, not as a delta of the Next build |
+| Cleanup | Ten mount/unmount cycles leave no scheduled frame (jsdom, fake rAF) |
+| Frame intervals, 20 s, headless, recorded only | 1201 frames, p95 16.8 ms, 100% at 20 ms or less. Headless on a dev machine, not the reference device protocol |
+| Totals | `npm test`: 34 pass. `npm run test:e2e`: 16 pass. Lint and `tsc` clean |
+
+Still not done: visual snapshot suite (T013, T019), resize during playback and zero-size container e2e cases (T021), VoiceOver/NVDA and a real mobile device (T022, T023), 20 s capture on the reference device, long-task measurement.

@@ -4,6 +4,8 @@ import StateAnimations from '../StateAnimations';
 import VelocityPositionComparison from '../VelocityPositionComparison';
 
 let reduced = false;
+let nextFrame = 0;
+const pendingFrames = new Map<number, FrameRequestCallback>();
 
 beforeEach(() => {
   reduced = false;
@@ -25,8 +27,15 @@ beforeEach(() => {
       disconnect() {}
     },
   );
-  vi.stubGlobal('requestAnimationFrame', () => 1);
-  vi.stubGlobal('cancelAnimationFrame', () => {});
+  pendingFrames.clear();
+  vi.stubGlobal('requestAnimationFrame', (cb: FrameRequestCallback) => {
+    const id = ++nextFrame;
+    pendingFrames.set(id, cb);
+    return id;
+  });
+  vi.stubGlobal('cancelAnimationFrame', (id: number) => {
+    pendingFrames.delete(id);
+  });
 });
 
 afterEach(() => {
@@ -80,5 +89,22 @@ describe('VelocityPositionComparison', () => {
     );
     const ids = [...container.querySelectorAll('[id]')].map((e) => e.id);
     expect(new Set(ids).size).toBe(ids.length);
+  });
+});
+
+describe('lifecycle', () => {
+  it('leaves no scheduled frame after ten mount/unmount cycles', async () => {
+    for (let i = 0; i < 10; i++) {
+      const view = render(
+        <>
+          <StateAnimations id={`s${i}`} />
+          <VelocityPositionComparison id={`c${i}`} />
+        </>,
+      );
+      await act(async () => {});
+      expect(pendingFrames.size).toBe(2);
+      view.unmount();
+      expect(pendingFrames.size).toBe(0);
+    }
   });
 });
