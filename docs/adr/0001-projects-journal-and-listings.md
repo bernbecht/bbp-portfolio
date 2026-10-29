@@ -12,7 +12,7 @@ The portfolio needs a public **projects index** at `/projects` and optional **lo
 - The site already uses the Next.js App Router with static generation where possible.
 - The index must support rows **without** a journal (confidential work, external-only links, minimal rows) and rows **with** rich metadata (company, tags, period, secondary links).
 
-Agent onboarding for day-to-day edits lives in [`AGENTS.md`](../../AGENTS.md). This record captures **why** the architecture was chosen and what trade-offs it implies.
+Rules for day-to-day edits live in the [constitution](../../.specify/memory/constitution.md); descriptive facts live in [`docs/reference.md`](../reference.md). This record captures **why** the architecture was chosen and what trade-offs it implies.
 
 ## Decision
 
@@ -107,4 +107,4 @@ When both `journalSlug` and `href` exist and differ (e.g. journal plus site home
 
 **Add an index-only row:** Edit `PROJECT_GROUPS` only; omit `journalSlug`.
 
-**Related docs:** [`AGENTS.md`](../../AGENTS.md) — stack, commands, and content conventions for agents and contributors.
+**Related docs:** [constitution](../../.specify/memory/constitution.md) (rules) and [`docs/reference.md`](../reference.md) (stack, commands, content facts).
