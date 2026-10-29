@@ -45,7 +45,7 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 - Spec branches: `NNN-<slug>`, created by the Spec Kit flow (for example
   `001-performance-budget-enforcement`).
 - Replanning branches: `replan/after-NNN-<slug>`, short-lived, one per round, deleted after the PR
-  merges. Each round writes `docs/replans/after-NNN-<slug>.md`.
+  merges. Each round writes `docs/replans/after-NNN-<slug>.md` and updates `docs/roadmap.md`.
 - Spec Kit finds the active feature through `.specify/feature.json`, not the branch name, so the
   `replan/` prefix does not interfere.
 
@@ -57,7 +57,7 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 - `lib/`: `projects.ts` (listing data), `project-posts.ts` (Markdown I/O), `cn.ts`, `site-url.ts`
 - `content/projects/`: journal `.md` files (one per slug)
 - `public/`: static assets; journal media under `public/projects/{slug}/`
-- `docs/`: plans, ADRs, design tokens, case studies
+- `docs/`: plans, ADRs, design tokens, case studies, `roadmap.md` (order and status of specs)
 
 To list Client Components, run `grep -rl "use client" app components lib`.
 

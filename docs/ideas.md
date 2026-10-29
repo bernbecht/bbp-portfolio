@@ -5,7 +5,8 @@
 
 ## Idea inbox
 
-Add one idea per line. Review and move ideas into the roadmap when prioritizing.
+Add one idea per line. Review and move ideas into the roadmap when prioritizing. Prioritized ideas that
+become specs get a row in [`roadmap.md`](roadmap.md).
 
 - [ ] Style “code” in the hero headline with code typography
 - [ ] Add a diagram of the intersections I work in
@@ -23,7 +24,7 @@ Add one idea per line. Review and move ideas into the roadmap when prioritizing.
 
 | Priority | Initiative | Value | Effort | Why now | Status |
 | --- | --- | ---: | ---: | --- | --- |
-| P0 | Add an accessibility check to the build | High | S | Turns accessibility from a portfolio claim into demonstrated engineering practice. | Next |
+| P0 | Add an accessibility check to the build | High | S | Turns accessibility from a portfolio claim into demonstrated engineering practice. | Next (spec 003) |
 | P1 | Create a Storybook for this portfolio | High | L | A durable portfolio artifact showing component, token, state, and accessibility-system practice. | Planned |
 | P1 | Add a design × engineering intersection diagram | Medium | S | Clarifies positioning quickly and supports the homepage narrative. | Planned |
 | P2 | Add audience controls to the blog | Medium | M | Prioritize only after validating distinct recruiter, designer, and engineer needs. | Validate |
