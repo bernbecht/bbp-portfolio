@@ -1,8 +1,10 @@
 <!--
 Sync Impact Report
-- Version change: 1.1.0 -> 1.2.0 (MINOR)
-- Modified principles: III now delegates mechanical style rules to ESLint; I is enforced by
-  `npm run check:content`
+- Version change: 1.2.0 -> 1.3.0 (MINOR)
+- Modified principles: II, IV, VI, VII gained objective, checkable criteria (ESLint rules and PR
+  checklist items replace "where needed", "as practical", "documented reason")
+- Governance: PRs MUST complete .github/pull_request_template.md; CI runs the Quality Gates
+- Earlier in 1.2.0: III delegates mechanical style to ESLint; I enforced by `npm run check:content`
 - Clarified: Markdown constraint no longer references rehype-raw as if installed; unused
   rehype-raw and rehype-slug were removed from package.json
 - Quality Gates: added `npm run check:content`
@@ -33,6 +35,8 @@ that media referenced in a post exists under `public/projects/{slug}/`.
 ### II. Server-First React
 Components MUST be Server Components by default. `'use client'` MUST be added only when a
 client-only API is required, and new interactivity MUST be isolated in small leaf components.
+Check: `'use client'` is forbidden in `app/**/page.tsx` and `app/**/layout.tsx` (ESLint). A PR that
+adds a `'use client'` file MUST name the client-only API it needs in the PR description.
 Rationale: this keeps client JavaScript minimal for a content-focused site.
 
 ### III. Typed, Consistent Code
@@ -44,8 +48,10 @@ components use default exports; utilities use named exports. Quote style is not 
 MUST match the nearest file's style.
 
 ### IV. Accessible, Semantic UI
-Markup MUST be semantic HTML. Images MUST have meaningful `alt` text, interactive controls MUST
-have accessible names (`aria-label` where needed), and focus-visible styling MUST be present.
+Markup MUST be semantic HTML. Every image MUST have an `alt` attribute (ESLint `jsx-a11y/alt-text`):
+informative images describe their content, and purely decorative images use `alt=""`. Controls with
+no visible text (icon buttons, toggles) MUST have an `aria-label`, and every interactive element
+MUST show a focus-visible style. The last two are checked with the PR checklist, not by tooling.
 Animations and transitions MUST respect `prefers-reduced-motion`. Sound MUST be user-initiated,
 MUST never autoplay on load, and MUST have a way to be silenced. The theme toggle MUST persist the
 choice and MUST NOT cause a visible flash of the wrong theme on load.
@@ -59,16 +65,18 @@ and `publishedTime` from frontmatter. Production deployments MUST set `NEXT_PUBL
 Rationale: wrong hosts in Open Graph, sitemap, or robots output harm discoverability.
 
 ### VI. Performance by Default
-Pages MUST ship as little client JavaScript as practical. Raster images MUST be served through
-`next/image` (or have a documented reason not to) with explicit dimensions to avoid layout shift.
+Pages MUST NOT ship client JavaScript beyond what Principle II allows. Raster images MUST be served
+through `next/image` with explicit dimensions (or `fill` inside a sized container) to avoid layout
+shift. A plain `<img>` is allowed only with `eslint-disable-next-line @next/next/no-img-element --
+<reason>`, which makes the reason part of the code.
 New runtime dependencies MUST be justified by a need the current stack cannot meet, and the
 justification MUST be recorded in the PR description.
 Rationale: a portfolio is judged on first impressions, and speed is part of the craft being shown.
 
 ### VII. Verification of Interactive Behavior
 Interactive features (theme toggle, sound, experiments such as the dot field) MUST be verified
-before shipping, either by an automated test or by a manual checklist recorded in the PR
-description. If an automated test runner is introduced, its command MUST be added to
+before shipping, either by an automated test or by the "Interactive behavior" checklist in
+`.github/pull_request_template.md`, completed in the PR description. If an automated test runner is introduced, its command MUST be added to
 `docs/reference.md` and to the Quality Gates below.
 Rationale: lint and build do not catch behavioral or visual regressions.
 
@@ -89,7 +97,8 @@ Rationale: lint and build do not catch behavioral or visual regressions.
 ## Development Workflow and Quality Gates
 
 - Before shipping content or route changes, `npm run lint`, `npm run check:content`, and
-  `npm run build` MUST all pass.
+  `npm run build` MUST all pass. CI (`.github/workflows/ci.yml`) runs all three on every PR and on
+  pushes to `main`.
 - Changes touching `PROJECT_GROUPS`, `content/projects/`, or `app/projects/[slug]/page.tsx` MUST be
   verified against Principle I.
 - A PR that changes a rule MUST amend this constitution in the same PR. A PR that changes only a
@@ -102,8 +111,8 @@ This constitution supersedes other practices and documents where they conflict. 
 made by editing this file with a Sync Impact Report, a version bump, and an updated Last Amended
 date. Versioning follows semantic versioning: MAJOR for backward incompatible principle removals or
 redefinitions, MINOR for added principles or materially expanded guidance, PATCH for clarifications
-and wording fixes. Every PR or review MUST verify compliance with these principles, and any
-deviation MUST be justified in the PR description. Contributors and agents MUST read this file
+and wording fixes. Every PR MUST complete the checklist in `.github/pull_request_template.md`, and any deviation MUST
+be justified in its "Deviations" section. Contributors and agents MUST read this file
 before making changes.
 
-**Version**: 1.2.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
+**Version**: 1.3.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29

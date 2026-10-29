@@ -28,6 +28,8 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 - `npm run check:content`: validates the content model (`scripts/check-content.mts`, needs Node
   22.18+ for built-in TypeScript stripping)
 - There is no test runner in this repo
+- CI: `.github/workflows/ci.yml` runs lint, check:content, and build (Node 22). `engines.node` is
+  `>=22.18`.
 
 ## Repository map
 
