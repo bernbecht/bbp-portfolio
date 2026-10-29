@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "performance-budget.json",
+  "type": "object",
+  "required": ["default", "exceptions"],
+  "additionalProperties": false,
+  "properties": {
+    "default": {
+      "type": "object",
+      "required": ["minScore", "maxLcpMs", "maxCls", "maxTbtMs"],
+      "additionalProperties": false,
+      "properties": {
+        "minScore": { "type": "number", "minimum": 0, "maximum": 1 },
+        "maxLcpMs": { "type": "number", "exclusiveMinimum": 0 },
+        "maxCls": { "type": "number", "minimum": 0 },
+        "maxTbtMs": { "type": "number", "minimum": 0 }
+      }
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "path": { "type": "string", "pattern": "^/" },
+          "reason": { "type": "string", "minLength": 1 },
+          "minScore": { "type": "number", "minimum": 0, "maximum": 1 },
+          "maxLcpMs": { "type": "number", "exclusiveMinimum": 0 },
+          "maxCls": { "type": "number", "minimum": 0 },
+          "maxTbtMs": { "type": "number", "minimum": 0 }
+        }
+      }
+    }
+  }
+}

@@ -15,8 +15,12 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 - Tailwind CSS 4 with `@tailwindcss/postcss` (see `postcss.config.mjs`) and `@tailwindcss/typography`
 - Markdown: `react-markdown`, `remark-gfm`, `gray-matter`
 - Icons and analytics: `@fortawesome/react-fontawesome` (+ free icon packs), `@vercel/analytics`
+  (`@vercel/analytics` was kept by the maintainer on 2026-10-29 as a free-plan tool under Principle IX;
+  if its plan ever asks for payment, remove it)
 - SVG as React components: `@svgr/webpack` (wired in `next.config.ts` for Turbopack and webpack)
-- Audio and haptics (client-only, in `ThemeToggle` and `Header`): `use-sound`, `web-haptics`
+- Audio and haptics (client-only, in `ThemeToggle` and `Header`): `howler` (loaded on first intent with
+  the toggle, never on page load), `web-haptics`
+- Performance: `@lhci/cli` (dev, Lighthouse CI, free and open source)
 - Class names: `clsx`, `tailwind-merge` (via `lib/cn.ts`)
 
 ## Commands
@@ -27,9 +31,14 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 - `npm run lint`: ESLint (also enforces import alias, `import type`, trailing commas)
 - `npm run check:content`: validates the content model (`scripts/check-content.mts`, needs Node
   22.18+ for built-in TypeScript stripping)
+- `npm run perf:measure`: builds, serves the production build, measures every public page (3 runs,
+  mobile) and fails if any page is over budget. Needs Chrome installed locally.
+- `npm run perf:collect`: same measurement without assertions (used to record a baseline)
+- `npm run perf:report`: median table from the last run in `.lighthouseci/`; add
+  `-- --write docs/performance-baseline.md` to record it
 - There is no test runner in this repo
-- CI: `.github/workflows/ci.yml` runs lint, check:content, and build (Node 22). `engines.node` is
-  `>=22.18`.
+- CI: `.github/workflows/ci.yml` runs `quality-gates` (lint, check:content, build) and `performance`
+  (Node 22). `engines.node` is `>=22.18`.
 
 ## Repository map
 
@@ -88,3 +97,18 @@ flowchart LR
 - Utilities in `@layer components`: `.content-container`, `.section__paragraph`, `.fade-up`,
   `.section-grid`, and others.
 - Custom breakpoints: `xs` (460px), `layout` (900px).
+
+## Performance budget
+
+- Limits live in `performance-budget.json`: score at least 0.95, simulated LCP at most 3,000 ms, CLS at
+  most 0.1, Total Blocking Time at most 200 ms (the lab stand-in for INP). Real visitors' Google
+  thresholds (p75 LCP 2.5 s, INP 200 ms, CLS 0.1) are targets that nothing monitors; spot-check them
+  for free with PageSpeed Insights when the site has enough traffic.
+- `lighthouserc.cjs` builds the page list (`/`, `/projects`, `/experiments`, and every file in
+  `content/projects/`), runs 3 times per page on the mobile profile, and asserts the median. A missing
+  or partial result fails the run.
+- **Exceptions**: an `exceptions` entry in `performance-budget.json` needs a `path` of a measured page
+  and a non-empty `reason`, and its limits are that page's measured values. Current exceptions: none.
+- CI posts the median table to the job summary and uploads `.lighthouseci/` as the `lighthouse-results`
+  artifact.
+- The recorded baseline and the post-fix results are in `docs/performance-baseline.md`.

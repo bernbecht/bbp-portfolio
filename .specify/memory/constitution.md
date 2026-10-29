@@ -1,16 +1,14 @@
 <!--
 Sync Impact Report
-- Version change: 1.3.0 -> 1.4.0 (MINOR)
-- Added principle: VIII. Performance Budget (outcome-level; tooling is left to a follow-up feature)
-- Earlier in 1.3.0:
-- Modified principles: II, IV, VI, VII gained objective, checkable criteria (ESLint rules and PR
-  checklist items replace "where needed", "as practical", "documented reason")
-- Governance: PRs MUST complete .github/pull_request_template.md; CI runs the Quality Gates
-- Earlier in 1.2.0: III delegates mechanical style to ESLint; I enforced by `npm run check:content`
-- Clarified: Markdown constraint no longer references rehype-raw as if installed; unused
-  rehype-raw and rehype-slug were removed from package.json
-- Quality Gates: added `npm run check:content`
-- Added/removed sections: none
+- Version change: 1.4.0 -> 1.5.0 (MINOR)
+- Added principle: IX. No Paid Tooling
+- Modified principles: VIII now describes the automated lab check (performance-budget.json and the
+  `performance` CI job). Real-user thresholds become unmonitored targets, because the only suitable
+  monitoring tool is paid. The lab LCP limit is 3.0 s (simulated slow-network estimate)
+- Quality Gates: added `npm run perf:measure` for changes that affect rendering, and the CI job
+- History: 1.4.0 added Principle VIII; 1.3.0 added checkable criteria to II, IV, VI, VII and the PR
+  template; 1.2.0 added `npm run check:content` and ESLint-enforced style; 1.1.1 removed unused
+  rehype dependencies
 - Deferred items: no test runner exists (Playwright is not a project dependency; test-results/ is
   gitignored tool output). Principle VII stays tool-agnostic.
 -->
@@ -83,16 +81,30 @@ before shipping, either by an automated test or by the "Interactive behavior" ch
 Rationale: lint and build do not catch behavioral or visual regressions.
 
 ### VIII. Performance Budget
-Every public route MUST keep Core Web Vitals in Google's "good" range (LCP at most 2.5 s, INP at
-most 200 ms, CLS at most 0.1) and a Lighthouse Performance score of at least 0.95 (mobile profile,
-median of repeated runs). A change that drops a route below this budget MUST NOT merge unless the
-PR's Deviations section justifies it. How the budget is measured and enforced is a descriptive
-fact tracked in `docs/reference.md`.
-Enforcement status: automated measurement is introduced by a follow-up feature. Until it lands,
-a PR that changes rendering, images, fonts, scripts, or dependencies MUST be checked manually with
-Lighthouse and the result noted in the PR description.
+Every public route MUST keep a Lighthouse Performance score of at least 0.95 and stay inside the lab
+limits for Core Web Vitals. The automated check measures the mobile profile as the median of three
+runs and enforces the score (0.95), CLS (0.1), Total Blocking Time (200 ms, the lab stand-in for
+INP), and a simulated LCP of at most 3.0 s. The lab LCP limit is looser than Google's field
+threshold because the lab profile estimates a slow network and CPU and reports about 2.5 s for pages
+that paint in a fraction of that. Real visitors are judged by Google's thresholds (p75 LCP at most
+2.5 s, INP at most 200 ms, CLS at most 0.1). These are targets only: nothing monitors them, because
+the suitable tools are paid (Principle IX). They MAY be spot-checked for free with PageSpeed
+Insights. The limits live in `performance-budget.json`. A change that drops a route below its budget
+MUST NOT merge unless the PR's Deviations section justifies it or the route has an exception in
+`performance-budget.json` with a written reason. Exceptions may be tightened, never loosened,
+without a constitution-level justification.
+Enforcement: the `performance` CI job runs `npm run perf:measure` on every PR and on pushes to
+`main`. How to run and read the check is a descriptive fact tracked in `docs/reference.md`.
 Rationale: a portfolio is judged on first impressions, so the budget is a rule and the tooling is
 replaceable.
+
+### IX. No Paid Tooling
+The project MUST NOT depend on a tool, service, or dependency that requires payment, including
+paid-only products, paid plans, and free trials that convert to paid. A free tier is acceptable only
+if it needs no payment method and cannot start billing on its own. Every new tool or service MUST
+state in the PR description why it is free. When a needed capability only has paid options, the
+capability is dropped or built with free tooling, and the spec records the consequence.
+Rationale: this is a personal site, so recurring or surprise costs are not acceptable.
 
 ## Stack and Content Constraints
 
@@ -111,8 +123,9 @@ replaceable.
 ## Development Workflow and Quality Gates
 
 - Before shipping content or route changes, `npm run lint`, `npm run check:content`, and
-  `npm run build` MUST all pass. CI (`.github/workflows/ci.yml`) runs all three on every PR and on
-  pushes to `main`.
+  `npm run build` MUST all pass. A change that affects rendering, images, fonts, scripts, or
+  dependencies MUST also pass `npm run perf:measure`. CI (`.github/workflows/ci.yml`) runs all four
+  on every PR and on pushes to `main`.
 - Changes touching `PROJECT_GROUPS`, `content/projects/`, or `app/projects/[slug]/page.tsx` MUST be
   verified against Principle I.
 - A PR that changes a rule MUST amend this constitution in the same PR. A PR that changes only a
@@ -129,4 +142,4 @@ and wording fixes. Every PR MUST complete the checklist in `.github/pull_request
 be justified in its "Deviations" section. Contributors and agents MUST read this file
 before making changes.
 
-**Version**: 1.4.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
+**Version**: 1.5.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
