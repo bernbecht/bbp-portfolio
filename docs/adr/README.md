@@ -2,7 +2,7 @@
 
 Short, durable notes on significant design choices for this repository. Each ADR captures context, the decision, and consequences so future changes stay intentional.
 
-For day-to-day editing conventions (commands, content model, SEO), see [`AGENTS.md`](../../AGENTS.md).
+For day-to-day rules, see the [constitution](../../.specify/memory/constitution.md); for commands, repository map, and stack facts, see [`docs/reference.md`](../reference.md).
 
 ## Index
 

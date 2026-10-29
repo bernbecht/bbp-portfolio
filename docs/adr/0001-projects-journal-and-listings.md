@@ -12,7 +12,7 @@ The portfolio needs a public **projects index** at `/projects` and optional **lo
 - The site already uses the Next.js App Router with static generation where possible.
 - The index must support rows **without** a journal (confidential work, external-only links, minimal rows) and rows **with** rich metadata (company, tags, period, secondary links).
 
-Agent onboarding for day-to-day edits lives in [`AGENTS.md`](../../AGENTS.md). This record captures **why** the architecture was chosen and what trade-offs it implies.
+Rules for day-to-day edits live in the [constitution](../../.specify/memory/constitution.md); descriptive facts live in [`docs/reference.md`](../reference.md). This record captures **why** the architecture was chosen and what trade-offs it implies.
 
 ## Decision
 
@@ -27,7 +27,7 @@ We split **listing data** and **journal posts** into separate sources, linked ma
 
 - Listing fields: `title`, `period`, optional `company`, `tags`, `summary`, `href`, and optional `journalSlug`.
 - Journal frontmatter (required): `title`, `date` (ISO 8601), `description`. Body is GitHub-flavored Markdown.
-- **Linkage:** When set, `journalSlug` on a `ProjectEntry` must equal the Markdown filename stem (`portfolio-site` ↔ `content/projects/portfolio-site.md`). This contract is **not validated at compile time**; maintainers keep the two layers aligned.
+- **Linkage:** When set, `journalSlug` on a `ProjectEntry` must equal the Markdown filename stem (`axonify-component-library` ↔ `content/projects/axonify-component-library.md`). This contract is not validated at compile time; `npm run check:content` enforces it and CI runs it.
 
 ```mermaid
 flowchart LR
@@ -40,7 +40,7 @@ flowchart LR
 
 ### File-based Markdown instead of a CMS
 
-Journal content is version-controlled Markdown parsed with `gray-matter`, rendered with `react-markdown` and `remark-gfm`. Dependencies `rehype-raw` and `rehype-slug` are present but **not wired**—raw HTML in posts is not supported until explicitly enabled.
+Journal content is version-controlled Markdown parsed with `gray-matter`, rendered with `react-markdown` and `remark-gfm`. Raw HTML in posts is not supported. `rehype-raw` and `rehype-slug` were removed as unused; add them back (with a justification, per the constitution) only when raw HTML or heading anchors are needed.
 
 ### Static generation for journal routes
 
@@ -107,4 +107,4 @@ When both `journalSlug` and `href` exist and differ (e.g. journal plus site home
 
 **Add an index-only row:** Edit `PROJECT_GROUPS` only; omit `journalSlug`.
 
-**Related docs:** [`AGENTS.md`](../../AGENTS.md) — stack, commands, and content conventions for agents and contributors.
+**Related docs:** [constitution](../../.specify/memory/constitution.md) (rules) and [`docs/reference.md`](../reference.md) (stack, commands, content facts).

@@ -6,8 +6,8 @@ import { resolveSiteUrl } from "@/lib/site-url";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
-import { fontClasses } from "./fonts";
-import "./globals.css";
+import { fontClasses } from "@/app/fonts";
+import "@/app/globals.css";
 
 const siteTitle = "Bernardo Bechtold | Senior Frontend & UI Engineer";
 const siteDescription =
