@@ -18,7 +18,9 @@ Personal portfolio site built with the Next.js App Router. The project index liv
 - `npm run dev` — development server
 - `npm run build` — production build
 - `npm run start` — production server (after `npm run build`)
-- `npm run lint` — ESLint (no test runner in this repo)
+- `npm run lint` — ESLint
+- `npm test` — Vitest unit and component tests (`components/**/__tests__`)
+- `npm run test:e2e` — Playwright (builds and serves on port 3100)
 
 ## Repository map (high signal)
 
@@ -105,4 +107,4 @@ flowchart LR
 
 ## Quality gates
 
-Before shipping content or route changes: `npm run lint` and `npm run build` (no automated tests in this repo).
+Before shipping content or route changes: `npm run lint` and `npm run build` and `npm test` (plus `npm run test:e2e` for editor animations).
