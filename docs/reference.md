@@ -16,7 +16,8 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 - Markdown: `react-markdown`, `remark-gfm`, `gray-matter`
 - Icons and analytics: `@fortawesome/react-fontawesome` (+ free icon packs), `@vercel/analytics`
 - SVG as React components: `@svgr/webpack` (wired in `next.config.ts` for Turbopack and webpack)
-- In `package.json` but unused in app code: `rehype-raw`, `rehype-slug`
+- Audio and haptics (client-only, in `ThemeToggle` and `Header`): `use-sound`, `web-haptics`
+- Class names: `clsx`, `tailwind-merge` (via `lib/cn.ts`)
 
 ## Commands
 

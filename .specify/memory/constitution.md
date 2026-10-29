@@ -1,13 +1,12 @@
 <!--
 Sync Impact Report
-- Version change: 1.0.0 -> 1.1.0
-- Modified principles: I expanded (route and static params rules); II expanded (leaf components);
-  IV expanded (motion, audio, theme); V unchanged
-- Added sections: VI. Performance, VII. Verification of Interactive Behavior, Language
-- Removed sections: none
-- Governance changed: this constitution is now the single normative source; AGENTS.md becomes a
-  minimal pointer; descriptive facts live in docs/reference.md
-- Deferred items: none. No test runner exists yet; Principle VII is tool-agnostic on purpose.
+- Version change: 1.1.0 -> 1.1.1 (PATCH)
+- Modified principles: none
+- Clarified: Markdown constraint no longer references rehype-raw as if installed; unused
+  rehype-raw and rehype-slug were removed from package.json
+- Added/removed sections: none
+- Deferred items: no test runner exists (Playwright is not a project dependency; test-results/ is
+  gitignored tool output). Principle VII stays tool-agnostic.
 -->
 # BBP Portfolio Constitution
 
@@ -74,7 +73,7 @@ Rationale: lint and build do not catch behavioral or visual regressions.
   `@tailwindcss/typography`. Exact versions are tracked in `docs/reference.md`. A major version
   upgrade of Next.js, React, or Tailwind MUST be reviewed against this constitution.
 - Markdown is rendered with `react-markdown`, `remark-gfm`, and `gray-matter`. Raw HTML in posts
-  MUST NOT be assumed until `rehype-raw` is wired into `ReactMarkdown`.
+  is not supported. Enabling it (for example with `rehype-raw`) MUST be justified per Principle VI.
 - Internal Markdown links MUST start with `/` and render through `next/link`; external `http` links
   MUST open with `target="_blank"` and `rel="noopener noreferrer"`.
 - Styling MUST use Tailwind utilities and the tokens and component classes defined in
@@ -101,4 +100,4 @@ and wording fixes. Every PR or review MUST verify compliance with these principl
 deviation MUST be justified in the PR description. Contributors and agents MUST read this file
 before making changes.
 
-**Version**: 1.1.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
+**Version**: 1.1.1 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29

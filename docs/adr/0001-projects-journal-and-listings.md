@@ -40,7 +40,7 @@ flowchart LR
 
 ### File-based Markdown instead of a CMS
 
-Journal content is version-controlled Markdown parsed with `gray-matter`, rendered with `react-markdown` and `remark-gfm`. Dependencies `rehype-raw` and `rehype-slug` are present but **not wired**—raw HTML in posts is not supported until explicitly enabled.
+Journal content is version-controlled Markdown parsed with `gray-matter`, rendered with `react-markdown` and `remark-gfm`. Raw HTML in posts is not supported. `rehype-raw` and `rehype-slug` were removed as unused; add them back (with a justification, per the constitution) only when raw HTML or heading anchors are needed.
 
 ### Static generation for journal routes
 
