@@ -42,6 +42,11 @@ const eslintConfig = defineConfig([
     files: ["scripts/**"],
     rules: { "no-restricted-imports": "off" },
   },
+  {
+    // Lighthouse CI loads its config with require().
+    files: ["lighthouserc.cjs"],
+    rules: { "@typescript-eslint/no-require-imports": "off" },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import LazyPosterVideo from '@/components/LazyPosterVideo';
+
 const SHEET_STATES = [
   {
     name: 'Collapsed',
@@ -441,12 +443,11 @@ export function ShopifyPreviewSelectionFigure() {
 
       <div className="grid items-center gap-8 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
         <div className="mx-auto w-full max-w-64 overflow-hidden rounded-[1.5rem] border-4 border-strong bg-inverse shadow-lg">
-          <video
+          <LazyPosterVideo
             className="aspect-[9/16] w-full bg-inverse object-cover"
             controls
             muted
             playsInline
-            preload="metadata"
             poster="/projects/shopify-mobile-store-editor/evidence/sheet-collapsed.png"
             aria-label="Demonstration of selecting the storefront logo and the mobile editing sheet responding with the corresponding controls"
           >
@@ -455,7 +456,7 @@ export function ShopifyPreviewSelectionFigure() {
               type="video/mp4"
             />
             Your browser does not support embedded video.
-          </video>
+          </LazyPosterVideo>
         </div>
 
         <ol className="m-0 list-none space-y-5 p-0">
@@ -520,12 +521,11 @@ export function ShopifyNestedControlsFigure() {
 
       <div className="grid items-center gap-8 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
         <div className="mx-auto w-full max-w-64 overflow-hidden rounded-[1.5rem] border-4 border-strong bg-inverse shadow-lg">
-          <video
+          <LazyPosterVideo
             className="aspect-[9/16] w-full bg-inverse object-cover"
             controls
             muted
             playsInline
-            preload="metadata"
             poster="/projects/shopify-mobile-store-editor/evidence/nested-sheet-interaction-poster.png"
             aria-label="Demonstration of a nested color-control sheet opening partially over its parent, expanding fully, and closing with Done"
           >
@@ -534,7 +534,7 @@ export function ShopifyNestedControlsFigure() {
               type="video/mp4"
             />
             Your browser does not support embedded video.
-          </video>
+          </LazyPosterVideo>
         </div>
 
         <ol className="m-0 list-none space-y-5 p-0">

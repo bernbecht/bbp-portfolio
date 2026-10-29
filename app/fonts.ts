@@ -12,6 +12,7 @@ export const geistMono = Geist_Mono({
 
 export const ibmPlexSerif = IBM_Plex_Serif({
   variable: "--font-ibm-plex-serif-400",
+  subsets: ["latin"],
   weight: "400",
 });
 

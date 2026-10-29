@@ -1,0 +1,9 @@
+{
+  "default": {
+    "minScore": 0.95,
+    "maxLcpMs": 3000,
+    "maxCls": 0.1,
+    "maxTbtMs": 200
+  },
+  "exceptions": []
+}

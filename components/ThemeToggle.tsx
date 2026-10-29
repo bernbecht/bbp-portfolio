@@ -2,10 +2,37 @@
 
 import type { Howl } from "howler";
 import { useEffect, useSyncExternalStore } from "react";
-import useSound from "use-sound";
 
 function stopFailedSound(this: Howl) {
   this.stop();
+}
+
+type ThemeSounds = Readonly<{ on: Howl; off: Howl }>;
+
+let loadedSounds: ThemeSounds | null = null;
+let soundsRequest: Promise<void> | undefined;
+
+// The audio library is only fetched once someone shows intent to use the toggle, so it never
+// competes with first paint. Failures are ignored: audio is optional.
+function loadSounds() {
+  soundsRequest ??= import("howler")
+    .then(({ Howl }) => {
+      loadedSounds = {
+        on: new Howl({
+          src: ["/sounds/theme-on.wav"],
+          volume: 0.5,
+          html5: true,
+          onplayerror: stopFailedSound,
+        }),
+        off: new Howl({
+          src: ["/sounds/theme-off.wav"],
+          volume: 0.35,
+          html5: true,
+          onplayerror: stopFailedSound,
+        }),
+      };
+    })
+    .catch(() => {});
 }
 
 const storageKey = "portfolio-theme";
@@ -107,31 +134,12 @@ function subscribe(onChange: () => void) {
 }
 
 export default function ThemeToggle() {
-  const [playOn, { stop: stopOn, sound: onSound }] = useSound(
-    "/sounds/theme-on.wav",
-    {
-      volume: 0.5,
-      interrupt: true,
-      html5: true,
-      onplayerror: stopFailedSound,
-    },
-  );
-  const [playOff, { stop: stopOff, sound: offSound }] = useSound(
-    "/sounds/theme-off.wav",
-    {
-      volume: 0.35,
-      interrupt: true,
-      html5: true,
-      onplayerror: stopFailedSound,
-    },
-  );
-
   useEffect(
     () => () => {
-      stopOn();
-      stopOff();
+      loadedSounds?.on.stop();
+      loadedSounds?.off.stop();
     },
-    [stopOn, stopOff],
+    [],
   );
 
   const isDark = useSyncExternalStore(
@@ -145,12 +153,13 @@ export default function ThemeToggle() {
       document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     // Audio is optional and must never prevent a theme change or queue while loading.
     try {
-      stopOn();
-      stopOff();
-      const sound = theme === "light" ? onSound : offSound;
-      if (sound?.state() === "loaded") {
-        if (theme === "light") playOn();
-        else playOff();
+      if (loadedSounds) {
+        loadedSounds.on.stop();
+        loadedSounds.off.stop();
+        const sound = theme === "light" ? loadedSounds.on : loadedSounds.off;
+        if (sound.state() === "loaded") sound.play();
+      } else {
+        loadSounds();
       }
     } catch {}
     const shouldFade = prepareThemeFade();
@@ -168,6 +177,9 @@ export default function ThemeToggle() {
       type="button"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       onClick={toggleTheme}
+      onPointerEnter={loadSounds}
+      onPointerDown={loadSounds}
+      onFocus={loadSounds}
       className="theme-toggle inline-flex min-h-11 min-w-11 shrink-0 cursor-pointer items-center justify-center text-foreground hover:bg-surface-hover"
     >
       <svg
