@@ -15,6 +15,8 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 - Tailwind CSS 4 with `@tailwindcss/postcss` (see `postcss.config.mjs`) and `@tailwindcss/typography`
 - Markdown: `react-markdown`, `remark-gfm`, `gray-matter`
 - Icons and analytics: `@fortawesome/react-fontawesome` (+ free icon packs), `@vercel/analytics`
+  (`@vercel/analytics` was kept by the maintainer on 2026-10-29 as a free-plan tool under Principle IX;
+  if its plan ever asks for payment, remove it)
 - SVG as React components: `@svgr/webpack` (wired in `next.config.ts` for Turbopack and webpack)
 - Audio and haptics (client-only, in `ThemeToggle` and `Header`): `howler` (loaded on first intent with
   the toggle, never on page load), `web-haptics`
