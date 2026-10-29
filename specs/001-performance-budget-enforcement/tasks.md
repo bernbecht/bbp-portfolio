@@ -97,7 +97,7 @@ fails immediately.
 - [X] T020 [US2] In the same job, always (even on failure) append `npm run perf:report` output to `$GITHUB_STEP_SUMMARY` and upload `.lighthouseci/` as a workflow artifact with `actions/upload-artifact`
 - [X] T021 [US2] Confirm failure messages name the page, audit, measured value, and limit (FR-006) and that a missing result makes the job fail rather than pass (FR-007); adjust lighthouserc.cjs if the default lhci output does not show all four
 - [X] T022 [US2] Run quickstart.md steps 2, 3, and 4 locally on a throwaway branch (deliberate regression, new write-up, exception without reason) and confirm the expected outcomes, then revert the throwaway changes
-- [ ] T023 [US2] With the maintainer's approval to push, push the branch and open a pull request against `main` (the job only runs on `pull_request` and on pushes to `main`, not on a bare branch push), then confirm the `performance` job runs, passes, shows the table in the job summary, finishes in under 10 minutes (SC-003), and that three repeated CI runs vary by at most 0.03 (SC-004); if not, raise `numberOfRuns` to 5 in lighthouserc.cjs
+- [X] T023 [US2] With the maintainer's approval to push, push the branch and open a pull request against `main` (the job only runs on `pull_request` and on pushes to `main`, not on a bare branch push), then confirm the `performance` job runs, passes, shows the table in the job summary, finishes in under 10 minutes (SC-003), and that three repeated CI runs vary by at most 0.03 (SC-004); if not, raise `numberOfRuns` to 5 in lighthouserc.cjs
 
 **Checkpoint**: A clean PR passes and a regressing PR fails, verified in CI.
 
@@ -134,8 +134,8 @@ manual measurement (SC-008).
 ## Phase 8: Polish & Cross-Cutting Concerns
 
 - [X] T031 Run `npm run lint`, `npm run check:content`, and `npm run build`; all must pass
-- [ ] T032 Run the full quickstart.md from step 1 to 7 and tick each expected outcome
-- [ ] T033 Prepare the PR description: justification for `@lhci/cli` (research.md D1), that it is free, and the `howler` swap, the completed interactive checklist from T018, the Vercel Speed Insights enablement follow-up, the branch protection follow-up (make `performance` a required check), and any exceptions with their reasons
+- [X] T032 Run the full quickstart.md from step 1 to 7 and tick each expected outcome
+- [X] T033 Prepare the PR description: justification for `@lhci/cli` (research.md D1), that it is free, and the `howler` swap, the completed interactive checklist from T018, the Vercel Speed Insights enablement follow-up, the branch protection follow-up (make `performance` a required check), and any exceptions with their reasons
 
 ---
 
