@@ -29,8 +29,7 @@ Measured on 2026-10-29 at commit 666e47b. Median of the runs per page, mobile pr
 Same setup as the baseline, after: loading the audio library only on first intent with the theme toggle
 (`components/ThemeToggle.tsx`, `use-sound` replaced by a direct `howler` dependency), deferring the poster
 and metadata of the two below-the-fold videos on the Shopify write-up (`components/LazyPosterVideo.tsx`),
-and giving the serif font `subsets` so it is preloaded (`app/fonts.ts`). Speed Insights was added after
-these fixes and did not change the results.
+and giving the serif font `subsets` so it is preloaded (`app/fonts.ts`).
 
 | Page | Score | LCP (ms) | CLS | TBT (ms) | Runs | Budget |
 |------|-------|----------|-----|----------|------|--------|
@@ -45,7 +44,7 @@ these fixes and did not change the results.
 - LCP is 2.3 to 2.9 s in the lab. The LCP measured in the browser is about 50 ms; the lab number is a
   simulated slow-network estimate dominated by about 165 KB of framework JavaScript (React and Next) and
   three preloaded fonts. Because of that the lab LCP limit is 3,000 ms while real visitors are held to
-  Google's 2.5 s through Speed Insights (research.md D3b).
+  Google's 2.5 s as an unmonitored target (research.md D3b and D5).
 - `web-haptics` in `components/Header.tsx` costs almost nothing now, so it was left unchanged.
 - The Shopify write-up scores exactly 0.95, so it has no margin. If CI variance makes it flaky, look at its
   hero video poster and the evidence images first.

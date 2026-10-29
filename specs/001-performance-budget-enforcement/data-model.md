@@ -45,8 +45,3 @@ Validation (done when the Lighthouse config loads, so a bad file fails the job):
 
 The report table plus the date and the git commit it was measured on. Regenerated manually when the
 budget or the measurement setup changes, not on every PR.
-
-## Field metric
-
-Owned by the monitoring provider. The repository stores nothing. The site owner reads p75 per route in
-the provider's dashboard.

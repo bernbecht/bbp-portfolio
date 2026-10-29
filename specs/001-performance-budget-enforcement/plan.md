@@ -9,8 +9,8 @@
 Make constitution Principle VIII a checked rule. Add a Lighthouse CI job that builds the site, serves
 the production build, measures every public route on the mobile profile (median of 3 runs), and fails
 the PR when a route is below its budget. Budgets live in one file, `performance-budget.json`, with a
-default and a list of documented per-page exceptions. Add Vercel Speed Insights for real-user Core Web
-Vitals. Fix what the baseline shows below budget.
+default and a list of documented per-page exceptions. Fix what the baseline shows below budget. Real-user
+monitoring was dropped because the available tool is paid (constitution Principle IX).
 
 A preliminary single-run baseline (see [research.md](research.md)) shows LCP is already 0.9 s and CLS
 is 0 on every route. Scores of 0.73 to 0.92 come from Total Blocking Time, and the largest single cost
@@ -21,8 +21,8 @@ about script cost on load, not images or video.
 
 **Language/Version**: TypeScript 5 (strict), Node 22.18+ for scripts, CI on Node 22
 
-**Primary Dependencies**: `@lhci/cli` 0.15.1 (devDependency, lab measurement), `@vercel/speed-insights`
-2.0.0 (runtime, real-user monitoring). No other additions.
+**Primary Dependencies**: `@lhci/cli` 0.15.1 (devDependency, free and open source, lab measurement). No
+other additions; `howler` replaces `use-sound` as a direct dependency.
 
 **Storage**: Files only: `performance-budget.json` (budget and exceptions), `docs/performance-baseline.md`
 (recorded baseline). CI reports are uploaded as workflow artifacts, nothing is stored externally.
@@ -52,7 +52,7 @@ each new write-up, discovered automatically from `content/projects/`.
 | Principle | Status | Notes |
 |-----------|--------|-------|
 | I. Content Model Alignment | Pass | The measured URL list is derived from `content/projects/*.md`, the same source `getAllSlugs()` uses. No content changes. |
-| II. Server-First React | Pass | `<SpeedInsights />` is rendered from the server layout, like `<Analytics />`. The audio fix keeps `'use client'` in the existing leaf components only. |
+| II. Server-First React | Pass | The audio fix keeps `'use client'` in the existing leaf components only. |
 | III. Typed, Consistent Code | Pass | New scripts follow the `scripts/check-content.mts` style. ESLint stays green. |
 | IV. Accessible, Semantic UI | Pass, watch | Deferring audio loading must keep sound user-initiated, silenceable, and never autoplay. |
 | V. SEO and Canonical Correctness | Pass | No metadata changes. |
@@ -92,7 +92,6 @@ docs/
 └── performance-baseline.md        # recorded baseline: date, commit, per-route table
 .github/workflows/ci.yml           # new `performance` job
 .github/pull_request_template.md   # manual Lighthouse item replaced by a note
-app/layout.tsx                     # <SpeedInsights />
 components/
 ├── ThemeToggle.tsx                # defer audio library until first interaction intent
 └── Header.tsx                     # defer haptics library likewise, if the baseline shows it matters

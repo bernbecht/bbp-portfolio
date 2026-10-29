@@ -14,6 +14,10 @@
 
 - Q: If a page cannot reach 0.95 without changing its visuals or content, what happens to it? → A: It gets a documented exception: the reason is recorded and its limit becomes the value measured after the fixes, which may not get worse. All other pages stay at 0.95.
 
+### Decision during implementation, 2026-10-29
+
+- Real-user monitoring was dropped. The only candidate (Vercel Speed Insights) is a paid product, and the project does not take on tools that cost money (constitution Principle IX). User Story 3, FR-009, FR-010, SC-005, and the Field metric entity were removed. The performance budget is therefore enforced in the lab only, and field Core Web Vitals can be spot-checked by hand with free public tools.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Know where the site stands today (Priority: P1)
@@ -49,19 +53,9 @@ A contributor opens a pull request. If the change pushes any public page below t
 
 ---
 
-### User Story 3 - See how real visitors experience the site (Priority: P2)
+### User Story 3 - See how real visitors experience the site (dropped)
 
-The site owner wants to see Core Web Vitals collected from real visitors in production, per page, so that problems the lab measurement cannot reproduce (slow devices, slow networks) are visible.
-
-**Why this priority**: Lab scores can pass while real visitors suffer. It complements the pull request check but does not block anything, so it ranks below it.
-
-**Independent Test**: Can be fully tested by visiting the production site and confirming the visit's metrics appear in the monitoring view for that page.
-
-**Acceptance Scenarios**:
-
-1. **Given** the site is deployed to production, **When** a visitor loads and interacts with a page, **Then** that page's Core Web Vitals appear in the owner's monitoring view.
-2. **Given** enough visits have accumulated, **When** the owner opens the monitoring view, **Then** the 75th percentile of each Core Web Vital is shown per page, so it can be compared with the "good" thresholds.
-3. **Given** a visitor has asked not to be tracked, **When** they visit, **Then** no personal data is collected beyond what the existing analytics already collects.
+Dropped during implementation: the only suitable tool is paid, and the project accepts no recurring cost (constitution Principle IX). Field Core Web Vitals can still be checked manually and for free with PageSpeed Insights, which shows public Chrome UX Report data when the site has enough traffic.
 
 ---
 
@@ -103,7 +97,6 @@ A contributor reading the project documentation and the pull request template se
 - A page sits just under the threshold and the median wobbles between runs: the tolerance and number of runs are documented, and the check uses the median rather than a single run.
 - A pull request changes only documentation or content text: the check still runs, so a content change that bloats a page (for example, a large new image in a write-up) is caught.
 - A new write-up is added with a heavy video: the page is measured automatically and can fail the check, so the author must fix it or justify a deviation.
-- The monitoring service is unreachable for a visitor: the page still loads and works normally.
 - A contributor needs to ship a page that is knowingly over budget: the constitution's deviation process applies, and the exception is visible in the pull request.
 - A page cannot reach the budget without a redesign or content change: it receives a documented exception (reason recorded, limit set to its post-fix measurement), and the check fails if that page gets worse than its recorded limit.
 
@@ -119,8 +112,7 @@ A contributor reading the project documentation and the pull request template se
 - **FR-006**: A failing check MUST state the page, the metric, the measured value, and the limit.
 - **FR-007**: The check MUST fail, not pass, when no measurement data could be produced.
 - **FR-008**: Any numeric threshold stricter than the constitution's budget MUST be derived from the recorded baseline and documented with its reason.
-- **FR-009**: Real-user Core Web Vitals MUST be collected in production for every public page, and the 75th percentile per page MUST be viewable by the site owner.
-- **FR-010**: Real-user monitoring MUST NOT delay page rendering noticeably, MUST NOT break the page if the monitoring service is unreachable, and MUST NOT collect personal data beyond what current analytics collects.
+- **FR-009**: (Removed.) Real-user monitoring is out of scope because it requires a paid tool.
 - **FR-011**: Every public page found below budget in the baseline MUST be brought within budget without changing its visual design or content.
 - **FR-011a**: A page that cannot reach the budget under FR-011 MUST be listed as an exception with a written reason. Its limits become the values measured after the fixes, the check MUST fail if the page falls below them, and every other page MUST keep the full budget. The list of exceptions MUST be documented in the reference document.
 - **FR-012**: Heavy assets (video, interactive experiments) MUST NOT prevent the page from becoming visible and usable before they finish loading.
@@ -135,7 +127,6 @@ A contributor reading the project documentation and the pull request template se
 - **Exception**: A page-specific budget with a written reason, whose limits are the page's post-fix measurement. It can only be tightened, not loosened, without a constitution-level justification.
 - **Measurement report**: One run's output for one page: score, three vitals, date, code version, and number of runs behind the median.
 - **Baseline**: The recorded measurement report for every page before the fixes, used to derive thresholds and to show improvement.
-- **Field metric**: A Core Web Vital reported by a real visitor's browser, aggregated per page.
 
 ## Success Criteria *(mandatory)*
 
@@ -145,14 +136,13 @@ A contributor reading the project documentation and the pull request template se
 - **SC-002**: A pull request that degrades any public page below the budget is blocked 100% of the time in a deliberate-regression test, and a clean pull request passes.
 - **SC-003**: The automated check finishes in under 10 minutes for the full set of pages, so contributors are not slowed down noticeably.
 - **SC-004**: Repeated measurements of unchanged code vary by no more than 0.03 in performance score for any page.
-- **SC-005**: Within one week of deployment, the owner can see the 75th-percentile Core Web Vitals for each public page that has received visits.
 - **SC-006**: Adding a new write-up requires zero edits to any list of pages used by the check.
 - **SC-007**: After the fixes, a side-by-side visual comparison of every public page before and after shows no intended change to layout, copy, or imagery.
 - **SC-008**: No document or template still instructs contributors to run a manual performance check.
 
 ## Assumptions
 
-- The site is deployed on its existing hosting platform, which already runs the current analytics, and real-user monitoring from the same provider is acceptable.
+- The site stays on its existing hosting platform. No tool or service with a cost is introduced (constitution Principle IX), so measurement is done in the lab with free, open-source tooling.
 - "Public pages" means the routes in the current site: home, projects index, project write-ups, and experiments. Generated image routes and the sitemap and robots files are not measured.
 - The 0.95 performance score and the "good" Core Web Vitals ranges from the constitution are the budget. For real visitors the ranges apply as written. In the lab the check uses a simulated slow-mobile profile, so its LCP limit is 3.0 s (decided during implementation, see research.md D3b); score, layout shift, and blocking time keep the stricter limits. Tighter thresholds are used only where the baseline shows consistent headroom, and are optional.
 - Interaction responsiveness cannot be measured by a plain page load in the lab, so the lab check uses a proxy for it (for example, total blocking time), while the real-user data covers the true metric.

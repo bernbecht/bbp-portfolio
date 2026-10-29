@@ -28,7 +28,7 @@ US4 (fixes) comes before US2 (enforcement) so the check is switched on with ever
 be repeated in the PR description (constitution Principle VI).
 
 - [X] T001 Add `@lhci/cli` 0.15.1 as a devDependency with `npm install -D @lhci/cli@0.15.1` in package.json
-- [X] T002 [P] Add `@vercel/speed-insights` 2.0.0 as a dependency with `npm install @vercel/speed-insights@2.0.0` in package.json
+- [X] T002 [P] ~~Add `@vercel/speed-insights`~~ Dropped: the tool is paid (constitution Principle IX). It was added and then removed again, see research.md D5
 - [X] T003 [P] Add `/.lighthouseci/` to .gitignore
 
 ---
@@ -107,11 +107,11 @@ fails immediately.
 
 **Goal**: Real-user Core Web Vitals per page, visible to the site owner.
 
-**Independent Test**: quickstart.md step 5: after deploy, a visit appears in the Speed Insights view.
+**Independent Test**: none, the story was dropped.
 
-- [X] T024 [US3] Render `<SpeedInsights />` from `@vercel/speed-insights/next` next to `<Analytics />` in app/layout.tsx (Server Component, no `'use client'` added)
+- [X] T024 [US3] ~~Render `<SpeedInsights />`~~ Dropped with US3 (paid tool)
 - [X] T025 [US3] Run `npm run build` and `npm run perf:measure` to confirm the added component does not push any page below its budget
-- [X] T026 [US3] Document in docs/reference.md that Speed Insights must be enabled once in the Vercel project settings, where to read the p75 values, and that no cookies are set (FR-009, FR-010). Record the manual enablement as a follow-up for the maintainer in the PR description
+- [X] T026 [US3] ~~Document Speed Insights~~ Dropped with US3 (paid tool)
 
 **Checkpoint**: Real-user data starts flowing once the maintainer enables it in Vercel.
 
@@ -125,7 +125,7 @@ fails immediately.
 manual measurement (SC-008).
 
 - [X] T027 [P] [US5] Amend .specify/memory/constitution.md to 1.5.0: replace Principle VIII's "Enforcement status" paragraph with a description of the automated `performance` job, add the job to the Quality Gates list and to the CI sentence, and update the Sync Impact Report (FR-013, FR-014)
-- [X] T028 [P] [US5] Update docs/reference.md: add `perf:measure`, `perf:collect`, `perf:report` to Commands, add a "Performance budget" section (budget values, performance-budget.json, the exceptions list and why each exists, how to read the CI summary and artifact, and that Chrome is needed locally), and add `@lhci/cli` and `@vercel/speed-insights` to the stack list
+- [X] T028 [P] [US5] Update docs/reference.md: add `perf:measure`, `perf:collect`, `perf:report` to Commands, add a "Performance budget" section (budget values, performance-budget.json, the exceptions list and why each exists, how to read the CI summary and artifact, and that Chrome is needed locally), and add `@lhci/cli` to the stack list
 - [X] T029 [P] [US5] In .github/pull_request_template.md, replace the manual Lighthouse checkbox with a note that the `performance` job runs automatically, keeping the dependency justification item
 - [X] T030 [P] [US5] In specs/001-performance-budget-enforcement/contracts/ci-performance-check.md, add the `perf:collect` command to the commands table
 
@@ -135,7 +135,7 @@ manual measurement (SC-008).
 
 - [X] T031 Run `npm run lint`, `npm run check:content`, and `npm run build`; all must pass
 - [ ] T032 Run the full quickstart.md from step 1 to 7 and tick each expected outcome
-- [ ] T033 Prepare the PR description: justification for `@lhci/cli` and `@vercel/speed-insights` (research.md D1, D5), the completed interactive checklist from T018, the Vercel Speed Insights enablement follow-up, the branch protection follow-up (make `performance` a required check), and any exceptions with their reasons
+- [ ] T033 Prepare the PR description: justification for `@lhci/cli` (research.md D1), that it is free, and the `howler` swap, the completed interactive checklist from T018, the Vercel Speed Insights enablement follow-up, the branch protection follow-up (make `performance` a required check), and any exceptions with their reasons
 
 ---
 
@@ -199,5 +199,5 @@ Task: "Add perf:collect to contracts/ci-performance-check.md"
 
 - Commit after each task or logical group, using Conventional Commits.
 - Do not change design or content to hit the budget (spec, out of scope). Use an exception instead.
-- Two things need the maintainer outside the repository: enabling Speed Insights in Vercel, and making
+- One thing needs the maintainer outside the repository: making
   the `performance` job a required check in GitHub branch protection.

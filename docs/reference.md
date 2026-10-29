@@ -18,7 +18,7 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 - SVG as React components: `@svgr/webpack` (wired in `next.config.ts` for Turbopack and webpack)
 - Audio and haptics (client-only, in `ThemeToggle` and `Header`): `howler` (loaded on first intent with
   the toggle, never on page load), `web-haptics`
-- Performance: `@lhci/cli` (dev, Lighthouse CI) and `@vercel/speed-insights` (real-user Core Web Vitals)
+- Performance: `@lhci/cli` (dev, Lighthouse CI, free and open source)
 - Class names: `clsx`, `tailwind-merge` (via `lib/cn.ts`)
 
 ## Commands
@@ -99,8 +99,9 @@ flowchart LR
 ## Performance budget
 
 - Limits live in `performance-budget.json`: score at least 0.95, simulated LCP at most 3,000 ms, CLS at
-  most 0.1, Total Blocking Time at most 200 ms (the lab stand-in for INP). Real visitors are held to
-  Google's thresholds (p75 LCP 2.5 s, INP 200 ms, CLS 0.1) through Speed Insights.
+  most 0.1, Total Blocking Time at most 200 ms (the lab stand-in for INP). Real visitors' Google
+  thresholds (p75 LCP 2.5 s, INP 200 ms, CLS 0.1) are targets that nothing monitors; spot-check them
+  for free with PageSpeed Insights when the site has enough traffic.
 - `lighthouserc.cjs` builds the page list (`/`, `/projects`, `/experiments`, and every file in
   `content/projects/`), runs 3 times per page on the mobile profile, and asserts the median. A missing
   or partial result fails the run.
@@ -109,5 +110,3 @@ flowchart LR
 - CI posts the median table to the job summary and uploads `.lighthouseci/` as the `lighthouse-results`
   artifact.
 - The recorded baseline and the post-fix results are in `docs/performance-baseline.md`.
-- **Speed Insights** collects Core Web Vitals from real visitors without cookies. It must be enabled once
-  in the Vercel project settings (Speed Insights tab); the p75 per route is shown there.

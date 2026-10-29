@@ -5,7 +5,6 @@ import { cn } from "@/lib/cn";
 import { resolveSiteUrl } from "@/lib/site-url";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { fontClasses } from "@/app/fonts";
 import "@/app/globals.css";
@@ -71,7 +70,6 @@ export default function RootLayout({
         <div className="flex-1 pt-8 md:pt-12">{children}</div>
         <Footer />
         <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

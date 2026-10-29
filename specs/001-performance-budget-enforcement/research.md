@@ -61,7 +61,7 @@ Findings:
 ### D3b. Lab LCP limit (decided during implementation)
 
 - **Decision**: The lab LCP limit is 3,000 ms. Google's 2.5 s "good" threshold applies to real visitors
-  (p75), monitored with Speed Insights (D5).
+  (p75). Since D5 was reversed, that threshold is a target checked by hand, not monitored.
 - **Why**: Lighthouse's simulated slow-mobile profile (1.6 Mbps, 4x CPU slowdown) reports 2.1 to 2.9 s
   for pages whose real LCP is about 50 ms, because the estimate is dominated by about 165 KB of React and
   Next JavaScript and three fonts. After removing the avoidable costs (audio library, below-the-fold video
@@ -69,7 +69,9 @@ Findings:
   have forced either design changes or exceptions on most pages.
 - **Alternatives**: Per-page exceptions for four of six pages (rejected, it defeats the mechanism).
   Cutting more JavaScript by disabling link prefetch (rejected, it changes navigation behavior).
-- **Consequence**: Principle VIII's wording is clarified in the constitution amendment (task T027).
+- **Consequence**: Principle VIII's wording is clarified in the constitution amendment (task T027). The
+  justification that real visitors are covered by field monitoring no longer holds after D5 was reversed,
+  see D5.
 
 ### D4. One budget file, derived URL list
 
@@ -82,16 +84,17 @@ Findings:
 - **Alternatives**: Listing pages in YAML or in the workflow file would drift from the content model,
   the exact problem Principle I exists to prevent.
 
-### D5. Real-user monitoring
+### D5. Real-user monitoring (reversed during implementation)
 
-- **Decision**: `@vercel/speed-insights` 2.0.0, rendered next to `<Analytics />` in `app/layout.tsx`.
-  It needs Speed Insights to be enabled once in the Vercel project settings, a manual step outside the
-  repository.
-- **Justification (Principle VI)**: The need is p75 LCP, INP, and CLS per route from real visitors. The
-  current stack has no way to collect that. This package is from the same provider as the analytics
-  already installed, is cookie-free, loads asynchronously, and is the smallest option.
-- **Alternatives**: `useReportWebVitals` plus our own endpoint needs storage and a dashboard, which is
-  more code and more privacy surface. The `web-vitals` library alone has the same problem.
+- **Decision**: None. `@vercel/speed-insights` was added and then removed.
+- **Why**: Speed Insights is a paid product, and the project does not adopt tools that cost money
+  (constitution Principle IX). No free hosted alternative gives per-route p75 data without running our
+  own collection endpoint and storage, which is more code, more privacy surface, and possibly cost.
+- **Consequence**: The performance budget is enforced in the lab only. Field Core Web Vitals can be
+  spot-checked by hand and for free with PageSpeed Insights (public Chrome UX Report data, available only
+  when the site has enough traffic). Because nothing monitors real visitors, the 2.5 s LCP threshold is
+  not backed by field data, and the lab LCP limit of 3.0 s (D3b) is the only LCP check. Revisit it if a
+  free source of field data appears.
 
 ### D6. Fix strategy, ordered by expected impact
 

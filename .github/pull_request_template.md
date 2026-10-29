@@ -10,7 +10,7 @@
 - [ ] Content or route change: Principle I verified (`check:content` is green)
 - [ ] Performance budget: the `performance` CI job is green. It runs automatically, nothing to run by
       hand. If it is red on purpose, explain it under Deviations
-- [ ] New runtime dependency: justified here (Principle VI): <!-- name and the need it meets -->
+- [ ] New dependency, tool, or service: justified here (Principle VI) and free of charge (Principle IX): <!-- name, the need it meets, and why it costs nothing -->
 - [ ] New `'use client'` component: justified here (Principle II): <!-- the client-only API it needs -->
 - [ ] Rule changed: constitution amended in this PR (version bump and Sync Impact Report)
 - [ ] Descriptive fact changed: `docs/reference.md` updated

@@ -32,11 +32,10 @@ row, and no violations.
 1. Add an exception with no `reason` to `performance-budget.json`. Expected: the run fails immediately
    with a message about the missing reason. Remove it.
 
-## 5. Real-user monitoring
+## 5. Field data spot check (optional, free)
 
-1. In the Vercel project, enable Speed Insights once.
-2. After a production deploy, open any page in a browser, then check the Speed Insights view for that
-   route. Expected: the visit appears, and p75 values show once enough visits accumulate.
+Open the production URL in PageSpeed Insights. When the site has enough traffic, its "real users" section
+shows Core Web Vitals from the public Chrome UX Report. There is no monitoring in the repository.
 
 ## 6. Interactive behavior after the audio change (Principle VII)
 
