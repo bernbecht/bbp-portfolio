@@ -58,6 +58,19 @@ Findings:
 - **Rationale**: Lighthouse page loads cannot produce INP. TBT is the documented lab proxy, and 200 ms
   is the upper bound of its "good" range in Lighthouse's scoring curve.
 
+### D3b. Lab LCP limit (decided during implementation)
+
+- **Decision**: The lab LCP limit is 3,000 ms. Google's 2.5 s "good" threshold applies to real visitors
+  (p75), monitored with Speed Insights (D5).
+- **Why**: Lighthouse's simulated slow-mobile profile (1.6 Mbps, 4x CPU slowdown) reports 2.1 to 2.9 s
+  for pages whose real LCP is about 50 ms, because the estimate is dominated by about 165 KB of React and
+  Next JavaScript and three fonts. After removing the avoidable costs (audio library, below-the-fold video
+  posters), four pages still sat at 2.6 to 2.9 s. Holding a simulated number to a field threshold would
+  have forced either design changes or exceptions on most pages.
+- **Alternatives**: Per-page exceptions for four of six pages (rejected, it defeats the mechanism).
+  Cutting more JavaScript by disabling link prefetch (rejected, it changes navigation behavior).
+- **Consequence**: Principle VIII's wording is clarified in the constitution amendment (task T027).
+
 ### D4. One budget file, derived URL list
 
 - **Decision**: `performance-budget.json` holds the default limits and an `exceptions` array

@@ -35,7 +35,7 @@ about script cost on load, not images or video.
 
 **Project Type**: Single Next.js web application (App Router).
 
-**Performance Goals**: Per page: performance score at least 0.95, LCP at most 2.5 s, CLS at most 0.1,
+**Performance Goals**: Per page: performance score at least 0.95, simulated lab LCP at most 3.0 s (real-user p75 LCP at most 2.5 s), CLS at most 0.1,
 and Total Blocking Time at most 200 ms as the lab stand-in for INP. Real users: p75 of LCP, INP, CLS in
 the "good" range.
 

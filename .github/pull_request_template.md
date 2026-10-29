@@ -8,8 +8,8 @@
 
 - [ ] `npm run lint`, `npm run check:content`, and `npm run build` pass (CI runs them too)
 - [ ] Content or route change: Principle I verified (`check:content` is green)
-- [ ] Rendering, images, fonts, scripts, or dependencies changed: Lighthouse Performance is at least
-      0.95 on affected routes (Principle VIII), result noted here
+- [ ] Performance budget: the `performance` CI job is green. It runs automatically, nothing to run by
+      hand. If it is red on purpose, explain it under Deviations
 - [ ] New runtime dependency: justified here (Principle VI): <!-- name and the need it meets -->
 - [ ] New `'use client'` component: justified here (Principle II): <!-- the client-only API it needs -->
 - [ ] Rule changed: constitution amended in this PR (version bump and Sync Impact Report)

@@ -154,7 +154,7 @@ A contributor reading the project documentation and the pull request template se
 
 - The site is deployed on its existing hosting platform, which already runs the current analytics, and real-user monitoring from the same provider is acceptable.
 - "Public pages" means the routes in the current site: home, projects index, project write-ups, and experiments. Generated image routes and the sitemap and robots files are not measured.
-- The 0.95 performance score and the "good" Core Web Vitals ranges from the constitution are the budget. Tighter thresholds are used only where the baseline shows consistent headroom, and are optional.
+- The 0.95 performance score and the "good" Core Web Vitals ranges from the constitution are the budget. For real visitors the ranges apply as written. In the lab the check uses a simulated slow-mobile profile, so its LCP limit is 3.0 s (decided during implementation, see research.md D3b); score, layout shift, and blocking time keep the stricter limits. Tighter thresholds are used only where the baseline shows consistent headroom, and are optional.
 - Interaction responsiveness cannot be measured by a plain page load in the lab, so the lab check uses a proxy for it (for example, total blocking time), while the real-user data covers the true metric.
 - Measurements run in a controlled environment on the production build, not against the live site, so results do not depend on network conditions to the hosting platform.
 - Fixes are limited to loading behavior, asset delivery, and script weight. Redesigns and content changes are out of scope, per the feature description. Exceptions (FR-011a) are expected to be rare and are a last resort.

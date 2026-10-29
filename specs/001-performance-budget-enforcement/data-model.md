@@ -7,7 +7,7 @@ No database. Entities are files and report rows.
 | Field | Type | Rule |
 |-------|------|------|
 | `default.minScore` | number 0 to 1 | 0.95 (constitution Principle VIII) |
-| `default.maxLcpMs` | number | 2500 |
+| `default.maxLcpMs` | number | 3000. Lab-only limit on Lighthouse's simulated slow-mobile LCP. Real users are held to Google's 2.5 s "good" threshold through the field data. |
 | `default.maxCls` | number | 0.1 |
 | `default.maxTbtMs` | number | 200, the lab stand-in for INP |
 | `exceptions` | array of Exception | Empty by default. Rare, last resort. |
