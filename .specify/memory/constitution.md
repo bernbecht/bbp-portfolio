@@ -1,9 +1,9 @@
 <!--
 Sync Impact Report
-- Version change: 1.5.0 -> 1.6.0 (MINOR)
-- Workflow: added the replanning convention (branch `replan/after-NNN-<slug>`, short-lived, one
-  record under docs/replans/ per round)
-- History: 1.5.0 added Principle IX (No Paid Tooling) and made VIII an automated lab check with the
+- Version change: 1.6.0 -> 1.7.0 (MINOR)
+- Workflow: a replanning round must update docs/roadmap.md (order and status of specs)
+- History: 1.6.0 added the replanning convention (branch `replan/after-NNN-<slug>`, short-lived, one
+  record under docs/replans/ per round); 1.5.0 added Principle IX (No Paid Tooling) and made VIII an automated lab check with the
   lab LCP limit at 3.0 s; 1.4.0 added Principle VIII; 1.3.0 added checkable criteria to II, IV, VI, VII and the PR
   template; 1.2.0 added `npm run check:content` and ESLint-enforced style; 1.1.1 removed unused
   rehype dependencies
@@ -136,6 +136,9 @@ Rationale: this is a personal site, so recurring or surprise costs are not accep
   which rules changed and why, which follow-up specs it spawns), amends this constitution when a rule
   changes, and is deleted after its PR merges. Work that needs code or tooling becomes a new spec, not
   part of the replanning PR.
+- The order and status of specs live in `docs/roadmap.md`. A replanning round MUST update it (status of
+  the finished spec and the follow-up specs it spawns) in the same PR, because the replan record is
+  deleted after merge and the roadmap is what remains.
 
 ## Governance
 
@@ -147,4 +150,4 @@ and wording fixes. Every PR MUST complete the checklist in `.github/pull_request
 be justified in its "Deviations" section. Contributors and agents MUST read this file
 before making changes.
 
-**Version**: 1.6.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
+**Version**: 1.7.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
