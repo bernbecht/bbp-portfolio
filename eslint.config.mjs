@@ -5,6 +5,26 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    rules: {
+      // Constitution Principle III: enforced by tooling instead of review.
+      "@typescript-eslint/consistent-type-imports": "error",
+      "comma-dangle": ["error", "always-multiline"],
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            { group: ["./*", "../*"], message: "Use the @/* alias instead of relative imports." },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    // Node scripts run outside the bundler, so they need relative imports with extensions.
+    files: ["scripts/**"],
+    rules: { "no-restricted-imports": "off" },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

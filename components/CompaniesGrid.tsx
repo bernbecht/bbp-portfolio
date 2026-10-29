@@ -1,7 +1,7 @@
-import AxonifyLogo from "./icons/AxonifyLogo";
-import CitLogo from "./icons/CitLogo";
-import SapLogo from "./icons/SapLogo";
-import ShopifyLogo from "./icons/ShopifyLogo";
+import AxonifyLogo from "@/components/icons/AxonifyLogo";
+import CitLogo from "@/components/icons/CitLogo";
+import SapLogo from "@/components/icons/SapLogo";
+import ShopifyLogo from "@/components/icons/ShopifyLogo";
 
 type Company = {
   name: string;

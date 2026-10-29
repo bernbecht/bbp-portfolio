@@ -24,7 +24,10 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 - `npm run dev`: development server
 - `npm run build`: production build
 - `npm run start`: production server (after `npm run build`)
-- `npm run lint`: ESLint (there is no test runner in this repo)
+- `npm run lint`: ESLint (also enforces import alias, `import type`, trailing commas)
+- `npm run check:content`: validates the content model (`scripts/check-content.mts`, needs Node
+  22.18+ for built-in TypeScript stripping)
+- There is no test runner in this repo
 
 ## Repository map
 

@@ -1,9 +1,11 @@
 <!--
 Sync Impact Report
-- Version change: 1.1.0 -> 1.1.1 (PATCH)
-- Modified principles: none
+- Version change: 1.1.0 -> 1.2.0 (MINOR)
+- Modified principles: III now delegates mechanical style rules to ESLint; I is enforced by
+  `npm run check:content`
 - Clarified: Markdown constraint no longer references rehype-raw as if installed; unused
   rehype-raw and rehype-slug were removed from package.json
+- Quality Gates: added `npm run check:content`
 - Added/removed sections: none
 - Deferred items: no test runner exists (Playwright is not a project dependency; test-results/ is
   gitignored tool output). Principle VII stays tool-agnostic.
@@ -25,6 +27,8 @@ routes MUST be statically generated from `getAllSlugs()` and MUST call `notFound
 invalid post. Post media MUST live under `public/projects/{slug}/`.
 Rationale: routes and sitemap are generated from these two layers, so drift causes build failures
 or dead links.
+Enforcement: `npm run check:content` checks every rule above, plus duplicate `journalSlug` values and
+that media referenced in a post exists under `public/projects/{slug}/`.
 
 ### II. Server-First React
 Components MUST be Server Components by default. `'use client'` MUST be added only when a
@@ -32,11 +36,12 @@ client-only API is required, and new interactivity MUST be isolated in small lea
 Rationale: this keeps client JavaScript minimal for a content-focused site.
 
 ### III. Typed, Consistent Code
-TypeScript strict mode MUST pass. Imports MUST use the `@/*` alias, with `import type` for type-only
-imports. Props MUST be declared in an interface before the component, wrapped in `Readonly<>`, and
-destructured in the signature; children use `React.ReactNode`. Pages and components use default
-exports; utilities use named exports. New code MUST prefer single quotes and trailing commas, and
-edits MUST match the nearest file's style.
+TypeScript strict mode MUST pass. Mechanical style is enforced by ESLint and is not restated here:
+the `@/*` alias instead of relative imports, `import type` for type-only imports, and trailing
+commas in multiline literals. Props MUST be declared in an interface before the component, wrapped
+in `Readonly<>`, and destructured in the signature; children use `React.ReactNode`. Pages and
+components use default exports; utilities use named exports. Quote style is not enforced; edits
+MUST match the nearest file's style.
 
 ### IV. Accessible, Semantic UI
 Markup MUST be semantic HTML. Images MUST have meaningful `alt` text, interactive controls MUST
@@ -83,7 +88,8 @@ Rationale: lint and build do not catch behavioral or visual regressions.
 
 ## Development Workflow and Quality Gates
 
-- Before shipping content or route changes, `npm run lint` and `npm run build` MUST both pass.
+- Before shipping content or route changes, `npm run lint`, `npm run check:content`, and
+  `npm run build` MUST all pass.
 - Changes touching `PROJECT_GROUPS`, `content/projects/`, or `app/projects/[slug]/page.tsx` MUST be
   verified against Principle I.
 - A PR that changes a rule MUST amend this constitution in the same PR. A PR that changes only a
@@ -100,4 +106,4 @@ and wording fixes. Every PR or review MUST verify compliance with these principl
 deviation MUST be justified in the PR description. Contributors and agents MUST read this file
 before making changes.
 
-**Version**: 1.1.1 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
+**Version**: 1.2.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
