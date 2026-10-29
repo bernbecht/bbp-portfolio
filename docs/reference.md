@@ -40,6 +40,15 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 - CI: `.github/workflows/ci.yml` runs `quality-gates` (lint, check:content, build) and `performance`
   (Node 22). `engines.node` is `>=22.18`.
 
+## Branches
+
+- Spec branches: `NNN-<slug>`, created by the Spec Kit flow (for example
+  `001-performance-budget-enforcement`).
+- Replanning branches: `replan/after-NNN-<slug>`, short-lived, one per round, deleted after the PR
+  merges. Each round writes `docs/replans/after-NNN-<slug>.md`.
+- Spec Kit finds the active feature through `.specify/feature.json`, not the branch name, so the
+  `replan/` prefix does not interfere.
+
 ## Repository map
 
 - `app/`: routes, `layout.tsx` (root metadata), `globals.css`, `fonts.ts`, `sitemap.ts`, `robots.ts`
