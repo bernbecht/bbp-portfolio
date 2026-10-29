@@ -18,8 +18,11 @@ until the spec is created.
 | 002 | free-services-and-dashes | Make the dash rule checkable, list the approved free services, and move the `@vercel/analytics` exception into the constitution. | 001 | Planned | Replan after 001, items 1 to 3 |
 | 003 | lighthouse-a11y-seo | Add the accessibility and SEO categories to the Lighthouse run so Principles IV and V get an automated check. | 001 | Planned | Replan after 001, item 4 |
 | 004 | constitution-restructure | Split Principle IV, shorten Principle VIII, and close the security, commit style, version check, and ambiguity gaps. | 002, 003 | Planned | Replan after 001, items 5 to 7 |
+| 005 | dot-field-experiment | Build the Omarchy-inspired dot field on the Experiments page, with the Principle VII checklist and the performance budget. | 003 | Planned | Ideas: experiments page, dot animation |
+| 006 | ci-path-filtering | Run the performance job only when rendering, images, fonts, scripts, or dependencies change, and amend Principle VIII and the quality gates to match. | 004 | Planned | Ideas: run CI only when relevant |
 
 ## Ideas not yet scheduled
 
 See the prioritized table in [`ideas.md`](ideas.md). The accessibility check in the build (P0) is covered
-by spec 003.
+by spec 003. The dot field (P2) is spec 005 and CI path filtering (P2) is spec 006. Content ideas (Reliability
+section of the visual-regression post, intersection diagram, Storybook) have no spec row yet.
