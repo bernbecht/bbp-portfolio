@@ -1,12 +1,10 @@
 <!--
 Sync Impact Report
-- Version change: 1.4.0 -> 1.5.0 (MINOR)
-- Added principle: IX. No Paid Tooling
-- Modified principles: VIII now describes the automated lab check (performance-budget.json and the
-  `performance` CI job). Real-user thresholds become unmonitored targets, because the only suitable
-  monitoring tool is paid. The lab LCP limit is 3.0 s (simulated slow-network estimate)
-- Quality Gates: added `npm run perf:measure` for changes that affect rendering, and the CI job
-- History: 1.4.0 added Principle VIII; 1.3.0 added checkable criteria to II, IV, VI, VII and the PR
+- Version change: 1.5.0 -> 1.6.0 (MINOR)
+- Workflow: added the replanning convention (branch `replan/after-NNN-<slug>`, short-lived, one
+  record under docs/replans/ per round)
+- History: 1.5.0 added Principle IX (No Paid Tooling) and made VIII an automated lab check with the
+  lab LCP limit at 3.0 s; 1.4.0 added Principle VIII; 1.3.0 added checkable criteria to II, IV, VI, VII and the PR
   template; 1.2.0 added `npm run check:content` and ESLint-enforced style; 1.1.1 removed unused
   rehype dependencies
 - Deferred items: no test runner exists (Playwright is not a project dependency; test-results/ is
@@ -131,6 +129,13 @@ Rationale: this is a personal site, so recurring or surprise costs are not accep
 - A PR that changes a rule MUST amend this constitution in the same PR. A PR that changes only a
   descriptive fact MUST update `docs/reference.md` instead.
 - `AGENTS.md` MUST remain a minimal pointer to this file and MUST NOT carry rules of its own.
+- Spec branches are named `NNN-<slug>` (Spec Kit numbering). Replanning (reviewing the constitution
+  and the process after a spec) happens only after that spec is implemented, validated, and merged,
+  on its own short-lived branch named `replan/after-NNN-<slug>` cut from an up-to-date `main`. A
+  replanning round MUST leave a record in `docs/replans/after-NNN-<slug>.md` (what the spec taught,
+  which rules changed and why, which follow-up specs it spawns), amends this constitution when a rule
+  changes, and is deleted after its PR merges. Work that needs code or tooling becomes a new spec, not
+  part of the replanning PR.
 
 ## Governance
 
@@ -142,4 +147,4 @@ and wording fixes. Every PR MUST complete the checklist in `.github/pull_request
 be justified in its "Deviations" section. Contributors and agents MUST read this file
 before making changes.
 
-**Version**: 1.5.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
+**Version**: 1.6.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
