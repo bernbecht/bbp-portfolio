@@ -3,7 +3,10 @@
 ## Preliminary baseline (single run, local, not the recorded baseline)
 
 Lighthouse 13.6.0, mobile profile, performance category only, run against `next start` of the
-production build on the maintainer's machine. One run per route, so this is indicative only. The
+production build on the maintainer's machine. One run per route, so this is indicative only.
+**Version caveat**: `@lhci/cli` 0.15.1 bundles Lighthouse 12.6.1, so the CI numbers can differ from
+these (scoring curves and audits change between major versions). The recorded baseline in
+`docs/performance-baseline.md` (task T009) is the reference, not this table. The
 recorded baseline (3 runs, median, CI environment) is task 1 of the feature.
 
 | Route | Score | LCP | CLS | TBT |
@@ -30,7 +33,7 @@ Findings:
 
 ### D1. Lab measurement tool
 
-- **Decision**: Lighthouse CI (`@lhci/cli` 0.15.1) as a devDependency, config in `lighthouserc.cjs`.
+- **Decision**: Lighthouse CI (`@lhci/cli` 0.15.1, which bundles Lighthouse 12.6.1) as a devDependency, config in `lighthouserc.cjs`.
 - **Rationale**: It is the standard runner for "N runs, take the median, assert thresholds" and it
   supports per-URL assertion overrides, which the exceptions policy needs. It reports through exit code
   and readable messages that name the URL, audit, value, and limit (FR-006).
