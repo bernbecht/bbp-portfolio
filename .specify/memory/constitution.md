@@ -1,8 +1,9 @@
 <!--
 Sync Impact Report
-- Version change: 1.6.0 -> 1.7.0 (MINOR)
-- Workflow: a replanning round must update docs/roadmap.md (order and status of specs)
-- History: 1.6.0 added the replanning convention (branch `replan/after-NNN-<slug>`, short-lived, one
+- Version change: 1.7.0 -> 1.8.0 (MINOR)
+- Workflow: the roadmap-curator agent empties the idea inbox and curates docs/ideas.md and
+  docs/roadmap.md via `roadmap/YYYY-MM-DD` PRs; a replanning round ends by running it
+- History: 1.7.0 required replans to update docs/roadmap.md; 1.6.0 added the replanning convention (branch `replan/after-NNN-<slug>`, short-lived, one
   record under docs/replans/ per round); 1.5.0 added Principle IX (No Paid Tooling) and made VIII an automated lab check with the
   lab LCP limit at 3.0 s; 1.4.0 added Principle VIII; 1.3.0 added checkable criteria to II, IV, VI, VII and the PR
   template; 1.2.0 added `npm run check:content` and ESLint-enforced style; 1.1.1 removed unused
@@ -139,6 +140,11 @@ Rationale: this is a personal site, so recurring or surprise costs are not accep
 - The order and status of specs live in `docs/roadmap.md`. A replanning round MUST update it (status of
   the finished spec and the follow-up specs it spawns) in the same PR, because the replan record is
   deleted after merge and the roadmap is what remains.
+- Ideas live in `docs/ideas.md`. The idea inbox is write-only for the maintainer and MUST be emptied by
+  the `roadmap-curator` agent (`.claude/agents/roadmap-curator.md`), which prioritizes ideas in
+  `docs/ideas.md` and promotes them to `docs/roadmap.md` through a PR on a branch named
+  `roadmap/YYYY-MM-DD`. It MUST NOT edit `specs/`, this constitution, or code. A replanning round MUST
+  end by running it, and the maintainer alone decides which roadmap row becomes a spec.
 
 ## Governance
 
@@ -150,4 +156,4 @@ and wording fixes. Every PR MUST complete the checklist in `.github/pull_request
 be justified in its "Deviations" section. Contributors and agents MUST read this file
 before making changes.
 
-**Version**: 1.7.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
+**Version**: 1.8.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
