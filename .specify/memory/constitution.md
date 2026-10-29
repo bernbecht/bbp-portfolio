@@ -1,6 +1,8 @@
 <!--
 Sync Impact Report
-- Version change: 1.2.0 -> 1.3.0 (MINOR)
+- Version change: 1.3.0 -> 1.4.0 (MINOR)
+- Added principle: VIII. Performance Budget (outcome-level; tooling is left to a follow-up feature)
+- Earlier in 1.3.0:
 - Modified principles: II, IV, VI, VII gained objective, checkable criteria (ESLint rules and PR
   checklist items replace "where needed", "as practical", "documented reason")
 - Governance: PRs MUST complete .github/pull_request_template.md; CI runs the Quality Gates
@@ -80,6 +82,18 @@ before shipping, either by an automated test or by the "Interactive behavior" ch
 `docs/reference.md` and to the Quality Gates below.
 Rationale: lint and build do not catch behavioral or visual regressions.
 
+### VIII. Performance Budget
+Every public route MUST keep Core Web Vitals in Google's "good" range (LCP at most 2.5 s, INP at
+most 200 ms, CLS at most 0.1) and a Lighthouse Performance score of at least 0.95 (mobile profile,
+median of repeated runs). A change that drops a route below this budget MUST NOT merge unless the
+PR's Deviations section justifies it. How the budget is measured and enforced is a descriptive
+fact tracked in `docs/reference.md`.
+Enforcement status: automated measurement is introduced by a follow-up feature. Until it lands,
+a PR that changes rendering, images, fonts, scripts, or dependencies MUST be checked manually with
+Lighthouse and the result noted in the PR description.
+Rationale: a portfolio is judged on first impressions, so the budget is a rule and the tooling is
+replaceable.
+
 ## Stack and Content Constraints
 
 - The stack is Next.js (App Router), React, TypeScript strict, and Tailwind CSS 4 with
@@ -115,4 +129,4 @@ and wording fixes. Every PR MUST complete the checklist in `.github/pull_request
 be justified in its "Deviations" section. Contributors and agents MUST read this file
 before making changes.
 
-**Version**: 1.3.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
+**Version**: 1.4.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
