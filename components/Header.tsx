@@ -23,7 +23,7 @@ export default function Header() {
       <header className="sticky top-0 z-50 border-b border-strong bg-background/90 backdrop-blur-md">
         <nav
           aria-label="Main navigation"
-          className="content-container flex items-center justify-between gap-2 py-3"
+          className="content-container flex flex-wrap items-center justify-between gap-2 py-3"
         >
           <NavLink
             href="/"
@@ -38,7 +38,7 @@ export default function Header() {
             </span>
           </NavLink>
           <div className="min-w-0">
-            <ul className="flex shrink-0 list-none items-stretch gap-1 p-0 type-label [&>li]:flex [&>li]:items-stretch [&>li>a]:flex [&>li>a]:min-h-11 [&>li>a]:items-center [&>li>a]:px-3 [&>li>button]:flex [&>li>button]:min-h-11 [&>li>button]:items-center [&>li>button]:px-2 sm:[&>li>button]:px-3">
+            <ul className="flex shrink-0 flex-wrap justify-end list-none items-stretch gap-1 p-0 type-label [&>li]:flex [&>li]:items-stretch [&>li>a]:flex [&>li>a]:min-h-11 [&>li>a]:items-center [&>li>a]:px-3 [&>li>button]:flex [&>li>button]:min-h-11 [&>li>button]:items-center [&>li>button]:px-2 sm:[&>li>button]:px-3">
               <li><ThemeToggle /></li>
               <li className="relative pressable-button">
                 <NavLink
