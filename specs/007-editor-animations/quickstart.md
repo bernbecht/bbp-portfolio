@@ -46,7 +46,11 @@ Checks that fail the test run (`npm test`, `npm run test:e2e`):
 - Viewport widths 320, 375, 768, 1024 and 1440 px: no horizontal overflow; state cards in three columns only when the container allows 200 px each, comparison in two columns only when it allows 240 px each; text zoom emulated at 200%.
 - Layout shift: no `layout-shift` entry attributable to the feature's frames.
 - Bundle: the feature's minified and gzipped JavaScript and CSS (React external) is at most 20 KiB.
-- Cleanup: ten mount/unmount cycles leave no scheduled frame callback.
+- Cleanup: ten mount/unmount cycles leave no scheduled frame callback (jsdom and browser).
+- Contrast: `contrast.test.ts` requires 3:1 for the FR-010 pairs in both themes.
+- Zoom: the page itself has no horizontal overflow at 200% text zoom (375 and 1024 px).
+
+Local only (`npm run test:visual`): deterministic screenshots of the poses at the contract instants, in both themes. Baselines are per platform, so CI does not run them.
 
 Recorded only (headless numbers vary by machine, so they never fail the build): frame interval percentiles from a 20 second capture. The result goes in validation-report.md with device and browser.
 

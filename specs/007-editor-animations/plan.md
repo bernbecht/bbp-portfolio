@@ -1,6 +1,6 @@
 # Implementation Plan: Shopify Editor Explanatory Animations
 
-**Branch**: `001-editor-animations` (proposed) | **Date**: 2026-10-28 | **Spec**: [spec.md](spec.md)
+**Branch**: `007-editor-animations` | **Date**: 2026-10-28 | **Spec**: [spec.md](spec.md)
 
 ## Summary
 
@@ -21,28 +21,37 @@ Implement two article-local animation groups sharing geometry and deterministic 
 
 ## Constitution Check
 
-Pre-research check: no repository or constitution was available. Repository compliance is **not evaluated**, not automatically passed. Package principles: accessible static baseline; minimal dependencies; deterministic tested rules; no remote services.
+Checked against `.specify/memory/constitution.md` v1.9.0 on 2026-10-29, when the work moved from the
+`shopify-animations` branch into the Spec Kit lifecycle. The first implementation was written before the
+constitution existed, so this is a retroactive check.
 
-Before source changes, T001 must read applicable AGENTS.md files, `.specify/memory/constitution.md`, local templates and project scripts, if present. Record each applicable principle, result and evidence below. If no constitution exists in the real repository, record that fact without inventing one. Recheck after design/path adaptation and before final delivery. A real conflict blocks the affected implementation until reconciled in the plan.
-
-| Gate | Current status | Required evidence |
+| Gate | Result | Evidence |
 |---|---|---|
-| Existing project rules | Not evaluated | Actual repository paths and rule summary |
-| Accessibility/static baseline | Design satisfied; runtime untested | Reduced-motion/no-script and keyboard evidence |
-| Dependency/performance policy | Proposed; unmeasured | Production bundle delta and trace |
-| Design consistency | Unverified | Article inspection and visual review |
+| I. Content model | Pass | `npm run check:content`; no post, slug or media changes |
+| II. Server-first | Pass with justification | `'use client'` only in `StateAnimations.tsx`, `VelocityPositionComparison.tsx` and `usePlaybackGroup.ts`. Client-only APIs: `requestAnimationFrame`, `IntersectionObserver`, `matchMedia`, `document.visibilityState`. No route file is a client file |
+| III. Typed, consistent code | Pass | `npm run lint` and `npx tsc --noEmit`; relative imports were moved to the `@/` alias during migration |
+| IV. Accessible UI | Pass, with one accepted deviation | axe-core 0 violations in both themes; `prefers-reduced-motion` and no-script covered by e2e; no dashes in copy. The missing pause control (WCAG 2.2.2) is recorded in spec FR-005. VoiceOver and NVDA are manual and still pending |
+| V. SEO | N/A | No metadata or URL change |
+| VI. Performance by default | Pass | No new runtime dependency; feature bundle 4399 of 20480 gzipped bytes (`bundle.test.ts`); route transfer delta against `main` is +4281 bytes |
+| VII. Verification of interactive behavior | Pass | Automated: 44 Vitest tests, 22 Playwright e2e tests and 23 visual snapshot tests (local only). The PR checklist is also completed |
+| VIII. Performance budget | Pass, at the limit | Route score 0.95, LCP 2931 ms, CLS 0, TBT 10 ms on 2026-10-29, see validation-report.md. Any extra weight on this route needs a new measurement |
+| IX. No paid tooling | Pass | Vitest, Playwright, axe-core, Testing Library and jsdom are open source and need no account or payment method |
+
+Introducing a test runner required a constitution amendment (1.9.0, see the Sync Impact Report), done
+in the same PR as this migration.
 
 ## Project Structure
 
 Documentation: this directory contains spec.md, plan.md, research.md, data-model.md, quickstart.md, tasks.md, contracts/motion-contract.md, contracts/components.md, checklists/requirements.md and validation-report.md.
 
-Proposed source paths, all relative to the eventual repository root:
+Source paths, relative to the repository root:
 
 ```text
-src/components/case-study/editor-animations/
+components/editor-animations/
   geometry.ts
   motion.ts
   playback.ts
+  usePlaybackGroup.ts
   EditorFrame.tsx
   StateAnimations.tsx
   VelocityPositionComparison.tsx
@@ -50,11 +59,16 @@ src/components/case-study/editor-animations/
   __tests__/motion.test.ts
   __tests__/playback.test.ts
   __tests__/components.test.tsx
+  __tests__/contrast.test.ts
+  __tests__/bundle.test.ts
 tests/e2e/editor-animations.spec.ts
+tests/e2e/editor-animations-quality.spec.ts
 tests/visual/editor-animations.spec.ts
+vitest.config.ts
+playwright.config.ts
 ```
 
-These paths are planning targets, not discovered files. T002 must map them to real framework equivalents and update every task path before implementation. Article insertion target is deliberately discovered in T001 and recorded in research.md; do not guess a Next.js route from a public URL. Static components can be server-rendered where supported; motion/controller enhancement must run only in the browser.
+These paths were mapped to the repository by T002 and verified against the code on 2026-10-29. Article insertion target is deliberately discovered in T001 and recorded in research.md; do not guess a Next.js route from a public URL. Static components can be server-rendered where supported; motion/controller enhancement must run only in the browser.
 
 ## Implementation Strategy
 

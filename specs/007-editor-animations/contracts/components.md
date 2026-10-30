@@ -6,7 +6,7 @@ These are local UI contracts, not HTTP endpoints. TypeScript notation communicat
 type SheetState = 'collapsed' | 'partial' | 'full';
 type StateAnimationsProps = { id: string; title?: string; className?: string };
 type ComparisonProps = { id: string; title?: string; className?: string };
-type EditorFrameProps = { openness: number; marker?: { visible: boolean; y: number } };
+type EditorFrameProps = { openness: number; showMarker?: boolean; frameId?: string };
 type PlaybackStatus = 'static' | 'suspended' | 'playing';
 type PlaybackController = {
   dispose(): void;

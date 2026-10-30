@@ -1,8 +1,8 @@
 # Feature Specification: Shopify Editor Explanatory Animations
 
-**Feature Branch**: `001-editor-animations` (proposed)  
+**Feature Branch**: `007-editor-animations`  
 **Created**: 2026-10-28  
-**Status**: Ready for repository integration discovery; visual defaults are proposed  
+**Status**: Implemented; validation partial (see validation-report.md and tasks.md). Roadmap row 007  
 **Input**: Three minimal looping bottom-sheet state animations (collapsed, partial, full), plus a synchronized Velocity vs Position comparison in the Shopify Mobile Store Editor case study.
 
 ## User Scenarios & Testing
