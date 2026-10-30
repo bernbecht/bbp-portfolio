@@ -1,15 +1,17 @@
 <!--
 Sync Impact Report
-- Version change: 1.7.0 -> 1.8.0 (MINOR)
-- Workflow: the roadmap-curator agent empties the idea inbox and curates docs/ideas.md and
-  docs/roadmap.md via `roadmap/YYYY-MM-DD` PRs; a replanning round ends by running it
-- History: 1.7.0 required replans to update docs/roadmap.md; 1.6.0 added the replanning convention (branch `replan/after-NNN-<slug>`, short-lived, one
+- Version change: 1.8.0 -> 1.9.0 (MINOR)
+- Testing: the repository now has a test runner (Vitest for unit and component tests, Playwright with
+  axe-core for browser tests), so `npm test` and `npm run test:e2e` join the Quality Gates and CI.
+  Principle VII names them. Spec branches that predate the lifecycle are migrated into `NNN-<slug>`
+  with a retroactive Constitution Check in their plan
+- History: 1.8.0 added the roadmap-curator agent, which empties the idea inbox and curates docs/ideas.md and
+  docs/roadmap.md via `roadmap/YYYY-MM-DD` PRs (a replanning round ends by running it); 1.7.0 required replans to update docs/roadmap.md; 1.6.0 added the replanning convention (branch `replan/after-NNN-<slug>`, short-lived, one
   record under docs/replans/ per round); 1.5.0 added Principle IX (No Paid Tooling) and made VIII an automated lab check with the
   lab LCP limit at 3.0 s; 1.4.0 added Principle VIII; 1.3.0 added checkable criteria to II, IV, VI, VII and the PR
   template; 1.2.0 added `npm run check:content` and ESLint-enforced style; 1.1.1 removed unused
   rehype dependencies
-- Deferred items: no test runner exists (Playwright is not a project dependency; test-results/ is
-  gitignored tool output). Principle VII stays tool-agnostic.
+- Deferred items: none. Visual snapshot tests are not part of the suite yet (spec 007 tracks them).
 -->
 # BBP Portfolio Constitution
 
@@ -74,9 +76,10 @@ Rationale: a portfolio is judged on first impressions, and speed is part of the 
 
 ### VII. Verification of Interactive Behavior
 Interactive features (theme toggle, sound, experiments such as the dot field) MUST be verified
-before shipping, either by an automated test or by the "Interactive behavior" checklist in
-`.github/pull_request_template.md`, completed in the PR description. If an automated test runner is introduced, its command MUST be added to
-`docs/reference.md` and to the Quality Gates below.
+before shipping, either by an automated test (`npm test` for unit and component behavior,
+`npm run test:e2e` for browser behavior) or by the "Interactive behavior" checklist in
+`.github/pull_request_template.md`, completed in the PR description. Any further test runner MUST have its
+command added to `docs/reference.md` and to the Quality Gates below.
 Rationale: lint and build do not catch behavioral or visual regressions.
 
 ### VIII. Performance Budget
@@ -121,16 +124,19 @@ Rationale: this is a personal site, so recurring or surprise costs are not accep
 
 ## Development Workflow and Quality Gates
 
-- Before shipping content or route changes, `npm run lint`, `npm run check:content`, and
-  `npm run build` MUST all pass. A change that affects rendering, images, fonts, scripts, or
-  dependencies MUST also pass `npm run perf:measure`. CI (`.github/workflows/ci.yml`) runs all four
+- Before shipping content or route changes, `npm run lint`, `npm run check:content`, `npm test`, and
+  `npm run build` MUST all pass. A change to a component that has browser tests MUST also pass
+  `npm run test:e2e`. A change that affects rendering, images, fonts, scripts, or
+  dependencies MUST also pass `npm run perf:measure`. CI (`.github/workflows/ci.yml`) runs all of them
   on every PR and on pushes to `main`.
 - Changes touching `PROJECT_GROUPS`, `content/projects/`, or `app/projects/[slug]/page.tsx` MUST be
   verified against Principle I.
 - A PR that changes a rule MUST amend this constitution in the same PR. A PR that changes only a
   descriptive fact MUST update `docs/reference.md` instead.
 - `AGENTS.md` MUST remain a minimal pointer to this file and MUST NOT carry rules of its own.
-- Spec branches are named `NNN-<slug>` (Spec Kit numbering). Replanning (reviewing the constitution
+- Spec branches are named `NNN-<slug>` (Spec Kit numbering). Work started outside the lifecycle MUST be
+  migrated before merging: renumbered to the next free `NNN` in `docs/roadmap.md`, its spec folder moved
+  to `specs/NNN-<slug>/`, and its plan given a Constitution Check against the current constitution. Replanning (reviewing the constitution
   and the process after a spec) happens only after that spec is implemented, validated, and merged,
   on its own short-lived branch named `replan/after-NNN-<slug>` cut from an up-to-date `main`. A
   replanning round MUST leave a record in `docs/replans/after-NNN-<slug>.md` (what the spec taught,
@@ -156,4 +162,4 @@ and wording fixes. Every PR MUST complete the checklist in `.github/pull_request
 be justified in its "Deviations" section. Contributors and agents MUST read this file
 before making changes.
 
-**Version**: 1.8.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29
+**Version**: 1.9.0 | **Ratified**: 2026-10-29 | **Last Amended**: 2026-10-29

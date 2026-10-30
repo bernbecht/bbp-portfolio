@@ -20,9 +20,11 @@ until the spec is created.
 | 004 | constitution-restructure | Split Principle IV, shorten Principle VIII, and close the security, commit style, version check, and ambiguity gaps. | 002, 003 | Planned | Replan after 001, items 5 to 7 |
 | 005 | dot-field-experiment | Build the Omarchy-inspired dot field on the Experiments page, with the Principle VII checklist and the performance budget. | 003 | Planned | Ideas: experiments page, dot animation |
 | 006 | ci-path-filtering | Run the performance job only when rendering, images, fonts, scripts, or dependencies change, and amend Principle VIII and the quality gates to match. | 004 | Planned | Ideas: run CI only when relevant |
+| 007 | [editor-animations](../specs/007-editor-animations/spec.md) | Looping sheet-state animations and a Velocity vs Position comparison in the Shopify case study, with the repository's first test suite. | None | Implemented, validation partial (PR pending) | Migrated from branch `shopify-animations` |
 
 ## Ideas not yet scheduled
 
 See the prioritized table in [`ideas.md`](ideas.md). The accessibility check in the build (P0) is covered
 by spec 003. The dot field (P2) is spec 005 and CI path filtering (P2) is spec 006. Content ideas (intersection
-diagram, Storybook) have no spec row yet.
+diagram, Storybook) have no spec row yet. Spec 007 was started before the lifecycle existed and was migrated
+into it; it also introduced the test runner that the curator proposed in `ideas.md` (proposal 2).
