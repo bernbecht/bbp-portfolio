@@ -10,7 +10,10 @@
     "check:content": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-content.mts",
     "perf:measure": "next build && lhci autorun --config=lighthouserc.cjs && npm run perf:report",
     "perf:collect": "next build && lhci collect --config=lighthouserc.cjs",
-    "perf:report": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/perf-report.mts"
+    "perf:report": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/perf-report.mts",
+    "test": "vitest run",
+    "test:e2e": "playwright test --project=e2e",
+    "test:visual": "playwright test --project=visual"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
@@ -30,18 +33,23 @@
     "web-haptics": "^0.0.6"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.64.1",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.19",
+    "@testing-library/react": "^16.3.3",
     "@types/howler": "^2.2.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
+    "jsdom": "^30.1.3",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.7"
   },
   "engines": {
     "node": ">=22.18"
