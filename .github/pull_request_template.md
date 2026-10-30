@@ -6,7 +6,8 @@
 
 <!-- Rules live in .specify/memory/constitution.md. Check what applies, delete what does not. -->
 
-- [ ] `npm run lint`, `npm run check:content`, and `npm run build` pass (CI runs them too)
+- [ ] `npm run lint`, `npm run check:content`, `npm test`, and `npm run build` pass (CI runs them too)
+- [ ] Component with browser tests changed: `npm run test:e2e` passes (CI runs it too)
 - [ ] Content or route change: Principle I verified (`check:content` is green)
 - [ ] Performance budget: the `performance` CI job is green. It runs automatically, nothing to run by
       hand. If it is red on purpose, explain it under Deviations

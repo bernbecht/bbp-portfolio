@@ -20,6 +20,8 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 - SVG as React components: `@svgr/webpack` (wired in `next.config.ts` for Turbopack and webpack)
 - Audio and haptics (client-only, in `ThemeToggle` and `Header`): `howler` (loaded on first intent with
   the toggle, never on page load), `web-haptics`
+- Tests (dev, all free and open source): `vitest` + `@testing-library/react` + `jsdom` (unit and component),
+  `@playwright/test` + `@axe-core/playwright` (browser and accessibility)
 - Performance: `@lhci/cli` (dev, Lighthouse CI, free and open source)
 - Class names: `clsx`, `tailwind-merge` (via `lib/cn.ts`)
 
@@ -36,9 +38,14 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 - `npm run perf:collect`: same measurement without assertions (used to record a baseline)
 - `npm run perf:report`: median table from the last run in `.lighthouseci/`; add
   `-- --write docs/performance-baseline.md` to record it
-- There is no test runner in this repo
-- CI: `.github/workflows/ci.yml` runs `quality-gates` (lint, check:content, build) and `performance`
-  (Node 22). `engines.node` is `>=22.18`.
+- `npm test`: Vitest, unit and component tests in `components/**/__tests__/`
+- `npm run test:e2e`: Playwright against a production build served on port 3100 (builds first; needs
+  `npx playwright install chromium` once). Specs live in `tests/e2e/`
+- `npm run test:visual`: Playwright screenshot comparison of the editor animations (`tests/visual/`, same
+  server). Baselines are per platform (darwin is committed), so CI does not run it. Update them with
+  `npx playwright test --project=visual --update-snapshots` after an intended visual change
+- CI: `.github/workflows/ci.yml` runs `quality-gates` (lint, check:content, test, build), `e2e`
+  (Playwright) and `performance` (Node 22). `engines.node` is `>=22.18`.
 
 ## Branches
 
@@ -61,6 +68,10 @@ long-form journal write-ups live at `/projects/[slug]` and are sourced from Mark
 
 - `app/`: routes, `layout.tsx` (root metadata), `globals.css`, `fonts.ts`, `sitemap.ts`, `robots.ts`
 - `components/`: UI; most files are Server Components
+- `components/editor-animations/`: looping explanatory animations for the Shopify case study (spec 007)
+  with their unit tests
+- `tests/e2e/`: Playwright specs
+- `tests/visual/`: Playwright screenshot specs and their baselines
 - `components/assets/`: SVGs imported via `@assets/*` (`tsconfig.json` path alias)
 - `lib/`: `projects.ts` (listing data), `project-posts.ts` (Markdown I/O), `cn.ts`, `site-url.ts`
 - `content/projects/`: journal `.md` files (one per slug)
